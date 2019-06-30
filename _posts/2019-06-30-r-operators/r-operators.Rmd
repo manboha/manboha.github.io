@@ -1,0 +1,54 @@
+---
+title: "R Operators"
+description: |
+  R basic Operators.
+categories:
+  - r
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: 06-30-2019
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Arithmetic Operators
+
+```{r echo=TRUE}
+8 + 3  # => 11
+8 - 3  # =>  5
+8 * 2  # => 16
+8 / 2  # =>  4
+8 ^ 2  # => 64
+10 %% 3  # => 1
+10 %/% 3  # => 3
+(5/9) * (100-32)  # => 37.77778
+```
+
+## Logical Operators
+
+```{r echo=TRUE}
+5 == 5  # => TRUE
+5 != 5  # => FALSE
+5 > 5  # => FALSE
+5 >= 5  # => TRUE
+3 < 5  # => TRUE
+6 <= 5  # => FALSE
+```
+```{r echo=TRUE}
+x <- TRUE
+y <- FALSE
+!x  # Not x
+x | y  # x OR y
+x & y  # x AND y
+isTRUE(x)  # if x is TRUE
+```
+
+
