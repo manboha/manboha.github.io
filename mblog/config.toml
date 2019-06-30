@@ -1,6 +1,6 @@
 theme = "edidor"
 title = "Edidor Demo"
-baseurl = "https://your site url"
+baseurl = "https://manboha.github.io/mblog"
 AuthorName = "Jon Doe"
 # place your logo file to ./static/images to set logo
 
