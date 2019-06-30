@@ -1,0 +1,475 @@
+Data Transformation
+
+(1) 표준화
+(1-1) 표준정규분포 z 변환
+> ## a. scale() 함수
+> 
+> height <- transform(height, 
++                     z.height_korean = scale(height_korean), 
++                     z.height_bushman = scale(height_bushman)
++                     )
+> 
+
+> ## b. z=(x-mean(x))/sd(x)
+> height <- transform(height, 
++                     z2.height_korean = (height_korean - mean(height_korean))/sd(height_korean), 
++                     z2.height_bushman = (height_bushman - mean(height_bushman))/sd(height_bushman)
++                     )
+> 
+> head(height)
+
+
+출처: http://rfriend.tistory.com/52 [R, Python 분석과 프로그래밍 (by R Friend)]
+
+출처: http://rfriend.tistory.com/52 [R, Python 분석과 프로그래밍 (by R Friend)]
+
+(1-2) [0-1] 변환
+연속형 변수의 값을 '0~1' 사이의 값으로 변환
+변수들 간의 scale 이 다른 상태에서 인공신경망 분석을 하려면 [0-1]변환으로 단위를 표준화해준 후에 분석을 시행
+
+출처: http://rfriend.tistory.com/52 [R, Python 분석과 프로그래밍 (by R Friend)]
+> ## [0-1] transformation
+> height <- height[,c(1:2)]
+> library(reshape)
+> height <- rename(height, c(height_korean = "h_kor", height_bushman = "h_bush"))
+> head(height)
+
+
+출처: http://rfriend.tistory.com/52 [R, Python 분석과 프로그래밍 (by R Friend)]
+
+
+(2) 정규분포화
+(1) 로그 변환 : log()
+cfb <- transform(cfb, INCOME_log = log(INCOME + 1))
+(INCOME +1) 을 했습니다.  INCOME 이 '0'부터 시작하는데 '0'을 로그 취하면 마이너스 무한대가 나오기 때문에 1을 더해서 오른쪽으로 1씩 이동시킨 후에 로그변환을 취했습니다.
+
+(2) 제곱근 변환 : sqrt()
+cfb <- transform(cfb, INCOME_sqrt = sqrt(INCOME + 1))
+
+| distribution before transformation   | transformation function  | distribution after transformation  |
+|--------------------------------------|--------------------------|------------------------------------|
+|  left                                | X^3                      |  normal distribution               |
+|  mild left                           | X^2                      |  normal distribution               |
+|  mild right                          | sqrt(X)                  |  normal distribution               |
+|  right                               | ln(X)                    |  normal distribution               |
+|  severe right                        | 1/X                      |  normal distribution               |
+
+
+
+(3) 범주화
+
+ (3-1) 이산형화 (Discretization)
+판별분석, 의사결정나무, 연관분석과 같은 분석 기법에서는 설명변수가 범주형 변수이어야지만 분석이 가능합니다
+연속형 변수를 범주형 변수로 변환
+
+'몇 개의 범주로 나눌지?'와 '구분선(cutting line)을 무슨 기준으로, 어디로 할지?'
+
+(a) 간격을 동일하게 한 범주화
+R의 hist() 함수로 히스토그램
+bin size를 조정해가면서 분포를 탐색해보고서 특정 구간에서 변곡점이 있다면, 혹은 특정 segment 나 factor 별로 분포상의 큰 차이를 보인다면 그 구분선을 가지고 범주를 나눌 수도 있을 것입니다.
+
+> disc_1 <- within( disc_1, {
++   MPG.highway_cd = character(0)
++   MPG.highway_cd[ MPG.highway >=20 & MPG.highway <25 ] = "20~25"
++   MPG.highway_cd[ MPG.highway >=25 & MPG.highway <30 ] = "25~30"
++   MPG.highway_cd[ MPG.highway >=30 & MPG.highway <35 ] = "30~35"
++   MPG.highway_cd[ MPG.highway >=35 & MPG.highway <40 ] = "35~40"
++   MPG.highway_cd[ MPG.highway >=40 & MPG.highway <45 ] = "40~45"
++   MPG.highway_cd[ MPG.highway >=45 & MPG.highway <=50 ] = "45~50"
++   MPG.highway_cd = factor(MPG.highway_cd, 
++                           level = c("20~25", "25~30", "30~35", 
++                                     "35~40", "40~45", "45~50"))
++   })
+
+(b) quantile을 활용한 범주화
+> summary(disc_1$MPG.highway)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  20.00   26.00   28.00   29.09   31.00   50.00
+> 
+> # 4분위수의 1Q, 2Q, 3Q, 4Q를 기준으로 4개의 범주 생성
+
+> disc_1 <- within( disc_1, {
++   MPG.highway_cd2 = character(0)
++   MPG.highway_cd2[ MPG.highway <  quantile(MPG.highway, 0.25) ] = "1Q"
++   MPG.highway_cd2[ MPG.highway >= quantile(MPG.highway, 0.25) 
++                    & MPG.highway < quantile(MPG.highway, 0.50) ] = "2Q"
++   MPG.highway_cd2[ MPG.highway >=quantile(MPG.highway, 0.50) 
++                    & MPG.highway < quantile(MPG.highway, 0.75) ] = "3Q"
++   MPG.highway_cd2[ MPG.highway >= quantile(MPG.highway, 0.75) ] = "4Q"
++   MPG.highway_cd2 = factor(MPG.highway_cd2, 
++                           level = c("1Q", "2Q", "3Q", "4Q"))
++ })
+
+
+
+
+(3-2) 이항변수화 binarization
+   회귀분석을 한다고 했을 때 명목형, 범주형 자료에 대해서 가변수(dummy variable) 화 해서 분석을 진행해야 할 때도 있습니다.
+
+(1) ifelse() 함수
+
+> ## 계절 가변수 생성
+> TS <- transform(TS,  
++  Season1 = ifelse(Season=="S1", 1, 0),  
++  Season2 = ifelse(Season=="S2", 1, 0),  
++  Season3 = ifelse(Season=="S3", 1, 0)) 
+
+> TS
+  Season SalesAmt Season1 Season2 Season3
+1     S1      300       1       0       0
+2     S2      800       0       1       0
+3     S3      400       0       0       1
+4     S4      100       0       0       0
+5     S1      280       1       0       0
+6     S2      750       0       1       0
+7     S3      390       0       0       1
+8     S4       60       0       0       0
+
+
+
+
+
+(4) 개수 축소 Sampling
+
+(1) 단순 임의 추출 (simple random sampling) : sample()
+
+> sim_ran_sam <- sample(1:nrow(Cars93), 5)
+
+> Cars93_srs <- Cars93[sim_ran_sam, ]
+
+
+
+(2) 층화 임의 추출 (stratified random sampling) : strata()
+
+> ## data.table 패키지, sampling 패키지 설치 및 호출
+
+> install.packages("data.table")
+> install.packages("sampling")
+> require(data.table)
+> require(sampling)
+
+
+> set.seed(1)
+> n <- 1000
+> d.t <- data.table(gender = rbinom(n, 1 , .5),
++                   age = sample(1:5, n, replace=TRUE), 
++                   rebuy_yn = rbinom(n, 1, .2))
+
+ 
+> ## 성별, 연령대 계층별 각 20명씩 층화 임화 추출  
+> set.seed(2) 
+> samp <- data.table(strata(d.t, c("gender", "age"), rep(20, 10), "srswor"))
+
+> ## 성별, 연령대 계층별 각 표본 개수 (각 20명 씩 표본 추출) 
+> samp[ , .N, keyby = list(gender, age)]
+
+
+
+
+(5) 차원 축소
+
+   - (5-1) 주성분분석
+
+> ##----------------------------------------------------------------------
+> ## 차원축소(dimension reduction) : (1) PCA(Principal Component Analysis)
+> ##----------------------------------------------------------------------
+> 
+> # csv 파일 불러오기 (file importing)
+filepath <- "http://manboha.github.io/data/secu_com_finance_2007.csv"
+> secu_com_finance_2007 <- read.csv(filepath,
++                                   header = TRUE, 
++                                   stringsAsFactors = FALSE)
+> # V1 : 총자본순이익율
+> # V2 : 자기자본순이익율
+> # V3 : 자기자본비율
+> # V4 : 부채비율
+> # V5 : 자기자본회전율
+
+> # 표준화 변환 (standardization)
+> secu_com_finance_2007 <- transform(secu_com_finance_2007, 
++                                    V1_s = scale(V1), 
++                                    V2_s = scale(V2), 
++                                    V3_s = scale(V3), 
++                                    V4_s = scale(V4),
++                                    V5_s = scale(V5))
+
+> # 부채비율(V4_s)을 방향(max(V4_s)-V4_s) 변환
+> secu_com_finance_2007 <- transform(secu_com_finance_2007, 
++                                    V4_s2 = max(V4_s) - V4_s)
+> 
+> # variable selection
+> secu_com_finance_2007_2 <- secu_com_finance_2007[,c("company", "V1_s", "V2_s", "V3_s", "V4_s2", "V5_s")]
+
+> # Correlation analysis
+> cor(secu_com_finance_2007_2[,-1])
+            V1_s       V2_s       V3_s      V4_s2        V5_s
+V1_s  1.00000000  0.6165153  0.3239780  0.3553930  0.01387883
+V2_s  0.61651527  1.0000000 -0.5124351 -0.4659444  0.42263462
+V3_s  0.32397800 -0.5124351  1.0000000  0.9366296 -0.56340782
+V4_s2 0.35539305 -0.4659444  0.9366296  1.0000000 -0.53954570
+V5_s  0.01387883  0.4226346 -0.5634078 -0.5395457  1.00000000 
+> 
+> round(cor(secu_com_finance_2007_2[,-1]), digits=3) # 반올림
+
+> # Scatter plot matrix
+> plot(secu_com_finance_2007_2[,-1])
+ 
+
+> # 주성분분석 PCA(Principal Component Analysis)
+> secu_prcomp <- prcomp(secu_com_finance_2007_2[,c(2:6)]) # 첫번째 변수 회사명은 빼고 분석
+> 
+> summary(secu_prcomp)
+Importance of components:
+                          PC1    PC2    PC3     PC4     PC5
+Standard deviation     1.6618 1.2671 0.7420 0.25311 0.13512
+Proportion of Variance 0.5523 0.3211 0.1101 0.01281 0.00365
+Cumulative Proportion  0.5523 0.8734 0.9835 0.99635 1.00000
+
+ > print(secu_prcomp)
+Standard deviations:
+[1] 1.6617648 1.2671437 0.7419994 0.2531070 0.1351235
+
+Rotation:
+              PC1         PC2           PC3          PC4         PC5
+V1_s   0.07608427 -0.77966993  0.0008915975 -0.140755404  0.60540325
+V2_s  -0.39463007 -0.56541218 -0.2953216494  0.117644166 -0.65078503
+V3_s   0.56970191 -0.16228156  0.2412221065 -0.637721889 -0.42921686
+V4_s2  0.55982770 -0.19654293  0.2565972887  0.748094314 -0.14992183
+V5_s  -0.44778451 -0.08636803  0.8881182665 -0.003668418 -0.05711464 
+ 
+> # Scree Plot
+> plot(prcomp(secu_com_finance_2007_2[,c(2:6)]), type="l",
++      sub = "Scree Plot")
+ 
+
+> # Biplot
+> biplot(prcomp(secu_com_finance_2007_2[,c(2:6)]), cex = c(0.7, 0.8))
+> 
+> # 관측치별 주성분1, 주성분2 점수 계산(PC1 score, PC2 score)
+> secu_pc1 <- predict(secu_prcomp)[,1]
+> secu_pc2 <- predict(secu_prcomp)[,2]
+> 
+> 
+> # 관측치별 이름 매핑(rownames mapping)
+> text(secu_pc1, secu_pc2, labels = secu_com_finance_2007_2$company, 
++      cex = 0.7, pos = 3, col = "blue")
+ 
+
+> ###########################################################
+> ## PCA (Principal Component Analysis)
+> ## User Defined Function
+> ##  - finding PC k which Cummulative Proportion is over 0.8
+> ###########################################################
+> 
+> pca <- function(dataset){
++   pc = prcomp(dataset, scale = TRUE)
++   
++   k = 0
++   R = 0
++ 
++   while(R < 0.8) {
++     k = k + 1
++     R = sum(pc[[1]][1:k]^2)/sum(pc[[1]]^2)
++ 
++     cat("When number of Principal Component(k) is ", k, 
++         ", Cummulative Proportion(R) is ", R, "\n", "\n", sep="")
++   }
++   
++   SelectedDataSet = pc[[5]][,1:k]
++   return(SelectedDataSet)
++ }
+> 
+> pca(secu_com_finance_2007_2[,c(2:6)])
+When number of Principal Component(k) is 1, Cummulative Proportion(R) is 0.5522924
+
+When number of Principal Component(k) is 2, Cummulative Proportion(R) is 0.8734231
+
+             PC1        PC2
+ [1,] -1.4870243  0.6066594
+ [2,] -0.2063797 -0.0804627
+ [3,]  0.1968538  0.9704605
+ [4,] -2.3542884 -3.5056480
+ [5,] -0.8953707  1.4552899
+ [6,] -0.3682082 -0.5976313
+ [7,] -0.9354306 -1.4144519
+ [8,]  2.4129728 -0.6785064
+ [9,]  2.6991862 -0.7596591
+[10,] -0.4050098  0.2800099
+[11,]  1.3958199  1.1353513
+[12,] -1.5381192  1.1576616
+[13,]  0.3217681 -0.2378023
+[14,] -2.0306806  0.9646122
+[15,]  3.0389460  0.8841645
+[16,]  2.0064063 -1.2831337
+[17,] -0.4211779 -0.2987099
+[18,] -1.4302634  1.4017959
+ 
+
+(5-2) 요인분석
+
+
+> # csv 파일 불러오기 (file importing)
+> secu_com_finance_2007 <- read.csv("C:/Users/user/Documents/R/secu_com_finance_2007.csv",
++                                   header = TRUE, 
++                                   stringsAsFactors = FALSE)
+> # V1 : 총자본순이익율
+> # V2 : 자기자본순이익율
+> # V3 : 자기자본비율
+> # V4 : 부채비율
+> # V5 : 자기자본회전율
+> 
+> 
+> # 표준화 변환 (standardization)
+> secu_com_finance_2007 <- transform(secu_com_finance_2007, 
++                                    V1_s = scale(V1), 
++                                    V2_s = scale(V2), 
++                                    V3_s = scale(V3), 
++                                    V4_s = scale(V4),
++                                    V5_s = scale(V5))
+> 
+> # 부채비율(V4_s)을 방향(max(V4_s)-V4_s) 변환
+> secu_com_finance_2007 <- transform(secu_com_finance_2007, 
++                                    V4_s2 = max(V4_s) - V4_s)
+> 
+> # variable selection
+> secu_com_finance_2007_2 <- secu_com_finance_2007[,c("company", "V1_s", "V2_s", "V3_s", "V4_s2", "V5_s")]
+> 
+> 
+> # Correlation analysis
+> cor(secu_com_finance_2007_2[,-1])
+            V1_s       V2_s       V3_s      V4_s2        V5_s
+V1_s  1.00000000  0.6165153  0.3239780  0.3553930  0.01387883
+V2_s  0.61651527  1.0000000 -0.5124351 -0.4659444  0.42263462
+V3_s  0.32397800 -0.5124351  1.0000000  0.9366296 -0.56340782
+V4_s2 0.35539305 -0.4659444  0.9366296  1.0000000 -0.53954570
+V5_s  0.01387883  0.4226346 -0.5634078 -0.5395457  1.00000000
+> 
+> round(cor(secu_com_finance_2007_2[,-1]), digits=3) # 반올림
+       V1_s   V2_s   V3_s  V4_s2   V5_s
+V1_s  1.000  0.617  0.324  0.355  0.014
+V2_s  0.617  1.000 -0.512 -0.466  0.423
+V3_s  0.324 -0.512  1.000  0.937 -0.563
+V4_s2 0.355 -0.466  0.937  1.000 -0.540
+V5_s  0.014  0.423 -0.563 -0.540  1.000
+> 
+> 
+> # Scatter plot matrix
+> plot(secu_com_finance_2007_2[,-1])
+
+> # 요인분석(maximum likelihood factor analysis)
+> # rotation = "varimax"
+> secu_factanal <- factanal(secu_com_finance_2007_2[,2:6], 
++                           factors = 2, 
++                           rotation = "varimax", # "varimax", "promax", "none" 
++                           scores="regression") # "regression", "Bartlett"
+> 
+> print(secu_factanal)
+
+Call:
+factanal(x = secu_com_finance_2007_2[, 2:6], factors = 2, scores = "regression",     rotation = "varimax")
+
+Uniquenesses:
+ V1_s  V2_s  V3_s V4_s2  V5_s 
+0.005 0.026 0.036 0.083 0.660 
+
+Loadings:
+      Factor1 Factor2
+V1_s   0.252   0.965 
+V2_s  -0.588   0.792 
+V3_s   0.979         
+V4_s2  0.950   0.120 
+V5_s  -0.562   0.155 
+
+               Factor1 Factor2
+SS loadings      2.586   1.604
+Proportion Var   0.517   0.321
+Cumulative Var   0.517   0.838
+
+Test of the hypothesis that 2 factors are sufficient.
+The chi square statistic is 1.59 on 1 degree of freedom.
+The p-value is 0.207 
+ 
+> print(secu_factanal$loadings, cutoff=0) # display every loadings
+
+Loadings:
+      Factor1 Factor2
+V1_s   0.252   0.965 
+V2_s  -0.588   0.792 
+V3_s   0.979   0.080 
+V4_s2  0.950   0.120 
+V5_s  -0.562   0.155 
+
+               Factor1 Factor2
+SS loadings      2.586   1.604
+Proportion Var   0.517   0.321
+Cumulative Var   0.517   0.838 
+
+
+출처: http://rfriend.tistory.com/62?category=601862 [R, Python 분석과 프로그래밍 (by R Friend)]
+
+
+
+
+출처: http://rfriend.tistory.com/62?category=601862 [R, Python 분석과 프로그래밍 (by R Friend)]
+
+출처: http://rfriend.tistory.com/62?category=601862 [R, Python 분석과 프로그래밍 (by R Friend)]
+
+(6) 시그널 데이터 압축
+
+> # 사인함수 파라미터 설정
+> x <- seq(0, 2*pi, by=pi/100)
+> 
+> amp.1 <- 2 # 진폭(amplitude) 2
+> amp.2 <- 2 # 진폭 2
+> amp.3 <- 5 # 진폭 5
+> amp.4 <- 5 # 진폭 5
+> 
+> wav.1 <- 1 # 주기(wave-length, cycle) 1
+> wav.2 <- 2 # 주기 2
+> wav.3 <- 3 # 주기 3
+> wav.4 <- 7 # 주기 7
+>   
+> # 사인함수 생성
+> signal.1 <- amp.1*sin(wav.1*x) # 진폭 2 & 주기 1인 사인함수
+> signal.2 <- amp.2*sin(wav.2*x) # 진폭 2 & 주기 2인 사인함수
+> signal.3 <- amp.3*sin(wav.3*x) # 진폭 5 & 주기 3인 사인함수
+> signal.4 <- amp.4*sin(wav.4*x) # 진폭 5 & 주기 7인 사인함수
+> 
+
+ > # 사인함수 시간에 따른 그래프
+> par(mfrow = c(1,4))
+> plot(x, signal.1, type='l', ylim=c(-5,5)); abline(h=0, lty=3) # 진폭 2 & 주기 1인 사인함수
+> plot(x, signal.2, type='l', ylim=c(-5,5)); abline(h=0, lty=3) # 진폭 2 & 주기 2인 사인함수
+> plot(x, signal.3, type='l', ylim=c(-5,5)); abline(h=0, lty=3) # 진폭 5 & 주기 3인 사인함수
+> plot(x, signal.4, type='l', ylim=c(-5,5)); abline(h=0, lty=3) # 진폭 5 & 주기 7인 사인함수
+ 
+> # 사인함수 4개 합치기 (sine function summation)
+> signal.1234 <- signal.1 + signal.2 + signal.3 + signal.4
+> head(signal.1234, n=30)
+ [1] 0.000000 1.749660 3.442051 5.022470 6.441235 7.655888 8.633062 9.349913 9.795059 9.968964
+[11] 9.883774 9.562593 9.038247 8.351592 7.549453 6.682284 5.801674 4.957812 4.197038 3.559593
+[21] 3.077684 2.773944 2.660382 2.737852 2.996074 3.414214 3.961977 4.601179 5.287703 5.973757
+> 
+> # 사인함수 4개 합친 그래프 그리기
+> par(mfrow = c(1,1))
+> plot(x, signal.1234, type='l', main = "Sum of signal.1&2&3&4", 
++      xlab = "Time", ylab = "Amplitude")
+> abline(h=0, lty=3)
+
+> # 푸리에 변환 (FFT: Fast Fourier Transform)
+> library(stats)
+> N <- length(x) 
+> 
+> fft_x_abs <- abs(fft(signal.1234)/((N-1)/2)) # 표준화, 절대값
+> plot(fft_x_abs, type="h")
+>
+
+
+
+출처: http://rfriend.tistory.com/64?category=601862 [R, Python 분석과 프로그래밍 (by R Friend)]
+
+출처: http://rfriend.tistory.com/64?category=601862 [R, Python 분석과 프로그래밍 (by R Friend)]
+
+
+
+
