@@ -1,0 +1,67 @@
+---
+title: "R Basic"
+description: |
+  R 프로그래밍 기초
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R 소개와 설치
+* [R이란 무엇인가?](rbasic/what_is_r.html)
+* R과 RStudio 설치 
+* R package
+* 표현식, 할당
+* 연산자와 기본 수학함수
+* 작업 디렉토리와 객체
+
+## 자료형과 객체
+* 자료형
+* 자료형 검사와 변환
+* 객체의 종류
+* vector
+* matrix
+* array
+* factor
+* list
+* data frame
+* time series
+* 객체의 검사와 변환
+
+## 기초 함수
+* 날짜와 시간
+* 문자열
+* 벡터 연산 함수
+* 데이터 관리 함수
+* 시스템 함수
+* 사용자 정의 함수
+
+## 입력과 출력
+* 데이터 입력
+* 데이터 출력
+* 백업 및 복원
+
+## 제어문
+* 조건문
+* 반복문
+* 분기문
+
+## 그래픽
+
+
+
+
+
+
+
+
+
