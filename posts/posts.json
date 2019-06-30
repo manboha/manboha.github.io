@@ -17,7 +17,7 @@
   {
     "path": "posts/2019-06-30-r-operators/",
     "title": "R Operators",
-    "description": "R basic Operators.",
+    "description": "R basic Operators 기초 연산자",
     "author": [
       {
         "name": "Bohak Maeng",
@@ -29,6 +29,6 @@
       "r"
     ],
     "preview": {},
-    "last_modified": "2019-06-30T21:07:09+09:00"
+    "last_modified": "2019-06-30T21:14:36+09:00"
   }
 ]
