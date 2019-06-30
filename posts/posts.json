@@ -30,5 +30,22 @@
     ],
     "preview": {},
     "last_modified": "2019-06-30T23:45:17+09:00"
+  },
+  {
+    "path": "posts/2019-07-01-decisiontreeintro/",
+    "title": "Decision Tree Intro",
+    "description": "A short description of decision tree.",
+    "author": [
+      {
+        "name": "Bohak Maeng",
+        "url": "https://manboha.github.io"
+      }
+    ],
+    "date": "2019-07-01",
+    "categories": [],
+    "preview": "posts/2019-07-01-decisiontreeintro/image1.png",
+    "last_modified": "2019-07-01T00:27:27+09:00",
+    "preview_width": 590,
+    "preview_height": 198
   }
 ]

@@ -1,0 +1,83 @@
+---
+title: "Decision Tree Intro"
+description: |
+  A short description of decision tree.
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: 07-01-2019
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## 1.1 의사결정나무 개념
+
+의사결정나무는 나무 형태로 의사결정 규칙을 표현하는 방식으로 데이터를 분류(classification)하거나 예측(prediction)하는 분석기법이다. 나무(tree) 구조로 모형이 표현되기 때문에 해석이 용이하고 나무 구조로부터 어떤 입력변수가 목표변수를 설명하기 위하여 더 중요한지를 쉽게 파악할 수 있다. (최종후, 서두성 (1999), 데이터마이닝 의사결정나무의 응용, 통계분석연구 제4권 제1호, p.62; 최종후 외 (2000), Answer Tree를 이용한 데이터마이닝 의사결정나무분석, SPSS 아카데미; 오올임, 김구 (2002), 불확실성 상황에서의 의사결정 양상에 관한 실증적 연구, 한국행정학보, 36-3, p.82에서 재인용)
+
+의사결정나무의 장점은 분석과정이 이해하기 쉬우며 어느 변수가 상대적으로 더 중요한지 파악할 수 있다는 점이다. 또한 양적 변수와 질적 변수를 모두 사용할 수 있다.
+
+의사결정나무의 단점은 상대적으로 모델이 불안정하다는 점이다. 즉 high-variance(=low bias)한 성질을 갖고 있다. 의사결정나무는 가지의 깊이가 커질수록 훈련 데이터에 과적합(over-fitting)될 가능성이 높다. 과적합하게 되면 훈련 결과는 매우 잘 나오지만 검증 결과는 잘 나오지 않을 가능성이 높다.
+
+## 1.2 의사결정나무 구성요소
+
+```{r, layout="l-body-outset", fig.width=5, fig.height=1.5}
+knitr::include_graphics("image1.png")
+```
+
+## 1.3 의사결정나무 예제
+
+### 신용 위협 탐지 (Credit Risk Detection)
+
+* 목적 : 은행에서 대출 심사를 하는 과정에서 은행의 손실을 최소화하기 위한 대출승인을  예측하는 의사결정 규칙 필요
+* 데이터 : 대출 신청자의 인구통계자료, 사회경제 프로파일(수입, 채무, 신용기록 등)
+* 결과 : 대출신청자의 Risk 제공(저위험, 중위험, 고위험)
+
+```{r, layout="l-body-outset", fig.width=5, fig.height=1.5}
+knitr::include_graphics("image2.png")
+```
+
+### 기상정보로 경기 여부 예측
+
+* 목적 : 당일 기상정보를 토대로 당일 경기 진행 여부 예측
+* 데이터 : 지난 14일간 기상정보와 경기 진행 여부 정보
+* 결과 : 경기 여부 (Yes, No)
+* 예측 : (날씨 = 비, 습기 = 높음, 바람 = 약함) 일 때, 경기여부 = ?
+* 예측결과 : 경기 Yes
+
+```{r, layout="l-body-outset", fig.width=5, fig.height=1.5}
+knitr::include_graphics("image3.png")
+```
+
+## 1.4 의사결정나무 모형 구축과정
+
+* 의사결정나무 형성 : 적절한 분리기준과 정지규칙을 지정하여 의사결정나무 모형을 얻음
+* 가지치기 : 오뷴류율을 크게 할 위험이 높거나 부적절한 규칙을 가지고 있는 가지를 제거
+* 타당성 평가 : 검증용 데이터를 이용한 교차 타당성 평가 등을 통해 의사결정나무 모형 평가
+* 해석 및 예측 : 의사결정나무를 해석하고 예측모형 설정
+
+## 1.5 의사결정나무 알고리즘
+
+의사결정나무 모형을 구축하는 과정에서 분리기준과 정지규칙, 가지치기 방법 등을 어떻게 하느냐에 따라 알고리즘이 구분된다. 현재 가장 많이 사용되는 대표적인 알고리즘은 다음 5가지가 있다.
+
+* CART (Classification And Regression Tree) - rpart package
+* 조건부 추론 트리 (Conditional Inference Trees) - party package
+* RandomForest – randomForest package
+* C5.0 (successor of ID4) - C50 package
+* QUEST (Quick, unbiased and efficient statistical trees) - LohTools package
+
+위 5가지 알고리즘 외에 의사결정나무 모형을 구축하는 데 사용되는 주요 알고리즘을 열거하면 다음과 같다.
+
+* ID3 (Iterative Dichotomiser 3)
+* C4.5 (successor of ID3)
+* CHAID (CHi-squared Automatic Interaction Detector)
+* MARS (Multivariate adaptive regression splines)
+* EVTREE (Evoluationary Learning) via evtree
+
+
+
+
