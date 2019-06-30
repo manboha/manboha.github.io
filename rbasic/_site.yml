@@ -1,7 +1,7 @@
 name: "Mblog for Data Analysis"
 title: "Mblog for Data Analysis"
 description: |
-  Data >> Understanding >> Knowledge >> Insight
+
 output_dir: "."
 base_url: https://manboha.github.io/
 repository_url: https://github.com/manboha/manboha.github.io
