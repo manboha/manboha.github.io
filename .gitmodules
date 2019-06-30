@@ -1,0 +1,3 @@
+[submodule "mblog/themes/edidor"]
+	path = mblog/themes/edidor
+	url = https://github.com/jacobsun/edidor
