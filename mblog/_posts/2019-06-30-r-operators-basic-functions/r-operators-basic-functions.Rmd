@@ -1,5 +1,5 @@
 ---
-title: "R 연산자 및 기본 수학 함수"
+title: "R Operators & Basic Functions"
 description: |
   R Operators & Basic Functions
 categories:

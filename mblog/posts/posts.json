@@ -16,7 +16,7 @@
   },
   {
     "path": "posts/2019-06-30-r-operators-basic-functions/",
-    "title": "R 연산자 및 기본 수학 함수",
+    "title": "R Operators & Basic Functions",
     "description": "R Operators & Basic Functions",
     "author": [
       {
@@ -29,6 +29,6 @@
       "R Basic"
     ],
     "preview": {},
-    "last_modified": "2019-06-30T15:43:14+09:00"
+    "last_modified": "2019-06-30T15:47:59+09:00"
   }
 ]
