@@ -6,6 +6,8 @@ output_dir: "."
 navbar:
   right:
     - text: "Home"
+      href: https://manboha.github.io
+    - text: "mblog"
       href: index.html
     - text: "About"
       href: about.html
