@@ -8,6 +8,9 @@ repository_url: https://github.com/manboha/manboha.github.io
 creative_commons: CC BY
 #exclude: ["", ""]
 navbar:
+  left:
+    - title: "Mblog for DA"
+      href: https://manboha.github.io/index.html
   right:
     - text: "Home"
       href: index.html
