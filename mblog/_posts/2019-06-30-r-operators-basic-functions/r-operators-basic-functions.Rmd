@@ -13,10 +13,6 @@ output:
     self_contained: false
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
 ### 산술연산자 Arithmetic Operators
 ```{r}
 8 + 3  # => 11
