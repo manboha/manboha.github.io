@@ -1,0 +1,77 @@
+---
+title: "R 연산자 및 기본 수학 함수"
+description: |
+  R Operators & Basic Functions
+categories:
+  - R Basic
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: 06-30-2019
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### 산술연산자 Arithmetic Operators
+```{r}
+8 + 3  # => 11
+8 - 3  # =>  5
+8 * 2  # => 16
+8 / 2  # =>  4
+8 ^ 2  # => 64
+10 %% 3  # => 1
+10 %/% 3  # => 3
+(5/9) * (100-32)  # => 37.77778
+```
+
+## 논리 연산자 Logical Operators
+```{r}
+5 == 5  # => TRUE
+5 != 5  # => FALSE
+5 > 5  # => FALSE
+5 >= 5  # => TRUE
+3 < 5  # => TRUE
+6 <= 5  # => FALSE
+```
+```{r}
+x <- TRUE
+y <- TRUE
+!x  # Not x
+x | y  # x OR y
+x & y  # x AND y
+isTRUE(x)  # if x is TRUE
+```
+
+### 기본 수학 함수 Basic Numeric  Functions
+```{r}
+pi  # => 3.141593
+sqrt(2)  # => 1.414214  square root
+log(10)  # => 2.302585  natural logarithm
+log10(10)  # => 1  common logarithm
+exp(1)  # => 2.718282 e^x
+sum(c(2,5,5))  # => 12
+mean(c(2,5,5))  # => 4
+sd(c(2,5,5))  # => 1.732051  standard deviation
+var(c(2,5,5))  # => 3  variation
+median(c(2,5,5))  # => 5
+round(2.345, 2)  # => 2.35
+ceiling(2.345)  # => 3
+floor(2.345)  # => 2
+trunc(2.345)  # => 2
+```
+
+```{r}
+x <- c(1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+max(x)  # => 19
+min(x)  # => 1
+IQR(x)  # => 9
+quantile(x, 0.25)  # => 5.5
+range(x)  # => 1 19
+diff(x, lag=1)  # lagged differences
+```
+

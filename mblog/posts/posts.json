@@ -13,5 +13,22 @@
     "categories": [],
     "preview": {},
     "last_modified": "2019-06-30T14:49:47+09:00"
+  },
+  {
+    "path": "posts/2019-06-30-r-operators-basic-functions/",
+    "title": "R 연산자 및 기본 수학 함수",
+    "description": "R Operators & Basic Functions",
+    "author": [
+      {
+        "name": "Bohak Maeng",
+        "url": "https://manboha.github.io"
+      }
+    ],
+    "date": "2019-06-30",
+    "categories": [
+      "R Basic"
+    ],
+    "preview": {},
+    "last_modified": "2019-06-30T15:43:14+09:00"
   }
 ]
