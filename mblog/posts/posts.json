@@ -13,6 +13,7 @@
     "categories": [],
     "preview": {},
     "last_modified": "2019-06-30T14:49:47+09:00"
+<<<<<<< HEAD
   },
   {
     "path": "posts/2019-06-30-the-shapiro-ratio/",
@@ -28,5 +29,7 @@
     "categories": [],
     "preview": {},
     "last_modified": "2019-06-30T15:06:39+09:00"
+=======
+>>>>>>> 26a6ec3eeafd7ab2dfb5fac1b0a8db37a5c4590a
   }
 ]
