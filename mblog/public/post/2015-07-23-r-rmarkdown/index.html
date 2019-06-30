@@ -7,13 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content="Hugo 0.55.6" />
     
-    <link rel="canonical" href="/tags/r-markdown/" />
+    <link rel="canonical" href="/post/2015-07-23-r-rmarkdown/" />
     <meta name="description" content="A hugo site using Edidor. &lt;br/&gt;&lt;br/&gt; Ctrl&#43;B toggle sidebar. ">
     
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/r-markdown/index.xml">
-    
 
-    <title>R Markdown &middot; Edidor Demo</title>
+    <title>Hello R Markdown &middot; Edidor Demo</title>
 
     <link rel="shortcut icon" href="/images/favicon.ico" />
 
@@ -158,87 +156,129 @@
 
     <div class="middle">
         <nav class="sidebar">
-            <ul class="control">
+            <ul class="posts control">
     
-    <li class="taxonomy-key">Categories</li>
+    <li><a class="no-break btn" href='/post/2016-12-30-hello-markdown/'><i class="icon icon-post"></i>A Plain Markdown Post</a></li>
     
+    <li><a class="no-break btn" href='/post/2015-07-23-r-rmarkdown/'><i class="icon icon-post"></i>Hello R Markdown</a></li>
     
-    <li>
-        <a href="/categories/r" class="btn">
-            <i class="icon icon-categories"></i>
-            r
-            <span class="count">1</span>
-        </a>
-    </li>
-    
-    
-    
-    <li class="taxonomy-key">Tags</li>
-    
-    
-    <li>
-        <a href="/tags/plot" class="btn">
-            <i class="icon icon-tags"></i>
-            plot
-            <span class="count">1</span>
-        </a>
-    </li>
-    
-    
-    
-    <li>
-        <a href="/tags/r-markdown" class="btn">
-            <i class="icon icon-tags"></i>
-            r-markdown
-            <span class="count">1</span>
-        </a>
-    </li>
-    
-    
-    
-    <li>
-        <a href="/tags/regression" class="btn">
-            <i class="icon icon-tags"></i>
-            regression
-            <span class="count">1</span>
-        </a>
-    </li>
-    
-    
+    <li><a class="no-break btn" href='/post/2015-01-01-lorem-ipsum/'><i class="icon icon-post"></i>Lorem Ipsum</a></li>
     
 </ul>
 
         </nav>
         <main class="main">
+            <article class="article">
+    <h2 class="title"><a href='/post/2015-07-23-r-rmarkdown/' class="btn">Hello R Markdown</a></h2>
+    <div class="article-meta clearfix">
+        <ul class="dates clearfix left control">
+            <li><i class="icon icon-date"></i></li>
+            <li class="publish-date">
+                <time datetime="2015.07.23">2015.07.23</time>
+            </li>
+        </ul>
+        
+        <ul class="article-categories clearfix left control">
+            <li><i class="icon icon-categories"></i></li>
             
-
-<h2 class="title group-date">
-    <time datetime="2015-07">2015-07</time>
-</h2>
-<ul class="list control">
-    
-    <li class="item">
-        <h4 class="title"><a href="/post/2015-07-23-r-rmarkdown/" class="btn">Hello R Markdown</a></h4>
-        <div class="item-meta">
-            <time datetime="07-23">
-                07-23
-            </time>
-        </div>
-    </li>
-    
-</ul>
-
-<div class="pagination">
-    <ul class="clearfix control">
-        <li class="left">
+            <li>
+                <a href="/categories/r/" class="btn">R</a>
+            </li>
             
-        </li>
-
-        <li class="right">
+        </ul>
+        
+        
+        <div class="article-meta-splitter clearfix"></div>
+        <ul class="article-tags clearfix control">
+            <li><i class="icon icon-tags"></i></li>
             
-        </li>
-    </ul>
+            <li>
+                <a href="/tags/r-markdown/" class="btn">R Markdown</a>
+            </li>
+            
+            <li>
+                <a href="/tags/plot/" class="btn">plot</a>
+            </li>
+            
+            <li>
+                <a href="/tags/regression/" class="btn">regression</a>
+            </li>
+            
+        </ul>
+        
+    </div>
+    <div class="content">
+        
+        
+
+
+<div id="r-markdown" class="section level1">
+<h1>R Markdown</h1>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>You can embed an R code chunk like this:</p>
+<pre class="r"><code>summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932</code></pre>
 </div>
+<div id="including-plots" class="section level1">
+<h1>Including Plots</h1>
+<p>You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:</p>
+<pre class="r"><code>par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
+  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  init.angle = -50, border = NA
+)</code></pre>
+<div class="figure"><span id="fig:pie"></span>
+<img src="/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
+<p class="caption">
+Figure 1: A fancy pie chart.
+</p>
+</div>
+</div>
+
+        
+    </div>
+
+</article>
+<section class="comment">
+    <p class="local-info">
+        Comment is disabled to avoid unwanted discussions from 'localhost:1313' on your Disqus
+        account...
+    </p>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+
+    (function () {
+        if (window.location.hostname == "localhost") {
+            return
+        }
+        document.querySelector('.local-info').classList.add('hide')
+
+        let dsq = document.createElement('script')
+        dsq.type = 'text/javascript'
+        dsq.async = true
+        let disqus_shortname = 'your disqus short name'
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq)
+    })()
+</script>
 
 
         </main>
