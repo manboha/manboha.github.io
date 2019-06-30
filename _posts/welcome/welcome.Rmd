@@ -1,5 +1,5 @@
 ---
-title: "Welcome to Blog for Data Science"
+title: "Welcome to MBlog for Data Science"
 description: |
   Welcome to our new blog, Blog for Data Science. We hope you enjoy 
   reading what we have to say!

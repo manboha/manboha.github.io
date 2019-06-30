@@ -1,8 +1,8 @@
 name: "manboha.github.io"
-title: "Blog for Data Science"
+title: "MBlog for Data Science"
 description: |
-  Blog for Data Science
-output_dir: "_site"
+  MBlog for Data Science
+output_dir: "."
 navbar:
   right:
     - text: "Home"
