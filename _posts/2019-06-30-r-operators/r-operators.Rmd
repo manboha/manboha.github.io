@@ -22,25 +22,25 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Arithmetic Operators
 
 ```{r echo=TRUE}
-8 + 3  # => 11
-8 - 3  # =>  5
-8 * 2  # => 16
-8 / 2  # =>  4
-8 ^ 2  # => 64
-10 %% 3  # => 1
-10 %/% 3  # => 3
-(5/9) * (100-32)  # => 37.77778
+8 + 3
+8 - 3
+8 * 2
+8 / 2
+8 ^ 2
+10 %% 3   # 나머지 Remainder
+10 %/% 3  # 몫 Quotient
+(5/9) * (100-32)
 ```
 
 ## Logical Operators
 
 ```{r echo=TRUE}
-5 == 5  # => TRUE
-5 != 5  # => FALSE
-5 > 5  # => FALSE
-5 >= 5  # => TRUE
-3 < 5  # => TRUE
-6 <= 5  # => FALSE
+5 == 5  # 같다
+5 != 5  # 같지 않다
+5 > 5  # 크다
+5 >= 5  # 크거나 같다
+3 < 5  # 작다
+6 <= 5  # 작거나 같다
 ```
 ```{r echo=TRUE}
 x <- TRUE
