@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Mblog for Data Analysis</title>
+    <link>https://manboha.github.io</link>
+    <atom:link href="https://manboha.github.io/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Data &gt; Understanding &gt; Knowledge &gt; Insight
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>¿œ, 30 6 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Welcome to My Blog</title>
+      <dc:creator>Bohak Maeng</dc:creator>
+      <link>https://manboha.github.io/posts/welcome</link>
+      <description>Welcome to My Blog!</description>
+      <guid>https://manboha.github.io/posts/welcome</guid>
+      <pubDate>¿œ, 30 6 2019 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

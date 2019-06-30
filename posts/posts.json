@@ -1,0 +1,17 @@
+[
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to My Blog",
+    "description": "Welcome to My Blog!",
+    "author": [
+      {
+        "name": "Bohak Maeng",
+        "url": "https://manboha.github.io"
+      }
+    ],
+    "date": "2019-06-30",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-06-30T20:35:08+09:00"
+  }
+]
