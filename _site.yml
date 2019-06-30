@@ -9,7 +9,7 @@ creative_commons: CC BY
 #exclude: ["", ""]
 navbar:
   left:
-    - title: "Mblog for DA"
+    - text: "Mblog for DA"
       href: https://manboha.github.io/index.html
   right:
     - text: "Home"
