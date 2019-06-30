@@ -10,7 +10,7 @@ creative_commons: CC BY
 navbar:
   right:
     - text: "Home"
-      href: ../index.html
+      href: https://manboha.github.io/index.html
     - text: "R Basic"
       href: https://manboha.github.io/rbasic/
     - text: "Data Analysis"
@@ -26,7 +26,7 @@ navbar:
       - text: Math
         href: https://manboha.github.io/math/
     - text: "About"
-      href: ../about.html
+      href: https://manboha.github.io/about.html
 collections:
   posts:
     feed_items_max: 50
