@@ -1,0 +1,89 @@
+---
+title: "Excel files with purrr"
+categories:
+  - r
+  - purrr
+  - excel
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: 07-01-2019
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# purrr를 이용하여 Excel 시트들을 읽고 쓰기
+
+## 준비
+
+작업에 필요한 중요 packages는 purrr, readxl, writexl 이다. tidyvere에는 purrr를 포함하여  dplyr 등과 같이 많이 사용되는 패키지들이 포함되어 있기 때문에 tidyvers를 불러온다.
+
+```{r message=FALSE}
+library(tidyverse)
+library(readxl)
+library(writexl)
+```
+
+## Excel 파일에 다중 시트 동시에 쓰기
+
+예제로 Rdp 기본으로 포함되어 있는 iris 데이터를 이용하고자 한다.
+
+```{r}
+iris %>% head()
+```
+
+먼저 iris 데이터를 나누어 여러 개의 데이터셋을 만들고자 한다. Species 변수에 dplyr 패키지의 group_split() 함수를 적용하여 각 꽃의 종류별로 데이터셋을 나눈다.
+
+```{r}
+# 꽃의 종류(Species)별로 데이터를 나눔
+iris %>%
+  group_split(Species) -> list_of_dfs
+
+list_of_dfs
+```
+
+purrr 패키지의 map 함수는 특정 함수를 반복적으로 사용하게 해주는 함수이다. lapply 함수 보다 쉽게 사용할 수 있도록 만들어졌다. 
+list_of_dfs에는 꽃의 종류별로 나누어진 3개의 데이터셋이 있다. map 함수를 이용하여 각 데이터셋의 Species 변수를 추출하여 문자로 변환하고(pull 함수, as.character 함수), 고유한 문자를 추출한 후(unique 함수), list_of_dfs의 각 리스트에 이름을 부여하고자 한다.
+
+```{r}
+list_of_dfs %>% 
+  map(~pull(.,Species)) %>% 
+  map(~as.character(.)) %>% 
+  map(~unique(.)) -> names(list_of_dfs)
+
+names(list_of_dfs)
+```
+
+각 데이터셋의 이름은 데이터를 엑셀로 저장할때 시트의 이름으로 사용하고자 한다.
+
+```{r}
+list_of_dfs %>% 
+  write_xlsx("test.xlsx")
+```
+
+## 엑셀의 다중 시트 동시에 읽기
+
+```{r}
+xl_file <- "test.xlsx"
+xl_sheets <- excel_sheets(xl_file)
+print(xl_sheets)
+```
+
+```{r}
+xl_sheets %>% 
+  map(function(sheet){
+    assign(x = sheet,
+           value = read_xlsx(path = xl_file, sheet = sheet),
+           envir = .GlobalEnv)
+  })
+```
+
+source : Martin Chan (2019). Vignette: Write & Read Multiple Excel files with purrr. https://martinctc.github.io/blog/vignette-write-and-read-multiple-excel-files-with-purrr/
+
