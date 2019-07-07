@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2019-07-04-cctv-surveillance-cameras-in-seoul/",
+    "title": "CCTV Surveillance Cameras in Seoul",
+    "description": {},
+    "author": [
+      {
+        "name": "Bohak Maeng",
+        "url": "https://manboha.github.io"
+      }
+    ],
+    "date": "2019-07-07",
+    "categories": [],
+    "preview": "posts/2019-07-04-cctv-surveillance-cameras-in-seoul/cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-7-1.png",
+    "last_modified": "2019-07-07T19:31:23+09:00",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2019-07-01-decisiontreeintro/",
     "title": "Decision Tree Intro",
     "description": "A short description of decision tree.",

@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>Mblog for Data Analysis: CCTV Surveillance Cameras in Seoul</title>
+
+
+<link rel="canonical" href="https://manboha.github.io/posts/2019-07-04-cctv-surveillance-cameras-in-seoul/"/>
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2019-07-07"/>
+<meta property="article:created" itemprop="dateCreated" content="2019-07-07"/>
+<meta name="article:author" content="Bohak Maeng"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Mblog for Data Analysis: CCTV Surveillance Cameras in Seoul"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://manboha.github.io/posts/2019-07-04-cctv-surveillance-cameras-in-seoul/"/>
+<meta property="og:image" content="https://manboha.github.io/posts/2019-07-04-cctv-surveillance-cameras-in-seoul/cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-7-1.png"/>
+<meta property="og:image:width" content="1248"/>
+<meta property="og:image:height" content="768"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Mblog for Data Analysis"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="Mblog for Data Analysis: CCTV Surveillance Cameras in Seoul"/>
+<meta property="twitter:url" content="https://manboha.github.io/posts/2019-07-04-cctv-surveillance-cameras-in-seoul/"/>
+<meta property="twitter:image" content="https://manboha.github.io/posts/2019-07-04-cctv-surveillance-cameras-in-seoul/cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-7-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:image:height" content="768"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Mblog for Data Analysis: CCTV Surveillance Cameras in Seoul"/>
+<meta name="citation_fulltext_html_url" content="https://manboha.github.io/posts/2019-07-04-cctv-surveillance-cameras-in-seoul/"/>
+<meta name="citation_fulltext_world_readable" content=""/>
+<meta name="citation_online_date" content="2019/07/07"/>
+<meta name="citation_publication_date" content="2019/07/07"/>
+<meta name="citation_author" content="Bohak Maeng"/>
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","author","date","draft","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["CCTV Surveillance Cameras in Seoul"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["07-07-2019"]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://manboha.github.io/posts/2019-07-04-cctv-surveillance-cameras-in-seoul/"]},{"type":"character","attributes":{},"value":["https://manboha.github.io/posts/2019-07-04-cctv-surveillance-cameras-in-seoul/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["cctv-surveillance-cameras-in-seoul_files/bowser-1.9.3/bowser.min.js","cctv-surveillance-cameras-in-seoul_files/distill-2.2.21/template.v2.js","cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-21-1.png","cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-23-1.png","cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-26-1.png","cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-27-1.png","cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-7-1.png","cctv-surveillance-cameras-in-seoul_files/jquery-1.11.3/jquery.min.js","cctv-surveillance-cameras-in-seoul_files/webcomponents-2.0.0/webcomponents.js","cctv_seoul.csv","pop_seoul.xlsx"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative;}
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"CCTV Surveillance Cameras in Seoul","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-07-07T00:00:00.000+09:00","citationText":"Maeng, 2019"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a href="../../index.html" class="title">Mblog for Data Analysis</a>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="https://manboha.github.io/rbasic/">R Basic</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Data Analysis
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="https://manboha.github.io/basic_statistics/">Basic Statistics</a>
+<a href="https://manboha.github.io/advaced_statistics/">Advanced Statistics</a>
+<a href="https://manboha.github.io/machine_learning/">Machine Learning</a>
+<a href="https://manboha.github.io/data_visualization/">Data Visulaization</a>
+<a href="https://manboha.github.io/math/">Math</a>
+</div>
+</div>
+<a href="../../about.html">About</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>CCTV Surveillance Cameras in Seoul</h1>
+
+</div>
+
+<div class="d-byline">
+  Bohak Maeng <a href="https://manboha.github.io" class="uri">https://manboha.github.io</a> 
+  
+<br/>07-07-2019
+</div>
+
+<div class="d-article">
+<h2 id="section">패키지 준비</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(tidyverse)
+library(readxl)</code></pre>
+</div>
+<h2 id="cctv-csv--">서울시 CCTV 데이터(csv 파일) 불러오기</h2>
+<p>서울시 각 자치구별 CCTV 설치현황이 들어 있는 데이터 파일을 불러옵니다. data file: <a href="https://github.com/manboha/datasets/blob/master/seoul_cctv/cctv_seoul.csv">cctv_seoul.csv</a></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+cctv_seoul &lt;- read_csv(&quot;cctv_seoul.csv&quot;)
+cctv_seoul</code></pre>
+<pre><code>
+# A tibble: 25 x 6
+   기관명  소계 `2013년도 이전` `2014년` `2015년` `2016년`
+   &lt;chr&gt;  &lt;dbl&gt;           &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1 강남구  3238            1292      430      584      932
+ 2 강동구  1010             379       99      155      377
+ 3 강북구   831             369      120      138      204
+ 4 강서구   911             388      258      184       81
+ 5 관악구  2109             846      260      390      613
+ 6 광진구   878             573       78       53      174
+ 7 구로구  1884            1142      173      246      323
+ 8 금천구  1348             674       51      269      354
+ 9 노원구  1566             542       57      451      516
+10 도봉구   825             238      159       42      386
+# ... with 15 more rows</code></pre>
+</div>
+<p>데이터의 열 이름(변수명)은 영문으로 되어 있는 것이 더 편리하기 때문에 rename 함수를 이용하여 변수명을 변경합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 열(column)이름(변수명) 변경하기, new name = old name
+cctv_seoul %&gt;% 
+  rename(&quot;gu&quot; = &quot;기관명&quot;,
+         &quot;total&quot; = &quot;소계&quot;,
+         &quot;before2013&quot; = &quot;2013년도 이전&quot;,
+         &quot;y2014&quot; = &quot;2014년&quot;,
+         &quot;y2015&quot; = &quot;2015년&quot;,
+         &quot;y2016&quot; = &quot;2016년&quot;) -&gt; cctv_seoul
+
+cctv_seoul</code></pre>
+<pre><code>
+# A tibble: 25 x 6
+   gu     total before2013 y2014 y2015 y2016
+   &lt;chr&gt;  &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 강남구  3238       1292   430   584   932
+ 2 강동구  1010        379    99   155   377
+ 3 강북구   831        369   120   138   204
+ 4 강서구   911        388   258   184    81
+ 5 관악구  2109        846   260   390   613
+ 6 광진구   878        573    78    53   174
+ 7 구로구  1884       1142   173   246   323
+ 8 금천구  1348        674    51   269   354
+ 9 노원구  1566        542    57   451   516
+10 도봉구   825        238   159    42   386
+# ... with 15 more rows</code></pre>
+</div>
+<p>서울시 CCTV 데이터의 특성을 간단하게 파악합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+summary(cctv_seoul)</code></pre>
+<pre><code>
+      gu                total        before2013         y2014      
+ Length:25          Min.   : 825   Min.   : 238.0   Min.   : 21.0  
+ Class :character   1st Qu.:1010   1st Qu.: 464.0   1st Qu.: 78.0  
+ Mode  :character   Median :1327   Median : 573.0   Median :142.0  
+                    Mean   :1515   Mean   : 764.8   Mean   :159.5  
+                    3rd Qu.:1884   3rd Qu.:1070.0   3rd Qu.:218.0  
+                    Max.   :3238   Max.   :1843.0   Max.   :430.0  
+     y2015           y2016      
+ Min.   : 30.0   Min.   : 81.0  
+ 1st Qu.:103.0   1st Qu.:292.0  
+ Median :184.0   Median :377.0  
+ Mean   :205.2   Mean   :385.9  
+ 3rd Qu.:269.0   3rd Qu.:467.0  
+ Max.   :584.0   Max.   :932.0  </code></pre>
+</div>
+<h2 id="cctv---">자치구별 CCTV 설치 현황 비교</h2>
+<h3 id="cctv-----">CCTV 설치 대수가 가장 적은 자치구는?</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+cctv_seoul %&gt;% 
+  arrange(total)   # 오름차순 정렬</code></pre>
+<pre><code>
+# A tibble: 25 x 6
+   gu       total before2013 y2014 y2015 y2016
+   &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 도봉구     825        238   159    42   386
+ 2 강북구     831        369   120   138   204
+ 3 광진구     878        573    78    53   174
+ 4 강서구     911        388   258   184    81
+ 5 중랑구     916        509   121   177   109
+ 6 마포구     980        314   118   169   379
+ 7 강동구    1010        379    99   155   377
+ 8 중구      1023        413   190    72   348
+ 9 송파구    1081        529    21    68   463
+10 서대문구  1254        844    50    68   292
+# ... with 15 more rows</code></pre>
+</div>
+<p>CCTV 설치 대수가 가장 작은 5개 구는 도봉구, 강북구, 광진구, 강서구, 중랑구입니다.</p>
+<h3 id="cctv------1">CCTV 설치 대수가 가장 많은 자치구는?</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+cctv_seoul %&gt;% 
+  arrange(desc(total))  # 내림차순 정렬</code></pre>
+<pre><code>
+# A tibble: 25 x 6
+   gu       total before2013 y2014 y2015 y2016
+   &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 강남구    3238       1292   430   584   932
+ 2 양천구    2482       1843   142    30   467
+ 3 서초구    2297       1406   157   336   398
+ 4 관악구    2109        846   260   390   613
+ 5 은평구    2108       1138   224   278   468
+ 6 용산구    2096       1368   218   112   398
+ 7 구로구    1884       1142   173   246   323
+ 8 동대문구  1870       1070    23   198   579
+ 9 성북구    1651       1009    78   360   204
+10 종로구    1619        464   314   211   630
+# ... with 15 more rows</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 서울시 CCTV 현황 그래프로 분석하기
+cctv_seoul %&gt;% 
+  ggplot(aes(x = reorder(gu, total), y = total)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  coord_flip() +
+  xlab(&quot;자치구&quot;) +
+  ylab(&quot;CCTV&quot;)</code></pre>
+<p><img src="cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<p>CCTV 설치 대수가 가장 많은 5개 구는 강남구, 양천구, 서초구, 관악구, 은평구입니다.</p>
+<h3 id="cctv-">최근 3년간 CCTV 증가율</h3>
+<p>최근 3년간 CCTV 증가율 변수를 추가하고자 합니다. 2014년~2016년을 합한 후 2013년도 이전으로 나누어 CCTV 증가율을 산출하겠습니다. 산출된 CCTV 증가율을 기준으로 정렬하여 CCTV 증가율이 가장 높은 자치구는 어디인지 살펴보겠습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+cctv_seoul %&gt;% 
+  mutate(growth_rate = (y2014 + y2015 + y2016) / before2013 * 100) -&gt; cctv_seoul
+
+cctv_seoul %&gt;% 
+  arrange(desc(growth_rate))</code></pre>
+<pre><code>
+# A tibble: 25 x 7
+   gu       total before2013 y2014 y2015 y2016 growth_rate
+   &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
+ 1 종로구    1619        464   314   211   630        249.
+ 2 도봉구     825        238   159    42   386        247.
+ 3 마포구     980        314   118   169   379        212.
+ 4 노원구    1566        542    57   451   516        189.
+ 5 강동구    1010        379    99   155   377        166.
+ 6 영등포구  1277        495   214   195   373        158.
+ 7 강남구    3238       1292   430   584   932        151.
+ 8 관악구    2109        846   260   390   613        149.
+ 9 중구      1023        413   190    72   348        148.
+10 동작구    1302        544   341   103   314        139.
+# ... with 15 more rows</code></pre>
+</div>
+<p>분석결과, 최근 3년간 CCTV 증가율이 가장 높은 5개 구는 종로구, 도봉구, 마포구, 노원구, 강동구입니다.</p>
+<h2 id="excel--">서울시 인구 데이터(excel 파일) 불러오기</h2>
+<p>서울시 각 자치구별 인구정보가 들어 있는 데이터 파일을 불러옵니다. data file: <a href="https://github.com/manboha/datasets/blob/master/seoul_cctv/pop_seoul.xlsx">pop_seoul.xlsx</a></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+pop_seoul &lt;- read_excel(&quot;pop_seoul.xlsx&quot;)
+pop_seoul</code></pre>
+<pre><code>
+# A tibble: 26 x 5
+   구별       인구수  한국인 외국인  고령자
+   &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+ 1 합계     10197604 9926968 270636 1321458
+ 2 종로구     162820  153589   9231   25425
+ 3 중구       133240  124312   8928   20764
+ 4 용산구     244203  229456  14747   36231
+ 5 성동구     311244  303380   7864   39997
+ 6 광진구     372164  357211  14953   42214
+ 7 동대문구   369496  354079  15417   54173
+ 8 중랑구     414503  409882   4621   56774
+ 9 성북구     461260  449773  11487   64692
+10 강북구     330192  326686   3506   54813
+# ... with 16 more rows</code></pre>
+</div>
+<p>데이터의 열 이름(변수명)을 변경합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 변수명 변경하기
+pop_seoul %&gt;% 
+  rename(&quot;gu&quot; = &quot;구별&quot;,
+         &quot;pop&quot; = &quot;인구수&quot;,
+         &quot;korean&quot; = &quot;한국인&quot;,
+         &quot;foreign&quot; = &quot;외국인&quot;,
+         &quot;aged&quot; = &quot;고령자&quot;) -&gt; pop_seoul
+
+pop_seoul</code></pre>
+<pre><code>
+# A tibble: 26 x 5
+   gu            pop  korean foreign    aged
+   &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1 합계     10197604 9926968  270636 1321458
+ 2 종로구     162820  153589    9231   25425
+ 3 중구       133240  124312    8928   20764
+ 4 용산구     244203  229456   14747   36231
+ 5 성동구     311244  303380    7864   39997
+ 6 광진구     372164  357211   14953   42214
+ 7 동대문구   369496  354079   15417   54173
+ 8 중랑구     414503  409882    4621   56774
+ 9 성북구     461260  449773   11487   64692
+10 강북구     330192  326686    3506   54813
+# ... with 16 more rows</code></pre>
+</div>
+<p>합계 데이터는 불필요하기 때문에 합계가 입력되어 있는 첫번째 행을 삭제합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 첫번째 행(합계) 삭제하기
+pop_seoul &lt;- pop_seoul[-1,]
+pop_seoul</code></pre>
+<pre><code>
+# A tibble: 25 x 5
+   gu          pop korean foreign  aged
+   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+ 1 종로구   162820 153589    9231 25425
+ 2 중구     133240 124312    8928 20764
+ 3 용산구   244203 229456   14747 36231
+ 4 성동구   311244 303380    7864 39997
+ 5 광진구   372164 357211   14953 42214
+ 6 동대문구 369496 354079   15417 54173
+ 7 중랑구   414503 409882    4621 56774
+ 8 성북구   461260 449773   11487 64692
+ 9 강북구   330192 326686    3506 54813
+10 도봉구   348646 346629    2017 51312
+# ... with 15 more rows</code></pre>
+</div>
+<p>외국인 비율(foreign_percent)과 고령자 비율(aged_percent)을 계산하여 새로운 변수로 만듭니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 외국인 비율과 고령자 비율 변수 생성
+pop_seoul %&gt;% 
+  mutate(foreign_percent = foreign / pop * 100,
+         aged_percent = aged /pop * 100) -&gt; pop_seoul
+
+pop_seoul</code></pre>
+<pre><code>
+# A tibble: 25 x 7
+   gu          pop korean foreign  aged foreign_percent aged_percent
+   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;        &lt;dbl&gt;
+ 1 종로구   162820 153589    9231 25425           5.67          15.6
+ 2 중구     133240 124312    8928 20764           6.70          15.6
+ 3 용산구   244203 229456   14747 36231           6.04          14.8
+ 4 성동구   311244 303380    7864 39997           2.53          12.9
+ 5 광진구   372164 357211   14953 42214           4.02          11.3
+ 6 동대문구 369496 354079   15417 54173           4.17          14.7
+ 7 중랑구   414503 409882    4621 56774           1.11          13.7
+ 8 성북구   461260 449773   11487 64692           2.49          14.0
+ 9 강북구   330192 326686    3506 54813           1.06          16.6
+10 도봉구   348646 346629    2017 51312           0.579         14.7
+# ... with 15 more rows</code></pre>
+</div>
+<h2 id="section-1">서울시 자치구별 인구현황 비교</h2>
+<h3 id="section-2">인구가 가장 많은 자치구는?</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 인구수 기준으로 정렬
+pop_seoul %&gt;% 
+  arrange(desc(pop))</code></pre>
+<pre><code>
+# A tibble: 25 x 7
+   gu        pop korean foreign  aged foreign_percent aged_percent
+   &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;        &lt;dbl&gt;
+ 1 송파구 667483 660584    6899 72506           1.03          10.9
+ 2 강서구 603772 597248    6524 72548           1.08          12.0
+ 3 강남구 570500 565550    4950 63167           0.868         11.1
+ 4 노원구 569384 565565    3819 71941           0.671         12.6
+ 5 관악구 525515 507203   18312 68082           3.48          13.0
+ 6 은평구 494388 489943    4445 72334           0.899         14.6
+ 7 양천구 479978 475949    4029 52975           0.839         11.0
+ 8 성북구 461260 449773   11487 64692           2.49          14.0
+ 9 강동구 453233 449019    4214 54622           0.930         12.1
+10 서초구 450310 445994    4316 51733           0.958         11.5
+# ... with 15 more rows</code></pre>
+</div>
+<p>인구 수 기준으로 정렬한 결과 송파구, 강서구, 강남구, 노원구, 관악구 순으로 인구가 많은 것으로 나타납니다.</p>
+<h3 id="section-3">외국인이 많거나 외국인 비율이 높은 구는 어디인가?</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 외국인 기준으로 정렬
+pop_seoul %&gt;% 
+  arrange(desc(foreign))</code></pre>
+<pre><code>
+# A tibble: 25 x 7
+   gu          pop korean foreign  aged foreign_percent aged_percent
+   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;        &lt;dbl&gt;
+ 1 영등포구 402985 368072   34913 52413            8.66         13.0
+ 2 구로구   447874 416487   31387 56833            7.01         12.7
+ 3 금천구   255082 236353   18729 32970            7.34         12.9
+ 4 관악구   525515 507203   18312 68082            3.48         13.0
+ 5 동대문구 369496 354079   15417 54173            4.17         14.7
+ 6 광진구   372164 357211   14953 42214            4.02         11.3
+ 7 용산구   244203 229456   14747 36231            6.04         14.8
+ 8 서대문구 327163 314982   12181 48161            3.72         14.7
+ 9 동작구   412520 400456   12064 56013            2.92         13.6
+10 성북구   461260 449773   11487 64692            2.49         14.0
+# ... with 15 more rows</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 외국인 비율 기준으로 정렬
+pop_seoul %&gt;% 
+  arrange(desc(foreign_percent))</code></pre>
+<pre><code>
+# A tibble: 25 x 7
+   gu          pop korean foreign  aged foreign_percent aged_percent
+   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;        &lt;dbl&gt;
+ 1 영등포구 402985 368072   34913 52413            8.66         13.0
+ 2 금천구   255082 236353   18729 32970            7.34         12.9
+ 3 구로구   447874 416487   31387 56833            7.01         12.7
+ 4 중구     133240 124312    8928 20764            6.70         15.6
+ 5 용산구   244203 229456   14747 36231            6.04         14.8
+ 6 종로구   162820 153589    9231 25425            5.67         15.6
+ 7 동대문구 369496 354079   15417 54173            4.17         14.7
+ 8 광진구   372164 357211   14953 42214            4.02         11.3
+ 9 서대문구 327163 314982   12181 48161            3.72         14.7
+10 관악구   525515 507203   18312 68082            3.48         13.0
+# ... with 15 more rows</code></pre>
+</div>
+<p>외국인이 많은 구는 영등포구, 구로구, 금천구 등이며 외국인 비율이 높은 구는 영등포구, 금천구, 구로구 순입니다.</p>
+<h3 id="section-4">고령자가 많거나 고령자 비율이 높은 구는 어디인가?</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 고령자 기준으로 정렬
+pop_seoul %&gt;% 
+  arrange(desc(aged))</code></pre>
+<pre><code>
+# A tibble: 25 x 7
+   gu        pop korean foreign  aged foreign_percent aged_percent
+   &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;        &lt;dbl&gt;
+ 1 강서구 603772 597248    6524 72548           1.08          12.0
+ 2 송파구 667483 660584    6899 72506           1.03          10.9
+ 3 은평구 494388 489943    4445 72334           0.899         14.6
+ 4 노원구 569384 565565    3819 71941           0.671         12.6
+ 5 관악구 525515 507203   18312 68082           3.48          13.0
+ 6 성북구 461260 449773   11487 64692           2.49          14.0
+ 7 강남구 570500 565550    4950 63167           0.868         11.1
+ 8 구로구 447874 416487   31387 56833           7.01          12.7
+ 9 중랑구 414503 409882    4621 56774           1.11          13.7
+10 동작구 412520 400456   12064 56013           2.92          13.6
+# ... with 15 more rows</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 고령자 비율 기준으로 정렬
+pop_seoul %&gt;% 
+  arrange(desc(aged_percent))</code></pre>
+<pre><code>
+# A tibble: 25 x 7
+   gu          pop korean foreign  aged foreign_percent aged_percent
+   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;        &lt;dbl&gt;
+ 1 강북구   330192 326686    3506 54813           1.06          16.6
+ 2 종로구   162820 153589    9231 25425           5.67          15.6
+ 3 중구     133240 124312    8928 20764           6.70          15.6
+ 4 용산구   244203 229456   14747 36231           6.04          14.8
+ 5 서대문구 327163 314982   12181 48161           3.72          14.7
+ 6 도봉구   348646 346629    2017 51312           0.579         14.7
+ 7 동대문구 369496 354079   15417 54173           4.17          14.7
+ 8 은평구   494388 489943    4445 72334           0.899         14.6
+ 9 성북구   461260 449773   11487 64692           2.49          14.0
+10 중랑구   414503 409882    4621 56774           1.11          13.7
+# ... with 15 more rows</code></pre>
+</div>
+<p>고령자가 많은 구는 강서구, 송파구, 은평구 순이며 고령자 비율이 높은 구는 강북구, 종로구, 중구 순입니다.</p>
+<h2 id="cctv----">CCTV 데이터와 인구 데이터 합치기</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 두 데이터 공통 변수인 구별(gu) 변수를 기준으로 병합(merge)
+cctv_seoul %&gt;% inner_join(pop_seoul, by = &quot;gu&quot;) -&gt; cctv_pop_seoul
+
+cctv_pop_seoul</code></pre>
+<pre><code>
+# A tibble: 25 x 13
+   gu    total before2013 y2014 y2015 y2016 growth_rate    pop korean
+   &lt;chr&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1 강남구~  3238       1292   430   584   932       151.  570500 565550
+ 2 강동구~  1010        379    99   155   377       166.  453233 449019
+ 3 강북구~   831        369   120   138   204       125.  330192 326686
+ 4 강서구~   911        388   258   184    81       135.  603772 597248
+ 5 관악구~  2109        846   260   390   613       149.  525515 507203
+ 6 광진구~   878        573    78    53   174        53.2 372164 357211
+ 7 구로구~  1884       1142   173   246   323        65.0 447874 416487
+ 8 금천구~  1348        674    51   269   354       100   255082 236353
+ 9 노원구~  1566        542    57   451   516       189.  569384 565565
+10 도봉구~   825        238   159    42   386       247.  348646 346629
+# ... with 15 more rows, and 4 more variables: foreign &lt;dbl&gt;,
+#   aged &lt;dbl&gt;, foreign_percent &lt;dbl&gt;, aged_percent &lt;dbl&gt;</code></pre>
+</div>
+<p>필요없는 4개 변수(before2013, y2014, y2015, y2016)를 제거합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 필요없는 열(변수) 제거하기
+# 제거할 변수 : before2013, y2014, y2015, y2016
+cctv_pop_seoul %&gt;% 
+  select(-c(before2013, y2014, y2015, y2016)) -&gt; cctv_pop_seoul
+
+cctv_pop_seoul</code></pre>
+<pre><code>
+# A tibble: 25 x 9
+   gu    total growth_rate    pop korean foreign  aged foreign_percent
+   &lt;chr&gt; &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;
+ 1 강남구~  3238       151.  570500 565550    4950 63167           0.868
+ 2 강동구~  1010       166.  453233 449019    4214 54622           0.930
+ 3 강북구~   831       125.  330192 326686    3506 54813           1.06 
+ 4 강서구~   911       135.  603772 597248    6524 72548           1.08 
+ 5 관악구~  2109       149.  525515 507203   18312 68082           3.48 
+ 6 광진구~   878        53.2 372164 357211   14953 42214           4.02 
+ 7 구로구~  1884        65.0 447874 416487   31387 56833           7.01 
+ 8 금천구~  1348       100   255082 236353   18729 32970           7.34 
+ 9 노원구~  1566       189.  569384 565565    3819 71941           0.671
+10 도봉구~   825       247.  348646 346629    2017 51312           0.579
+# ... with 15 more rows, and 1 more variable: aged_percent &lt;dbl&gt;</code></pre>
+</div>
+<p>CCTV 대수를 인구로 나눈 CCTV 비율 변수(cctv_percent)를 추가로 만듭니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# CCTV 비율 변수 만들기
+cctv_pop_seoul %&gt;% 
+  mutate(cctv_percent = total / pop * 100) -&gt; cctv_pop_seoul</code></pre>
+</div>
+<p>새로 만든 CCTV 비율을 기준으로 정렬하여 그래프를 만들면 다음과 같습니다. CCTV 비율 기준으로 보면 종로구, 용산구, 중구가 높게 나옵니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+cctv_pop_seoul %&gt;% 
+  ggplot(aes(x = reorder(gu, cctv_percent), y = cctv_percent)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  coord_flip() +
+  xlab(&quot;자치구&quot;) +
+  ylab(&quot;CCTV %&quot;)</code></pre>
+<p><img src="cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
+</div>
+<h2 id="cctv----1">서울시 인구와 CCTV 설치대수 관계 분석</h2>
+<h3 id="cctv--">인구와 CCTV 개수의 관계</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 인구와 CCTV 설치대수의 상관관계 분석
+cor.test(cctv_pop_seoul$pop, cctv_pop_seoul$total)</code></pre>
+<pre><code>
+    Pearson&#39;s product-moment correlation
+
+data:  cctv_pop_seoul$pop and cctv_pop_seoul$total
+t = 1.2026, df = 23, p-value = 0.2414
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.1680625  0.5823817
+sample estimates:
+      cor 
+0.2432198 </code></pre>
+</div>
+<p>p-값이 0.05보다 크므로 95% 신뢰수준에서 인구와 CCTV 개수의 상관관계는 없다고 판단할 수 있습니다. 상관계수는 0.24로 상관관계가 있다고 하더라도 매우 낮은 수준입니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 인구와 CCTV 설치대수의 산점도
+cctv_pop_seoul %&gt;% 
+  ggplot(aes(pop, total)) +
+  geom_point()</code></pre>
+<p><img src="cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
+</div>
+<h3 id="cctv---1">고령자 비율과 CCTV 개수의 상관관계</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+cor.test(cctv_pop_seoul$aged_percent, cctv_pop_seoul$total)</code></pre>
+<pre><code>
+    Pearson&#39;s product-moment correlation
+
+data:  cctv_pop_seoul$aged_percent and cctv_pop_seoul$total
+t = -1.2842, df = 23, p-value = 0.2119
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.5931685  0.1520038
+sample estimates:
+       cor 
+-0.2586627 </code></pre>
+</div>
+<p>p-값이 0.05보다 크므로 95% 신뢰수준에서 고령자 비율과 CCTV 개수의 상관관계는 없다고 판단할 수 있습니다.</p>
+<h3 id="cctv---2">외국인 비율과 CCTV 개수의 상관관계</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+cor.test(cctv_pop_seoul$foreign_percent, cctv_pop_seoul$total)</code></pre>
+<pre><code>
+    Pearson&#39;s product-moment correlation
+
+data:  cctv_pop_seoul$foreign_percent and cctv_pop_seoul$total
+t = -0.25117, df = 23, p-value = 0.8039
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.4383731  0.3500637
+sample estimates:
+        cor 
+-0.05230165 </code></pre>
+</div>
+<p>p-값이 0.05보다 크므로 95% 신뢰수준에서 외국인 비율과 CCTV 개수의 상관관계는 없다고 판단할 수 있습니다.</p>
+<h3 id="cctv------">인구와 CCTV 개수의 관계 - 산점도와 회귀선</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+cctv_pop_seoul %&gt;% 
+  ggplot(aes(pop, total)) +
+  geom_point(color = &quot;deepskyblue&quot;, size = 3) +
+  geom_text(aes(label = gu, vjust = -1, hjust = 0)) +
+  geom_smooth(method = lm, color = &quot;deeppink&quot;) +
+  labs(x = &quot;인구수&quot;, y = &quot;CCTV&quot;)</code></pre>
+<p><img src="cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+</div>
+<p>자치구의 인구와 CCTV 개수의 일반적인 경향을 추정하기 위해 회귀선(핑크색 직선)을 그렸습니다. 회귀선 보다 위에 있는 자치구는 상대적으로 CCTV가 많이 설치된 자치구이고, 반대로 아래에 있는 자치구는 상대적으로 CCTV가 적에 설치된 자치구입니다. 강남구, 양천구, 서초구 등은 일반적인 경향보다 더 많이 설치된 자치구입니다. 강북구, 도봉구, 강서구 등은 일반적인 경향보다 더 적에 설치된 자치구라 할 수 있습니다.</p>
+<h3 id="cctv-------1">인구와 CCTV 비율의 관계 - 산점도와 회귀선</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+cctv_pop_seoul %&gt;% 
+  ggplot(aes(pop, cctv_percent)) +
+  geom_point(color = &quot;deepskyblue&quot;, size = 3) +
+  geom_text(aes(label = gu, vjust = -1, hjust = 0)) +
+  geom_smooth(method = lm, color = &quot;deeppink&quot;) +
+  labs(x = &quot;인구수&quot;, y = &quot;CCTV 비율&quot;)</code></pre>
+<p><img src="cctv-surveillance-cameras-in-seoul_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
+</div>
+<p>참고로 자치구 인구와 CCTV 비율의 산점도와 회귀선을 그려 살펴본 결과 종로구, 용산구, 강남구 등이 일반적인 경향보다 더 높은 것으로 나타납니다.</p>
+<p>참고 : 민형기(2017)의 ’파이썬으로 데이터 주무르기’를 참고하여 R 언어로 분석</p>
+<!--radix_placeholder_article_footer-->
+<div class="article-footer">
+  <p class="social_footer">
+    <span class="article-sharing">
+      Share: &nbsp;
+      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fmanboha.github.io%2Fposts%2F2019-07-04-cctv-surveillance-cameras-in-seoul%2F">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://twitter.com/share?text=CCTV%20Surveillance%20Cameras%20in%20Seoul&amp;url=https%3A%2F%2Fmanboha.github.io%2Fposts%2F2019-07-04-cctv-surveillance-cameras-in-seoul%2F">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fmanboha.github.io%2Fposts%2F2019-07-04-cctv-surveillance-cameras-in-seoul%2F&amp;title=CCTV%20Surveillance%20Cameras%20in%20Seoul">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://plus.google.com/share?url=https%3A%2F%2Fmanboha.github.io%2Fposts%2F2019-07-04-cctv-surveillance-cameras-in-seoul%2F">
+        <i class="fab fa-google-plus"></i>
+      </a>
+    </span>
+  </p>
+</div>
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="updates-and-corrections">Corrections</h3>
+  <p>If you see mistakes or want to suggest changes, please <a href="https://github.com/manboha/manboha.github.io/issues/new">create an issue</a> on the source repository.</p>
+  <h3 id="reuse">Reuse</h3>
+  <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source code is available at <a href="https://github.com/manboha/manboha.github.io">https://github.com/manboha/manboha.github.io</a>, unless otherwise noted. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Maeng (2019, July 7). Mblog for Data Analysis: CCTV Surveillance Cameras in Seoul. Retrieved from https://manboha.github.io/posts/2019-07-04-cctv-surveillance-cameras-in-seoul/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{maeng2019cctv,
+  author = {Maeng, Bohak},
+  title = {Mblog for Data Analysis: CCTV Surveillance Cameras in Seoul},
+  url = {https://manboha.github.io/posts/2019-07-04-cctv-surveillance-cameras-in-seoul/},
+  year = {2019}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
