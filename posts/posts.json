@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2019-07-22-visualization-of-data/",
+    "title": "Visualization of Multi-Dimensional Data",
+    "description": {},
+    "author": [
+      {
+        "name": "Bohak Maeng",
+        "url": "https://manboha.github.io"
+      }
+    ],
+    "date": "2019-07-22",
+    "categories": [],
+    "preview": "posts/2019-07-22-visualization-of-data/visualization-of-data_files/figure-html5/unnamed-chunk-6-1.png",
+    "last_modified": "2019-07-25T23:44:19+09:00",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2019-07-04-cctv-surveillance-cameras-in-seoul/",
     "title": "CCTV Surveillance Cameras in Seoul",
     "description": {},
