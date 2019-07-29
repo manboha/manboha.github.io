@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2019-07-29-crimes-in-seoul/",
+    "title": "Crimes in Seoul",
+    "description": {},
+    "author": [
+      {
+        "name": "Bohak Maeng",
+        "url": "https://manboha.github.io"
+      }
+    ],
+    "date": "2019-07-29",
+    "categories": [],
+    "preview": "posts/2019-07-29-crimes-in-seoul/crimes-in-seoul_files/figure-html5/remedy025-1.png",
+    "last_modified": "2019-07-30T00:00:13+09:00",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2019-07-22-visualization-of-data/",
     "title": "Visualization of Multi-Dimensional Data",
     "description": {},
