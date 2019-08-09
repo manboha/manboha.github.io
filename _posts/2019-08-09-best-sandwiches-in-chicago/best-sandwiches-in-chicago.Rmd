@@ -1,0 +1,137 @@
+---
+title: "Best Sandwiches in Chicago"
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: 08-09-2019
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# load packages
+library(tidyverse)
+library(rvest)
+```
+
+```{r}
+# The 50 Best Sandwiches in Chicago webpage
+url <- "https://www.chicagomag.com/Chicago-Magazine/November-2012/Best-Sandwiches-Chicago/"
+```
+
+```{r}
+# get HTML object
+best_sandwich <- read_html(url)
+```
+
+```{r}
+# find information - The 50 Best Sandwiches in Chicago
+# html_nodes("html tag"), html_nodes(".class"), html_nodes("#id")
+best_sandwich %>% html_nodes(".sammy")
+```
+
+```{r}
+# get ranking
+rank <- best_sandwich %>% 
+  html_nodes(".sammyRank") %>% html_text()
+```
+
+```{r}
+# get main menu name
+menu <- best_sandwich %>% 
+  html_nodes(".sammyListing") %>% html_text() %>% 
+  str_split(pattern = "\r\n") %>% map(1) %>% unlist()
+```
+
+```{r}
+# get cafe name 
+cafe <- best_sandwich %>% 
+  html_nodes(".sammyListing") %>% html_text() %>% 
+  str_split(pattern = "\r\n") %>% map(2) %>%  
+  str_remove(pattern = "Read more.*")
+```
+
+```{r}
+# get link url
+url <- best_sandwich %>% 
+  html_nodes(".sammyListing") %>% 
+  html_nodes("a") %>% html_attr("href")
+```
+
+```{r}
+# url : detecting absence of "http://www.chicagomag.com", add string
+url <- ifelse(str_detect(url, "http://www.chicagomag.com"), 
+              url, 
+              str_c("http://www.chicagomag.com", url))
+```
+
+
+```{r}
+# to dataframe tibble
+ch_best_sandwich <- tibble(rank, menu, cafe, url)
+str(ch_best_sandwich)
+```
+
+```{r}
+# get webpages to list
+htmls <- list()
+htmls <- ch_best_sandwich$url %>% map(read_html)
+```
+
+```{r}
+# get price
+# "\\.[:blank:]" == ". "
+price <- htmls %>% 
+  map(~html_nodes(., ".addy")) %>% 
+  map(~html_node(., "em")) %>% 
+  map(~html_text(.)) %>% 
+  map(~str_split(., pattern = "\\.[:blank:]", n = 2)) %>% 
+  map(~map(., 1)) %>% 
+  unlist()
+```
+
+```{r}
+# get address
+# ",[:blank:][:digit:]" == ", [0:9]"
+# "[:digit:]\\.[:blank:]" == "[0:9]. "
+# "Multiple locations.*" == "Multiple locations + any charater"
+address <- htmls %>% 
+  map(~html_nodes(., ".addy")) %>% 
+  map(~html_node(., "em")) %>% 
+  map(~html_text(.)) %>% 
+  map(~str_split(., pattern = ",[:blank:][:digit:]")) %>% 
+  map(~map(., 1)) %>% 
+  map(~str_split(., pattern = "[:digit:]\\.[:blank:]")) %>% 
+  map(~map(., 2)) %>% 
+  map(~str_replace(., "Multiple locations.*", "Multiple locations")) %>% 
+  unlist()
+```
+
+```{r}
+# add columns to a data frame
+ch_best_sandwich <- ch_best_sandwich %>% add_column(price, address)
+```
+
+```{r}
+# reorder columns : move price column to the 3rd position
+ch_best_sandwich <- ch_best_sandwich %>% select(1:2, price, everything())
+```
+
+```{r}
+# printing tibbles
+ch_best_sandwich %>% print(n = Inf)
+```
+
+```{r}
+# save csv file
+write.csv(ch_best_sandwich, file = "chicago_best_sandwich.csv", row.names = FALSE)
+```
+
+
+
+
