@@ -1,11 +1,7 @@
-.Rproj.user
 .Rproj.user/
-.Rproj.user/*
 .Rhistory
 .RData
 .Ruserdata
-.gitignore
 *.Rproj
-.Rhistory
 *.pper
-.Rproj.user/A2CC68F4/rmd-outputs
+_posts/

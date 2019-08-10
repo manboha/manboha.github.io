@@ -33,7 +33,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 패키지 준비
 
-```{r remedy001, message=FALSE}
+```{r, message=FALSE}
 library(tidyverse)
 library(stringr)
 library(gridExtra)
@@ -45,7 +45,7 @@ library(GGally)
 
 ### 서울시 관서별 5대 주요 범죄 데이터(2000년 ~ 2017년) 불러오기
 
-```{r remedy002}
+```{r}
 scrime <- read.csv("data/seoul_crime_2000_2017.csv", 
                    stringsAsFactors = FALSE, encoding = "euc-kr")
 str(scrime)
@@ -53,20 +53,20 @@ str(scrime)
 
 ### 서울시 범죄 데이터 정리하기
 
-```{r remedy003}
+```{r}
 # 2017년 기준으로 분석할 것이기 때문에 2017년 데이터만 추출
 scrime <- scrime %>% 
   filter(year == 2017)
 ```
 
-```{r remedy004}
+```{r}
 # 분석의 편의를 위해 '발생검거'열을 2개의 열(발생, 검거) 로 나누고자 함
 scrime <- scrime %>% 
   spread(key = "발생검거", value = "건수")
 str(scrime)
 ```
 
-```{r remedy005}
+```{r}
 # 죄종을 5개의 열로 나누고 각 열별로 검거와 발생을 연결하여 정리하기
 scrime <- scrime %>% 
   nest(검거, 발생, .key = "value_col") %>% 
@@ -75,7 +75,7 @@ scrime <- scrime %>%
 str(scrime)
 ```
 
-```{r remedy006}
+```{r}
 # 구분(경찰서명)의 앞과 뒤에 "서울"과 "경찰서" 붙이기(예, 중부 -> 서울중부경찰서)
 scrime <- scrime %>% 
   mutate(구분 = paste0("서울", 구분, "경찰서"))
@@ -84,13 +84,13 @@ scrime %>% print(n = Inf)
 
 ### 경찰서의 주소를 찾아 경찰서가 위치한 자치구 변수 추가
 
-```{r remedy007}
+```{r}
 # 경찰서 주소가 들어있는 데이터 불러오기
 police_addr <- read.csv("data/police_address.csv", stringsAsFactors = FALSE)
 str(police_addr)
 ```
 
-```{r remedy008}
+```{r}
 # 엑셀 vlookup과 유사한 함수 (this=찾는값, df=데이터, key=찾는변수, value=얻는값 )
 vlookup <- function(this, df, key, value) {
   m <- match(this, df[[key]])
@@ -98,14 +98,14 @@ vlookup <- function(this, df, key, value) {
 }
 ```
 
-```{r remedy009}
+```{r}
 # 경찰서명에 맞는 주소를 찾아 새로운 변수에 입력하기
 scrime <- scrime %>% 
   mutate(주소 = vlookup(구분, police_addr, "office", "address"))
 scrime %>% select(구분, 주소) %>% print(n = Inf)
 ```
 
-```{r remedy010}
+```{r}
 # 주소에서 두번째에 있는 자치구 이름만 추출하여 새로운 변수(자치구)에 입력하기
 scrime <- scrime %>% 
   separate(주소, c(NA, "자치구"), sep = " ", extra = "drop")
@@ -119,7 +119,7 @@ scrime %>% select(구분, 자치구) %>% arrange(자치구) %>%  print(n = Inf)
 구를 기준으로 정렬한 결과, 7개 구에 2개의 경찰서가 있는 것으로 나타남.
 서울강서경찰서는 현재 양천구 임시청사에 있으나 관할구역은 강서구임.
 
-```{r remedy011}
+```{r}
 # 서울강서경찰서의 자치구를 강서구로 수정함
 scrime <- scrime %>% 
   mutate(자치구 = replace(자치구, which(구분 == "서울강서경찰서"), "강서구"))
@@ -127,7 +127,7 @@ scrime <- scrime %>%
 
 서울시 자치구의 수는 25개임. 강남과 수서는 강남구, 서초와 방배는 서초구, 성북과 종암은 성북구, 서부와 은평은 은평구, 종로와 혜화는 종로구, 중부와 남대문은 중구를 관할함.
 
-```{r remedy012}
+```{r}
 # 자치구를 기준으로 변수들을 통합함(구분, year 변수는 삭제)
 scrime <- scrime %>% 
   group_by(자치구) %>% 
@@ -145,14 +145,14 @@ scrime <- scrime %>%
 
 이상으로 2017년 기준 서울시 자치구별 5대 범죄의 발생과 검거 건수를 정리함
 
-```{r remedy013}
+```{r}
 # 서울시 범죄 데이터 정리 결과 보기
 scrime %>% print(n = Inf, width = Inf)
 ```
 
 ### 서울시 인구 데이터 불러오기
 
-```{r remedy014}
+```{r}
 # 서울시 인구 데이터 불러오기
 spop <- read.csv("data/seoul_pop_1992_2018.csv", stringsAsFactors = FALSE)
 str(spop)
@@ -160,7 +160,7 @@ str(spop)
 
 ### 서울시 인구 데이터 정리하기
 
-```{r remedy015}
+```{r}
 # 2017년도 자치구, 인구, 한국인, 외국인, 고령자, 인구밀도, 면적 데이터 추출
 spop2017 <- spop %>% 
   filter(연도 == 2017) %>% 
@@ -169,13 +169,13 @@ spop2017 <- spop %>%
 
 데이터의 첫번째 행에 있는 합계는 필요 없으로 삭제함
 
-```{r remedy016}
+```{r}
 # 첫번째 행(합계) 삭제
 spop2017 <- spop2017[-1,]
 str(spop2017)  
 ```
 
-```{r remedy017}
+```{r}
 # 외국인비율과 고령자비율 변수 추가
 spop2017 <- spop2017 %>% 
   mutate(외국인비율 = 외국인 / 인구 * 100,
@@ -185,7 +185,7 @@ head(spop2017)
 
 ### 서울시 CCTV 데이터 불러오기
 
-```{r remedy018}
+```{r}
 # 서울시 CCTV 설치 현황(2011년이전 ~ 2018년) 데이터 불러오기
 scctv <- read.csv("data/seoul_cctv_b2011_2018.csv", stringsAsFactors = FALSE)
 str(scctv)
@@ -196,7 +196,7 @@ str(scctv)
 데이터는 각 년도별로 설치된 대수와 2018년까지의 소계를 보여주고 있다.
 2017년까지 설치된 CCTV 누적대수는 소계에서 2018년 설치대수를 빼는 방식으로 계산하고자 한다.
 
-```{r remedy019}
+```{r}
 # 2017년 기준 CCTV 설치누적대수 산출하기
 scctv2017 <- scctv %>% 
   mutate(cctv2017 = 소계 - X2018년) %>% 
@@ -204,12 +204,12 @@ scctv2017 <- scctv %>%
 str(scctv2017)
 ```
 
-```{r remedy020}
+```{r}
 # 기관명을 자치구로 변수명 변경
 scctv2017 <- scctv2017 %>% rename(자치구 = 기관명)
 ```
 
-```{r remedy021}
+```{r}
 # 자치구 글자 사이에 공백이 있으므로 이를 제거
 scctv2017$자치구 <- str_replace_all(scctv2017$자치구, " ", "")
 head(scctv2017)
@@ -218,7 +218,7 @@ head(scctv2017)
 
 ### 자치구를 기준으로 범죄, 인구, CCTV 데이터 병합하기
 
-```{r remedy022}
+```{r}
 # scrime, spop2017, scctv2017 병합
 seoul_crime_pop_cctv <- list(scrime, spop2017, scctv2017) %>% 
   reduce(left_join, by = "자치구") 
@@ -226,7 +226,7 @@ str(seoul_crime_pop_cctv)
 ```
 
 
-```{r remedy023}
+```{r}
 # 5대범죄합계, 범죄발생율(범죄/인구 10만명)과 범죄검거율(검거/발생) 변수 생성 
 seoul_crime_pop_cctv <- seoul_crime_pop_cctv %>% 
   mutate(주요범죄발생 = 강간발생 + 강도발생 + 살인발생 + 절도발생 + 폭력발생,
@@ -245,7 +245,7 @@ seoul_crime_pop_cctv <- seoul_crime_pop_cctv %>%
          폭력검거율 = 폭력검거 / 폭력발생)
 ```
 
-```{r remedy024}
+```{r}
 # 데이터 사본 만들기
 seoul <- seoul_crime_pop_cctv
 str(seoul)
@@ -279,7 +279,7 @@ str(seoul)
 
 ### 주요범죄 발생건수가 높은 구(낮은 구)는?
 
-```{r remedy025}
+```{r}
 g1 <- seoul %>% 
   mutate(자치구 = fct_reorder(자치구, 주요범죄발생)) %>% 
   ggplot(aes(자치구, 주요범죄발생)) +
@@ -292,7 +292,7 @@ print(g1)
 
 ### 주요범죄 발생율이 높은 구(낮은 구)는?
 
-```{r remedy026}
+```{r}
 g2 <- seoul %>% 
   mutate(자치구 = fct_reorder(자치구, 주요범죄율)) %>% 
   ggplot(aes(자치구, 주요범죄율)) +
@@ -305,13 +305,13 @@ print(g2)
 
 ### 자치구별 주요범죄 발생건수와 발생율 비교
 
-```{r remedy027}
+```{r}
 grid.arrange(g1, g2, nrow=1, ncol=2)
 ```
 
 ### 주요범죄 검거율이 높은 구(낮은 구)는?
 
-```{r remedy028}
+```{r}
 g3 <- seoul %>% 
   mutate(자치구 = fct_reorder(자치구, 주요범죄검거율)) %>% 
   ggplot(aes(자치구, 주요범죄검거율)) +
@@ -325,19 +325,19 @@ print(g3)
 
 ### 자치구별 주요범죄 발생율과 검거율 비교
 
-```{r remedy029}
+```{r}
 grid.arrange(g2, g3, nrow=1, ncol=2)
 ```
 
 
 ### 각 범죄의 발생율이 높은 구(낮은 구)는?
 
-```{r remedy030}
+```{r}
 # 죄종별 범죄율의 변수명 리스트
 offense_list <- c("강간범죄율", "강도범죄율", "살인범죄율", "절도범죄율", "폭력범죄율")
 ```
 
-```{r remedy031}
+```{r}
 # 막대 그래프 
 seoul %>% 
   select(자치구, offense_list) %>% 
@@ -350,7 +350,7 @@ seoul %>%
   theme_test()
 ```
 
-```{r remedy032}
+```{r}
 # 히트맵
 seoul %>% 
   select(자치구, offense_list) %>% 
@@ -365,12 +365,12 @@ seoul %>%
 
 ### 각 범죄의 검거율이 높은 구(낮은 구)는?
 
-```{r remedy033}
+```{r}
 # 죄종별 검거율의 변수명 리스트
 arrest_list <- c("강간검거율", "강도검거율", "살인검거율", "절도검거율", "폭력검거율")
 ```
 
-```{r remedy034}
+```{r}
 # 막대그래프
 seoul %>% 
   select(자치구, arrest_list) %>% 
@@ -383,7 +383,7 @@ seoul %>%
   theme_test()
 ```
 
-```{r remedy035}
+```{r}
 # 히트맵
 seoul %>% 
   select(자치구, arrest_list) %>% 
@@ -399,14 +399,14 @@ seoul %>%
 
 ### 각 범죄 발생율의 상관관계는?
 
-```{r remedy036}
+```{r}
 # 변수간 상관계수 
 seoul %>% 
   select(offense_list) %>% 
   ggcorr(label=TRUE, size = 5)
 ```
 
-```{r remedy037}
+```{r}
 # 변수간 상관관계 산점도 및 상관계수
 seoul %>% 
   select(offense_list) %>% 
@@ -415,13 +415,13 @@ seoul %>%
 
 ### 각 범죄 검거율의 상관관계는?
 
-```{r remedy038}
+```{r}
 seoul %>% 
   select(arrest_list) %>% 
   ggcorr(label=TRUE, size = 5)
 ```
 
-```{r remedy039}
+```{r}
 seoul %>% 
   select(arrest_list) %>% 
   ggscatmat(alpha = 0.7)
@@ -430,7 +430,7 @@ seoul %>%
 
 ### 주요범죄 발생건수와 주요범죄 발생율의 상관관계는?
 
-```{r remedy040}
+```{r}
 seoul %>% 
   ggplot(aes(x = 주요범죄발생, y = 주요범죄율)) +
   geom_point(color = "deepskyblue", size = 3) +
@@ -445,7 +445,7 @@ seoul %>%
 
 ### 인구와 주요범죄 발생건수의 상관관계는?
 
-```{r remedy041}
+```{r}
 seoul %>% 
   ggplot(aes(x = 인구, y = 주요범죄발생)) +
   geom_point(color = "deepskyblue", size = 3) +
@@ -459,7 +459,7 @@ seoul %>%
 
 ### 인구와 주요범죄 발생율의 상관관계는?
 
-```{r remedy042}
+```{r}
 seoul %>% 
   ggplot(aes(x = 인구, y = 주요범죄율)) +
   geom_point(color = "deepskyblue", size = 3) +
@@ -473,7 +473,7 @@ seoul %>%
 
 ### 죄종별 인구와 범죄발생율의 상관관계는?
 
-```{r remedy043}
+```{r}
 seoul %>% 
   select(자치구, 인구, offense_list) %>% 
   gather(key = "죄종", value = "범죄율", offense_list) %>% 
@@ -487,7 +487,7 @@ seoul %>%
 
 ### CCTV와 주요범죄 발생건수의 상관관계는?
 
-```{r remedy044}
+```{r}
 seoul %>% 
   ggplot(aes(x = cctv2017, y = 주요범죄발생)) +
   geom_point(color = "deepskyblue", size = 3) +
@@ -501,7 +501,7 @@ seoul %>%
 
 ### CCTV와 주요범죄율의 상관관계는?
 
-```{r remedy045}
+```{r}
 seoul %>% 
   ggplot(aes(x = cctv2017, y = 주요범죄율)) +
   geom_point(color = "deepskyblue", size = 3) +
@@ -515,7 +515,7 @@ seoul %>%
 
 ### 죄종별 CCTV와 범죄율의 상관관계는?
 
-```{r remedy046, warning=FALSE}
+```{r, warning=FALSE}
 seoul %>% 
   select(자치구, cctv2017, offense_list) %>% 
   gather(key = "죄종", value = "범죄율", offense_list) %>% 
@@ -530,7 +530,7 @@ seoul %>%
 
 ### CCTV와 주요범죄 검거율의 상관관계는?
 
-```{r remedy047}
+```{r}
 seoul %>% 
   ggplot(aes(x = cctv2017, y = 주요범죄검거율)) +
   geom_point(color = "deepskyblue", size = 3) +
@@ -544,7 +544,7 @@ seoul %>%
 
 ### 죄종별 CCTV와 주요범죄 검거율의 상관관계는?
 
-```{r remedy048}
+```{r}
 seoul %>% 
   select(자치구, cctv2017, arrest_list) %>% 
   gather(key = "죄종", value = "검거율", arrest_list) %>% 
@@ -558,7 +558,7 @@ seoul %>%
 
 ### 외국인 비율과 주요범죄율의 상관관계는?
 
-```{r remedy049}
+```{r}
 seoul %>% 
   ggplot(aes(x = 외국인비율, y = 주요범죄율)) +
   geom_point(color = "deepskyblue", size = 3) +
@@ -574,7 +574,7 @@ seoul %>%
 
 ### 죄종별 외국인 비율과 범죄율의 상관관계는?
 
-```{r remedy050}
+```{r}
 seoul %>% 
   select(자치구, 외국인비율, offense_list) %>% 
   gather(key = "죄종", value = "범죄율", offense_list) %>% 
@@ -589,7 +589,7 @@ seoul %>%
 
 ### 고령자 비율과 주요범죄율의 상관관계는?
 
-```{r remedy051}
+```{r}
 seoul %>% 
   ggplot(aes(x = 고령자비율, y = 주요범죄율)) +
   geom_point(color = "deepskyblue", size = 3) +
@@ -604,7 +604,7 @@ seoul %>%
 
 ### 죄종별 고령자 비율과 범죄율의 상관관계는?
 
-```{r remedy052}
+```{r}
 
 seoul %>% 
   select(자치구, 고령자비율, offense_list) %>% 
@@ -618,3 +618,5 @@ seoul %>%
   theme_test()
 
 ```
+
+참고 : 민형기(2017)의 ’파이썬으로 데이터 주무르기’를 참고하여 R 언어로 분석

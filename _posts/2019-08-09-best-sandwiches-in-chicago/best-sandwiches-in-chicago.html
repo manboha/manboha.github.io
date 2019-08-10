@@ -46,7 +46,7 @@
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["chicago_best_sandwich.csv"]}
+  {"type":"character","attributes":{},"value":["best-sandwiches-in-chicago_files/bowser-1.9.3/bowser.min.js","best-sandwiches-in-chicago_files/distill-2.2.21/template.v2.js","best-sandwiches-in-chicago_files/jquery-1.11.3/jquery.min.js","best-sandwiches-in-chicago_files/webcomponents-2.0.0/webcomponents.js","chicago_best_sandwich.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -963,6 +963,7 @@
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # load packages
+# 패키지 로드
 library(tidyverse)
 library(rvest)</code></pre>
 </div>
@@ -974,8 +975,10 @@ url &lt;- &quot;https://www.chicagomag.com/Chicago-Magazine/November-2012/Best-S
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # get HTML object
+# 웹페이지 읽어오기
 best_sandwich &lt;- read_html(url)</code></pre>
 </div>
+<p>class 이름이 sammy 인 것을 찾아 원하는 정보가 있는지 확인</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # find information - The 50 Best Sandwiches in Chicago
@@ -1005,12 +1008,14 @@ best_sandwich %&gt;% html_nodes(&quot;.sammy&quot;)</code></pre>
 [20] &lt;div class=&quot;sammy&quot; style=&quot;position: relative;&quot;&gt;\r\n&lt;div class= ...
 ...</code></pre>
 </div>
+<p>순위는 class 이름이 sammyRank 인 곳의 텍스트임</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # get ranking
 rank &lt;- best_sandwich %&gt;% 
   html_nodes(&quot;.sammyRank&quot;) %&gt;% html_text()</code></pre>
 </div>
+<p>메인 메뉴 이름은 class 이름이 sammyListing 인 곳의 텍스트이며, 패턴을 분석하여 필요한 텍스트만 추출</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # get main menu name
@@ -1018,6 +1023,7 @@ menu &lt;- best_sandwich %&gt;%
   html_nodes(&quot;.sammyListing&quot;) %&gt;% html_text() %&gt;% 
   str_split(pattern = &quot;\r\n&quot;) %&gt;% map(1) %&gt;% unlist()</code></pre>
 </div>
+<p>카페 이름은 class 이름이 sammyListing 인 곳의 텍스트이며, 패턴을 분석하여 필요한 텍스트만 추출</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # get cafe name 
@@ -1026,6 +1032,7 @@ cafe &lt;- best_sandwich %&gt;%
   str_split(pattern = &quot;\r\n&quot;) %&gt;% map(2) %&gt;%  
   str_remove(pattern = &quot;Read more.*&quot;)</code></pre>
 </div>
+<p>더 자세한 정보가 있는 링크 주소 추출</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # get link url
@@ -1033,6 +1040,7 @@ url &lt;- best_sandwich %&gt;%
   html_nodes(&quot;.sammyListing&quot;) %&gt;% 
   html_nodes(&quot;a&quot;) %&gt;% html_attr(&quot;href&quot;)</code></pre>
 </div>
+<p>추출된 링크 주소 중 불완전한 부분 보완</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # url : detecting absence of &quot;http://www.chicagomag.com&quot;, add string
@@ -1040,6 +1048,7 @@ url &lt;- ifelse(str_detect(url, &quot;http://www.chicagomag.com&quot;),
               url, 
               str_c(&quot;http://www.chicagomag.com&quot;, url))</code></pre>
 </div>
+<p>추출된 데이터를 데이터프레임으로 변환</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # to dataframe tibble
@@ -1052,12 +1061,14 @@ Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:   50 obs. of  
  $ cafe: chr  &quot;Old Oak Tap&quot; &quot;Au Cheval&quot; &quot;Xoco&quot; &quot;Al’s Deli&quot; ...
  $ url : chr  &quot;http://www.chicagomag.com/Chicago-Magazine/November-2012/Best-Sandwiches-in-Chicago-Old-Oak-Tap-BLT/&quot; &quot;http://www.chicagomag.com/Chicago-Magazine/November-2012/Best-Sandwiches-in-Chicago-Au-Cheval-Fried-Bologna/&quot; &quot;http://www.chicagomag.com/Chicago-Magazine/November-2012/Best-Sandwiches-in-Chicago-Xoco-Woodland-Mushroom/&quot; &quot;http://www.chicagomag.com/Chicago-Magazine/November-2012/Best-Sandwiches-in-Chicago-Als-Deli-Roast-Beef/&quot; ...</code></pre>
 </div>
+<p>추출된 링크 주소를 이용하여 각 웹페이지 추출하여 htmls에 저장</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # get webpages to list
 htmls &lt;- list()
 htmls &lt;- ch_best_sandwich$url %&gt;% map(read_html)</code></pre>
 </div>
+<p>각 웹페이지에 접근하여 각 메인 메뉴의 가격정보 추출</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # get price
@@ -1070,6 +1081,7 @@ price &lt;- htmls %&gt;%
   map(~map(., 1)) %&gt;% 
   unlist()</code></pre>
 </div>
+<p>각 웹페이지에 접근하여 각 카페의 주소 추출</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # get address
@@ -1087,11 +1099,13 @@ address &lt;- htmls %&gt;%
   map(~str_replace(., &quot;Multiple locations.*&quot;, &quot;Multiple locations&quot;)) %&gt;% 
   unlist()</code></pre>
 </div>
+<p>기존 데이터프레임에 새로운 변수 2개 추가</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # add columns to a data frame
 ch_best_sandwich &lt;- ch_best_sandwich %&gt;% add_column(price, address)</code></pre>
 </div>
+<p>데이터프레임에서 열(변수)의 순서 조정</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # reorder columns : move price column to the 3rd position
@@ -1161,6 +1175,7 @@ ch_best_sandwich %&gt;% print(n = Inf)</code></pre>
 # save csv file
 write.csv(ch_best_sandwich, file = &quot;chicago_best_sandwich.csv&quot;, row.names = FALSE)</code></pre>
 </div>
+<p>참고 : 민형기(2017)의 ’파이썬으로 데이터 주무르기’를 참고하여 R 언어로 변환하여 작성</p>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
