@@ -19,9 +19,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### [설치](install_r.html)
 
-* R 설치
-* RStudio 설치 
-* R package 설치
++ [R이란?](install_r.html)
++ [R 설치](install_r.html#r-)
++ [R의 특징](install_r.html#r--1)
++ [RStudio 설치](install_r.html#rstudio-)
++ [R package 설치 및 사용](install_r.html#r-package---)
++ [R package 관리](install_r.html/r-package-)
 
 ### R 프로그래밍 기초
 
