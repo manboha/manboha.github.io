@@ -17,7 +17,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### [설치](rbasic/install_r.html)
+### [설치](install_r.html)
 
 * R 설치
 * RStudio 설치 
