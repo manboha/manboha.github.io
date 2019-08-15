@@ -17,28 +17,28 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## R 소개와 설치
-* [R이란 무엇인가?](rbasic/what_is_r.html)
-* R과 RStudio 설치 
-* R package
-* 표현식, 할당
-* 연산자와 기본 수학함수
-* 작업 디렉토리와 객체
+### [설치](rbasic/install_r.html)
 
-## 자료형과 객체
+* R 설치
+* RStudio 설치 
+* R package 설치
+
+### R 프로그래밍 기초
+
+* 객체(변수)의 할당과 삭제
+* 기초 연산자
+* 기본 수학함수
 * 자료형
-* 자료형 검사와 변환
-* 객체의 종류
-* vector
-* matrix
-* array
-* factor
-* list
-* data frame
-* time series
-* 객체의 검사와 변환
+* Vector
+* Matrix
+* Array
+* Factor
+* List
+* Data frame
+* 제어문 - 조건문, 반복문, 분기문
 
-## 기초 함수
+### R 기초 함수
+
 * 날짜와 시간
 * 문자열
 * 벡터 연산 함수
@@ -46,17 +46,12 @@ knitr::opts_chunk$set(echo = FALSE)
 * 시스템 함수
 * 사용자 정의 함수
 
-## 입력과 출력
+### 데이터 불러오기와 저장하기
+
 * 데이터 입력
 * 데이터 출력
 * 백업 및 복원
 
-## 제어문
-* 조건문
-* 반복문
-* 분기문
-
-## 그래픽
 
 
 
