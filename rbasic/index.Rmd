@@ -40,7 +40,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * [R 벡터 Vector](r_vector.html)
 * [R 행렬 Matrix](r_matrix.html)
-* [R 팩터 Factor](f_factor.html)
+* [R 팩터 Factor](r_factor.html)
 * [R 배열 Array](r_array.html)
 * [R 데이터 프레임 Data frame](r_dataframe.html)
 * [R 리스트 List](r_list.html)
