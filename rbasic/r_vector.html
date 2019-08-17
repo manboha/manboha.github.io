@@ -19,7 +19,7 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Mblog for Data Analysis: R Basic</title>
+  <title>Mblog for Data Analysis: R 벡터 Vector</title>
   
   
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
@@ -30,20 +30,20 @@
   <meta name="article:author" content="Bohak Maeng"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Mblog for Data Analysis: R Basic"/>
+  <meta property="og:title" content="Mblog for Data Analysis: R 벡터 Vector"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Mblog for Data Analysis"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Mblog for Data Analysis: R Basic"/>
+  <meta property="twitter:title" content="Mblog for Data Analysis: R 벡터 Vector"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R Basic"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R 벡터 Vector"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1274,7 +1274,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"R Basic","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-17T00:00:00.000+09:00","citationText":"Maeng, 2019"}
+{"title":"R 벡터 Vector","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-17T00:00:00.000+09:00","citationText":"Maeng, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1311,7 +1311,7 @@ Data Analysis
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>R Basic</h1>
+<h1>R 벡터 Vector</h1>
 
 </div>
 
@@ -1325,82 +1325,218 @@ Data Analysis
 <h3 class="d-toc-header">Table of Contents</h3>
 <nav class="d-toc" id="TOC">
 <ul>
-<li><a href="#r--install">R 설치 Install</a></li>
-<li><a href="#r---programming-basics">R 프로그래밍 기초 Programming Basics</a></li>
-<li><a href="#r---data-structure">R 데이터 구조 Data Structure</a></li>
-<li><a href="#r--flow-control">R 제어문 Flow Control</a></li>
-<li><a href="#r--fuctions">R 함수 Fuctions</a></li>
-<li><a href="#r--read-write">R 입출력 Read &amp; Write</a></li>
-<li><a href="#r--graphs-charts">R 그래프 Graphs &amp; Charts</a></li>
-<li><a href="#r---objects-class">R 객체와 클래스 Objects &amp; Class</a></li>
+<li><a href="#create-a-vector">벡터 만들기 Create a vector</a></li>
+<li><a href="#get-a-subset-of-a-vector">벡터 요소 추출 Get a subset of a vector</a></li>
+<li><a href="#calculations">벡터 연산 Calculations</a></li>
+<li><a href="#section-6">기타</a></li>
 </ul>
 </nav>
 <hr class="d-toc-separator"/>
-<h2 id="r--install">R 설치 Install</h2>
-<ul>
-<li><a href="install_r.html">R이란?</a></li>
-<li><a href="install_r.html#r-">R 설치</a></li>
-<li><a href="install_r.html#r--1">R의 특징</a></li>
-<li><a href="install_r.html#rstudio-">RStudio 설치</a></li>
-<li><a href="install_r.html#r-package---">R package 설치 및 사용</a></li>
-<li><a href="install_r.html#r-package-">R package 관리</a></li>
-</ul>
-<h2 id="r---programming-basics">R 프로그래밍 기초 Programming Basics</h2>
-<ul>
-<li><a href="r_programming_basic1.html#section">R 기초 산술 연산자</a></li>
-<li><a href="r_programming_basic1.html#section-1">R 논리 연산자</a></li>
-<li><a href="r_programming_basic1.html#section-2">R 기초 산술 함수</a></li>
-<li><a href="r_programming_basic1.html#section-6">R 객체(변수)의 할당과 삭제</a></li>
-<li><a href="r_programming_basic1.html#basic-data-types">R 기본 데이터 타입 Basic data types</a></li>
-<li><a href="r_programming_basic1.html#built-in-constants">R 내장형 상수 Built-in Constants</a></li>
-<li><a href="r_programming_basic1.html#reserved-words">R 예약어 Reserved Words</a></li>
-</ul>
-<h2 id="r---data-structure">R 데이터 구조 Data Structure</h2>
-<ul>
-<li><a href="r_vector.html">R 벡터 Vector</a></li>
-<li><a href="r_matrix.html">R 행렬 Matrix</a></li>
-<li><a href="f_factor.html">R 팩터 Factor</a></li>
-<li><a href="r_array.html">R 배열 Array</a></li>
-<li><a href="r_dataframe.html">R 데이터 프레임 Data frame</a></li>
-<li><a href="r_list.html">R 리스트 List</a></li>
-</ul>
-<h2 id="r--flow-control">R 제어문 Flow Control</h2>
-<ul>
-<li>R 조건문</li>
-<li>R 반복문</li>
-<li>R 분기문</li>
-</ul>
-<h2 id="r--fuctions">R 함수 Fuctions</h2>
-<ul>
-<li>R 날짜와 시간 함수</li>
-<li>R 문자열</li>
-<li>R 벡터 연산 함수</li>
-<li>R 데이터 관리 함수</li>
-<li>R 시스템 함수</li>
-<li>R 사용자 정의 함수</li>
-</ul>
-<h2 id="r--read-write">R 입출력 Read &amp; Write</h2>
-<ul>
-<li>데이터 불러오기</li>
-<li>데이터 저장하기</li>
-<li>백업 및 복원</li>
-</ul>
-<h2 id="r--graphs-charts">R 그래프 Graphs &amp; Charts</h2>
-<ul>
-<li>R Programming Bar Plot</li>
-<li>R Programming Histogram</li>
-<li>R Programming Pie Chart</li>
-<li>R Box Plot</li>
-<li>R Strip Chart</li>
-</ul>
-<h2 id="r---objects-class">R 객체와 클래스 Objects &amp; Class</h2>
-<ul>
-<li>Object and Class</li>
-<li>R S3 Class</li>
-<li>R S4 Class</li>
-<li>R Reference Class</li>
-<li>R Inheritance</li>
-</ul>
+<p>벡터란 동일한 형태(예, 숫자 또는 문자)의 데이터 값들이 나열되어 있는 데이터 구조입니다.</p>
+<h2 id="create-a-vector">벡터 만들기 Create a vector</h2>
+<h3 id="c---">c() 함수로 벡터 만들기</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 변수 v1에 숫자 1, 2, 3을 할당
+v1 &lt;- c(1, 2, 3)  
+v2 &lt;- c(4, 5, 6)  
+v1; v2</code></pre>
+<pre><code>
+[1] 1 2 3</code></pre>
+<pre><code>
+[1] 4 5 6</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 변수 v3에 변수 v1과 v2의 값들을 결합하여 할당
+v3 &lt;- c(v1, v2)   
+v3</code></pre>
+<pre><code>
+[1] 1 2 3 4 5 6</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 변수 s1에 문자열 벡터인 &quot;대한&quot;, &quot;민국&quot;, &quot;행정&quot;을 할당
+s1 &lt;- c(&quot;대한&quot;, &quot;민국&quot;, &quot;행정&quot;)  
+s1</code></pre>
+<pre><code>
+[1] &quot;대한&quot; &quot;민국&quot; &quot;행정&quot;</code></pre>
+</div>
+<h3 id="section">연속적인 숫자로 벡터 만들기</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 콜론(:)을 이용해 연속 숫자가 들어 있는 변수 만들기
+var1 &lt;- c(1:5)   # 1~5까지의 연속 값
+var1</code></pre>
+<pre><code>
+[1] 1 2 3 4 5</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# seq() 함수를 이용해 연속 숫자가 들어 있는 변수 만들기
+var2 &lt;- seq(1, 5)   # 1~5까지의 연속 값
+var2</code></pre>
+<pre><code>
+[1] 1 2 3 4 5</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# seq() 함수의 by 옵션을 이용해 일정한 간격의 연속 숫자가 들어 있는 변수 만들기
+var3 &lt;- seq(1, 10, by = 2)   # 1~10까지 2간격의 연속 값
+var4 &lt;- seq(1, 10, by = 3)   # 1~10까지 3간격의 연속 값
+var5 &lt;- seq(from = 1.0, to = 2.0, length.out = 5)
+var3; var4; var5</code></pre>
+<pre><code>
+[1] 1 3 5 7 9</code></pre>
+<pre><code>
+[1]  1  4  7 10</code></pre>
+<pre><code>
+[1] 1.00 1.25 1.50 1.75 2.00</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# rep() 함수를 이용해 반복값이 들어있는 변수 만들기
+var6 &lt;- rep(5, times = 7)  # 5를 7번 반복 
+var7 &lt;- rep(c(&quot;a&quot;, &quot;b&quot;), each = 3)  # 각 문자 3번 반복
+var6; var7</code></pre>
+<pre><code>
+[1] 5 5 5 5 5 5 5</code></pre>
+<pre><code>
+[1] &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;b&quot; &quot;b&quot; &quot;b&quot;</code></pre>
+</div>
+<h3 id="section-1">벡터 요소 값에 이름 부여</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# names() 함수를 이용해 값마다 이름 부여
+mscore &lt;- c(95, 85, 75)
+names(mscore) &lt;- c(&quot;김철수&quot;, &quot;이영희&quot;, &quot;홍길동&quot;)
+mscore</code></pre>
+<pre><code>
+김철수 이영희 홍길동 
+    95     85     75 </code></pre>
+</div>
+<h2 id="get-a-subset-of-a-vector">벡터 요소 추출 Get a subset of a vector</h2>
+<p>벡터 안에 들어있는 값들을 요소라고 부릅니다.</p>
+<h3 id="section-2">특정 위치에 있는 요소 추출</h3>
+<p>벡터 내의 특정 위치에 있는 요소를 불러오려면 벡터명[번호]라고 하면 됩니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+v &lt;- c(11, 12, 13, 14, 15)
+w &lt;- c(1, 2, 3, 4, 5)
+v[1]  # 11 추출</code></pre>
+<pre><code>
+[1] 11</code></pre>
+<pre class="r"><code>
+v[2:3]  # 12, 13 추출</code></pre>
+<pre><code>
+[1] 12 13</code></pre>
+<pre class="r"><code>
+v[c(1, 3, 5)]  # 1,3,5 번째 값 출력</code></pre>
+<pre><code>
+[1] 11 13 15</code></pre>
+<pre class="r"><code>
+w[seq(1, 5, 2)]  # 홀수번째 값 출력</code></pre>
+<pre><code>
+[1] 1 3 5</code></pre>
+</div>
+<h3 id="section-3">이름으로 요소 추출</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+mscore &lt;- c(95, 85, 75)
+names(mscore) &lt;- c(&quot;김철수&quot;, &quot;이영희&quot;, &quot;홍길동&quot;)
+
+mscore[&quot;이영희&quot;]</code></pre>
+<pre><code>
+이영희 
+    85 </code></pre>
+</div>
+<h3 id="section-4">마이너스 기호(-)를 이용하여 요소 제외</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# -를 사용하면 원하지 않는 값을 제외할 수 있음
+v[-2]</code></pre>
+<pre><code>
+[1] 11 13 14 15</code></pre>
+<pre class="r"><code>
+w[-c(3:4)]</code></pre>
+<pre><code>
+[1] 1 2 5</code></pre>
+</div>
+<h3 id="section-5">조건으로 요소 추출</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+s &lt;- c(3, 1, 5, 9, 7, 10)
+
+# 5보다 큰 값을 골라내 부분 벡터로 추출
+s[s &gt;= 5] </code></pre>
+<pre><code>
+[1]  5  9  7 10</code></pre>
+<pre class="r"><code>
+# 8보다 큰 값을 골라내 부분 벡터로 추출
+subset(s, s &gt;= 8)</code></pre>
+<pre><code>
+[1]  9 10</code></pre>
+<pre class="r"><code>
+# s에서 8보다 큰 element를 가진 index를 리턴
+which(s &gt;= 8) </code></pre>
+<pre><code>
+[1] 4 6</code></pre>
+</div>
+<h2 id="calculations">벡터 연산 Calculations</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+v &lt;- c(11, 12, 13, 14, 15)
+w &lt;- c(1, 2, 3, 4, 5)
+
+v[1] + w[5]   # 11+5=16</code></pre>
+<pre><code>
+[1] 16</code></pre>
+<pre class="r"><code>
+v + w         # 11+1, 12+2, ...</code></pre>
+<pre><code>
+[1] 12 14 16 18 20</code></pre>
+<pre class="r"><code>
+v * w         # 11*1, 12*2, ... </code></pre>
+<pre><code>
+[1] 11 24 39 56 75</code></pre>
+<pre class="r"><code>
+w + 2         # 1+2, 2+2, ...</code></pre>
+<pre><code>
+[1] 3 4 5 6 7</code></pre>
+<pre class="r"><code>
+w - mean(w)   # 1-평균, 2-평균, ...</code></pre>
+<pre><code>
+[1] -2 -1  0  1  2</code></pre>
+<pre class="r"><code>
+sqrt(w)       # sqrt(1), sqrt(2), ...</code></pre>
+<pre><code>
+[1] 1.000000 1.414214 1.732051 2.000000 2.236068</code></pre>
+<pre class="r"><code>
+sum(w)        # 1+2+3+4+5</code></pre>
+<pre><code>
+[1] 15</code></pre>
+</div>
+<h2 id="section-6">기타</h2>
+<h3 id="section-7">벡터 길이 측정</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+length(v)</code></pre>
+<pre><code>
+[1] 5</code></pre>
+</div>
+<h3 id="section-8">벡터 결측값</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 결측값이 있는 벡터 생성
+have_child &lt;- c(김철수 = &quot;yes&quot;, 이영철 = &quot;yes&quot;, 
+                홍길동 = NA, 김연아 = NA)
+
+# 결측값 유무 검사
+is.na(have_child)</code></pre>
+<pre><code>
+김철수 이영철 홍길동 김연아 
+ FALSE  FALSE   TRUE   TRUE </code></pre>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

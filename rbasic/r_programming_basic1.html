@@ -19,7 +19,7 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Mblog for Data Analysis: R Basic</title>
+  <title>Mblog for Data Analysis: R 프로그래밍 기초</title>
   
   
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
@@ -30,20 +30,20 @@
   <meta name="article:author" content="Bohak Maeng"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Mblog for Data Analysis: R Basic"/>
+  <meta property="og:title" content="Mblog for Data Analysis: R 프로그래밍 기초"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Mblog for Data Analysis"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Mblog for Data Analysis: R Basic"/>
+  <meta property="twitter:title" content="Mblog for Data Analysis: R 프로그래밍 기초"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R Basic"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R 프로그래밍 기초"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1274,7 +1274,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"R Basic","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-17T00:00:00.000+09:00","citationText":"Maeng, 2019"}
+{"title":"R 프로그래밍 기초","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-17T00:00:00.000+09:00","citationText":"Maeng, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1311,7 +1311,7 @@ Data Analysis
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>R Basic</h1>
+<h1>R 프로그래밍 기초</h1>
 
 </div>
 
@@ -1325,82 +1325,458 @@ Data Analysis
 <h3 class="d-toc-header">Table of Contents</h3>
 <nav class="d-toc" id="TOC">
 <ul>
-<li><a href="#r--install">R 설치 Install</a></li>
-<li><a href="#r---programming-basics">R 프로그래밍 기초 Programming Basics</a></li>
-<li><a href="#r---data-structure">R 데이터 구조 Data Structure</a></li>
-<li><a href="#r--flow-control">R 제어문 Flow Control</a></li>
-<li><a href="#r--fuctions">R 함수 Fuctions</a></li>
-<li><a href="#r--read-write">R 입출력 Read &amp; Write</a></li>
-<li><a href="#r--graphs-charts">R 그래프 Graphs &amp; Charts</a></li>
-<li><a href="#r---objects-class">R 객체와 클래스 Objects &amp; Class</a></li>
+<li><a href="#section">기초 산술 연산자</a></li>
+<li><a href="#section-3">논리 연산자</a></li>
+<li><a href="#section-4">기초 산술 함수</a></li>
+<li><a href="#section-8">객체(변수)의 할당과 삭제</a></li>
+<li><a href="#basic-data-types">기본 데이터 타입 (Basic data types)</a></li>
+<li><a href="#built-in-constants">내장형 상수 Built-in Constants</a></li>
+<li><a href="#reserved-words">예약어 Reserved Words</a></li>
 </ul>
 </nav>
 <hr class="d-toc-separator"/>
-<h2 id="r--install">R 설치 Install</h2>
+<h2 id="section">기초 산술 연산자</h2>
+<h3 id="section-1">계산용 연산자</h3>
 <ul>
-<li><a href="install_r.html">R이란?</a></li>
-<li><a href="install_r.html#r-">R 설치</a></li>
-<li><a href="install_r.html#r--1">R의 특징</a></li>
-<li><a href="install_r.html#rstudio-">RStudio 설치</a></li>
-<li><a href="install_r.html#r-package---">R package 설치 및 사용</a></li>
-<li><a href="install_r.html#r-package-">R package 관리</a></li>
+<li>+(더하기), -(빼기), *(곱하기), /(나누기), ^(자승), %%(나머지), %/%(몫)</li>
 </ul>
-<h2 id="r---programming-basics">R 프로그래밍 기초 Programming Basics</h2>
-<ul>
-<li><a href="r_programming_basic1.html#section">R 기초 산술 연산자</a></li>
-<li><a href="r_programming_basic1.html#section-1">R 논리 연산자</a></li>
-<li><a href="r_programming_basic1.html#section-2">R 기초 산술 함수</a></li>
-<li><a href="r_programming_basic1.html#section-6">R 객체(변수)의 할당과 삭제</a></li>
-<li><a href="r_programming_basic1.html#basic-data-types">R 기본 데이터 타입 Basic data types</a></li>
-<li><a href="r_programming_basic1.html#built-in-constants">R 내장형 상수 Built-in Constants</a></li>
-<li><a href="r_programming_basic1.html#reserved-words">R 예약어 Reserved Words</a></li>
-</ul>
-<h2 id="r---data-structure">R 데이터 구조 Data Structure</h2>
-<ul>
-<li><a href="r_vector.html">R 벡터 Vector</a></li>
-<li><a href="r_matrix.html">R 행렬 Matrix</a></li>
-<li><a href="f_factor.html">R 팩터 Factor</a></li>
-<li><a href="r_array.html">R 배열 Array</a></li>
-<li><a href="r_dataframe.html">R 데이터 프레임 Data frame</a></li>
-<li><a href="r_list.html">R 리스트 List</a></li>
-</ul>
-<h2 id="r--flow-control">R 제어문 Flow Control</h2>
-<ul>
-<li>R 조건문</li>
-<li>R 반복문</li>
-<li>R 분기문</li>
-</ul>
-<h2 id="r--fuctions">R 함수 Fuctions</h2>
-<ul>
-<li>R 날짜와 시간 함수</li>
-<li>R 문자열</li>
-<li>R 벡터 연산 함수</li>
-<li>R 데이터 관리 함수</li>
-<li>R 시스템 함수</li>
-<li>R 사용자 정의 함수</li>
-</ul>
-<h2 id="r--read-write">R 입출력 Read &amp; Write</h2>
-<ul>
-<li>데이터 불러오기</li>
-<li>데이터 저장하기</li>
-<li>백업 및 복원</li>
-</ul>
-<h2 id="r--graphs-charts">R 그래프 Graphs &amp; Charts</h2>
-<ul>
-<li>R Programming Bar Plot</li>
-<li>R Programming Histogram</li>
-<li>R Programming Pie Chart</li>
-<li>R Box Plot</li>
-<li>R Strip Chart</li>
-</ul>
-<h2 id="r---objects-class">R 객체와 클래스 Objects &amp; Class</h2>
-<ul>
-<li>Object and Class</li>
-<li>R S3 Class</li>
-<li>R S4 Class</li>
-<li>R Reference Class</li>
-<li>R Inheritance</li>
-</ul>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+1 + 2 + (7 - 3)</code></pre>
+<pre><code>
+[1] 7</code></pre>
+<pre class="r"><code>
+6 / 3 * (5 + 7)</code></pre>
+<pre><code>
+[1] 24</code></pre>
+<pre class="r"><code>
+5^2</code></pre>
+<pre><code>
+[1] 25</code></pre>
+<pre class="r"><code>
+5 %% 2</code></pre>
+<pre><code>
+[1] 1</code></pre>
+<pre class="r"><code>
+5 %/% 2</code></pre>
+<pre><code>
+[1] 2</code></pre>
+</div>
+<h3 id="section-2">화씨온도가 100도라면 섭씨온도는?</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 섭씨온도 = (5/9) * (화씨온도-32)
+(5 / 9) * (100 - 32)</code></pre>
+<pre><code>
+[1] 37.77778</code></pre>
+</div>
+<h2 id="section-3">논리 연산자</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+5 == 5 </code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+<pre class="r"><code>
+5 != 5 </code></pre>
+<pre><code>
+[1] FALSE</code></pre>
+<pre class="r"><code>
+5 &gt; 5</code></pre>
+<pre><code>
+[1] FALSE</code></pre>
+<pre class="r"><code>
+5 &gt;= 5</code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+<pre class="r"><code>
+3 &lt; 5 </code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+<pre class="r"><code>
+6 &lt;= 5</code></pre>
+<pre><code>
+[1] FALSE</code></pre>
+<pre class="r"><code>
+!TRUE  # Not x  </code></pre>
+<pre><code>
+[1] FALSE</code></pre>
+<pre class="r"><code>
+TRUE | FALSE  # x OR y  </code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+<pre class="r"><code>
+TRUE &amp; FALSE  # x AND y  </code></pre>
+<pre><code>
+[1] FALSE</code></pre>
+<pre class="r"><code>
+isTRUE(TRUE)  # if x is TRUE</code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+</div>
+<h2 id="section-4">기초 산술 함수</h2>
+<h3 id="section-5">통계 함수</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+sum(c(2, 5, 6))     # 합계</code></pre>
+<pre><code>
+[1] 13</code></pre>
+<pre class="r"><code>
+mean(c(2, 5, 6))    # 평균</code></pre>
+<pre><code>
+[1] 4.333333</code></pre>
+<pre class="r"><code>
+sd(c(2, 5, 6))      # 표준편차</code></pre>
+<pre><code>
+[1] 2.081666</code></pre>
+<pre class="r"><code>
+var(c(2, 5, 6))     # 분산</code></pre>
+<pre><code>
+[1] 4.333333</code></pre>
+<pre class="r"><code>
+median(c(2, 5, 6))  # 중위수</code></pre>
+<pre><code>
+[1] 5</code></pre>
+<pre class="r"><code>
+max(c(1, 3, 5, 7))  # 최대값</code></pre>
+<pre><code>
+[1] 7</code></pre>
+<pre class="r"><code>
+min(c(1, 3, 5, 7))  # 최소값</code></pre>
+<pre><code>
+[1] 1</code></pre>
+<pre class="r"><code>
+IQR(c(1, 3, 5, 7))  # 사분위 범위</code></pre>
+<pre><code>
+[1] 3</code></pre>
+<pre class="r"><code>
+quantile(c(1, 3, 5, 7), 0.25)  # 백분위 수</code></pre>
+<pre><code>
+25% 
+2.5 </code></pre>
+<pre class="r"><code>
+range(c(1, 3, 5, 7)) # 최대값과 최소값</code></pre>
+<pre><code>
+[1] 1 7</code></pre>
+</div>
+<h3 id="logarithms-and-exponentials">로그 및 지수 함수 (Logarithms and Exponentials)</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+log(10)    # 자연로그 logarithms base e of x, e=2.7182818284⋯</code></pre>
+<pre><code>
+[1] 2.302585</code></pre>
+<pre class="r"><code>
+log2(10)   # 이진로그 logarithms base 2 of x</code></pre>
+<pre><code>
+[1] 3.321928</code></pre>
+<pre class="r"><code>
+log10(10)  # 상용로그 logaritms base 10 of x</code></pre>
+<pre><code>
+[1] 1</code></pre>
+<pre class="r"><code>
+exp(10)    # 지수 Exponential of x</code></pre>
+<pre><code>
+[1] 22026.47</code></pre>
+</div>
+<h3 id="section-6">삼각 함수</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+x &lt;- 1
+cos(x) # Cosine of x</code></pre>
+<pre><code>
+[1] 0.5403023</code></pre>
+<pre class="r"><code>
+sin(x) # Sine of x</code></pre>
+<pre><code>
+[1] 0.841471</code></pre>
+<pre class="r"><code>
+tan(x) #Tangent of x</code></pre>
+<pre><code>
+[1] 1.557408</code></pre>
+<pre class="r"><code>
+acos(x) # arc-cosine of x</code></pre>
+<pre><code>
+[1] 0</code></pre>
+<pre class="r"><code>
+asin(x) # arc-sine of x</code></pre>
+<pre><code>
+[1] 1.570796</code></pre>
+<pre class="r"><code>
+atan(x) #arc-tangent of x</code></pre>
+<pre><code>
+[1] 0.7853982</code></pre>
+</div>
+<h3 id="section-7">기타 수학 함수</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+pi        # 파이 값</code></pre>
+<pre><code>
+[1] 3.141593</code></pre>
+<pre class="r"><code>
+abs(-3)   # 절대 값 absolute value of x</code></pre>
+<pre><code>
+[1] 3</code></pre>
+<pre class="r"><code>
+sqrt(3)   # 제곱근 square root of x</code></pre>
+<pre><code>
+[1] 1.732051</code></pre>
+<pre class="r"><code>
+round(2.345, 2)   # 반올림</code></pre>
+<pre><code>
+[1] 2.35</code></pre>
+<pre class="r"><code>
+ceiling(2.345)    # 정수로 올림</code></pre>
+<pre><code>
+[1] 3</code></pre>
+<pre class="r"><code>
+floor(2.345)      # 정수로 내림</code></pre>
+<pre><code>
+[1] 2</code></pre>
+<pre class="r"><code>
+trunc(2.345)      # 소수점 아래 버리기, 0에 더 가까운 값 반환</code></pre>
+<pre><code>
+[1] 2</code></pre>
+<pre class="r"><code>
+signif(2.345, 3)  # 전체 자릿수에 맞게 반올림</code></pre>
+<pre><code>
+[1] 2.35</code></pre>
+</div>
+<blockquote>
+<p>프로젝트 전체에서 자리수를 지정하고 싶다면 options() 함수를 사용합니다. 자리수 디폴트는 7이지만 __options(digits = 5)__와 같이 지정하면 5자리로 설정됩니다.</p>
+</blockquote>
+<h2 id="section-8">객체(변수)의 할당과 삭제</h2>
+<h3 id="section-9">객체(변수) 만들기</h3>
+<p>변수는 일종의 데이터를 담고 있는 상자입니다. 이 상자에는 숫자나 문자 등을 넣어 보관하거나 필요할 때 빼서 사용할 수 있습니다. 또 상자 안의 내용물을 바꿀 수도 있습니다.</p>
+<p>변수명은 항상 왼쪽에 쓰며, ‘&lt;-’ 기호를 사용하여 변수라는 상자 안에 데이터를 넣을 수 있습니다. (예, a &lt;- 2) 또한 ‘&lt;-’ 기호 대신 ’=’를 사용하여도 됩니다.</p>
+<p>변수명은 영어와 숫자 모두 사용할 수 있으나 시작 글자는 반드시 문자여야 합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 3이라는 숫자를 변수 x에 담기
+x &lt;- 3   
+# 5라는 숫자를 변수 y에 담기
+y &lt;- 5   
+# 변수 x에 담긴 값을 출력
+x</code></pre>
+<pre><code>
+[1] 3</code></pre>
+<pre class="r"><code>
+# print() 함수를 사용하여 출력 가능
+print(y)</code></pre>
+<pre><code>
+[1] 5</code></pre>
+<pre class="r"><code>
+# 변수 x에 담긴 값과 변수 y에 담긴 값 계산
+x * y   # 3 * 5</code></pre>
+<pre><code>
+[1] 15</code></pre>
+<pre class="r"><code>
+x + y   # 3 + 5</code></pre>
+<pre><code>
+[1] 8</code></pre>
+<pre class="r"><code>
+# x/y의 결과 값을 변수 z에 담기
+z &lt;- x / y
+z</code></pre>
+<pre><code>
+[1] 0.6</code></pre>
+</div>
+<h3 id="section-10">객체(변수) 리스트 보기</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ls()</code></pre>
+<pre><code>
+[1] &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+</div>
+<h3 id="section-11">객체(변수) 지우기</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 객체 x와 y 삭제
+rm(x, y)
+# 남아 있는 객체 리스트 출력
+ls()</code></pre>
+<pre><code>
+[1] &quot;z&quot;</code></pre>
+</div>
+<h2 id="basic-data-types">기본 데이터 타입 (Basic data types)</h2>
+<p>기본 데이터 타입으로 숫자(numeric), 문자(character), 논리(logical), 날짜(date), 결측치(missing) 등이 있습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 숫자 데이터
+my_age &lt;- 21
+
+# 문자 데이터 - 문자는 따옴표(&quot; 또는 &#39;)로 둘러쌉니다.
+my_name &lt;- &quot;영희&quot;
+
+# 논리 데이터 - TRUE, FALSE
+is_student &lt;- TRUE
+
+# 날짜 데이터
+my_birthday &lt;- as.Date(&quot;2007-08-02&quot;)
+
+# 결측치(missing data) - 논리 데이터의 일종
+my_missing &lt;- NA</code></pre>
+</div>
+<p>문자는 따옴표로 둘러싸는데, 만일 문자들 중에 따옴표가 있으면 ""을 추가합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+my_say &lt;- &quot;나의 이름은 \&quot;영희\&quot;입니다.&quot;
+my_say</code></pre>
+<pre><code>
+[1] &quot;나의 이름은 \&quot;영희\&quot;입니다.&quot;</code></pre>
+</div>
+<p>데이터 타입을 확인하는 함수는 class()입니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+class(my_age)</code></pre>
+<pre><code>
+[1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>
+class(my_name)</code></pre>
+<pre><code>
+[1] &quot;character&quot;</code></pre>
+</div>
+<p>객체의 데이터 타입이 숫자인지, 문자인지를 확인하는 함수도 있습니다. 맞으면 TRUE를 출력하고 틀리면 FALSE를 출력합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+is.numeric(my_age)</code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+<pre class="r"><code>
+is.character(my_name)</code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+<pre class="r"><code>
+is.logical(is_student)</code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+<pre class="r"><code>
+is.na(my_missing)</code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+</div>
+<p>만일 숫자가 따옴표로 둘려싸여 있어 문자로 인식될 경우 변환 함수를 이용하여 숫자 형식으로 변경할 수 있습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+as.numeric(&quot;21&quot;)</code></pre>
+<pre><code>
+[1] 21</code></pre>
+</div>
+<h3 id="section-12">숫자 데이터 - 실수와 정수</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+100000    # 1e+05 형태로 표시됨 </code></pre>
+<pre><code>
+[1] 1e+05</code></pre>
+<pre class="r"><code>
+150000000 # 1.5e+08 형태로 표시됨 </code></pre>
+<pre><code>
+[1] 1.5e+08</code></pre>
+<pre class="r"><code>
+5e+3     #  5000  </code></pre>
+<pre><code>
+[1] 5000</code></pre>
+<pre class="r"><code>
+5e-3     #  0.005</code></pre>
+<pre><code>
+[1] 0.005</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# numeric 실수
+x &lt;- 21  
+is.numeric(x) </code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+<pre class="r"><code>
+# 정수  
+y &lt;- 5L    
+is.integer(y)</code></pre>
+<pre><code>
+[1] TRUE</code></pre>
+<pre class="r"><code>
+typeof(5)   # 부동소수점 실수 double</code></pre>
+<pre><code>
+[1] &quot;double&quot;</code></pre>
+<pre class="r"><code>
+typeof(5L)  # 정수 integer</code></pre>
+<pre><code>
+[1] &quot;integer&quot;</code></pre>
+<pre class="r"><code>
+typeof(5i)  # 복소수 complex</code></pre>
+<pre><code>
+[1] &quot;complex&quot;</code></pre>
+<pre class="r"><code>
+# 정수와 실수가 같이 연산되면 결과값은 실수
+4L * 2.8</code></pre>
+<pre><code>
+[1] 11.2</code></pre>
+</div>
+<h3 id="true-1-false-0">논리 데이터 - TRUE == 1, FALSE == 0</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+TRUE * 3</code></pre>
+<pre><code>
+[1] 3</code></pre>
+<pre class="r"><code>
+FALSE * 3</code></pre>
+<pre><code>
+[1] 0</code></pre>
+</div>
+<h3 id="null-">NULL 객체</h3>
+<p>객체에 NULL 값을 부여함으로써 객체를 삭제하는 데 사용되기도 합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+x &lt;- c(21, NA, 23, NA, 25)
+str(x)</code></pre>
+<pre><code>
+ num [1:5] 21 NA 23 NA 25</code></pre>
+<pre class="r"><code>
+# x에 NULL 부여
+x &lt;- NULL
+str(x)</code></pre>
+<pre><code>
+ NULL</code></pre>
+</div>
+<h2 id="built-in-constants">내장형 상수 Built-in Constants</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 영어 알파벳 대문자 26개
+LETTERS</code></pre>
+<pre><code>
+ [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot;
+[17] &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<pre class="r"><code>
+# 영어 알파벳 소문자 26개
+letters</code></pre>
+<pre><code>
+ [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot;
+[17] &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<pre class="r"><code>
+# 영어 월 이름 약어
+month.abb</code></pre>
+<pre><code>
+ [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot;
+[12] &quot;Dec&quot;</code></pre>
+<pre class="r"><code>
+# 영어 월 이름
+month.name</code></pre>
+<pre><code>
+ [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;May&quot;      
+ [6] &quot;June&quot;      &quot;July&quot;      &quot;August&quot;    &quot;September&quot; &quot;October&quot;  
+[11] &quot;November&quot;  &quot;December&quot; </code></pre>
+<pre class="r"><code>
+# 원주율 : 원의 지름에 대한 둘레의 비율
+pi</code></pre>
+<pre><code>
+[1] 3.141593</code></pre>
+</div>
+<h2 id="reserved-words">예약어 Reserved Words</h2>
+<p>R 예약어는 R에서 특별한 의미를 가지고 있는 단어입니다. 따라서 변수명이나 사용자가 만드는 함수 이름으로 사용하지 않는 것이 좋습니다.</p>
+<p>예약어 : if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA_integer_, NA_real_, NA_complex_, NA_character_, …, ..1, ..2 등</p>
+<p>R의 예약어를 알고 싶으면 다음과 같이 하면 됩니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+?reserved</code></pre>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

@@ -1,0 +1,20 @@
+---
+title: "R 배열 Array"
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+배열은 동일한 형태의 데이터가 2차원 이상으로 구성된 데이터 구조입니다. 벡터가 1차원이고, 행렬은 2차원, 배열은 2차원 이상의 구조입니다. 배열은 행렬을 층층히 쌓으면서 3차원, 4차원, 5차원 등으로 확대할 수 있습니다.
+
+## 배열 생성

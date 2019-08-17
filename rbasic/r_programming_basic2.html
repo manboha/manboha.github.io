@@ -19,31 +19,31 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Mblog for Data Analysis: R Basic</title>
+  <title>Mblog for Data Analysis: R 프로그래밍 기초2</title>
   
   
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
   
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2019-08-17"/>
-  <meta property="article:created" itemprop="dateCreated" content="2019-08-17"/>
+  <meta property="article:published" itemprop="datePublished" content="2019-08-16"/>
+  <meta property="article:created" itemprop="dateCreated" content="2019-08-16"/>
   <meta name="article:author" content="Bohak Maeng"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Mblog for Data Analysis: R Basic"/>
+  <meta property="og:title" content="Mblog for Data Analysis: R 프로그래밍 기초2"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Mblog for Data Analysis"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Mblog for Data Analysis: R Basic"/>
+  <meta property="twitter:title" content="Mblog for Data Analysis: R 프로그래밍 기초2"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R Basic"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R 프로그래밍 기초2"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-16"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1274,7 +1274,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"R Basic","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-17T00:00:00.000+09:00","citationText":"Maeng, 2019"}
+{"title":"R 프로그래밍 기초2","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-16T00:00:00.000+09:00","citationText":"Maeng, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1311,96 +1311,115 @@ Data Analysis
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>R Basic</h1>
+<h1>R 프로그래밍 기초2</h1>
 
 </div>
 
 <div class="d-byline">
   Bohak Maeng <a href="https://manboha.github.io" class="uri">https://manboha.github.io</a> 
   
-<br/>2019-08-17
+<br/>2019-08-16
 </div>
 
 <div class="d-article">
 <h3 class="d-toc-header">Table of Contents</h3>
 <nav class="d-toc" id="TOC">
 <ul>
-<li><a href="#r--install">R 설치 Install</a></li>
-<li><a href="#r---programming-basics">R 프로그래밍 기초 Programming Basics</a></li>
-<li><a href="#r---data-structure">R 데이터 구조 Data Structure</a></li>
-<li><a href="#r--flow-control">R 제어문 Flow Control</a></li>
-<li><a href="#r--fuctions">R 함수 Fuctions</a></li>
-<li><a href="#r--read-write">R 입출력 Read &amp; Write</a></li>
-<li><a href="#r--graphs-charts">R 그래프 Graphs &amp; Charts</a></li>
-<li><a href="#r---objects-class">R 객체와 클래스 Objects &amp; Class</a></li>
+<li><a href="#vector-">Vector 벡터</a></li>
+<li><a href="#matrix-">Matrix 매트릭스(행렬)</a></li>
+<li><a href="#array-">Array 배열</a></li>
+<li><a href="#factor-">Factor 팩터</a></li>
+<li><a href="#list-">List 리스트</a></li>
+<li><a href="#data-frame--">Data frame 데이터 프레임</a></li>
+<li><a href="#section">제어문 - 조건문, 반복문, 분기문</a></li>
 </ul>
 </nav>
 <hr class="d-toc-separator"/>
-<h2 id="r--install">R 설치 Install</h2>
+<h3 id="vector-">Vector 벡터</h3>
+<p>벡터란 동일한 형태(예, 숫자 또는 문자)의 데이터 값들이 나열되어 있는 데이터 구조입니다.</p>
 <ul>
-<li><a href="install_r.html">R이란?</a></li>
-<li><a href="install_r.html#r-">R 설치</a></li>
-<li><a href="install_r.html#r--1">R의 특징</a></li>
-<li><a href="install_r.html#rstudio-">RStudio 설치</a></li>
-<li><a href="install_r.html#r-package---">R package 설치 및 사용</a></li>
-<li><a href="install_r.html#r-package-">R package 관리</a></li>
+<li>c() 함수로 벡터 만들기</li>
 </ul>
-<h2 id="r---programming-basics">R 프로그래밍 기초 Programming Basics</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 변수 v1에 숫자 1, 2, 3을 할당
+v1 &lt;- c(1, 2, 3)  
+v2 &lt;- c(4, 5, 6)  
+
+# 변수 v3에 변수 v1과 v2의 값들을 결합하여 할당
+v3 &lt;- c(v1, v2)   
+
+# 변수 s1에 문자열 벡터인 &quot;대한&quot;, &quot;민국&quot;, &quot;행정&quot;을 할당
+s1 &lt;- c(&quot;대한&quot;, &quot;민국&quot;, &quot;행정&quot;)  </code></pre>
+</div>
 <ul>
-<li><a href="r_programming_basic1.html#section">R 기초 산술 연산자</a></li>
-<li><a href="r_programming_basic1.html#section-1">R 논리 연산자</a></li>
-<li><a href="r_programming_basic1.html#section-2">R 기초 산술 함수</a></li>
-<li><a href="r_programming_basic1.html#section-6">R 객체(변수)의 할당과 삭제</a></li>
-<li><a href="r_programming_basic1.html#basic-data-types">R 기본 데이터 타입 Basic data types</a></li>
-<li><a href="r_programming_basic1.html#built-in-constants">R 내장형 상수 Built-in Constants</a></li>
-<li><a href="r_programming_basic1.html#reserved-words">R 예약어 Reserved Words</a></li>
+<li>연속적인 숫자로 벡터 만들기</li>
 </ul>
-<h2 id="r---data-structure">R 데이터 구조 Data Structure</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 콜론(:)을 이용해 연속 숫자가 들어 있는 변수 만들기
+var1 &lt;- c(1:5)   # 1~5까지의 연속 값
+
+# seq() 함수를 이용해 연속 숫자가 들어 있는 변수 만들기
+var2 &lt;- seq(1, 5)   # 1~5까지의 연속 값
+
+# seq() 함수의 by 옵션을 이용해 일정한 간격의 연속 숫자가 들어 있는 변수 만들기
+var3 &lt;- seq(1, 10, by = 2)   # 1~10까지 2간격의 연속 값
+var4 &lt;- seq(1, 10, by = 3)   # 1~10까지 3간격의 연속 값
+var5 &lt;- seq(from = 1.0, to = 2.0, length.out = 5)
+
+# rep() 함수를 이용해 반복값이 들어있는 변수 만들기
+var6 &lt;- rep(5, times = 7)  # 5를 7번 반복 
+var7 &lt;- rep(c(&quot;a&quot;, &quot;b&quot;), each = 3)  # 각 숫자 3번 반복
+
+var1; var2; var3; var4; var5; var6; var7</code></pre>
+<pre><code>
+[1] 1 2 3 4 5</code></pre>
+<pre><code>
+[1] 1 2 3 4 5</code></pre>
+<pre><code>
+[1] 1 3 5 7 9</code></pre>
+<pre><code>
+[1]  1  4  7 10</code></pre>
+<pre><code>
+[1] 1.00 1.25 1.50 1.75 2.00</code></pre>
+<pre><code>
+[1] 5 5 5 5 5 5 5</code></pre>
+<pre><code>
+[1] &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;b&quot; &quot;b&quot; &quot;b&quot;</code></pre>
+</div>
 <ul>
-<li><a href="r_vector.html">R 벡터 Vector</a></li>
-<li><a href="r_matrix.html">R 행렬 Matrix</a></li>
-<li><a href="f_factor.html">R 팩터 Factor</a></li>
-<li><a href="r_array.html">R 배열 Array</a></li>
-<li><a href="r_dataframe.html">R 데이터 프레임 Data frame</a></li>
-<li><a href="r_list.html">R 리스트 List</a></li>
+<li>벡터 요소 값에 이름 부여</li>
 </ul>
-<h2 id="r--flow-control">R 제어문 Flow Control</h2>
+<p>names() 함수를 이용해 값마다 이름을 부여할 수 있습니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+mscore &lt;- c(95, 85, 75)
+names(mscore) &lt;- c(&quot;김철수&quot;, &quot;이영희&quot;, &quot;홍길동&quot;)
+mscore</code></pre>
+<pre><code>
+김철수 이영희 홍길동 
+    95     85     75 </code></pre>
+</div>
 <ul>
-<li>R 조건문</li>
-<li>R 반복문</li>
-<li>R 분기문</li>
+<li><p>벡터 요소 추출과 벡터 연산</p></li>
+<li><p>벡터 안에 들어있는 값들을 요소라고 부릅니다. 벡터 내의 특정 위치에 있는 요소 값을 불러오려면 벡터명[번호]라고 하면 됩니다. (예, v3[2]라고 명령하면 2가 출력, s1[2]으로 명령을 주면 “비서”가 출력됨)</p></li>
 </ul>
-<h2 id="r--fuctions">R 함수 Fuctions</h2>
+<p>· w[w&gt;=3]은 변수 w에 할당된 값 중에서 3보다 크거나 같은 것을 추출해줍니다. · v+w는 변수 v와 w에 할당된 값을 서로 대응하여 계산해줍니다. 예를 들면 v의 1번째 값인 11과 w의 1번째 값인 1을 더해 12를 출력해줍니다. v*w는 서로 대응하여 곱해줍니다. · w+2는 변수 w에 할당된 값에 각각 2를 더해줍니다. w-mean(w)은 변수 w에 할당된 값에 각각 w의 평균을 빼줍니다. mean은 평균을 구하는 함수입니다.</p>
 <ul>
-<li>R 날짜와 시간 함수</li>
-<li>R 문자열</li>
-<li>R 벡터 연산 함수</li>
-<li>R 데이터 관리 함수</li>
-<li>R 시스템 함수</li>
-<li>R 사용자 정의 함수</li>
+<li>벡터 연산</li>
 </ul>
-<h2 id="r--read-write">R 입출력 Read &amp; Write</h2>
-<ul>
-<li>데이터 불러오기</li>
-<li>데이터 저장하기</li>
-<li>백업 및 복원</li>
-</ul>
-<h2 id="r--graphs-charts">R 그래프 Graphs &amp; Charts</h2>
-<ul>
-<li>R Programming Bar Plot</li>
-<li>R Programming Histogram</li>
-<li>R Programming Pie Chart</li>
-<li>R Box Plot</li>
-<li>R Strip Chart</li>
-</ul>
-<h2 id="r---objects-class">R 객체와 클래스 Objects &amp; Class</h2>
-<ul>
-<li>Object and Class</li>
-<li>R S3 Class</li>
-<li>R S4 Class</li>
-<li>R Reference Class</li>
-<li>R Inheritance</li>
-</ul>
+<h3 id="matrix-">Matrix 매트릭스(행렬)</h3>
+<p>동일한 형태의 데이터가 2차원으로 구성된 데이터 구조입니다. 표처럼 m × n 형태로 이루어진 데이터 구조입니다. 아래 예제는 matrix 함수를 이용하여 1부터 12까지의 숫자를 4개행(nrow=4)형태의 행렬로 만들어 변수 m1에 할당한 것입니다.</p>
+<h3 id="array-">Array 배열</h3>
+<p>동일한 형태의 데이터가 2차원 이상으로 구성된 데이터 구조입니다. 행렬이 층층이 쌓이면 3차원 형태가 됩니다. 우리 수업에서는 사용하지 않는 데이터 구조라서 자세한 설명은 생략하겠습니다.</p>
+<h3 id="factor-">Factor 팩터</h3>
+<p>범주형(명목형) 자료의 데이터 구조입니다. 아래 예제에서 변수 f1은 범주형 데이터가 들어있는 변수입니다. factor 함수를 이용하여 변수 f1을 요인 데이터 구조로 변환하여 변수 f2에 할당하였습니다. Levles는 이 요인 변수가 가질 수 있는 값들입니다.</p>
+<h3 id="list-">List 리스트</h3>
+<p>벡터, 행렬, 배열, 데이터 프레임 등과 같은 서로 다른 구조의 데이터를 묶은 것입니다. 기차처럼 이어서 묶어 놓은 것을 상상하면 될 것입니다. 자세한 설명은 생략합니다.</p>
+<h3 id="data-frame--">Data frame 데이터 프레임</h3>
+<p>데이터 프레임은 다양한 형태의 데이터가 2차원으로 구성된 데이터 구조입니다. 행(케이스)과 열(변수)로 구성된 표와 같이 생겼습니다. 엑셀에서 이름 필드, 연령 필드, 성적 필드 등으로 이루어진 표와 같다고 보면 됩니다. 통계분석에 가장 많이 사용됩니다.</p>
+<h3 id="section">제어문 - 조건문, 반복문, 분기문</h3>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

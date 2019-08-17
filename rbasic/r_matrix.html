@@ -19,7 +19,7 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Mblog for Data Analysis: R Basic</title>
+  <title>Mblog for Data Analysis: R 행렬 Matrix</title>
   
   
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
@@ -30,20 +30,20 @@
   <meta name="article:author" content="Bohak Maeng"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Mblog for Data Analysis: R Basic"/>
+  <meta property="og:title" content="Mblog for Data Analysis: R 행렬 Matrix"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Mblog for Data Analysis"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Mblog for Data Analysis: R Basic"/>
+  <meta property="twitter:title" content="Mblog for Data Analysis: R 행렬 Matrix"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R Basic"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R 행렬 Matrix"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1274,7 +1274,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"R Basic","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-17T00:00:00.000+09:00","citationText":"Maeng, 2019"}
+{"title":"R 행렬 Matrix","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-17T00:00:00.000+09:00","citationText":"Maeng, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1311,7 +1311,7 @@ Data Analysis
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>R Basic</h1>
+<h1>R 행렬 Matrix</h1>
 
 </div>
 
@@ -1325,82 +1325,292 @@ Data Analysis
 <h3 class="d-toc-header">Table of Contents</h3>
 <nav class="d-toc" id="TOC">
 <ul>
-<li><a href="#r--install">R 설치 Install</a></li>
-<li><a href="#r---programming-basics">R 프로그래밍 기초 Programming Basics</a></li>
-<li><a href="#r---data-structure">R 데이터 구조 Data Structure</a></li>
-<li><a href="#r--flow-control">R 제어문 Flow Control</a></li>
-<li><a href="#r--fuctions">R 함수 Fuctions</a></li>
-<li><a href="#r--read-write">R 입출력 Read &amp; Write</a></li>
-<li><a href="#r--graphs-charts">R 그래프 Graphs &amp; Charts</a></li>
-<li><a href="#r---objects-class">R 객체와 클래스 Objects &amp; Class</a></li>
+<li><a href="#create-matrix">행렬 생성 Create matrix</a></li>
+<li><a href="#set-names-of-matrix">행렬 이름 붙이기 Set names of matrix</a></li>
+<li><a href="#transpose-matrix">행열 바꾸기 Transpose matrix</a></li>
+<li><a href="#dimensions-of-a-matrix">행렬의 차원 Dimensions of a matrix</a></li>
+<li><a href="#get-a-subset-of-a-matrix">행렬의 요소 추출 Get a subset of a matrix</a></li>
+<li><a href="#modify-matrix">행렬 요소 수정 Modify matrix</a></li>
+<li><a href="#calculations-with-matrices">행렬 연산 Calculations with matrices</a></li>
 </ul>
 </nav>
 <hr class="d-toc-separator"/>
-<h2 id="r--install">R 설치 Install</h2>
-<ul>
-<li><a href="install_r.html">R이란?</a></li>
-<li><a href="install_r.html#r-">R 설치</a></li>
-<li><a href="install_r.html#r--1">R의 특징</a></li>
-<li><a href="install_r.html#rstudio-">RStudio 설치</a></li>
-<li><a href="install_r.html#r-package---">R package 설치 및 사용</a></li>
-<li><a href="install_r.html#r-package-">R package 관리</a></li>
-</ul>
-<h2 id="r---programming-basics">R 프로그래밍 기초 Programming Basics</h2>
-<ul>
-<li><a href="r_programming_basic1.html#section">R 기초 산술 연산자</a></li>
-<li><a href="r_programming_basic1.html#section-1">R 논리 연산자</a></li>
-<li><a href="r_programming_basic1.html#section-2">R 기초 산술 함수</a></li>
-<li><a href="r_programming_basic1.html#section-6">R 객체(변수)의 할당과 삭제</a></li>
-<li><a href="r_programming_basic1.html#basic-data-types">R 기본 데이터 타입 Basic data types</a></li>
-<li><a href="r_programming_basic1.html#built-in-constants">R 내장형 상수 Built-in Constants</a></li>
-<li><a href="r_programming_basic1.html#reserved-words">R 예약어 Reserved Words</a></li>
-</ul>
-<h2 id="r---data-structure">R 데이터 구조 Data Structure</h2>
-<ul>
-<li><a href="r_vector.html">R 벡터 Vector</a></li>
-<li><a href="r_matrix.html">R 행렬 Matrix</a></li>
-<li><a href="f_factor.html">R 팩터 Factor</a></li>
-<li><a href="r_array.html">R 배열 Array</a></li>
-<li><a href="r_dataframe.html">R 데이터 프레임 Data frame</a></li>
-<li><a href="r_list.html">R 리스트 List</a></li>
-</ul>
-<h2 id="r--flow-control">R 제어문 Flow Control</h2>
-<ul>
-<li>R 조건문</li>
-<li>R 반복문</li>
-<li>R 분기문</li>
-</ul>
-<h2 id="r--fuctions">R 함수 Fuctions</h2>
-<ul>
-<li>R 날짜와 시간 함수</li>
-<li>R 문자열</li>
-<li>R 벡터 연산 함수</li>
-<li>R 데이터 관리 함수</li>
-<li>R 시스템 함수</li>
-<li>R 사용자 정의 함수</li>
-</ul>
-<h2 id="r--read-write">R 입출력 Read &amp; Write</h2>
-<ul>
-<li>데이터 불러오기</li>
-<li>데이터 저장하기</li>
-<li>백업 및 복원</li>
-</ul>
-<h2 id="r--graphs-charts">R 그래프 Graphs &amp; Charts</h2>
-<ul>
-<li>R Programming Bar Plot</li>
-<li>R Programming Histogram</li>
-<li>R Programming Pie Chart</li>
-<li>R Box Plot</li>
-<li>R Strip Chart</li>
-</ul>
-<h2 id="r---objects-class">R 객체와 클래스 Objects &amp; Class</h2>
-<ul>
-<li>Object and Class</li>
-<li>R S3 Class</li>
-<li>R S4 Class</li>
-<li>R Reference Class</li>
-<li>R Inheritance</li>
-</ul>
+<p>동일한 형태의 데이터가 2차원으로 구성된 데이터 구조입니다. 표처럼 m × n 형태로 이루어진 데이터 구조입니다.</p>
+<h2 id="create-matrix">행렬 생성 Create matrix</h2>
+<h3 id="matrix---">matrix()를 사용하여 행렬 생성</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 1부터 12까지의 숫자를 3개열 형태의 행렬로 만들어 변수 m1에 할당
+# ncol : 열의 수
+m1 &lt;- matrix(1:12, ncol = 3)
+m1</code></pre>
+<pre><code>
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7   11
+[4,]    4    8   12</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# nrow : 행의 수
+# byrow : FALSE(기본값)이면 행렬이 열로 채워지고 그렇지 않으면 행렬이 행으로 채워짐
+m2 &lt;- matrix(
+  data = c(1,2,3, 11,12,13),
+  nrow = 2, byrow = TRUE
+  )
+m2</code></pre>
+<pre><code>
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]   11   12   13</code></pre>
+</div>
+<h3 id="cbind--rbind---">cbind() 또는 rbind()를 사용하여 행렬 생성</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 숫자 벡터 생성
+col1 &lt;- c(5, 6, 7, 8, 9)
+col2 &lt;- c(2, 4, 5, 9, 8)
+col3 &lt;- c(7, 3, 4, 8, 7)
+# 열 기준으로 벡터 병합 
+m3 &lt;- cbind(col1, col2, col3)
+m3</code></pre>
+<pre><code>
+     col1 col2 col3
+[1,]    5    2    7
+[2,]    6    4    3
+[3,]    7    5    4
+[4,]    8    9    8
+[5,]    9    8    7</code></pre>
+</div>
+<h2 id="set-names-of-matrix">행렬 이름 붙이기 Set names of matrix</h2>
+<h3 id="rownames--colnames---">rownames() 또는 colnames()를 사용하여 이름 붙이기</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+rownames(m3) &lt;- c(&quot;행1&quot;, &quot;행2&quot;, &quot;행3&quot;, &quot;행4&quot;, &quot;행5&quot;)
+colnames(m3) &lt;- c(&quot;열1&quot;, &quot;열2&quot;, &quot;열3&quot;)
+m3</code></pre>
+<pre><code>
+    열1 열2 열3
+행1   5   2   7
+행2   6   4   3
+행3   7   5   4
+행4   8   9   8
+행5   9   8   7</code></pre>
+</div>
+<h3 id="matrix-dimnames----">matrix()의 dimnames 속성을 이용하여 이름 붙이기</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+m4 &lt;- matrix(
+  data = c(1,2,3, 11,12,13),
+  nrow = 2, byrow = TRUE,
+  dimnames = list(c(&quot;행1&quot;, &quot;행2&quot;), c(&quot;일열&quot;, &quot;이열&quot;, &quot;삼열&quot;))
+  )
+m4</code></pre>
+<pre><code>
+    일열 이열 삼열
+행1    1    2    3
+행2   11   12   13</code></pre>
+</div>
+<h2 id="transpose-matrix">행열 바꾸기 Transpose matrix</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+t(m2)</code></pre>
+<pre><code>
+     [,1] [,2]
+[1,]    1   11
+[2,]    2   12
+[3,]    3   13</code></pre>
+</div>
+<h2 id="dimensions-of-a-matrix">행렬의 차원 Dimensions of a matrix</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 행의 갯수
+nrow(m3)</code></pre>
+<pre><code>
+[1] 5</code></pre>
+<pre class="r"><code>
+# 열의 갯수
+ncol(m3)</code></pre>
+<pre><code>
+[1] 3</code></pre>
+<pre class="r"><code>
+# 행과 열이 갯수
+dim(m3)</code></pre>
+<pre><code>
+[1] 5 3</code></pre>
+</div>
+<h2 id="get-a-subset-of-a-matrix">행렬의 요소 추출 Get a subset of a matrix</h2>
+<h3 id="section">특정 위치에 있는 요소 추출</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 2번째 행에 있는 요소 추출
+m3[2,]</code></pre>
+<pre><code>
+열1 열2 열3 
+  6   4   3 </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 2행 3열에 있는 요소 추출
+m3[2, 3]</code></pre>
+<pre><code>
+[1] 3</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 2행에서 3행 추출
+m3[2:3,]</code></pre>
+<pre><code>
+    열1 열2 열3
+행2   6   4   3
+행3   7   5   4</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 2행과 5행 추출
+m3[c(2,5),]</code></pre>
+<pre><code>
+    열1 열2 열3
+행2   6   4   3
+행5   9   8   7</code></pre>
+</div>
+<h3 id="section-1">행렬 이름으로 요소 추출</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 두번째 열 추출
+m3[, &quot;열2&quot;]</code></pre>
+<pre><code>
+행1 행2 행3 행4 행5 
+  2   4   5   9   8 </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 세번째 행 추출
+m3[&quot;행3&quot;,]</code></pre>
+<pre><code>
+열1 열2 열3 
+  7   5   4 </code></pre>
+</div>
+<h3 id="section-2">마이너스 기호(-)를 이용하여 요소 제외</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 2행과 2열 제외
+m3[-2, -2]</code></pre>
+<pre><code>
+    열1 열3
+행1   5   7
+행3   7   4
+행4   8   8
+행5   9   7</code></pre>
+</div>
+<h3 id="section-3">조건으로 요소 추출</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 3열의 값이 5이상인 경우 추출
+col3 &lt;- m3[, 3]
+m3[col3 &gt;= 5,]</code></pre>
+<pre><code>
+    열1 열2 열3
+행1   5   2   7
+행4   8   9   8
+행5   9   8   7</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 5보다 큰 수 모두 추출
+m3[m3 &gt; 5]</code></pre>
+<pre><code>
+[1] 6 7 8 9 9 8 7 8 7</code></pre>
+<pre class="r"><code>
+# 짝수만 추출
+m3[m3 %% 2 == 0]</code></pre>
+<pre><code>
+[1] 6 8 2 4 8 4 8</code></pre>
+</div>
+<h2 id="modify-matrix">행렬 요소 수정 Modify matrix</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 하나의 요소 값 수정
+mm &lt;- m3; mm</code></pre>
+<pre><code>
+    열1 열2 열3
+행1   5   2   7
+행2   6   4   3
+행3   7   5   4
+행4   8   9   8
+행5   9   8   7</code></pre>
+<pre class="r"><code>
+mm[2, 2] &lt;- 9; mm</code></pre>
+<pre><code>
+    열1 열2 열3
+행1   5   2   7
+행2   6   9   3
+행3   7   5   4
+행4   8   9   8
+행5   9   8   7</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 5미만 인 경우 0으로 수정
+mm[mm &lt; 6] &lt;- 0; mm</code></pre>
+<pre><code>
+    열1 열2 열3
+행1   0   0   7
+행2   6   9   0
+행3   7   0   0
+행4   8   9   8
+행5   9   8   7</code></pre>
+</div>
+<h2 id="calculations-with-matrices">행렬 연산 Calculations with matrices</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+m1 * 2</code></pre>
+<pre><code>
+     [,1] [,2] [,3]
+[1,]    2   10   18
+[2,]    4   12   20
+[3,]    6   14   22
+[4,]    8   16   24</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+log2(m1)</code></pre>
+<pre><code>
+         [,1]     [,2]     [,3]
+[1,] 0.000000 2.321928 3.169925
+[2,] 1.000000 2.584963 3.321928
+[3,] 1.584963 2.807355 3.459432
+[4,] 2.000000 3.000000 3.584963</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 행합계 rowSums() 
+rowSums(m3)</code></pre>
+<pre><code>
+행1 행2 행3 행4 행5 
+ 14  13  16  25  24 </code></pre>
+<pre class="r"><code>
+# 열합계 colSums()
+colSums(m3)</code></pre>
+<pre><code>
+열1 열2 열3 
+ 35  28  29 </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 행 평균
+apply(m3, 1, mean)</code></pre>
+<pre><code>
+     행1      행2      행3      행4      행5 
+4.666667 4.333333 5.333333 8.333333 8.000000 </code></pre>
+<pre class="r"><code>
+# 열 평균
+apply(m3, 2, mean)</code></pre>
+<pre><code>
+열1 열2 열3 
+7.0 5.6 5.8 </code></pre>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

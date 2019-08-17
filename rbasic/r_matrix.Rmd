@@ -1,0 +1,196 @@
+---
+title: "R 행렬 Matrix"
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+동일한 형태의 데이터가 2차원으로 구성된 데이터 구조입니다. 표처럼 m × n 형태로 이루어진 데이터 구조입니다. 
+
+## 행렬 생성 Create matrix
+
+### matrix()를 사용하여 행렬 생성
+
+```{r}
+# 1부터 12까지의 숫자를 3개열 형태의 행렬로 만들어 변수 m1에 할당
+# ncol : 열의 수
+m1 <- matrix(1:12, ncol = 3)
+m1
+```
+
+```{r}
+# nrow : 행의 수
+# byrow : FALSE(기본값)이면 행렬이 열로 채워지고 그렇지 않으면 행렬이 행으로 채워짐
+m2 <- matrix(
+  data = c(1,2,3, 11,12,13),
+  nrow = 2, byrow = TRUE
+  )
+m2
+```
+
+### cbind() 또는 rbind()를 사용하여 행렬 생성
+
+```{r}
+# 숫자 벡터 생성
+col1 <- c(5, 6, 7, 8, 9)
+col2 <- c(2, 4, 5, 9, 8)
+col3 <- c(7, 3, 4, 8, 7)
+# 열 기준으로 벡터 병합 
+m3 <- cbind(col1, col2, col3)
+m3
+```
+
+
+## 행렬 이름 붙이기 Set names of matrix
+
+### rownames() 또는 colnames()를 사용하여 이름 붙이기
+
+```{r}
+rownames(m3) <- c("행1", "행2", "행3", "행4", "행5")
+colnames(m3) <- c("열1", "열2", "열3")
+m3
+```
+
+### matrix()의 dimnames 속성을 이용하여 이름 붙이기
+
+```{r}
+m4 <- matrix(
+  data = c(1,2,3, 11,12,13),
+  nrow = 2, byrow = TRUE,
+  dimnames = list(c("행1", "행2"), c("일열", "이열", "삼열"))
+  )
+m4
+```
+
+
+## 행열 바꾸기 Transpose matrix
+
+```{r}
+t(m2)
+```
+
+## 행렬의 차원 Dimensions of a matrix
+
+```{r}
+# 행의 갯수
+nrow(m3)
+
+# 열의 갯수
+ncol(m3)
+
+# 행과 열이 갯수
+dim(m3)
+```
+
+## 행렬의 요소 추출 Get a subset of a matrix
+
+### 특정 위치에 있는 요소 추출
+
+```{r}
+# 2번째 행에 있는 요소 추출
+m3[2,]
+```
+
+```{r}
+# 2행 3열에 있는 요소 추출
+m3[2, 3]
+```
+
+```{r}
+# 2행에서 3행 추출
+m3[2:3,]
+```
+
+```{r}
+# 2행과 5행 추출
+m3[c(2,5),]
+``` 
+
+
+### 행렬 이름으로 요소 추출
+
+```{r}
+# 두번째 열 추출
+m3[, "열2"]
+```
+
+```{r}
+# 세번째 행 추출
+m3["행3",]
+```
+
+
+### 마이너스 기호(-)를 이용하여 요소 제외
+
+```{r}
+# 2행과 2열 제외
+m3[-2, -2]
+```
+
+
+### 조건으로 요소 추출
+
+```{r}
+# 3열의 값이 5이상인 경우 추출
+col3 <- m3[, 3]
+m3[col3 >= 5,]
+```
+
+```{r}
+# 5보다 큰 수 모두 추출
+m3[m3 > 5]
+
+# 짝수만 추출
+m3[m3 %% 2 == 0]
+```
+
+## 행렬 요소 수정 Modify matrix
+
+```{r}
+# 하나의 요소 값 수정
+mm <- m3; mm
+mm[2, 2] <- 9; mm
+```
+
+```{r}
+# 5미만 인 경우 0으로 수정
+mm[mm < 6] <- 0; mm
+```
+
+
+## 행렬 연산 Calculations with matrices
+
+```{r}
+m1 * 2
+```
+
+```{r}
+log2(m1)
+```
+
+```{r}
+# 행합계 rowSums() 
+rowSums(m3)
+
+# 열합계 colSums()
+colSums(m3)
+```
+
+```{r}
+# 행 평균
+apply(m3, 1, mean)
+
+# 열 평균
+apply(m3, 2, mean)
+```
+

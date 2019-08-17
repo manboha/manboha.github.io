@@ -1,7 +1,5 @@
 ---
 title: "R Basic"
-description: |
-  R 프로그래밍 기초
 author:
   - name: Bohak Maeng
     url: https://manboha.github.io
@@ -17,44 +15,80 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### [설치](install_r.html)
+## R 설치 Install
 
-+ [R이란?](install_r.html)
-+ [R 설치](install_r.html#r-)
-+ [R의 특징](install_r.html#r--1)
-+ [RStudio 설치](install_r.html#rstudio-)
-+ [R package 설치 및 사용](install_r.html#r-package---)
-+ [R package 관리](install_r.html#r-package-)
+* [R이란?](install_r.html)
+* [R 설치](install_r.html#r-)
+* [R의 특징](install_r.html#r--1)
+* [RStudio 설치](install_r.html#rstudio-)
+* [R package 설치 및 사용](install_r.html#r-package---)
+* [R package 관리](install_r.html#r-package-)
 
 
-### R 프로그래밍 기초
+## R 프로그래밍 기초 Programming Basics
 
-* 객체(변수)의 할당과 삭제
-* 기초 연산자
-* 기본 수학함수
-* 자료형
-* Vector
-* Matrix
-* Array
-* Factor
-* List
-* Data frame
-* 제어문 - 조건문, 반복문, 분기문
+* [R 기초 산술 연산자](r_programming_basic1.html#section)
+* [R 논리 연산자](r_programming_basic1.html#section-1)
+* [R 기초 산술 함수](r_programming_basic1.html#section-2)
+* [R 객체(변수)의 할당과 삭제](r_programming_basic1.html#section-6)
+* [R 기본 데이터 타입 Basic data types](r_programming_basic1.html#basic-data-types)
+* [R 내장형 상수 Built-in Constants](r_programming_basic1.html#built-in-constants)
+* [R 예약어 Reserved Words](r_programming_basic1.html#reserved-words)
 
-### R 기초 함수
 
-* 날짜와 시간
-* 문자열
-* 벡터 연산 함수
-* 데이터 관리 함수
-* 시스템 함수
-* 사용자 정의 함수
+## R 데이터 구조 Data Structure
 
-### 데이터 불러오기와 저장하기
+* [R 벡터 Vector](r_vector.html)
+* [R 행렬 Matrix](r_matrix.html)
+* [R 팩터 Factor](f_factor.html)
+* [R 배열 Array](r_array.html)
+* [R 데이터 프레임 Data frame](r_dataframe.html)
+* [R 리스트 List](r_list.html)
 
-* 데이터 입력
-* 데이터 출력
+
+## R 제어문 Flow Control
+
+* R 조건문
+* R 반복문
+* R 분기문
+
+
+## R 함수 Fuctions
+
+* R 날짜와 시간 함수
+* R 문자열
+* R 벡터 연산 함수
+* R 데이터 관리 함수
+* R 시스템 함수
+* R 사용자 정의 함수
+
+
+## R 입출력 Read & Write
+
+* 데이터 불러오기
+* 데이터 저장하기
 * 백업 및 복원
+
+
+## R 그래프 Graphs & Charts
+
+* R Programming Bar Plot
+* R Programming Histogram
+* R Programming Pie Chart
+* R Box Plot
+* R Strip Chart
+
+
+## R 객체와 클래스 Objects & Class
+
+* Object and Class
+* R S3 Class
+* R S4 Class
+* R Reference Class
+* R Inheritance
+
+
+
 
 
 

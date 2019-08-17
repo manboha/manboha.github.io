@@ -19,7 +19,7 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Mblog for Data Analysis: R Basic</title>
+  <title>Mblog for Data Analysis: R 배열 Array</title>
   
   
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
@@ -30,20 +30,20 @@
   <meta name="article:author" content="Bohak Maeng"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Mblog for Data Analysis: R Basic"/>
+  <meta property="og:title" content="Mblog for Data Analysis: R 배열 Array"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Mblog for Data Analysis"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Mblog for Data Analysis: R Basic"/>
+  <meta property="twitter:title" content="Mblog for Data Analysis: R 배열 Array"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R Basic"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R 배열 Array"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1274,7 +1274,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"R Basic","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-17T00:00:00.000+09:00","citationText":"Maeng, 2019"}
+{"title":"R 배열 Array","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-17T00:00:00.000+09:00","citationText":"Maeng, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1311,7 +1311,7 @@ Data Analysis
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>R Basic</h1>
+<h1>R 배열 Array</h1>
 
 </div>
 
@@ -1325,82 +1325,12 @@ Data Analysis
 <h3 class="d-toc-header">Table of Contents</h3>
 <nav class="d-toc" id="TOC">
 <ul>
-<li><a href="#r--install">R 설치 Install</a></li>
-<li><a href="#r---programming-basics">R 프로그래밍 기초 Programming Basics</a></li>
-<li><a href="#r---data-structure">R 데이터 구조 Data Structure</a></li>
-<li><a href="#r--flow-control">R 제어문 Flow Control</a></li>
-<li><a href="#r--fuctions">R 함수 Fuctions</a></li>
-<li><a href="#r--read-write">R 입출력 Read &amp; Write</a></li>
-<li><a href="#r--graphs-charts">R 그래프 Graphs &amp; Charts</a></li>
-<li><a href="#r---objects-class">R 객체와 클래스 Objects &amp; Class</a></li>
+<li><a href="#section">배열 생성</a></li>
 </ul>
 </nav>
 <hr class="d-toc-separator"/>
-<h2 id="r--install">R 설치 Install</h2>
-<ul>
-<li><a href="install_r.html">R이란?</a></li>
-<li><a href="install_r.html#r-">R 설치</a></li>
-<li><a href="install_r.html#r--1">R의 특징</a></li>
-<li><a href="install_r.html#rstudio-">RStudio 설치</a></li>
-<li><a href="install_r.html#r-package---">R package 설치 및 사용</a></li>
-<li><a href="install_r.html#r-package-">R package 관리</a></li>
-</ul>
-<h2 id="r---programming-basics">R 프로그래밍 기초 Programming Basics</h2>
-<ul>
-<li><a href="r_programming_basic1.html#section">R 기초 산술 연산자</a></li>
-<li><a href="r_programming_basic1.html#section-1">R 논리 연산자</a></li>
-<li><a href="r_programming_basic1.html#section-2">R 기초 산술 함수</a></li>
-<li><a href="r_programming_basic1.html#section-6">R 객체(변수)의 할당과 삭제</a></li>
-<li><a href="r_programming_basic1.html#basic-data-types">R 기본 데이터 타입 Basic data types</a></li>
-<li><a href="r_programming_basic1.html#built-in-constants">R 내장형 상수 Built-in Constants</a></li>
-<li><a href="r_programming_basic1.html#reserved-words">R 예약어 Reserved Words</a></li>
-</ul>
-<h2 id="r---data-structure">R 데이터 구조 Data Structure</h2>
-<ul>
-<li><a href="r_vector.html">R 벡터 Vector</a></li>
-<li><a href="r_matrix.html">R 행렬 Matrix</a></li>
-<li><a href="f_factor.html">R 팩터 Factor</a></li>
-<li><a href="r_array.html">R 배열 Array</a></li>
-<li><a href="r_dataframe.html">R 데이터 프레임 Data frame</a></li>
-<li><a href="r_list.html">R 리스트 List</a></li>
-</ul>
-<h2 id="r--flow-control">R 제어문 Flow Control</h2>
-<ul>
-<li>R 조건문</li>
-<li>R 반복문</li>
-<li>R 분기문</li>
-</ul>
-<h2 id="r--fuctions">R 함수 Fuctions</h2>
-<ul>
-<li>R 날짜와 시간 함수</li>
-<li>R 문자열</li>
-<li>R 벡터 연산 함수</li>
-<li>R 데이터 관리 함수</li>
-<li>R 시스템 함수</li>
-<li>R 사용자 정의 함수</li>
-</ul>
-<h2 id="r--read-write">R 입출력 Read &amp; Write</h2>
-<ul>
-<li>데이터 불러오기</li>
-<li>데이터 저장하기</li>
-<li>백업 및 복원</li>
-</ul>
-<h2 id="r--graphs-charts">R 그래프 Graphs &amp; Charts</h2>
-<ul>
-<li>R Programming Bar Plot</li>
-<li>R Programming Histogram</li>
-<li>R Programming Pie Chart</li>
-<li>R Box Plot</li>
-<li>R Strip Chart</li>
-</ul>
-<h2 id="r---objects-class">R 객체와 클래스 Objects &amp; Class</h2>
-<ul>
-<li>Object and Class</li>
-<li>R S3 Class</li>
-<li>R S4 Class</li>
-<li>R Reference Class</li>
-<li>R Inheritance</li>
-</ul>
+<p>배열은 동일한 형태의 데이터가 2차원 이상으로 구성된 데이터 구조입니다. 벡터가 1차원이고, 행렬은 2차원, 배열은 2차원 이상의 구조입니다. 배열은 행렬을 층층히 쌓으면서 3차원, 4차원, 5차원 등으로 확대할 수 있습니다.</p>
+<h2 id="section">배열 생성</h2>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

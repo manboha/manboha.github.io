@@ -1,0 +1,117 @@
+---
+title: "R 팩터 Factor"
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+범주형(명목형) 자료의 데이터 구조입니다. Levles는 이 팩터(요인)가 가질 수 있는 값들입니다. 예를 들면 성별 데이터는 범주형 데이터로서 팩터 데이터 구조를 가질 수 있는데, "남성"와 "여성"은 Levels라 할 수 있습니다.
+
+R에서 분석을 하다보면 팩터형식의 데이터이어야 하는 경우가 있고, 팩터형식이 아니어야 하는 경우가 있습니다. 상황에 따라 적절한 형식으로 변환하며 사용해야 합니다.
+
+## 팩터 변수 만들기 Create a factor
+
+```{r}
+sex <- factor(c("남성", "여성", "여성", "남성", "남성"))
+sex
+```
+
+```{r}
+sex <- c("남성", "여성", "여성", "남성", "남성")
+sex <- factor(sex)
+
+# Or
+sex <- factor(sex, levels = c("여성", "남성"))
+sex
+```
+
+```{r}
+# 팩터 변수의 levels 보기
+levels(sex)
+```
+
+팩터는 벡터와 밀접한 관계입니다. 사실상 펙터는 정수 벡터로 저장된 데이터 구조입니다.
+아래에서 보듯이 levels는 문자로 저장되어 있으나, 각 요소는 숫자로 저장되어 있습니다. 
+1은 여성이고 2는 남성인 것입니다.
+
+```{r}
+str(sex)
+```
+
+
+## 팩터 요소 추출  Get a subset of factor
+
+팩터의 요소 추출은 벡터와 유사합니다.
+
+```{r}
+sex[3]
+sex[c(1, 3)]
+sex[-1]
+```
+
+## 팩터 요소 수정 Modify factor
+
+팩터 요소의 수정은 벡터와 비슷하나, Levels 값의 범위를 벗어날 수 없습니다.
+
+```{r warning=TRUE}
+sex[1] <- "여성"
+sex
+
+sex[1] <- "양성"
+sex
+```
+
+Levels 값의 범위를 벗어난 값을 추가하려면 먼저 새로운 Levels 값을 추가합니다.
+
+```{r}
+# 새로운 Levels 값 추가
+levels(sex) <- c(levels(sex), "양성")
+sex[1] <- "양성"
+sex
+```
+
+
+## 기타
+
+### 팩터 레벨의 순서 변경
+
+팩터 레벨의 순서는 levels 속성에서 정의하여 줍니다.
+
+```{r}
+sex <- factor(sex, levels = c("여성", "양성", "남성"))
+sex
+```
+
+
+### 팩터 형식 검사
+
+```{r}
+is.factor(sex)
+```
+
+### 팩터 변환
+
+factor()와 as.factor()는 거의 유사하나, 입력 데이터가 이미 factor이거나 vector이면 as.factor()의 속도가 더 빠릅니다.
+
+```{r}
+pf <- c(1, 5, 1, 3, 3, 2, 4, 2, 5, 1, 3, 5)
+pf <- as.factor(pf)
+pf
+```
+
+### 팩터 변수 요약
+
+```{r}
+summary(sex)
+```
+
