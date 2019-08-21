@@ -19,7 +19,7 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Mblog for Data Analysis: R 데이터 프레임 Data frame</title>
+  <title>Mblog for Data Analysis: R 리스트 List</title>
   
   
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
@@ -30,20 +30,20 @@
   <meta name="article:author" content="Bohak Maeng"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Mblog for Data Analysis: R 데이터 프레임 Data frame"/>
+  <meta property="og:title" content="Mblog for Data Analysis: R 리스트 List"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Mblog for Data Analysis"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Mblog for Data Analysis: R 데이터 프레임 Data frame"/>
+  <meta property="twitter:title" content="Mblog for Data Analysis: R 리스트 List"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R 데이터 프레임 Data frame"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-21"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["R 리스트 List"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["2019-08-21"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1274,7 +1274,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"R 데이터 프레임 Data frame","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-21T00:00:00.000+09:00","citationText":"Maeng, 2019"}
+{"title":"R 리스트 List","authors":[{"author":"Bohak Maeng","authorURL":"https://manboha.github.io","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-21T00:00:00.000+09:00","citationText":"Maeng, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1311,7 +1311,7 @@ Data Analysis
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>R 데이터 프레임 Data frame</h1>
+<h1>R 리스트 List</h1>
 
 </div>
 
@@ -1325,471 +1325,312 @@ Data Analysis
 <h3 class="d-toc-header">Table of Contents</h3>
 <nav class="d-toc" id="TOC">
 <ul>
-<li><a href="#create-data-frame">데이터 프레임 만들기 Create data frame</a></li>
-<li><a href="#get-the-structure-of-the-data-frame">데이터 프레임 구조 보기 Get the Structure of the Data Frame</a></li>
-<li><a href="#summary-of-data-in-data-frame">데이터 프레임 요약 보기 Summary of Data in Data Frame</a></li>
-<li><a href="#extract-data-from-data-frame">데이터 프레임에서 데이터 추출 Extract Data from Data Frame</a></li>
-<li><a href="#modify-the-data-of-the-data-frame">데이터 프레임의 데이터 수정 Modify the Data of the Data Frame</a></li>
-<li><a href="#modify-the-structure-of-the-data-frame">데이터 프레임 구조 수정 Modify the Structure of the Data Frame</a></li>
-<li><a href="#section-6">기타</a></li>
+<li><a href="#create-a-list">리스트 만들기 Create a list</a></li>
+<li><a href="#get-the-structure-of-the-list">리스트 구조 보기 Get the structure of the list</a></li>
+<li><a href="#extract-data-from-list">리스트에서 데이터 추출 Extract data from list</a></li>
+<li><a href="#modify-the-data-of-the-list">리스트의 데이터 수정 Modify the data of the list</a></li>
+<li><a href="#modify-the-structure-of-the-list">리스트 구조 수정 Modify the structure of the list</a></li>
+<li><a href="#converting-list-to-vector">리스트를 벡터로 변환 Converting list to vector</a></li>
 </ul>
 </nav>
 <hr class="d-toc-separator"/>
-<p>데이터 프레임은 다양한 형태의 데이터가 2차원으로 구성된 데이터 구조입니다. 행(케이스)과 열(변수)로 구성된 표와 같이 생겼습니다. 엑셀에서 이름 필드, 연령 필드, 성적 필드 등으로 이루어진 표와 같다고 보면 됩니다. 통계분석에 가장 많이 사용됩니다.</p>
-<h2 id="create-data-frame">데이터 프레임 만들기 Create data frame</h2>
-<p>데이터 프레임을 생성하는 방법은 많습니다. 그 중에서 가장 많이 쓰이는 방법은 외부에서 만들어진 정리된 데이터를 R에서 읽어 들이는 방법입니다. 이 방법은 R 입출력에서 자세히 다루겠습니다.</p>
-<p>두 번째 방법은 벡터 형식의 자료를 묶어서 데이터 프레임을 만드는 것입니다. 아래 예제는 data.frame 함수를 이용하여 벡터 변수 name, age, sex, score를 하나로 묶어서 데이터 프레임 df를 만들어 보겠습니다.</p>
+<p>리스트(List)는 벡터, 행렬, 배열, 데이터 프레임 등과 같은 서로 다른 구조의 객체들을 하나로 묶은 것입니다. 기차처럼 이어서 묶어 놓은 것을 상상하면 될 것입니다.</p>
+<h2 id="create-a-list">리스트 만들기 Create a list</h2>
+<p>숫자 벡터, 문자벡터, 행렬, 데이터 프레임을 하나로 묶어서 mylist라는 변수에 할당하겠습니다.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
+# 숫자 벡터
+numvec &lt;- seq(1, 10, by = 2)
+# 문자 벡터
+strvec &lt;- c(&quot;대한&quot;, &quot;민국&quot;, &quot;행정&quot;)
+# 행렬
+mtx &lt;- matrix(1:12, ncol = 3)
+
+# 데이터 프레임
 name &lt;- c(&quot;유재석&quot;, &quot;홍진영&quot;, &quot;송가인&quot;, &quot;강호동&quot;, &quot;이영자&quot;, &quot;김종민&quot;, &quot;김연아&quot;)
 age &lt;- c(24, 28, 31, 25, 27, 22, 29)
 sex &lt;- c(&quot;남&quot;, &quot;여&quot;, &quot;여&quot;, &quot;남&quot;, &quot;여&quot;, &quot;남&quot;, &quot;여&quot;)
 score &lt;- c(90, 80, 85, 75, 95, 80, 70)
-
-# &#39;stringsAsFactors = FALSE&#39; 옵션 : 문자 데이터를 팩터로 변환시키지 않음
 df &lt;- data.frame(name, age, sex, score, stringsAsFactors = FALSE)
-df</code></pre>
-<pre><code>
-    name age sex score
-1 유재석  24  남    90
-2 홍진영  28  여    80
-3 송가인  31  여    85
-4 강호동  25  남    75
-5 이영자  27  여    95
-6 김종민  22  남    80
-7 김연아  29  여    70</code></pre>
-</div>
-<h2 id="get-the-structure-of-the-data-frame">데이터 프레임 구조 보기 Get the Structure of the Data Frame</h2>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 데이터 프레임 구조
-str(df)</code></pre>
-<pre><code>
-&#39;data.frame&#39;:   7 obs. of  4 variables:
- $ name : chr  &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; ...
- $ age  : num  24 28 31 25 27 22 29
- $ sex  : chr  &quot;남&quot; &quot;여&quot; &quot;여&quot; &quot;남&quot; ...
- $ score: num  90 80 85 75 95 80 70</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 행 개수
-nrow(df)</code></pre>
-<pre><code>
-[1] 7</code></pre>
-<pre class="r"><code>
-# 열 개수
-ncol(df)</code></pre>
-<pre><code>
-[1] 4</code></pre>
-</div>
-<h2 id="summary-of-data-in-data-frame">데이터 프레임 요약 보기 Summary of Data in Data Frame</h2>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-summary(df)</code></pre>
-<pre><code>
-     name                age            sex           
- Length:7           Min.   :22.00   Length:7          
- Class :character   1st Qu.:24.50   Class :character  
- Mode  :character   Median :27.00   Mode  :character  
-                    Mean   :26.57                     
-                    3rd Qu.:28.50                     
-                    Max.   :31.00                     
-     score      
- Min.   :70.00  
- 1st Qu.:77.50  
- Median :80.00  
- Mean   :82.14  
- 3rd Qu.:87.50  
- Max.   :95.00  </code></pre>
-</div>
-<h2 id="extract-data-from-data-frame">데이터 프레임에서 데이터 추출 Extract Data from Data Frame</h2>
-<h3 id="section">특정 위치(행과 열 기준)에 있는 데이터 추출하기</h3>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# name 열(변수) 데이터 추출
-# 데이터프레임과 컬럼사이에 $기호가 사용됨
-df$name</code></pre>
-<pre><code>
-[1] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; &quot;이영자&quot; &quot;김종민&quot; &quot;김연아&quot;</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# df$name 대신 아래처럼 사용 가능
-df[, &quot;name&quot;]</code></pre>
-<pre><code>
-[1] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; &quot;이영자&quot; &quot;김종민&quot; &quot;김연아&quot;</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 첫번째 열(name) 추출
-df[, 1]</code></pre>
-<pre><code>
-[1] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; &quot;이영자&quot; &quot;김종민&quot; &quot;김연아&quot;</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 1열과 3열 추출
-df[, c(1, 3)]</code></pre>
-<pre><code>
-    name sex
-1 유재석  남
-2 홍진영  여
-3 송가인  여
-4 강호동  남
-5 이영자  여
-6 김종민  남
-7 김연아  여</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# name 열(변수)의 3번째 데이터 추출
-df$name[3]</code></pre>
-<pre><code>
-[1] &quot;송가인&quot;</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 2~3번째 행 추출
-df[2:3, ]</code></pre>
-<pre><code>
-    name age sex score
-2 홍진영  28  여    80
-3 송가인  31  여    85</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 연령 변수의 데이터를 추출하여 평균을 구함
-# na.rm = TRUE는 missing value를 제외하고 계산함
-mean(df$age, na.rm = TRUE)</code></pre>
-<pre><code>
-[1] 26.57143</code></pre>
-</div>
-<h3 id="section-1">마이너스 기호(-)를 이용하여 데이터 제외</h3>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 3번째 열 제외
-df[, -3]</code></pre>
-<pre><code>
-    name age score
-1 유재석  24    90
-2 홍진영  28    80
-3 송가인  31    85
-4 강호동  25    75
-5 이영자  27    95
-6 김종민  22    80
-7 김연아  29    70</code></pre>
-</div>
-<h3 id="section-2">조건으로 데이터 추출</h3>
-<p>특정 조건에 맞는 데이터만 추출할 때 대괄호 안에 조건식을 입력하여 추출하거나 subset 함수를 이용하여 추출할 수 있습니다. 데이터가 매우 많을 경우에는 대괄호 안에 조건식을 입력하여 추출하는 것이 subset 함수를 이용하는 것 보다 더 빠릅니다.</p>
-<h4 id="section-3">대괄호 안에 조건식 입력하여 추출</h4>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# score가 90이상인 데이터 추출
-df[df$score &gt;= 90, ]</code></pre>
-<pre><code>
-    name age sex score
-1 유재석  24  남    90
-5 이영자  27  여    95</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# score가 90이상인 데이터의 name과 age만 추출
-# 1:2 대신 c(&quot;name&quot;, &quot;age&quot;)를 사용해도 됨
-df[df$score &gt;= 90, 1:2]</code></pre>
-<pre><code>
-    name age
-1 유재석  24
-5 이영자  27</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 조건식과 출력 컬럼명을 변수에 입력하고 이를 활용
-score90 &lt;- df$score &gt;= 90
-cols &lt;- c(&quot;name&quot;, &quot;age&quot;)
 
-df[score90, cols]</code></pre>
-<pre><code>
-    name age
-1 유재석  24
-5 이영자  27</code></pre>
-</div>
-<h4 id="subset--">subset()을 이용하여 추출</h4>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# score가 90이상인 데이터 추출
-subset(df, score &gt;= 90)</code></pre>
-<pre><code>
-    name age sex score
-1 유재석  24  남    90
-5 이영자  27  여    95</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# score가 90이상인 데이터의 name과 age만 추출
-subset(df, score &gt;= 90, select = c(&quot;name&quot;, &quot;age&quot;))</code></pre>
-<pre><code>
-    name age
-1 유재석  24
-5 이영자  27</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# score가 90이상인 데이터에서 age와 sex만 제외하고 추출
-subset(df, score &gt;= 90, select = -(age:sex))</code></pre>
-<pre><code>
-    name score
-1 유재석    90
-5 이영자    95</code></pre>
-</div>
-<h2 id="modify-the-data-of-the-data-frame">데이터 프레임의 데이터 수정 Modify the Data of the Data Frame</h2>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 2번째 행에 있는 홍진영의 age를 29로 수정
-df$age[2] &lt;- 29
-df</code></pre>
-<pre><code>
-    name age sex score
-1 유재석  24  남    90
-2 홍진영  29  여    80
-3 송가인  31  여    85
-4 강호동  25  남    75
-5 이영자  27  여    95
-6 김종민  22  남    80
-7 김연아  29  여    70</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 3행에 있는 송가인의 score를 95로 수정
-df[3, &quot;score&quot;] &lt;- 95
-df</code></pre>
-<pre><code>
-    name age sex score
-1 유재석  24  남    90
-2 홍진영  29  여    80
-3 송가인  31  여    95
-4 강호동  25  남    75
-5 이영자  27  여    95
-6 김종민  22  남    80
-7 김연아  29  여    70</code></pre>
-</div>
-<h2 id="modify-the-structure-of-the-data-frame">데이터 프레임 구조 수정 Modify the Structure of the Data Frame</h2>
-<h3 id="adding-components">데이터 프레임 행열 추가 Adding Components</h3>
-<h4 id="adding-rows">행 추가 adding rows</h4>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-new_data &lt;- list(&quot;김남준&quot;, 24, &quot;남&quot;, 92)
-new_data</code></pre>
+# 리스트 만들기 : 리스트 요소에 이름이 지정되지 않음
+mylist &lt;- list(numvec, strvec, mtx, df)
+mylist</code></pre>
 <pre><code>
 [[1]]
-[1] &quot;김남준&quot;
+[1] 1 3 5 7 9
 
 [[2]]
-[1] 24
+[1] &quot;대한&quot; &quot;민국&quot; &quot;행정&quot;
 
 [[3]]
-[1] &quot;남&quot;
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7   11
+[4,]    4    8   12
 
 [[4]]
-[1] 92</code></pre>
-<pre class="r"><code>
-df &lt;- rbind(df, new_data)
-df</code></pre>
-<pre><code>
     name age sex score
 1 유재석  24  남    90
-2 홍진영  29  여    80
-3 송가인  31  여    95
+2 홍진영  28  여    80
+3 송가인  31  여    85
 4 강호동  25  남    75
 5 이영자  27  여    95
 6 김종민  22  남    80
-7 김연아  29  여    70
-8 김남준  24  남    92</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
+7 김연아  29  여    70</code></pre>
 <pre class="r"><code>
-new_data &lt;- data.frame(
-  name = &quot;이지은&quot;,
-  age = 26,
-  sex = &quot;여&quot;,
-  score = 93)
-
-df &lt;- rbind(df, new_data)
-df</code></pre>
+# 리스트 요소에 이름을 지정하여 리스트 만들기
+mylist &lt;- list(numvec = numvec, 
+               strvec = strvec, 
+               mtx = mtx, 
+               df = df)
+mylist</code></pre>
 <pre><code>
+$numvec
+[1] 1 3 5 7 9
+
+$strvec
+[1] &quot;대한&quot; &quot;민국&quot; &quot;행정&quot;
+
+$mtx
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7   11
+[4,]    4    8   12
+
+$df
     name age sex score
 1 유재석  24  남    90
-2 홍진영  29  여    80
-3 송가인  31  여    95
+2 홍진영  28  여    80
+3 송가인  31  여    85
 4 강호동  25  남    75
 5 이영자  27  여    95
 6 김종민  22  남    80
-7 김연아  29  여    70
-8 김남준  24  남    92
-9 이지은  26  여    93</code></pre>
+7 김연아  29  여    70</code></pre>
 </div>
-<h4 id="adding-columns">열 추가 adding columns</h4>
+<h3 id="section">리스트 요소 이름 지정 또는 변경하기</h3>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-# salary 열 추가
-df$salary &lt;- c(220, 180, 250, 170, 220, 270, 250, 290, 210)
-df</code></pre>
+names(mylist) &lt;- c(&quot;numbers&quot;, &quot;strings&quot;, &quot;matrix_num&quot;, &quot;df_score&quot;)
+mylist</code></pre>
 <pre><code>
-    name age sex score salary
-1 유재석  24  남    90    220
-2 홍진영  29  여    80    180
-3 송가인  31  여    95    250
-4 강호동  25  남    75    170
-5 이영자  27  여    95    220
-6 김종민  22  남    80    270
-7 김연아  29  여    70    250
-8 김남준  24  남    92    290
-9 이지은  26  여    93    210</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 또는 cbind를 활용할 수 있음
-# salary 열 추가
-salary2 &lt;- c(220, 180, 250, 170, 220, 270, 250, 290, 210)
-df &lt;- cbind(df, salary2)
-df</code></pre>
-<pre><code>
-    name age sex score salary salary2
-1 유재석  24  남    90    220     220
-2 홍진영  29  여    80    180     180
-3 송가인  31  여    95    250     250
-4 강호동  25  남    75    170     170
-5 이영자  27  여    95    220     220
-6 김종민  22  남    80    270     270
-7 김연아  29  여    70    250     250
-8 김남준  24  남    92    290     290
-9 이지은  26  여    93    210     210</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-salary3 &lt;- c(220, 180, 250, 170, 220, 270, 250, 290, 210)
-new_data &lt;- data.frame(salary3)
+$numbers
+[1] 1 3 5 7 9
 
-df &lt;- cbind(df, new_data)
-df</code></pre>
-<pre><code>
-    name age sex score salary salary2 salary3
-1 유재석  24  남    90    220     220     220
-2 홍진영  29  여    80    180     180     180
-3 송가인  31  여    95    250     250     250
-4 강호동  25  남    75    170     170     170
-5 이영자  27  여    95    220     220     220
-6 김종민  22  남    80    270     270     270
-7 김연아  29  여    70    250     250     250
-8 김남준  24  남    92    290     290     290
-9 이지은  26  여    93    210     210     210</code></pre>
-</div>
-<h3 id="deleting-component">데이터 프레임 행열 삭제 Deleting Component</h3>
-<h4 id="section-4">행 삭제</h4>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 9행 삭제
-df &lt;- df[-9, ]
-df</code></pre>
-<pre><code>
-    name age sex score salary salary2 salary3
-1 유재석  24  남    90    220     220     220
-2 홍진영  29  여    80    180     180     180
-3 송가인  31  여    95    250     250     250
-4 강호동  25  남    75    170     170     170
-5 이영자  27  여    95    220     220     220
-6 김종민  22  남    80    270     270     270
-7 김연아  29  여    70    250     250     250
-8 김남준  24  남    92    290     290     290</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# score 가 80이하 삭제 
-df &lt;- df[!df$score &lt; 80, ]
-df</code></pre>
-<pre><code>
-    name age sex score salary salary2 salary3
-1 유재석  24  남    90    220     220     220
-2 홍진영  29  여    80    180     180     180
-3 송가인  31  여    95    250     250     250
-5 이영자  27  여    95    220     220     220
-6 김종민  22  남    80    270     270     270
-8 김남준  24  남    92    290     290     290</code></pre>
-</div>
-<h4 id="section-5">열 삭제</h4>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# salary3 변수(열) 삭제
-df$salary3 &lt;- NULL
-df</code></pre>
-<pre><code>
-    name age sex score salary salary2
-1 유재석  24  남    90    220     220
-2 홍진영  29  여    80    180     180
-3 송가인  31  여    95    250     250
-5 이영자  27  여    95    220     220
-6 김종민  22  남    80    270     270
-8 김남준  24  남    92    290     290</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# 5열(salary)과 6열(salary2) 삭제
-df &lt;- df[, -(5:6)]
-df</code></pre>
-<pre><code>
+$strings
+[1] &quot;대한&quot; &quot;민국&quot; &quot;행정&quot;
+
+$matrix_num
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7   11
+[4,]    4    8   12
+
+$df_score
     name age sex score
 1 유재석  24  남    90
-2 홍진영  29  여    80
-3 송가인  31  여    95
+2 홍진영  28  여    80
+3 송가인  31  여    85
+4 강호동  25  남    75
 5 이영자  27  여    95
 6 김종민  22  남    80
-8 김남준  24  남    92</code></pre>
+7 김연아  29  여    70</code></pre>
 </div>
-<h2 id="section-6">기타</h2>
-<h3 id="section-7">데이터 프레인 컬럼명 추출</h3>
+<h2 id="get-the-structure-of-the-list">리스트 구조 보기 Get the structure of the list</h2>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-names(df)</code></pre>
+# 리스트 구조 보기
+str(mylist)</code></pre>
 <pre><code>
-[1] &quot;name&quot;  &quot;age&quot;   &quot;sex&quot;   &quot;score&quot;</code></pre>
+List of 4
+ $ numbers   : num [1:5] 1 3 5 7 9
+ $ strings   : chr [1:3] &quot;대한&quot; &quot;민국&quot; &quot;행정&quot;
+ $ matrix_num: int [1:4, 1:3] 1 2 3 4 5 6 7 8 9 10 ...
+ $ df_score  :&#39;data.frame&#39;: 7 obs. of  4 variables:
+  ..$ name : chr [1:7] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; ...
+  ..$ age  : num [1:7] 24 28 31 25 27 22 29
+  ..$ sex  : chr [1:7] &quot;남&quot; &quot;여&quot; &quot;여&quot; &quot;남&quot; ...
+  ..$ score: num [1:7] 90 80 85 75 95 80 70</code></pre>
 </div>
-<h3 id="section-8">데이터 프레임 컬럼(열) 개수</h3>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-# 컬럼의 갯수 보기 ncol == length
-ncol(df); length(df)</code></pre>
+# 리스트에 있는 객체(요소)의 개수
+length(mylist)</code></pre>
 <pre><code>
 [1] 4</code></pre>
-<pre><code>
-[1] 4</code></pre>
 </div>
-<h3 id="section-9">데이터 프레임 행 개수</h3>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-nrow(df)</code></pre>
+# 리스트 요소의 이름 추출
+names(mylist)</code></pre>
 <pre><code>
-[1] 6</code></pre>
+[1] &quot;numbers&quot;    &quot;strings&quot;    &quot;matrix_num&quot; &quot;df_score&quot;  </code></pre>
 </div>
-<h3 id="section-10">데이터 프레임 연산</h3>
+<h2 id="extract-data-from-list">리스트에서 데이터 추출 Extract data from list</h2>
+<h3 id="section-1">특정 위치에 있는 데이터 추출하기</h3>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-# rowSums(), colSums(), colMeans(), rowMeans()
-# 연산을 위해 숫자가 아인 컬럼 제거 (1열 name, 3열 sex)
-df2 &lt;- df[, -c(1, 3)]
-df2</code></pre>
+# 행렬(matrix_num) 요소 데이터 추출
+# 리스트와 요소사이에 $기호가 사용됨
+mylist$matrix_num</code></pre>
 <pre><code>
-  age score
-1  24    90
-2  29    80
-3  31    95
-5  27    95
-6  22    80
-8  24    92</code></pre>
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7   11
+[4,]    4    8   12</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-colMeans(df2)</code></pre>
+# 위치 번호 대신 요소 이름을 사용하여 추출
+# []는 리스트의 하위 요소를 보여주는 것임. 타입은 list 
+mylist[&quot;matrix_num&quot;]; typeof(mylist[&quot;matrix_num&quot;])</code></pre>
 <pre><code>
-     age    score 
-26.16667 88.66667 </code></pre>
+$matrix_num
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7   11
+[4,]    4    8   12</code></pre>
+<pre><code>
+[1] &quot;list&quot;</code></pre>
+<pre class="r"><code>
+# [[]]는 리스트 하위 요소의 데이터를 보여줌. 타입은 integer
+mylist[[&quot;matrix_num&quot;]]; typeof(mylist[[&quot;matrix_num&quot;]])</code></pre>
+<pre><code>
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7   11
+[4,]    4    8   12</code></pre>
+<pre><code>
+[1] &quot;integer&quot;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# df$matrix_num 대신 아래처럼 사용 가능 - 3번째 요소
+# mylist$numbers == mylist[[&quot;numbers&quot;]] == mylist[[1]]
+mylist$numbers; mylist[[&quot;numbers&quot;]]; mylist[[1]]</code></pre>
+<pre><code>
+[1] 1 3 5 7 9</code></pre>
+<pre><code>
+[1] 1 3 5 7 9</code></pre>
+<pre><code>
+[1] 1 3 5 7 9</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 리스트의 strings 요소의 3번째 데이터 추출
+# 아래 3가지 방식이 동일함
+s1 &lt;- mylist$strings[3]
+s2 &lt;- mylist[[&quot;strings&quot;]][3]
+s3 &lt;- mylist[[2]][3]
+s1; s2; s3</code></pre>
+<pre><code>
+[1] &quot;행정&quot;</code></pre>
+<pre><code>
+[1] &quot;행정&quot;</code></pre>
+<pre><code>
+[1] &quot;행정&quot;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 리스트의 요소인 df_score 데이터 프레임의 name 변수 데이터 추출
+mylist$df_score$name</code></pre>
+<pre><code>
+[1] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; &quot;이영자&quot; &quot;김종민&quot; &quot;김연아&quot;</code></pre>
+</div>
+<h2 id="modify-the-data-of-the-list">리스트의 데이터 수정 Modify the data of the list</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 리스트의 strings 요소의 3번째 데이터를 &quot;정부&quot;로 수정
+mylist$strings[3] &lt;- &quot;정부&quot;
+mylist$strings</code></pre>
+<pre><code>
+[1] &quot;대한&quot; &quot;민국&quot; &quot;정부&quot;</code></pre>
+</div>
+<h2 id="modify-the-structure-of-the-list">리스트 구조 수정 Modify the structure of the list</h2>
+<h3 id="section-2">리스트 요소 추가</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+mylist$new_list &lt;- 1:5
+str(mylist)</code></pre>
+<pre><code>
+List of 5
+ $ numbers   : num [1:5] 1 3 5 7 9
+ $ strings   : chr [1:3] &quot;대한&quot; &quot;민국&quot; &quot;정부&quot;
+ $ matrix_num: int [1:4, 1:3] 1 2 3 4 5 6 7 8 9 10 ...
+ $ df_score  :&#39;data.frame&#39;: 7 obs. of  4 variables:
+  ..$ name : chr [1:7] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; ...
+  ..$ age  : num [1:7] 24 28 31 25 27 22 29
+  ..$ sex  : chr [1:7] &quot;남&quot; &quot;여&quot; &quot;여&quot; &quot;남&quot; ...
+  ..$ score: num [1:7] 90 80 85 75 95 80 70
+ $ new_list  : int [1:5] 1 2 3 4 5</code></pre>
+</div>
+<h3 id="section-3">리스트 요소 제거</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+mylist$new_list &lt;- NULL
+str(mylist)</code></pre>
+<pre><code>
+List of 4
+ $ numbers   : num [1:5] 1 3 5 7 9
+ $ strings   : chr [1:3] &quot;대한&quot; &quot;민국&quot; &quot;정부&quot;
+ $ matrix_num: int [1:4, 1:3] 1 2 3 4 5 6 7 8 9 10 ...
+ $ df_score  :&#39;data.frame&#39;: 7 obs. of  4 variables:
+  ..$ name : chr [1:7] &quot;유재석&quot; &quot;홍진영&quot; &quot;송가인&quot; &quot;강호동&quot; ...
+  ..$ age  : num [1:7] 24 28 31 25 27 22 29
+  ..$ sex  : chr [1:7] &quot;남&quot; &quot;여&quot; &quot;여&quot; &quot;남&quot; ...
+  ..$ score: num [1:7] 90 80 85 75 95 80 70</code></pre>
+</div>
+<h3 id="section-4">리스트 병합</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+list1 &lt;- list(x1 = 1:5,
+              x2 = LETTERS)
+list2 &lt;- list(y1 = 11:17,
+              y2 = letters)
+
+# 2개 리스트 병합
+mlist &lt;- c(list1, list2)
+mlist</code></pre>
+<pre><code>
+$x1
+[1] 1 2 3 4 5
+
+$x2
+ [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot;
+[17] &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;
+
+$y1
+[1] 11 12 13 14 15 16 17
+
+$y2
+ [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot;
+[17] &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+</div>
+<h2 id="converting-list-to-vector">리스트를 벡터로 변환 Converting list to vector</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 리스트를 벡터로 변환
+unlist(list1)</code></pre>
+<pre><code>
+ x11  x12  x13  x14  x15  x21  x22  x23  x24  x25  x26  x27  x28  x29 
+ &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;A&quot;  &quot;B&quot;  &quot;C&quot;  &quot;D&quot;  &quot;E&quot;  &quot;F&quot;  &quot;G&quot;  &quot;H&quot;  &quot;I&quot; 
+x210 x211 x212 x213 x214 x215 x216 x217 x218 x219 x220 x221 x222 x223 
+ &quot;J&quot;  &quot;K&quot;  &quot;L&quot;  &quot;M&quot;  &quot;N&quot;  &quot;O&quot;  &quot;P&quot;  &quot;Q&quot;  &quot;R&quot;  &quot;S&quot;  &quot;T&quot;  &quot;U&quot;  &quot;V&quot;  &quot;W&quot; 
+x224 x225 x226 
+ &quot;X&quot;  &quot;Y&quot;  &quot;Z&quot; </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# 리스트 요소를 벡터로 변환
+unlist(mylist$numbers)</code></pre>
+<pre><code>
+[1] 1 3 5 7 9</code></pre>
 </div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

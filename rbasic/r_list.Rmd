@@ -15,4 +15,154 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-벡터, 행렬, 배열, 데이터 프레임 등과 같은 서로 다른 구조의 데이터를 묶은 것입니다. 기차처럼 이어서 묶어 놓은 것을 상상하면 될 것입니다. 
+리스트(List)는 벡터, 행렬, 배열, 데이터 프레임 등과 같은 서로 다른 구조의 객체들을 하나로 묶은 것입니다. 기차처럼 이어서 묶어 놓은 것을 상상하면 될 것입니다. 
+
+
+## 리스트 만들기 Create a list
+
+숫자 벡터, 문자벡터, 행렬, 데이터 프레임을 하나로 묶어서 mylist라는 변수에 할당하겠습니다.
+
+```{r}
+# 숫자 벡터
+numvec <- seq(1, 10, by = 2)
+# 문자 벡터
+strvec <- c("대한", "민국", "행정")
+# 행렬
+mtx <- matrix(1:12, ncol = 3)
+
+# 데이터 프레임
+name <- c("유재석", "홍진영", "송가인", "강호동", "이영자", "김종민", "김연아")
+age <- c(24, 28, 31, 25, 27, 22, 29)
+sex <- c("남", "여", "여", "남", "여", "남", "여")
+score <- c(90, 80, 85, 75, 95, 80, 70)
+df <- data.frame(name, age, sex, score, stringsAsFactors = FALSE)
+
+# 리스트 만들기 : 리스트 요소에 이름이 지정되지 않음
+mylist <- list(numvec, strvec, mtx, df)
+mylist
+
+# 리스트 요소에 이름을 지정하여 리스트 만들기
+mylist <- list(numvec = numvec, 
+               strvec = strvec, 
+               mtx = mtx, 
+               df = df)
+mylist
+```
+
+### 리스트 요소 이름 지정 또는 변경하기
+
+```{r}
+names(mylist) <- c("numbers", "strings", "matrix_num", "df_score")
+mylist
+```
+
+
+
+## 리스트 구조 보기 Get the structure of the list
+
+```{r}
+# 리스트 구조 보기
+str(mylist)
+```
+
+```{r}
+# 리스트에 있는 객체(요소)의 개수
+length(mylist)
+```
+
+```{r}
+# 리스트 요소의 이름 추출
+names(mylist)
+```
+
+
+## 리스트에서 데이터 추출 Extract data from list
+
+### 특정 위치에 있는 데이터 추출하기
+
+```{r}
+# 행렬(matrix_num) 요소 데이터 추출
+# 리스트와 요소사이에 $기호가 사용됨
+mylist$matrix_num
+```
+
+```{r}
+# 위치 번호 대신 요소 이름을 사용하여 추출
+# []는 리스트의 하위 요소를 보여주는 것임. 타입은 list 
+mylist["matrix_num"]; typeof(mylist["matrix_num"])
+
+# [[]]는 리스트 하위 요소의 데이터를 보여줌. 타입은 integer
+mylist[["matrix_num"]]; typeof(mylist[["matrix_num"]])
+```
+
+```{r}
+# df$matrix_num 대신 아래처럼 사용 가능 - 3번째 요소
+# mylist$numbers == mylist[["numbers"]] == mylist[[1]]
+mylist$numbers; mylist[["numbers"]]; mylist[[1]]
+```
+
+```{r}
+# 리스트의 strings 요소의 3번째 데이터 추출
+# 아래 3가지 방식이 동일함
+s1 <- mylist$strings[3]
+s2 <- mylist[["strings"]][3]
+s3 <- mylist[[2]][3]
+s1; s2; s3
+```
+
+```{r}
+# 리스트의 요소인 df_score 데이터 프레임의 name 변수 데이터 추출
+mylist$df_score$name
+```
+
+
+## 리스트의 데이터 수정 Modify the data of the list
+
+```{r}
+# 리스트의 strings 요소의 3번째 데이터를 "정부"로 수정
+mylist$strings[3] <- "정부"
+mylist$strings
+```
+
+## 리스트 구조 수정 Modify the structure of the list
+
+### 리스트 요소 추가
+```{r}
+mylist$new_list <- 1:5
+str(mylist)
+```
+
+### 리스트 요소 제거
+```{r}
+mylist$new_list <- NULL
+str(mylist)
+```
+
+### 리스트 병합
+
+```{r}
+list1 <- list(x1 = 1:5,
+              x2 = LETTERS)
+list2 <- list(y1 = 11:17,
+              y2 = letters)
+
+# 2개 리스트 병합
+mlist <- c(list1, list2)
+mlist
+```
+
+
+## 리스트를 벡터로 변환 Converting list to vector
+
+
+```{r}
+# 리스트를 벡터로 변환
+unlist(list1)
+```
+
+```{r}
+# 리스트 요소를 벡터로 변환
+unlist(mylist$numbers)
+```
+
+
