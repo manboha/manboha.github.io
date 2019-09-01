@@ -48,9 +48,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## R 제어문 Flow Control
 
-* R 조건문
-* R 반복문
-* R 분기문
+* [R 조건문](r_condition.html)
+* [R 반복문](r_loop.html)
 
 
 ## R 함수 Fuctions

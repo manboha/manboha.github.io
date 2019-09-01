@@ -1,0 +1,38 @@
+---
+title: "R 조건문 Conditional execution"
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## if 문
+
+
+## ifelse 문
+
+
+## switch 문
+
+
+
+## which() 문
+
+
+## return 문
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+---
+title: "R 반복문 Repetition and looping"
+author:
+  - name: Bohak Maeng
+    url: https://manboha.github.io
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## for 문
+
+
+## while 문
+
+
+## repeat 문
+
+
+## break 문
+
+
+## next 문
+
+
+## apply 문
+
+apply allows us to repeat a function on all of the rows (MARGIN = 1) or columns (MARGIN = 2) of a data frame.
+
+Thus, to obtain the average inflammation of each patient we will need to calculate the mean of all of the rows (MARGIN = 1) of the data frame.
+
+# calculate the mean of all of the rows (MARGIN = 1) of the data frame.
+# rowMeans
+avg_patient_inflammation <- apply(dat, 1, mean)
+
+# calculate the mean of all of the columns (MARGIN = 2) of the data frame.
+
+max_day_inflammation <- apply(dat, 2, max)
+plot(max_day_inflammation)
