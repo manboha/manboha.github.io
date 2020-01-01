@@ -1,5 +1,20 @@
 [
   {
+    "path": "posts/2020-01-01-efa/",
+    "title": "탐색적 요인분석으로 타당도 측정하기",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Bohak Maeng",
+        "url": "https://manboha.github.io"
+      }
+    ],
+    "date": "2020-01-01",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-01-01T13:56:00+09:00"
+  },
+  {
     "path": "posts/2019-09-01-recognizing-handwritten-digits-by-keras/",
     "title": "Recognizing Handwritten Digits by KERAS",
     "description": {},
