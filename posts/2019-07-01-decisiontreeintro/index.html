@@ -51,18 +51,11 @@
 <meta property="twitter:image:width" content="590"/>
 <meta property="twitter:image:height" content="198"/>
 
-<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Mblog for Data Analysis: Decision Tree Intro"/>
-<meta name="citation_fulltext_html_url" content="https://manboha.github.io/posts/2019-07-01-decisiontreeintro/"/>
-<meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2019/07/01"/>
-<meta name="citation_publication_date" content="2019/07/01"/>
-<meta name="citation_author" content="Bohak Maeng"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Decision Tree Intro"]},{"type":"character","attributes":{},"value":["A short description of decision tree."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["07-01-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://manboha.github.io/posts/2019-07-01-decisiontreeintro/"]},{"type":"character","attributes":{},"value":["https://manboha.github.io/posts/2019-07-01-decisiontreeintro/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Decision Tree Intro"]},{"type":"character","attributes":{},"value":["A short description of decision tree."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Bohak Maeng"]},{"type":"character","attributes":{},"value":["https://manboha.github.io"]}]}]},{"type":"character","attributes":{},"value":["07-01-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://manboha.github.io/posts/2019-07-01-decisiontreeintro/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -757,6 +750,16 @@ d-appendix .citation-appendix,
 }
 
 
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+
 /* Improve display for browsers without grid (IE/Edge <= 15) */
 
 .downlevel {
@@ -1334,8 +1337,8 @@ Data Analysis
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>의사결정나무 소개</h1>
-<p><p>의사결정나무의 개념, 구성요소, 예제, 알고리즘 등에 대한 소개</p></p>
+<h1>Decision Tree Intro</h1>
+<p><p>A short description of decision tree.</p></p>
 </div>
 
 <div class="d-byline">
@@ -1345,16 +1348,16 @@ Data Analysis
 </div>
 
 <div class="d-article">
-<h2 id="section">1.1 의사결정나무 개념</h2>
+<h2 id="의사결정나무-개념">1.1 의사결정나무 개념</h2>
 <p>의사결정나무는 나무 형태로 의사결정 규칙을 표현하는 방식으로 데이터를 분류(classification)하거나 예측(prediction)하는 분석기법이다. 나무(tree) 구조로 모형이 표현되기 때문에 해석이 용이하고 나무 구조로부터 어떤 입력변수가 목표변수를 설명하기 위하여 더 중요한지를 쉽게 파악할 수 있다. (최종후, 서두성 (1999), 데이터마이닝 의사결정나무의 응용, 통계분석연구 제4권 제1호, p.62; 최종후 외 (2000), Answer Tree를 이용한 데이터마이닝 의사결정나무분석, SPSS 아카데미; 오올임, 김구 (2002), 불확실성 상황에서의 의사결정 양상에 관한 실증적 연구, 한국행정학보, 36-3, p.82에서 재인용)</p>
 <p>의사결정나무의 장점은 분석과정이 이해하기 쉬우며 어느 변수가 상대적으로 더 중요한지 파악할 수 있다는 점이다. 또한 양적 변수와 질적 변수를 모두 사용할 수 있다.</p>
 <p>의사결정나무의 단점은 상대적으로 모델이 불안정하다는 점이다. 즉 high-variance(=low bias)한 성질을 갖고 있다. 의사결정나무는 가지의 깊이가 커질수록 훈련 데이터에 과적합(over-fitting)될 가능성이 높다. 과적합하게 되면 훈련 결과는 매우 잘 나오지만 검증 결과는 잘 나오지 않을 가능성이 높다.</p>
-<h2 id="section-1">1.2 의사결정나무 구성요소</h2>
+<h2 id="의사결정나무-구성요소">1.2 의사결정나무 구성요소</h2>
 <div class="layout-chunk" data-layout="l-body-outset">
 <p><img src="Image1.png" width="295" /></p>
 </div>
-<h2 id="section-2">1.3 의사결정나무 예제</h2>
-<h3 id="credit-risk-detection">신용 위협 탐지 (Credit Risk Detection)</h3>
+<h2 id="의사결정나무-예제">1.3 의사결정나무 예제</h2>
+<h3 id="신용-위협-탐지-credit-risk-detection">신용 위협 탐지 (Credit Risk Detection)</h3>
 <ul>
 <li>목적 : 은행에서 대출 심사를 하는 과정에서 은행의 손실을 최소화하기 위한 대출승인을 예측하는 의사결정 규칙 필요</li>
 <li>데이터 : 대출 신청자의 인구통계자료, 사회경제 프로파일(수입, 채무, 신용기록 등)</li>
@@ -1363,7 +1366,7 @@ Data Analysis
 <div class="layout-chunk" data-layout="l-body-outset">
 <p><img src="Image2.png" width="262" /></p>
 </div>
-<h3 id="section-3">기상정보로 경기 여부 예측</h3>
+<h3 id="기상정보로-경기-여부-예측">기상정보로 경기 여부 예측</h3>
 <ul>
 <li>목적 : 당일 기상정보를 토대로 당일 경기 진행 여부 예측</li>
 <li>데이터 : 지난 14일간 기상정보와 경기 진행 여부 정보</li>
@@ -1374,14 +1377,14 @@ Data Analysis
 <div class="layout-chunk" data-layout="l-body-outset">
 <p><img src="Image3.png" width="176" /></p>
 </div>
-<h2 id="section-4">1.4 의사결정나무 모형 구축과정</h2>
+<h2 id="의사결정나무-모형-구축과정">1.4 의사결정나무 모형 구축과정</h2>
 <ul>
 <li>의사결정나무 형성 : 적절한 분리기준과 정지규칙을 지정하여 의사결정나무 모형을 얻음</li>
 <li>가지치기 : 오뷴류율을 크게 할 위험이 높거나 부적절한 규칙을 가지고 있는 가지를 제거</li>
 <li>타당성 평가 : 검증용 데이터를 이용한 교차 타당성 평가 등을 통해 의사결정나무 모형 평가</li>
 <li>해석 및 예측 : 의사결정나무를 해석하고 예측모형 설정</li>
 </ul>
-<h2 id="section-5">1.5 의사결정나무 알고리즘</h2>
+<h2 id="의사결정나무-알고리즘">1.5 의사결정나무 알고리즘</h2>
 <p>의사결정나무 모형을 구축하는 과정에서 분리기준과 정지규칙, 가지치기 방법 등을 어떻게 하느냐에 따라 알고리즘이 구분된다. 현재 가장 많이 사용되는 대표적인 알고리즘은 다음 5가지가 있다.</p>
 <ul>
 <li>CART (Classification And Regression Tree) - rpart package</li>
@@ -1412,9 +1415,6 @@ Data Analysis
       <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fmanboha.github.io%2Fposts%2F2019-07-01-decisiontreeintro%2F&amp;title=Decision%20Tree%20Intro">
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="https://plus.google.com/share?url=https%3A%2F%2Fmanboha.github.io%2Fposts%2F2019-07-01-decisiontreeintro%2F">
-        <i class="fab fa-google-plus"></i>
-      </a>
     </span>
   </p>
 </div>
@@ -1433,16 +1433,6 @@ Data Analysis
   <p>If you see mistakes or want to suggest changes, please <a href="https://github.com/manboha/manboha.github.io/issues/new">create an issue</a> on the source repository.</p>
   <h3 id="reuse">Reuse</h3>
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source code is available at <a href="https://github.com/manboha/manboha.github.io">https://github.com/manboha/manboha.github.io</a>, unless otherwise noted. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
-  <h3 id="citation">Citation</h3>
-  <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Maeng (2019, July 1). Mblog for Data Analysis: Decision Tree Intro. Retrieved from https://manboha.github.io/posts/2019-07-01-decisiontreeintro/</pre>
-  <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{maeng2019decision,
-  author = {Maeng, Bohak},
-  title = {Mblog for Data Analysis: Decision Tree Intro},
-  url = {https://manboha.github.io/posts/2019-07-01-decisiontreeintro/},
-  year = {2019}
-}</pre>
 </div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
