@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RStudio on For Data Analytics</title>
+    <link>https://mdalog.netlify.app/tags/rstudio/</link>
+    <description>Recent content in RStudio on For Data Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mdalog.netlify.app/tags/rstudio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RStudio Addin을 만드는 방법</title>
+      <link>https://mdalog.netlify.app/post/2021-08-22-rstudio-addin/</link>
+      <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mdalog.netlify.app/post/2021-08-22-rstudio-addin/</guid>
+      <description>RStudio의 Addin은 상황에 따라 편리함을 제공해줍니다. 자주 쓰는 함수를 만들고 이를 메뉴에 등록하여 사용하면 시간과 노력이 덜 들게 됩니다.
+RStudio에 Addin을 만드는 방법은 R 패키지를 만들고, 이 패키지의 함수를 ’addins.dcf’에 입력하면 됩니다. 그 다음에 패키지를 설치하면 자동으로 Addin으로 등록됩니다.
+R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 설치하기R 패키지와 R 함수 만들기RStudio를 실행하고 [File]-[New Project]-[New Directory]-[R Package]를 클릭합니다. 패키지를 만드는 창에서 패키지 이름과 프로젝트가 위치할 폴더를 지정하고 [Create Project]를 클릭합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>decision tree on For Data Analytics</title>
+    <link>https://mdalog.netlify.app/tags/decision-tree/</link>
+    <description>Recent content in decision tree on For Data Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://mdalog.netlify.app/tags/decision-tree/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>의사결정나무(Decision Tree) 개요</title>
+      <link>https://mdalog.netlify.app/post/2019-07-01-decisiontreeintro/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mdalog.netlify.app/post/2019-07-01-decisiontreeintro/</guid>
+      <description>1.1 의사결정나무 개념의사결정나무는 나무 형태로 의사결정 규칙을 표현하는 방식으로 데이터를 분류(classification)하거나 예측(prediction)하는 분석기법이다. 나무(tree) 구조로 모형이 표현되기 때문에 해석이 용이하고 나무 구조로부터 어떤 입력변수가 목표변수를 설명하기 위하여 더 중요한지를 쉽게 파악할 수 있다. (최종후, 서두성 (1999), 데이터마이닝 의사결정나무의 응용, 통계분석연구 제4권 제1호, p.62; 최종후 외 (2000), Answer Tree를 이용한 데이터마이닝 의사결정나무분석, SPSS 아카데미; 오올임, 김구 (2002), 불확실성 상황에서의 의사결정 양상에 관한 실증적 연구, 한국행정학보, 36-3, p.82에서 재인용)</description>
+    </item>
+    
+  </channel>
+</rss>

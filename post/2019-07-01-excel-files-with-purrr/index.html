@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>purrr를 이용하여 Excel 시트들을 읽고 쓰기 - For Data Analytics</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="purrr를 이용하여 Excel 시트들을 읽고 쓰기" />
+<meta property="og:description" content="준비작업에 필요한 중요 packages는 purrr, readxl, writexl 이다. tidyvere에는 purrr를 포함하여 dplyr 등과 같이 많이 사용되는 패키지들이 포함되어 있기 때문에 tidyvers를 불러온다.
+library(tidyverse)library(readxl)library(writexl)Excel 파일에 다중 시트 동시에 쓰기예제로 Rdp 기본으로 포함되어 있는 iris 데이터를 이용하고자 한다.
+iris %&gt;% head()## Sepal.Length Sepal.Width Petal.Length Petal.Width Species## 1 5.1 3.5 1.4 0.2 setosa## 2 4.9 3.0 1.4 0.2 setosa## 3 4.7 3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mdalog.netlify.app/post/2019-07-01-excel-files-with-purrr/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-07-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-01T00:00:00+00:00" />
+
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="For Data Analytics" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">For Data Analytics</div>
+					<div class="logo__tagline">Beyond the gate of experience flows the Way</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">
+				
+				<span class="menu__text">Home</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">About</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">purrr를 이용하여 Excel 시트들을 읽고 쓰기</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2019-07-01T00:00:00Z">July 01, 2019</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">R</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			
+<script src="https://mdalog.netlify.app/post/2019-07-01-excel-files-with-purrr/index_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="준비" class="section level2">
+<h2>준비</h2>
+<p>작업에 필요한 중요 packages는 purrr, readxl, writexl 이다. tidyvere에는 purrr를 포함하여 dplyr 등과 같이 많이 사용되는 패키지들이 포함되어 있기 때문에 tidyvers를 불러온다.</p>
+<pre class="r"><code>library(tidyverse)
+library(readxl)
+library(writexl)</code></pre>
+</div>
+<div id="excel-파일에-다중-시트-동시에-쓰기" class="section level2">
+<h2>Excel 파일에 다중 시트 동시에 쓰기</h2>
+<p>예제로 Rdp 기본으로 포함되어 있는 iris 데이터를 이용하고자 한다.</p>
+<pre class="r"><code>iris %&gt;% head()</code></pre>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<p>먼저 iris 데이터를 나누어 여러 개의 데이터셋을 만들고자 한다. Species 변수에 dplyr 패키지의 group_split() 함수를 적용하여 각 꽃의 종류별로 데이터셋을 나눈다.</p>
+<pre class="r"><code># 꽃의 종류(Species)별로 데이터를 나눔
+iris %&gt;%
+  group_split(Species) -&gt; list_of_dfs
+
+list_of_dfs</code></pre>
+<pre><code>## &lt;list_of&lt;
+##   tbl_df&lt;
+##     Sepal.Length: double
+##     Sepal.Width : double
+##     Petal.Length: double
+##     Petal.Width : double
+##     Species     : factor&lt;fb977&gt;
+##   &gt;
+## &gt;[3]&gt;
+## [[1]]
+## # A tibble: 50 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 40 more rows
+## 
+## [[2]]
+## # A tibble: 50 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;     
+##  1          7           3.2          4.7         1.4 versicolor
+##  2          6.4         3.2          4.5         1.5 versicolor
+##  3          6.9         3.1          4.9         1.5 versicolor
+##  4          5.5         2.3          4           1.3 versicolor
+##  5          6.5         2.8          4.6         1.5 versicolor
+##  6          5.7         2.8          4.5         1.3 versicolor
+##  7          6.3         3.3          4.7         1.6 versicolor
+##  8          4.9         2.4          3.3         1   versicolor
+##  9          6.6         2.9          4.6         1.3 versicolor
+## 10          5.2         2.7          3.9         1.4 versicolor
+## # ... with 40 more rows
+## 
+## [[3]]
+## # A tibble: 50 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species  
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;    
+##  1          6.3         3.3          6           2.5 virginica
+##  2          5.8         2.7          5.1         1.9 virginica
+##  3          7.1         3            5.9         2.1 virginica
+##  4          6.3         2.9          5.6         1.8 virginica
+##  5          6.5         3            5.8         2.2 virginica
+##  6          7.6         3            6.6         2.1 virginica
+##  7          4.9         2.5          4.5         1.7 virginica
+##  8          7.3         2.9          6.3         1.8 virginica
+##  9          6.7         2.5          5.8         1.8 virginica
+## 10          7.2         3.6          6.1         2.5 virginica
+## # ... with 40 more rows</code></pre>
+<p>purrr 패키지의 map 함수는 특정 함수를 반복적으로 사용하게 해주는 함수이다. lapply 함수 보다 쉽게 사용할 수 있도록 만들어졌다.
+list_of_dfs에는 꽃의 종류별로 나누어진 3개의 데이터셋이 있다. map 함수를 이용하여 각 데이터셋의 Species 변수를 추출하여 문자로 변환하고(pull 함수, as.character 함수), 고유한 문자를 추출한 후(unique 함수), list_of_dfs의 각 리스트에 이름을 부여하고자 한다.</p>
+<pre class="r"><code>list_of_dfs %&gt;% 
+  map(~pull(.,Species)) %&gt;% 
+  map(~as.character(.)) %&gt;% 
+  map(~unique(.)) -&gt; names(list_of_dfs)
+
+names(list_of_dfs)</code></pre>
+<pre><code>## [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
+<p>각 데이터셋의 이름은 데이터를 엑셀로 저장할때 시트의 이름으로 사용하고자 한다.</p>
+<pre class="r"><code>list_of_dfs %&gt;% 
+  write_xlsx(&quot;test.xlsx&quot;)</code></pre>
+</div>
+<div id="엑셀의-다중-시트-동시에-읽기" class="section level2">
+<h2>엑셀의 다중 시트 동시에 읽기</h2>
+<pre class="r"><code>xl_file &lt;- &quot;test.xlsx&quot;
+xl_sheets &lt;- excel_sheets(xl_file)
+print(xl_sheets)</code></pre>
+<pre><code>## [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
+<pre class="r"><code>xl_sheets %&gt;% 
+  map(function(sheet){
+    assign(x = sheet,
+           value = read_xlsx(path = xl_file, sheet = sheet),
+           envir = .GlobalEnv)
+  })</code></pre>
+<pre><code>## [[1]]
+## # A tibble: 50 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 40 more rows
+## 
+## [[2]]
+## # A tibble: 50 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;     
+##  1          7           3.2          4.7         1.4 versicolor
+##  2          6.4         3.2          4.5         1.5 versicolor
+##  3          6.9         3.1          4.9         1.5 versicolor
+##  4          5.5         2.3          4           1.3 versicolor
+##  5          6.5         2.8          4.6         1.5 versicolor
+##  6          5.7         2.8          4.5         1.3 versicolor
+##  7          6.3         3.3          4.7         1.6 versicolor
+##  8          4.9         2.4          3.3         1   versicolor
+##  9          6.6         2.9          4.6         1.3 versicolor
+## 10          5.2         2.7          3.9         1.4 versicolor
+## # ... with 40 more rows
+## 
+## [[3]]
+## # A tibble: 50 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species  
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;    
+##  1          6.3         3.3          6           2.5 virginica
+##  2          5.8         2.7          5.1         1.9 virginica
+##  3          7.1         3            5.9         2.1 virginica
+##  4          6.3         2.9          5.6         1.8 virginica
+##  5          6.5         3            5.8         2.2 virginica
+##  6          7.6         3            6.6         2.1 virginica
+##  7          4.9         2.5          4.5         1.7 virginica
+##  8          7.3         2.9          6.3         1.8 virginica
+##  9          6.7         2.5          5.8         1.8 virginica
+## 10          7.2         3.6          6.1         2.5 virginica
+## # ... with 40 more rows</code></pre>
+<p>source : Martin Chan (2019). Vignette: Write &amp; Read Multiple Excel files with purrr. <a href="https://martinctc.github.io/blog/vignette-write-and-read-multiple-excel-files-with-purrr/" class="uri">https://martinctc.github.io/blog/vignette-write-and-read-multiple-excel-files-with-purrr/</a></p>
+</div>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/purrr/" rel="tag">purrr</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/excel/" rel="tag">excel</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/2019-07-01-decisiontreeintro/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">의사결정나무(Decision Tree) 개요</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/post/2019-07-04-cctv-surveillance-cameras-in-seoul/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">서울시 자치구의 CCTV 현황</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://mdalog.netlify.app/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/2022-02-23-r-markdown/">R Markdown 문서 편집</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2021-09-20-machine-learning-dictionary/">Machine Learning 영한 사전</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2021-08-22-rstudio-addin/">RStudio Addin을 만드는 방법</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2019-07-29-crimes-in-seoul/">서울시 범죄 현황</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2019-07-22-visualization-of-data/">다차원 데이터의 시각화</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/machine-learning/">Machine Learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r/">R</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/addin/" title="Addin">Addin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cctv/" title="cctv">cctv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/crimes-in-seoul/" title="Crimes in Seoul">Crimes in Seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/decision-tree/" title="decision tree">decision tree</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/eda/" title="EDA">EDA</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/excel/" title="excel">excel</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning/" title="Machine Learning">Machine Learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/markdown/" title="Markdown">Markdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/purrr/" title="purrr">purrr</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rmarkdown/" title="Rmarkdown">Rmarkdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rstudio/" title="RStudio">RStudio</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seoul/" title="seoul">seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/" title="다차원 데이터">다차원 데이터</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B2%94%EC%A3%84/" title="범죄">범죄</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%84%9C%EC%9A%B8%EC%8B%9C/" title="서울시">서울시</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%9C%EA%B0%81%ED%99%94/" title="시각화">시각화</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9A%A9%EC%96%B4%EC%82%AC%EC%A0%84/" title="용어사전">용어사전</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%EB%82%98%EB%AC%B4/" title="의사결정나무">의사결정나무</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2022 Bohak Maeng.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>R Markdown 문서 편집 - For Data Analytics</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="R Markdown 문서 편집" />
+<meta property="og:description" content="R Markdown을 알면 R로 데이터분석을 하면서 문서를 작성할 때 편리합니다. R Markdown은 평범한 텍스트로 문서를 작성할 수 있게 해 주는 Markdown 언어를 기반으로 하고 있기 때문에 거의 유사합니다.
+R Markdown을 이용하려면 rmarkdown 패키지가 필요하지만, 만일 RStudio를 사용하고 있다면 자동으로 이를 이용하기 때문에 설치나 로드를 하지 않아도 됩니다.
+문서 서식R Markdown 문서는 아래 그림처럼 크게 세 개의 파트로 구분됩니다. YAML Header, Code Chunk, Markdown Text입니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mdalog.netlify.app/post/2022-02-23-r-markdown/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-23T00:00:00+00:00" />
+
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="For Data Analytics" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">For Data Analytics</div>
+					<div class="logo__tagline">Beyond the gate of experience flows the Way</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">
+				
+				<span class="menu__text">Home</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">About</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">R Markdown 문서 편집</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-02-23T00:00:00Z">February 23, 2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">R</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			
+<script src="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/header-attrs/header-attrs.js"></script>
+<script src="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/htmlwidgets/htmlwidgets.js"></script>
+<link href="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/datatables-binding/datatables.js"></script>
+<script src="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/jquery/jquery-3.6.0.min.js"></script>
+<link href="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/nouislider/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/nouislider/jquery.nouislider.min.js"></script>
+<link href="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/selectize/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/selectize/selectize.min.js"></script>
+<link href="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/crosstalk/js/crosstalk.min.js"></script>
+
+
+<p>R Markdown을 알면 R로 데이터분석을 하면서 문서를 작성할 때 편리합니다. R Markdown은 평범한 텍스트로 문서를 작성할 수 있게 해 주는 Markdown 언어를 기반으로 하고 있기 때문에 거의 유사합니다.</p>
+<p>R Markdown을 이용하려면 rmarkdown 패키지가 필요하지만, 만일 RStudio를 사용하고 있다면 자동으로 이를 이용하기 때문에 설치나 로드를 하지 않아도 됩니다.</p>
+<div id="문서-서식" class="section level1">
+<h1>문서 서식</h1>
+<p>R Markdown 문서는 아래 그림처럼 크게 세 개의 파트로 구분됩니다. <code>YAML Header</code>, <code>Code Chunk</code>, <code>Markdown Text</code>입니다.</p>
+<p><img src="rmarkdown_structure.png" width="600" /></p>
+<div id="yaml-header" class="section level2">
+<h2>YAML Header</h2>
+<p><code>YAML Header</code> 부분에는 문서의 메타 정보를 작성합니다. 예를 들면 문서의 제목(title), 저자(author), 작성날짜(date), 출력형태(output) 등입니다.</p>
+<p><code>YAML Header</code>를 작성할 때 지켜야 할 몇 가지 규칙이 있습니다.</p>
+<ul>
+<li>각 필드는 콜론(:)을 이용해서 <code>key: value</code> 형태로 입력합니다. 예를 들면 <code>title: R Markdown 문서 편집</code>이라고 작성합니다.</li>
+<li>value는 대부분 그냥 아무런 표시 없이 입력합니다.</li>
+<li><code>key: value</code>에서 value가 두 개 이상일 경우에는 대괄호([])안에 value를 나열하고 쉼표(,)로 구분합니다. 또는 한 줄에 한 개의 value를 하이픈(-)을 사용해서 나열합니다.</li>
+<li>key의 상하관계는 들여쓰기(보통 빈칸 2개)를 해서 구분합니다.</li>
+</ul>
+<div id="목차-만들기" class="section level3">
+<h3>목차 만들기</h3>
+<p><code>toc: yes</code>를 설정해주면 목차를 자동으로 생성합니다.<br />
+<code>toc_depth: 2</code>는 목차를 생성할 때 목차의 깊이를 설정합니다. <code>2</code>로 하면 <code>##</code> 수준까지, <code>3</code>으로 하면 <code>###</code> 수준까지 목차를 만들어 줍니다.</p>
+<pre class="yaml"><code>---
+title: &quot;R Markdown 문서 편집&quot;
+output: 
+  html_document: 
+    toc: yes
+    toc_depth: 2
+---</code></pre>
+</div>
+<div id="유동적인-목차-만들기" class="section level3">
+<h3>유동적인 목차 만들기</h3>
+<p>목차를 유동적으로 만들려면 <code>toc_float: yes</code>를 설정합니다. 페이지가 길 경우 페이지를 내려도 목차는 계속해서 보입니다.</p>
+<pre class="yaml"><code>---
+title: &quot;R Markdown 문서 편집&quot;
+output: 
+  html_document: 
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+---</code></pre>
+</div>
+<div id="제목에-자동으로-번호-부여하기" class="section level3">
+<h3>제목에 자동으로 번호 부여하기</h3>
+<p><code>number_sections: yes</code>로 설정하면 제목에 자동으로 번호를 부여합니다.</p>
+<pre class="yaml"><code>---
+title: &quot;R Markdown 문서 편집&quot;
+output: 
+  html_document: 
+    toc: yes
+    toc_depth: 2
+    number_sections: yes
+---</code></pre>
+</div>
+<div id="탭으로-하위-제목-구분하기" class="section level3">
+<h3>탭으로 하위 제목 구분하기</h3>
+<p><code>{.tabset}</code>을 이용하면 하위 제목들을 탭 형식으로 만들 수 있습니다.</p>
+<pre><code>## 상위 제목 {.tabset}
+
+### 하위 제목 1
+
+### 하위 제목 2
+
+### 하위 제목 3</code></pre>
+<p><code>.tabset-fade</code>은 탭이 선택될 때 자연스럽게 사라지고 나타나게 합니다. <code>.tabset-pills</code>은 탭에 색을 넣어주어 잘 보이게 합니다.</p>
+<pre><code>## 상위 제목 {.tabset .tabset-fade .tabset-pills}
+
+### 하위 제목 1
+
+### 하위 제목 2
+
+### 하위 제목 3</code></pre>
+</div>
+<div id="테마로-문서-스타일-변경하기" class="section level3">
+<h3>테마로 문서 스타일 변경하기</h3>
+<p><code>theme</code> 옵션을 이용하면 html 문서 전체의 모습과 스타일이 설정됩니다. 테마의 종류로는 default, bootstrap, cerulean, cosmo, darkly, flatly, journal, lumen, paper, readable, sandstone, simplex, spacelab, united, yeti 등이 있습니다.</p>
+<pre class="yaml"><code>---
+title: &quot;R Markdown 문서 편집&quot;
+output: 
+  html_document: 
+    toc: yes
+    number_sections: yes
+    theme: read
+---</code></pre>
+</div>
+<div id="그림-옵션-설정하기" class="section level3">
+<h3>그림 옵션 설정하기</h3>
+<p>그림에 대한 옵션을 설정할 수 있습니다.</p>
+<ul>
+<li><code>fig_width</code> and <code>fig_height</code> : 그림의 기본 크기를 설정</li>
+<li><code>fig_caption</code> : 그림 캡션을 렌더링</li>
+</ul>
+<pre class="yaml"><code>---
+title: &quot;R Markdown 문서 편집&quot;
+output: 
+  html_document: 
+    toc: yes
+    fig_width: 7
+    fig_height: 6
+    fig_caption: yes
+---</code></pre>
+</div>
+<div id="데이터-프레임-페이지-형식으로-출력하기" class="section level3">
+<h3>데이터 프레임 페이지 형식으로 출력하기</h3>
+<p>데이터 프레임을 출력할 때 페이지 형식으로 출력하게 할 수 있습니다.</p>
+<pre class="yaml"><code>---
+title: &quot;R Markdown 문서 편집&quot;
+output: 
+  html_document: 
+    toc: yes
+    df_print: paged
+---</code></pre>
+</div>
+</div>
+<div id="코드-감추기" class="section level2">
+<h2>코드 감추기</h2>
+<p>코드를 감출 수 있습니다. 코드를 보려면 출력물의 오른쪽에 있는 <code>Code</code>를 클릭하면 됩니다.</p>
+<pre class="yaml"><code>---
+title: &quot;R Markdown 문서 편집&quot;
+output: 
+  html_document: 
+    toc: yes
+    code_folding: hide
+---</code></pre>
+</div>
+</div>
+<div id="code-chunk" class="section level1">
+<h1>Code Chunk</h1>
+<p>R 코드 블록에 대해 다양한 방식으로 설정할 수 있습니다. 예를 들면 코드를 실행하지 않거나 코드를 숨길 수 있습니다.</p>
+<p>전체 코드에 대한 디폴트 옵션은 처음에 아래와 같이 보입니다. <code>setu</code>p은 이 코드 청크의 이름입니다. 없어도 문제는 없습니다. <code>include=FALSE</code>는 코드를 몰래 실행하라는 의미입니다. <code>opts_chunk$set(echo = TRUE)</code>는 문서 전체에 디폴트 옵션을 설정하는 것입니다. <code>echo = TRUE</code>는 코드를 보여주라는 의미입니다.</p>
+<pre class="markdown"><code>```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```</code></pre>
+<p>많이 사용되는 옵션들은 다음과 같습니다.</p>
+<ul>
+<li>eval=FALSE : 코드를 실행하지 않음</li>
+<li>echo=FALSE : 코드를 보여주지 않음</li>
+<li>include=FALSE : 실행 결과를 보여주지 않음</li>
+<li>message=FALSE : 실행 때 나오는 메세지를 보여주지 않음</li>
+<li>warning=FALSE : 실행 때 나오는 경고를 보여주지 않음</li>
+<li>error=TRUE : 에러가 있어도 실행하고 에러코드를 보여줌</li>
+<li>fig.height = 7 : 그림 높이, R로 그린 그림에만 해당</li>
+<li>fig.width = 7 : 그림 너비, R로 그린 그림에만 해당</li>
+<li>fig.align = ‘center’ : 그림 위치, R로 그린 그림에만 해당</li>
+<li>fig.cap = “그림 제목” : R로 그린 그림의 제목</li>
+<li>dpi = 300 : 그림의 해상도</li>
+<li>dev = “png” : 그림의 저장 형식</li>
+</ul>
+<p>아래는 문서 전체에 디폴트 옵션을 줄때 많이 사용하는 것들입니다.</p>
+<pre class="markdown"><code>```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, fig.align = &quot;center&quot;, fig.height = 8, cache=T, dpi = 300, dev = &quot;png&quot;)
+```</code></pre>
+<p>아래 코드는 외부의 그림을 불러 올때 사용하는 방법입니다. <code>![...](...)</code>의 방법 대신 knitr::include_graphics()를 사용하면서 chunk 옵션들을 사용하면 좋습니다.</p>
+<pre class="markdown"><code>```{r, fig.cap = &quot;tidyverse logo&quot;, fig.align = &quot;center&quot;, fig.width=7, fig.height=6}  
+knitr::include_graphics(&quot;https://www.tidyverse.org/images/tidyverse-default.png&quot;)
+```  </code></pre>
+<p>아래 코드는 <code>figs</code> 폴더에 있는 <code>rmarkdown_structure.png</code> 그림을 불러오는 방법입니다.</p>
+<pre class="markdown"><code>```{r fig.align=&#39;center&#39;, out.width=&quot;50%&quot;, fig.cap=&quot;R markdown 문서 구조&quot;, echo=FALSE}
+knitr::include_graphics(&quot;rmarkdown_structure.png&quot;)
+```</code></pre>
+</div>
+<div id="텍스트-편집markdown-text" class="section level1">
+<h1>텍스트 편집(Markdown Text)</h1>
+<p>아래에서는 주로 R Markdown의 텍스트 편집 코드를 중심으로 정리 하겠습니다.</p>
+<div id="문단-줄-변경" class="section level2">
+<h2>문단 줄 변경</h2>
+<pre class="markdown"><code>R Markdown 에서는 키보드 Enter를 쳐서
+줄을 바꾸어도 줄이 바꾸지 않습니다.</code></pre>
+<p>R Markdown 에서는 키보드 Enter를 쳐서
+줄을 바꾸어도 줄이 바꾸지 않습니다.</p>
+<pre class="markdown"><code>2개의 빈칸으로 줄을 마무리하면  
+새로운 문단으로 시작합니다.</code></pre>
+<p>2개의 빈칸으로 줄을 마무리하면<br />
+새로운 문단으로 시작합니다.</p>
+<pre class="markdown"><code>백슬래시를 사용하면\
+새로운 줄을 만들 수 있습니다.</code></pre>
+<p>백슬래시를 사용하면<br />
+새로운 줄을 만들 수 있습니다.</p>
+</div>
+<div id="제목" class="section level2">
+<h2>제목</h2>
+<p>제목 스타일에는 두 가지 방식이 있습니다.</p>
+<p>하나는 <code>#</code>기호를 이용하는 방법입니다. 가장 많이 사용합니다. <code>#</code>의 갯수에 따라 제목의 수준이 달라집니다. 만일 특정 제목에 자동 번호를 원하지 않으면 {-}를 제목 뒤에 붙입니다. 예를 들면 <code>## 제목 {-}</code> 형식으로 입력합니다.</p>
+<pre class="markdown"><code># 1 수준 제목
+## 2 수준 제목
+### 3 수준 제목
+#### 4 수준 제목
+##### 5 수준 제목
+###### 6 수준 제목</code></pre>
+</div>
+</div>
+<div id="수준-제목" class="section level1">
+<h1>1 수준 제목</h1>
+<div id="수준-제목-1" class="section level2">
+<h2>2 수준 제목</h2>
+<div id="수준-제목-2" class="section level3">
+<h3>3 수준 제목</h3>
+<div id="수준-제목-3" class="section level4">
+<h4>4 수준 제목</h4>
+<div id="수준-제목-4" class="section level5">
+<h5>5 수준 제목</h5>
+<div id="수준-제목-5" class="section level6">
+<h6>6 수준 제목</h6>
+<p>다른 방법은 텍스트 아래에 밑줄을 긋는 방식입니다. <code>=</code>은 1수준 제목, <code>-</code>은 2수준 제목입니다.</p>
+<pre class="markdown"><code>1 수준 제목
+=================
+
+2 수준 제목
+-----------------</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="수준-제목-6" class="section level1">
+<h1>1 수준 제목</h1>
+<div id="수준-제목-7" class="section level2">
+<h2>2 수준 제목</h2>
+</div>
+<div id="글자-강조" class="section level2">
+<h2>글자 강조</h2>
+<p>아래 서식을 문장 중간에 사용할 경우에는 좌우로 띄어쓰기를 해주는 것이 좋습니다.</p>
+<pre class="markdown"><code>*이탤릭 글자*  
+_이탤릭 글자_  
+**굵은 글자**    
+__굵은 글자__  
+~~취소선~~</code></pre>
+<p><em>이탤릭 글자</em><br />
+<em>이탤릭 글자</em>
+<strong>굵은 글자</strong><br />
+<strong>굵은 글자</strong><br />
+<del>취소선</del></p>
+</div>
+<div id="첨자" class="section level2">
+<h2>첨자</h2>
+<p>아래 첨자는 글자 좌우에 <code>~</code>를 사용하고, 윗 첨자는 글자 좌우에 <code>^</code>를 사용합니다.</p>
+<pre class="markdown"><code>H~3~PO~4~
+
+Cu^2+^</code></pre>
+<p>H<sub>3</sub>PO<sub>4</sub></p>
+<p>Cu<sup>2+</sup></p>
+</div>
+<div id="코드-블럭" class="section level2">
+<h2>코드 블럭</h2>
+<p>코드 블럭을 만드는 방법은 두 가지 방식이 있습니다. 하나는 <code>```</code> 을 이용하는 방법입니다. 가장 많이 사용합니다. 만일 <code>```</code>를 코드 블럭 안에 넣고 싶다면 1개 더 많은 <code>````</code>로 감싸면 됩니다.</p>
+<pre class="markdown"><code> ```
+ knitr::kable(
+   mtcars[1:5, ], 
+   caption = &quot;A knitr kable&quot;)
+ ```</code></pre>
+<p>문장 안에서 코드블록을 만드는 방법은 코드 좌우에 <code>`</code>를 입력합니다. 예를 들면 <code>`code`</code> 형식으로 입력하면 됩니다. 만일 <code>`code`</code>를 코드 블럭 안에 넣고 싶다면 1개 더 많은 <code>``</code>로 감싸면 됩니다. 예를 들면 <code>`` `code` ``</code>와 같이 입력합니다.</p>
+</div>
+<div id="목록" class="section level2">
+<h2>목록</h2>
+<div id="순서없는-목록" class="section level3">
+<h3>순서없는 목록</h3>
+<p>순서없는 목록을 만들 때 사용되는 글머리 기호는 <code>*</code>, <code>+</code>, <code>-</code>입니다. 이 기호들은 혼합해서 사용하는 것도 가능합니다.<br />
+목록을 만들 때에는 전체 목록의 위와 아래에 빈 줄이 있는 것이 좋습니다. 하위 수준의 목록을 만들 때게는 안으로 몇 칸 들여서 작성하면 됩니다.</p>
+<pre class="markdown"><code>* 1 수준
+  * 2 수준
+    * 3 수준
+
+- 1 수준
+  - 2 수준
+    - 3 수준
+
++ 1 수준
+  + 2 수준
+    + 3 수준</code></pre>
+<ul>
+<li>1 수준
+<ul>
+<li>2 수준
+<ul>
+<li>3 수준</li>
+</ul></li>
+</ul></li>
+<li>1 수준
+<ul>
+<li>2 수준
+<ul>
+<li>3 수준</li>
+</ul></li>
+</ul></li>
+<li>1 수준
+<ul>
+<li>2 수준
+<ul>
+<li>3 수준</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre class="markdown"><code>* 1 수준
+  - 2 수준
+    + 3 수준
+      * 4 수준
+        - 5수준</code></pre>
+<ul>
+<li>1 수준
+<ul>
+<li>2 수준
+<ul>
+<li>3 수준
+<ul>
+<li>4 수준
+<ul>
+<li>5수준</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="순서목록" class="section level3">
+<h3>순서있는 목록</h3>
+<p>순서있는 목록은 숫자와 점을 사용합니다. 순서를 바꾸어 써도 무조건 내림 차순으로 다시 정리되어 표현됩니다.</p>
+<pre class="markdown"><code>1. 첫번째
+2. 두번째
+3. 세번재</code></pre>
+<ol style="list-style-type: decimal">
+<li>첫번째</li>
+<li>두번째</li>
+<li>세번재</li>
+</ol>
+</div>
+</div>
+<div id="인용" class="section level2">
+<h2>인용</h2>
+<p>인용을 표시하는 기호는 <code>&gt;</code>입니다. 매 줄마다 <code>&gt;</code>를 입력합니다.</p>
+<pre class="markdown"><code>&gt; 이 문장은 인용 문구 입니다.
+&gt; 인용 문구 두번째 문장입니다.
+</code></pre>
+<blockquote>
+<p>이 문장은 인용 문구 입니다.<br />
+줄을 바꾸어 두번째 문장을 만들려면 문단 줄 변경 방법을 사용합니다.</p>
+</blockquote>
+<p>인용 블럭안에는 다른 마크다운 요소를 포함할 수 있습니다.</p>
+<pre class="markdown"><code>&gt; 이 문장은 첫번째 인용 문구입니다.
+&gt; ``` 
+&gt;  인용문구 안에 있는 코드블록입니다.
+&gt; ```</code></pre>
+<blockquote>
+<p>이 문장은 첫번째 인용 문구입니다.</p>
+<pre><code> 인용문구 안에 있는 코드블록입니다.</code></pre>
+</blockquote>
+</div>
+<div id="수평선" class="section level2">
+<h2>수평선</h2>
+<p>수평선은 <code>***</code>, <code>---</code>, <code>___</code> 등을 이용해서 만듭니다.</p>
+<pre class="markdown"><code>***
+
+---
+
+___</code></pre>
+<hr />
+<hr />
+<hr />
+</div>
+<div id="링크" class="section level2">
+<h2>링크</h2>
+<p>링크는 외부 링크와 내부 링크로 구분할 수 있습니다. 먼저 외부 링크는 다음과 같이 사용합니다.</p>
+<ul>
+<li>외부 링크 첫 번째 방법</li>
+</ul>
+<pre class="markdown"><code>&lt;https://www.google.com&gt;</code></pre>
+<p><a href="https://www.google.com" class="uri">https://www.google.com</a></p>
+<ul>
+<li>외부 링크 두 번째 방법</li>
+</ul>
+<pre class="markdown"><code>[RStudio](https://www.rstudio.com)</code></pre>
+<p><a href="https://www.rstudio.com">RStudio</a></p>
+<p>다음은 문서 내부의 참조 링크 방법입니다.</p>
+<p>문서 내부에서 참조 링크를 만드는 방법은 두 가지 방식이 있습니다. 하나는 <code># 제목</code>과 같이 <code>#</code>으로 시작한 제목에 링크를 거는 방법입니다. 단순히 <code>[제목]</code> 형태로 링크를 거는 방법 입니다. 예를 들면 <code>[문서 서식]</code>이라고 입력하여 <a href="#문서-서식">문서 서식</a>과 같이 링크를 걸수 있습니다.</p>
+<p>또 다른 방식은 <code>제목</code>의 끝에 <code>{#id}</code>를 추가하는 방식입니다. 이렇게 준비가 되어 있으면 <code>[참조링크 텍스트](#id)</code> 방식으로 링크를 걸 수 있습니다. 예를 들면 <code>#### 순서있는 목록 {#순서목록}</code>으로 되어 있으면 <code>[순서가 있는 목록](#순서목록)</code>으로 입력하면 <a href="#순서목록">순서가 있는 목록</a>과 같이 링크가 걸립니다.</p>
+</div>
+<div id="이미지" class="section level2">
+<h2>이미지</h2>
+<p>이미지를 보여주는 방법은 크게 두 가지로 구분할 수 있습니다. 하나는 R 코드로 차트나 이미지를 만드는 방법입니다. 다른 하나는 외부 이미지 파일을 불러오는 방법입니다.</p>
+<ul>
+<li>R 코드로 차트나 이미지 만들기</li>
+</ul>
+<pre class="markdown"><code>```{r fig.cap=&#39;차트 그림&#39;, fig.align = &#39;center&#39;, fig.width = 6, fig.asp=0.7}
+plot(pressure, pch = 19, type = &quot;b&quot;)
+```</code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="https://mdalog.netlify.app/post/2022-02-23-r-markdown/index_files/figure-html/unnamed-chunk-1-1.png" alt="차트 그림" width="576" />
+<p class="caption">
+Figure 1: 차트 그림
+</p>
+</div>
+<ul>
+<li>외부 이미지 불러오기</li>
+</ul>
+<p>외부 이미지를 불러오는 방법은 <code>![...](...)</code>를 사용하는 방법과 <code>knitr::include_graphics()</code>를 사용하는 방법이 있습니다. <code>![...](...)</code>의 방법 대신 knitr::include_graphics()를 사용하면서 chunk 옵션들을 사용하면 좋습니다.</p>
+<p>아래 코드는 <code>![...](...)</code> 방법을 사용하여 <code>sunflower.jpg</code> 그림을 불러오는 방법입니다.</p>
+<pre class="markdown"><code>![해바라기](sunflower.jpg){width=50%}</code></pre>
+<div class="figure">
+<img src="sunflower.jpg" style="width:50.0%" alt="" />
+<p class="caption">해바라기</p>
+</div>
+<p>아래 코드는 <code>knitr::include_graphics()</code> 를 사용하여 <code>sunflower.jpg</code> 그림을 불러오는 방법입니다.</p>
+<pre class="markdown"><code>```{r fig.align=&#39;center&#39;, out.width=&quot;25%&quot;, fig.cap=&quot;해바라기&quot;}
+knitr::include_graphics(&quot;sunflower.jpg&quot;)
+```</code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="sunflower.jpg" alt="해바라기" width="50%" />
+<p class="caption">
+Figure 2: 해바라기
+</p>
+</div>
+<p>인터넷에 있는 그림 파일도 불러 올 수 있습니다.</p>
+<pre class="markdown"><code>```{r, fig.cap = &quot;tidyverse logo&quot;, fig.align = &quot;center&quot;, fig.width=5, fig.height=4}  
+knitr::include_graphics(&quot;https://www.tidyverse.org/images/tidyverse-default.png&quot;)
+```  </code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="https://www.tidyverse.org/images/tidyverse-default.png" alt="tidyverse logo"  />
+<p class="caption">
+Figure 3: tidyverse logo
+</p>
+</div>
+</div>
+<div id="각주" class="section level2">
+<h2>각주</h2>
+<p>각주는 <code>^[각주내용]</code> 형식으로 입력합니다.</p>
+<pre class="markdown"><code>각주^[This is a footnote.]입니다.</code></pre>
+<p>각주<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>입니다.</p>
+</div>
+<div id="참고문헌-인용" class="section level2">
+<h2>참고문헌 인용</h2>
+<p>R Markdown에서 참고문헌 인용을 자동으로 넣는 방법은 약간 복잡합니다. 먼저 인용할 문헌들이 입력되어 있는 텍스트 파일을 만들어 R markdown 파일에 있는 폴더에 저장하여야 합니다. 인용 문헌 형식은 <strong>biblatex</strong>을 많이 사용합니다.</p>
+<p>인용 문헌 데이터 베이스가 있는 텍스트 파일은 아래와 같은 방식으로 입력되어 있습니다. 파일명은 <code>.bib</code> 형식입니다. 예를 들면 <code>book.bib</code>형식 입니다. 아래 파일에서 <code>R-base</code>나 <code>R-knitr</code>는 각 문헌의 <code>key</code>입니다. 본문에서 인용할 때 사용합니다.</p>
+<pre><code>@Manual{R-base,
+  title = {R: A Language and Environment for Statistical
+    Computing},
+  author = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address = {Vienna, Austria},
+  year = {2016},
+  url = {https://www.R-project.org/},
+}
+
+@Manual{R-knitr,
+  title = {knitr: A General-Purpose Package for Dynamic
+    Report Generation in R},
+  author = {Yihui Xie},
+  year = {2021},
+  note = {R package version 1.37},
+  url = {https://yihui.org/knitr/},
+}</code></pre>
+<p>다음에는 R Markdown 문서의 <code>YAML Header</code>에 다음과 같이 입력되어 있어야 합니다. <code>citation_package: biblatex</code>가 출력물 부분에 설정되어야 하고, 필요하면 <code>bibliography: ["book.bib"]</code>와 같이 참고문헌이 들어있는 파일(<code>"book.bib"</code>)을 지정합니다. 참고문헌 파일이 여러 개일 경우에는 <code>bibliography: ["book.bib", "refer2.bib"]</code>와 같이 지정합니다.</p>
+<pre class="yaml"><code>---
+title: &quot;R Markdown 문서 편집&quot;
+output: 
+  html_document: 
+    toc: yes
+    toc_depth: 2
+    citation_package: biblatex
+bibliography: [&quot;book.bib&quot;]
+---</code></pre>
+<p>다음으로 본 문에서 <code>@key</code> or [<code>@key</code>] 방식으로 인용부호를 삽입합니다. 예를 들면 <code>@R-base</code>로 입력하면 <span class="citation"><a href="#ref-R-base" role="doc-biblioref">R Core Team</a> (<a href="#ref-R-base" role="doc-biblioref">2017</a>)</span> 형태로 나타납니다. [<code>@R-base</code>]으로 입력하면 <span class="citation">(<a href="#ref-R-base" role="doc-biblioref">R Core Team 2017</a>)</span> 형태로 나타납니다.</p>
+<p>knitr 패키지의 write_bib()를 이용하면 R 패키지의 참고문헌 내용을 자동으로 생성할 수 있습니다. 예를 들면 <code>knitr</code>과 <code>stringr</code> 패키지의 참고문헌을 자동을 생성하면 다음과 같습니다.</p>
+<pre class="r"><code># 두번째 인자는 저장 할 파일명(*.bib)임. 생략하면 화면에만 출력
+knitr::write_bib(c(&quot;knitr&quot;, &quot;stringr&quot;), &quot;&quot;, width = 60)</code></pre>
+<pre><code>## @Manual{R-knitr,
+##   title = {knitr: A General-Purpose Package for Dynamic
+##     Report Generation in R},
+##   author = {Yihui Xie},
+##   year = {2021},
+##   note = {R package version 1.37},
+##   url = {https://yihui.org/knitr/},
+## }
+## 
+## @Manual{R-stringr,
+##   title = {stringr: Simple, Consistent Wrappers for Common
+##     String Operations},
+##   author = {Hadley Wickham},
+##   year = {2019},
+##   note = {R package version 1.4.0},
+##   url = {https://CRAN.R-project.org/package=stringr},
+## }
+## 
+## @Book{knitr2015,
+##   title = {Dynamic Documents with {R} and knitr},
+##   author = {Yihui Xie},
+##   publisher = {Chapman and Hall/CRC},
+##   address = {Boca Raton, Florida},
+##   year = {2015},
+##   edition = {2nd},
+##   note = {ISBN 978-1498716963},
+##   url = {https://yihui.org/knitr/},
+## }
+## 
+## @InCollection{knitr2014,
+##   booktitle = {Implementing Reproducible Computational
+##     Research},
+##   editor = {Victoria Stodden and Friedrich Leisch and Roger
+##     D. Peng},
+##   title = {knitr: A Comprehensive Tool for Reproducible
+##     Research in {R}},
+##   author = {Yihui Xie},
+##   publisher = {Chapman and Hall/CRC},
+##   year = {2014},
+##   note = {ISBN 978-1466561595},
+##   url = {http://www.crcpress.com/product/isbn/
+##     9781466561595},
+## }</code></pre>
+</div>
+<div id="표" class="section level2">
+<h2>표</h2>
+<ul>
+<li>기호(|, -, :)를 이용하여 테이블을 만들 수 있습니다. 대시(-)로 제목행과 내용행을 구분합니다. 기본 정렬은 우측 정렬입니다. 대시 앞에 콜론(:-)은 왼쪽 정렬, 대시 뒤에 콜론(-:)은 오른쪽 정렬, 대시 좌우에 콜론(:-:)은 가운데 정렬입니다.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>과일</th>
+<th align="center">맛</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>사과</td>
+<td align="center">delicious</td>
+</tr>
+<tr class="even">
+<td>오렌지</td>
+<td align="center">lovely</td>
+</tr>
+<tr class="odd">
+<td>망고</td>
+<td align="center">Wow!</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>knitr::kable() 함수를 쓰면 바로 테이블을 만들 수 있습니다. align 옵션에서 가운데 정렬은 ‘c,’ 좌측 정렬은 ‘l,’ 우측 정렬은 ’r’로 지정합니다.</li>
+</ul>
+<pre class="r"><code>fruit &lt;- data.frame(&quot;과일&quot; = c(&quot;사과&quot;, &quot;오렌지&quot;, &quot;망고&quot;), 
+                    &quot;맛&quot; = c(&quot;delicious&quot;, &quot;lovely&quot;, &quot;Wow!&quot;))
+
+knitr::kable(fruit, caption = &quot;과일 맛&quot;, align = c(&quot;l&quot;, &quot;c&quot;))                    </code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-5">Table 1: </span>과일 맛</caption>
+<thead>
+<tr class="header">
+<th align="left">과일</th>
+<th align="center">맛</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">사과</td>
+<td align="center">delicious</td>
+</tr>
+<tr class="even">
+<td align="left">오렌지</td>
+<td align="center">lovely</td>
+</tr>
+<tr class="odd">
+<td align="left">망고</td>
+<td align="center">Wow!</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>DT::datatable()를 사용해서 테이블을 만들 수 있습니다.</li>
+</ul>
+<pre class="r"><code>DT::datatable(fruit, caption = &quot;과일 맛&quot;, filter = &quot;top&quot;)</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","caption":"<caption>과일 맛<\/caption>","data":[["1","2","3"],["사과","오렌지","망고"],["delicious","lovely","Wow!"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>과일<\/th>\n      <th>맛<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<p><br />
+</p>
+</div>
+</div>
+<div id="수식-표현" class="section level1">
+<h1>수식 표현</h1>
+<div id="기본" class="section level2">
+<h2>기본</h2>
+<p>R Markdown에서 <code>$</code>나 <code>$$</code>로 수식을 감싸면 수식이 작성됩니다.</p>
+<ul>
+<li><code>$</code>는 주로 문장 사이에 수식을 넣을 때 많이 사용되며 기본적으로 왼쪽 정렬입니다.</li>
+<li><code>$$</code>는 주로 하나의 문단으로 수식을 넣을 때 많이 사용되며 기본적으로 가운데 정렬입니다.</li>
+</ul>
+<pre><code>수식은 $x+y=1$ 입니다.</code></pre>
+<p>수식은 <span class="math inline">\(x+y=1\)</span> 입니다.</p>
+<pre><code>$$
+x+y=1
+$$</code></pre>
+<p><span class="math display">\[
+x+y=1
+\]</span></p>
+</div>
+<div id="특정-문자-기준-정렬" class="section level2">
+<h2>특정 문자 기준 정렬</h2>
+<p><code>aligned</code> 심볼을 이용하여 특정 문자를 기준으로 정렬할 수 있습니다. 정렬 기준 기호는 <code>&amp;</code>입니다. 아래에서 <code>\\</code>는 줄을 바꿔주는 기호입니다.</p>
+<pre><code>$$
+\begin{aligned}
+f(x) &amp;= ax^2 + bx + c \\ 
+g(x) &amp;= ax^3
+\end{aligned}
+$$</code></pre>
+<p><span class="math display">\[
+\begin{aligned}
+f(x) &amp;= ax^2 + bx + c \\ 
+g(x) &amp;= ax^3
+\end{aligned}
+\]</span></p>
+</div>
+<div id="수식-내에서의-줄-바꿈" class="section level2">
+<h2>수식 내에서의 줄 바꿈</h2>
+<p>수식 내에서 줄을 바꾸려면 <code>\\</code>를 입력해야 합니다. <code>Enter</code>키를 눌러서는 줄이 바꾸지 않습니다.</p>
+<pre><code>$$
+f(x) = ax^2 + bx + c \\ 
+g(x) = ax^3
+$$</code></pre>
+<p><span class="math display">\[
+f(x) = ax^2 + bx + c \\ 
+g(x) = ax^3
+\]</span></p>
+</div>
+<div id="수식-내에서의-띄어쓰기" class="section level2">
+<h2>수식 내에서의 띄어쓰기</h2>
+<p>수식 안에서는 빈칸으로 띄어쓰기가 되지 않습니다.</p>
+<pre><code>$띄어 쓰기$
+$띄어 \, 쓰기$
+$띄어 \; 쓰기$
+$띄어 \quad 쓰기$</code></pre>
+<ul>
+<li>띄어쓰기 안됨 : <span class="math inline">\(띄어 쓰기\)</span></li>
+<li><code>\,</code>은 띄어쓰기 1번 : <span class="math inline">\(띄어 \, 쓰기\)</span></li>
+<li><code>\;</code>은 띄어쓰기 2번 : <span class="math inline">\(띄어 \; 쓰기\)</span></li>
+<li><code>\quad</code>은 띄어쓰기 4번 : <span class="math inline">\(띄어 \quad 쓰기\)</span></li>
+</ul>
+</div>
+<div id="곱셈-기호" class="section level2">
+<h2>곱셈 기호</h2>
+<pre><code>$$y = 3 \times x + 5$$</code></pre>
+<p><span class="math display">\[y = 3 \times x + 5\]</span></p>
+</div>
+<div id="첨자-1" class="section level2">
+<h2>첨자</h2>
+<p>위 첨자는 <code>^</code>기호, 아랫 첨자는 <code>_</code>기호를 사용합니다. 만일 두 글자 이상을 첨자로 사용하려면 중괄호 <code>{}</code>기호를 사용합니다.</p>
+<pre><code>$$x_1, x^2, x_1^2$$</code></pre>
+<p><span class="math inline">\(x_1, x^2, x_1^2\)</span></p>
+<pre><code>$$y_i = x_i^5 + x_{i-1}^2 + x_{i-2}$$</code></pre>
+<p><span class="math inline">\(y_i = x_i^5 + x_{i-1}^2 + x_{i-2}\)</span></p>
+</div>
+<div id="분수" class="section level2">
+<h2>분수</h2>
+<p><code>\frac</code>을 사용하되 분자와 분모는 중괄호 <code>{}</code>로 묶어 줍니다. 분자는 첫번째, 분모는 두번째 위치합니다.</p>
+<pre><code>$$\frac {분자}{분모}$$</code></pre>
+<p><span class="math display">\[\frac {분자}{분모}\]</span></p>
+<pre><code>$$MSE = \frac{1}{m} \sum_{i=1}^{m}(y^i - \theta^T \mathrm{x}^i)^2$$</code></pre>
+<p><span class="math display">\[MSE = \frac{1}{m} \sum_{i=1}^{m}(y^i - \theta^T \mathrm{x}^i)^2\]</span></p>
+<p>요리 레시피 등에 많이 사용하는 형태의 분수도 만들어 보겠습니다.</p>
+<pre><code>$$^1/_2$$</code></pre>
+<p><span class="math display">\[^1/_2\]</span></p>
+</div>
+<div id="절대값" class="section level2">
+<h2>절대값</h2>
+<p>절대값은 <code>|</code>기호나 <code>\vert</code>를 사용합니다. 분수와 같이 큰 객체에는 <code>|</code>기호를 사용하면 크기가 작기 때문에 이를 자동으로 크게하는 것이 필요합니다. 이를 위해 절대값 기호 왼쪽에 <code>\left</code>와 <code>\right</code>기호를 붙입니다.</p>
+<pre><code>$$|5|$$
+$$\vert 5 \vert$$</code></pre>
+<p><span class="math display">\[|5|\]</span>
+<span class="math display">\[\vert 5 \vert\]</span></p>
+<pre><code>$$\left | \frac {분자}{분모} \right |$$</code></pre>
+<p><span class="math display">\[\left | \frac {분자}{분모} \right |\]</span></p>
+</div>
+<div id="괄호-크기-조정" class="section level2">
+<h2>괄호 크기 조정</h2>
+<p>괄호는 <code>()</code>기호를 사용합니다. 이 괄호의 크기를 자동으로 조정하려면 <code>\left</code>와 <code>\right</code> 기호를 사용합니다.</p>
+<pre><code>$$\left ( \frac{2}{3} \right )$$</code></pre>
+<p><span class="math display">\[\left ( \frac{2}{3} \right )\]</span></p>
+<p>괄호 크기를 조정할 때 수동으로 조절하는 방법이 있습니다. <code>\big</code>, <code>\Big</code>, <code>\bigg</code>, <code>\Bigg</code> 기호를 사용합니다.</p>
+<pre><code>$$\Bigg( \bigg( \Big( \big( () \big) \Big) \bigg) \Bigg)$$</code></pre>
+<p><span class="math display">\[\Bigg( \bigg( \Big( \big( () \big) \Big) \bigg) \Bigg)\]</span></p>
+</div>
+<div id="생략-점" class="section level2">
+<h2>생략 점</h2>
+<pre><code>* 일반 생략점 : $x \dots y$
+* 가운데 생략점 : $x \cdots y$
+* 세로 생략점 : $x \vdots y$
+* 대각선 생략점 : $x \ddots y$</code></pre>
+<ul>
+<li>일반 생략점 : <span class="math inline">\(x \dots y\)</span></li>
+<li>가운데 생략점 : <span class="math inline">\(x \cdots y\)</span></li>
+<li>세로 생략점 : <span class="math inline">\(x \vdots y\)</span></li>
+<li>대각선 생략점 : <span class="math inline">\(x \ddots y\)</span></li>
+</ul>
+</div>
+<div id="루트거듭제곱근" class="section level2">
+<h2>루트(거듭제곱근)</h2>
+<p>루트는 <code>\sqrt</code>를 사용합니다.</p>
+<pre><code>$$\sqrt{2x}$$</code></pre>
+<p><span class="math display">\[\sqrt{2x}\]</span></p>
+</div>
+<div id="행렬" class="section level2">
+<h2>행렬</h2>
+<pre><code>\begin{matrix}
+1 &amp; 2 &amp; 3\\
+a &amp; b &amp; c
+\end{matrix}</code></pre>
+<span class="math display">\[\begin{matrix}
+1 &amp; 2 &amp; 3\\
+a &amp; b &amp; c
+\end{matrix}\]</span>
+<pre><code>\begin{pmatrix}
+1 &amp; 2 &amp; 3\\
+a &amp; b &amp; c
+\end{pmatrix}</code></pre>
+<span class="math display">\[\begin{pmatrix}
+1 &amp; 2 &amp; 3\\
+a &amp; b &amp; c
+\end{pmatrix}\]</span>
+<pre><code>\begin{Bmatrix}
+1 &amp; 2 &amp; 3\\
+a &amp; b &amp; c
+\end{Bmatrix}   </code></pre>
+<span class="math display">\[\begin{Bmatrix}
+1 &amp; 2 &amp; 3\\
+a &amp; b &amp; c
+\end{Bmatrix}\]</span>
+<pre><code>\begin{vmatrix}
+1 &amp; 2 &amp; 3\\
+a &amp; b &amp; c
+\end{vmatrix}</code></pre>
+<span class="math display">\[\begin{vmatrix}
+1 &amp; 2 &amp; 3\\
+a &amp; b &amp; c
+\end{vmatrix}\]</span>
+<pre><code>\begin{Vmatrix}
+1 &amp; 2 &amp; 3\\
+a &amp; b &amp; c
+\end{Vmatrix}</code></pre>
+<span class="math display">\[\begin{Vmatrix}
+1 &amp; 2 &amp; 3\\
+a &amp; b &amp; c
+\end{Vmatrix}\]</span>
+</div>
+<div id="그리스-문자" class="section level2">
+<h2>그리스 문자</h2>
+<p>그리스 문자를 표시 하려면 <code>\</code>뒤에 문자 이름을 입력합니다.</p>
+<pre><code>$$
+\pi = 3.14 \\
+\alpha = 3 \pi \omega \\
+\lambda_0 = \theta^2 + \delta
+$$</code></pre>
+<p><span class="math display">\[
+\pi = 3.14 \\
+\alpha = 3 \pi \omega \\
+\lambda_0 = \theta^2 + \delta
+\]</span></p>
+<p>그리스 문자에서 대문자를 표기하려면 문자 이름의 첫 글자를 대문자로 입력하면 됩니다.</p>
+<p>그리스 문자를 정리하면 아래 표와 같습니다.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-7">Table 2: </span>그리스 문자</caption>
+<thead>
+<tr class="header">
+<th align="left">문자</th>
+<th align="left">문자코드</th>
+<th align="left">대문자</th>
+<th align="left">대문자코드</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\alpha\)</span></td>
+<td align="left"><code>\alpha</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\beta\)</span></td>
+<td align="left"><code>\beta</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\gamma\)</span></td>
+<td align="left"><code>\gamma</code></td>
+<td align="left"><span class="math inline">\(\Gamma\)</span></td>
+<td align="left"><code>\Gamma</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\delta\)</span></td>
+<td align="left"><code>\delta</code></td>
+<td align="left"><span class="math inline">\(\Delta\)</span></td>
+<td align="left"><code>\Delta</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\epsilon\)</span></td>
+<td align="left"><code>\epsilon</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\varepsilon\)</span></td>
+<td align="left"><code>\varepsilon</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\zeta\)</span></td>
+<td align="left"><code>\zeta</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\eta\)</span></td>
+<td align="left"><code>\eta</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\theta\)</span></td>
+<td align="left"><code>\theta</code></td>
+<td align="left"><span class="math inline">\(\Theta\)</span></td>
+<td align="left"><code>\Theta</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\vartheta\)</span></td>
+<td align="left"><code>\vartheta</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\iota\)</span></td>
+<td align="left"><code>\iota</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\kappa\)</span></td>
+<td align="left"><code>\kappa</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\lambda\)</span></td>
+<td align="left"><code>\lambda</code></td>
+<td align="left"><span class="math inline">\(\Lambda\)</span></td>
+<td align="left"><code>\Lambda</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\mu\)</span></td>
+<td align="left"><code>\mu</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\nu\)</span></td>
+<td align="left"><code>\nu</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\xi\)</span></td>
+<td align="left"><code>\xi</code></td>
+<td align="left"><span class="math inline">\(\Xi\)</span></td>
+<td align="left"><code>\Xi</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(o\)</span></td>
+<td align="left"><code>o</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\pi\)</span></td>
+<td align="left"><code>\pi</code></td>
+<td align="left"><span class="math inline">\(\Pi\)</span></td>
+<td align="left"><code>\Pi</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\varpi\)</span></td>
+<td align="left"><code>\varpi</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\rho\)</span></td>
+<td align="left"><code>\rho</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\varrho\)</span></td>
+<td align="left"><code>\varrho</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\sigma\)</span></td>
+<td align="left"><code>\sigma</code></td>
+<td align="left"><span class="math inline">\(\Sigma\)</span></td>
+<td align="left"><code>\Sigma</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\varsigma\)</span></td>
+<td align="left"><code>\varsigma</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\tau\)</span></td>
+<td align="left"><code>\tau</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\upsilon\)</span></td>
+<td align="left"><code>\upsilon</code></td>
+<td align="left"><span class="math inline">\(\Upsilon\)</span></td>
+<td align="left"><code>\Upsilon</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\phi\)</span></td>
+<td align="left"><code>\phi</code></td>
+<td align="left"><span class="math inline">\(\Phi\)</span></td>
+<td align="left"><code>\Phi</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\varphi\)</span></td>
+<td align="left"><code>\varphi</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\chi\)</span></td>
+<td align="left"><code>\chi</code></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\psi\)</span></td>
+<td align="left"><code>\psi</code></td>
+<td align="left"><span class="math inline">\(\Psi\)</span></td>
+<td align="left"><code>\Psi</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\omega\)</span></td>
+<td align="left"><code>\omega</code></td>
+<td align="left"><span class="math inline">\(\Omega\)</span></td>
+<td align="left"><code>\Omega</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="로그-등의-기호" class="section level2">
+<h2>로그 등의 기호</h2>
+<p>log, sin 등과 같은 기호를 표기하려면 단어 앞에 <code>\</code>를 붙여서 사용합니다. 예를 들면 <code>\log</code>와 같이 사용합니다.</p>
+<pre><code>$$
+\log_{10}(x+5) \\
+\sin(-\alpha)=-\sin(\alpha)\\
+\arccos(x)=\arcsin(u)\\
+\log_n(n)=1\\
+\tan(x) = \frac{\sin(x)}{\cos(x)}
+$$</code></pre>
+<p><span class="math display">\[
+\log_{10}(x+5) \\
+\sin(-\alpha)=-\sin(\alpha)\\
+\arccos(x)=\arcsin(u)\\
+\log_n(n)=1\\
+\tan(x) = \frac{\sin(x)}{\cos(x)}
+\]</span></p>
+<p>기호들을 정리하면 다음과 같습니다.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">문자</th>
+<th align="center">문자코드</th>
+<th align="center">문자</th>
+<th align="center">문자코드</th>
+<th align="center">문자</th>
+<th align="center">문자코드</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\sin\)</span></td>
+<td align="center"><code>\sin</code></td>
+<td align="center"><span class="math inline">\(\sinh\)</span></td>
+<td align="center"><code>\sinh</code></td>
+<td align="center"><span class="math inline">\(\arcsin\)</span></td>
+<td align="center"><code>\arcsin</code></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\cos\)</span></td>
+<td align="center"><code>\cos</code></td>
+<td align="center"><span class="math inline">\(\cosh\)</span></td>
+<td align="center"><code>\cos</code></td>
+<td align="center"><span class="math inline">\(\arccos\)</span></td>
+<td align="center"><code>\arccos</code></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\tan\)</span></td>
+<td align="center"><code>\tan</code></td>
+<td align="center"><span class="math inline">\(\tanh\)</span></td>
+<td align="center"><code>\tan</code></td>
+<td align="center"><span class="math inline">\(\arctan\)</span></td>
+<td align="center"><code>\arctan</code></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\sec\)</span></td>
+<td align="center"><code>\sec</code></td>
+<td align="center"><span class="math inline">\(\coth\)</span></td>
+<td align="center"><code>\coth</code></td>
+<td align="center"><span class="math inline">\(\min\)</span></td>
+<td align="center"><code>\min</code></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\csc\)</span></td>
+<td align="center"><code>\csc</code></td>
+<td align="center"><span class="math inline">\(\det\)</span></td>
+<td align="center"><code>\det</code></td>
+<td align="center"><span class="math inline">\(\max\)</span></td>
+<td align="center"><code>\max</code></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\cot\)</span></td>
+<td align="center"><code>\cot</code></td>
+<td align="center"><span class="math inline">\(\dim\)</span></td>
+<td align="center"><code>\dim</code></td>
+<td align="center"><span class="math inline">\(\inf\)</span></td>
+<td align="center"><code>\inf</code></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\exp\)</span></td>
+<td align="center"><code>\exp</code></td>
+<td align="center"><span class="math inline">\(\ker\)</span></td>
+<td align="center"><code>\ker</code></td>
+<td align="center"><span class="math inline">\(\sup\)</span></td>
+<td align="center"><code>\sup</code></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\log\)</span></td>
+<td align="center"><code>\log</code></td>
+<td align="center"><span class="math inline">\(\deg\)</span></td>
+<td align="center"><code>\deg</code></td>
+<td align="center"><span class="math inline">\(\liminf\)</span></td>
+<td align="center"><code>\liminf</code></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\ln\)</span></td>
+<td align="center"><code>\ln</code></td>
+<td align="center"><span class="math inline">\(\arg\)</span></td>
+<td align="center"><code>\arg</code></td>
+<td align="center"><span class="math inline">\(\limsup\)</span></td>
+<td align="center"><code>\limsup</code></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\lg\)</span></td>
+<td align="center"><code>\lg</code></td>
+<td align="center"><span class="math inline">\(\gcd\)</span></td>
+<td align="center"><code>\gcd</code></td>
+<td align="center"><span class="math inline">\(\lim\)</span></td>
+<td align="center"><code>\lim</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="이항-연산자-기호" class="section level2">
+<h2>이항 연산자 기호</h2>
+<table>
+<caption><span id="tab:unnamed-chunk-8">Table 3: </span>이항 연산자 기호</caption>
+<thead>
+<tr class="header">
+<th align="left">기호</th>
+<th align="left">코드</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\pm\)</span></td>
+<td align="left"><code>\pm</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\mp\)</span></td>
+<td align="left"><code>\mp</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\times\)</span></td>
+<td align="left"><code>\times</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\div\)</span></td>
+<td align="left"><code>\div</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\ast\)</span></td>
+<td align="left"><code>\ast</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\star\)</span></td>
+<td align="left"><code>\star</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\circ\)</span></td>
+<td align="left"><code>\circ</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\bullet\)</span></td>
+<td align="left"><code>\bullet</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\cdot\)</span></td>
+<td align="left"><code>\cdot</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\cap\)</span></td>
+<td align="left"><code>\cap</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\cup\)</span></td>
+<td align="left"><code>\cup</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\uplus\)</span></td>
+<td align="left"><code>\uplus</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\sqcap\)</span></td>
+<td align="left"><code>\sqcap</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\sqcup\)</span></td>
+<td align="left"><code>\sqcup</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\vee\)</span></td>
+<td align="left"><code>\vee</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\wedge\)</span></td>
+<td align="left"><code>\wedge</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\setminus\)</span></td>
+<td align="left"><code>\setminus</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\wr\)</span></td>
+<td align="left"><code>\wr</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\diamond\)</span></td>
+<td align="left"><code>\diamond</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\bigtriangleup\)</span></td>
+<td align="left"><code>\bigtriangleup</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bigtriangledown\)</span></td>
+<td align="left"><code>\bigtriangledown</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\triangleleft\)</span></td>
+<td align="left"><code>\triangleleft</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\triangleright\)</span></td>
+<td align="left"><code>\triangleright</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\lhd\)</span></td>
+<td align="left"><code>\lhd</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\rhd\)</span></td>
+<td align="left"><code>\rhd</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\unlhd\)</span></td>
+<td align="left"><code>\unlhd</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\unrhd\)</span></td>
+<td align="left"><code>\unrhd</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\oplus\)</span></td>
+<td align="left"><code>\oplus</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\ominus\)</span></td>
+<td align="left"><code>\ominus</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\otimes\)</span></td>
+<td align="left"><code>\otimes</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\oslash\)</span></td>
+<td align="left"><code>\oslash</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\odot\)</span></td>
+<td align="left"><code>\odot</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bigcirc\)</span></td>
+<td align="left"><code>\bigcirc</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\dagger\)</span></td>
+<td align="left"><code>\dagger</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\ddagger\)</span></td>
+<td align="left"><code>\ddagger</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\amalg\)</span></td>
+<td align="left"><code>\amalg</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="관계-기호" class="section level2">
+<h2>관계 기호</h2>
+<pre><code>$$\mathbb{N} \subset \mathbb{Z} \subset \mathbb{D} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$$</code></pre>
+<p><span class="math display">\[\mathbb{N} \subset \mathbb{Z} \subset \mathbb{D} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}\]</span></p>
+<table>
+<caption><span id="tab:unnamed-chunk-9">Table 4: </span>관계 기호</caption>
+<thead>
+<tr class="header">
+<th align="left">기호</th>
+<th align="left">코드</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\leq\)</span></td>
+<td align="left"><code>\leq</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\prec\)</span></td>
+<td align="left"><code>\prec</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\preceq\)</span></td>
+<td align="left"><code>\preceq</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\ll\)</span></td>
+<td align="left"><code>\ll</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\subset\)</span></td>
+<td align="left"><code>\subset</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\subseteq\)</span></td>
+<td align="left"><code>\subseteq</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\sqsubset\)</span></td>
+<td align="left"><code>\sqsubset</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\sqsubseteq\)</span></td>
+<td align="left"><code>\sqsubseteq</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\in\)</span></td>
+<td align="left"><code>\in</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\vdash\)</span></td>
+<td align="left"><code>\vdash</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\geq\)</span></td>
+<td align="left"><code>\geq</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\succ\)</span></td>
+<td align="left"><code>\succ</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\succeq\)</span></td>
+<td align="left"><code>\succeq</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\gg\)</span></td>
+<td align="left"><code>\gg</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\supset\)</span></td>
+<td align="left"><code>\supset</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\supseteq\)</span></td>
+<td align="left"><code>\supseteq</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\sqsupset\)</span></td>
+<td align="left"><code>\sqsupset</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\sqsupseteq\)</span></td>
+<td align="left"><code>\sqsupseteq</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\ni\)</span></td>
+<td align="left"><code>\ni</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\dashv\)</span></td>
+<td align="left"><code>\dashv</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\equiv\)</span></td>
+<td align="left"><code>\equiv</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\sim\)</span></td>
+<td align="left"><code>\sim</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\simeq\)</span></td>
+<td align="left"><code>\simeq</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\asymp\)</span></td>
+<td align="left"><code>\asymp</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\approx\)</span></td>
+<td align="left"><code>\approx</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\cong\)</span></td>
+<td align="left"><code>\cong</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\neq\)</span></td>
+<td align="left"><code>\neq</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\doteq\)</span></td>
+<td align="left"><code>\doteq</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\propto\)</span></td>
+<td align="left"><code>\propto</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\models\)</span></td>
+<td align="left"><code>\models</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\perp\)</span></td>
+<td align="left"><code>\perp</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\mid\)</span></td>
+<td align="left"><code>\mid</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\parallel\)</span></td>
+<td align="left"><code>\parallel</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\bowtie\)</span></td>
+<td align="left"><code>\bowtie</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\Join\)</span></td>
+<td align="left"><code>\Join</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\smile\)</span></td>
+<td align="left"><code>\smile</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\frown\)</span></td>
+<td align="left"><code>\frown</code></td>
+</tr>
+</tbody>
+</table>
+<p>부정 형태의 기호를 만들려면 <code>\not</code>을 추가합니다. 예를 들면 <span class="math inline">\(\in\)</span>을 부정형태로 만들려면 <code>$\not\in$</code>으로 코드를 입력하면 <span class="math inline">\(\not\in\)</span>형태로 표시됩니다. <span class="math inline">\(\subset\)</span>은 <code>$\not\subset$</code>로 코드를 입력하면 <span class="math inline">\(\not\subset\)</span>로 표시됩니다.</p>
+</div>
+<div id="화살표-기호" class="section level2">
+<h2>화살표 기호</h2>
+<table>
+<caption><span id="tab:unnamed-chunk-10">Table 5: </span>화살표 기호</caption>
+<thead>
+<tr class="header">
+<th align="left">기호</th>
+<th align="left">코드</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\leftarrow\)</span></td>
+<td align="left"><code>\leftarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Leftarrow\)</span></td>
+<td align="left"><code>\Leftarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\rightarrow\)</span></td>
+<td align="left"><code>\rightarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Rightarrow\)</span></td>
+<td align="left"><code>\Rightarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\leftrightarrow\)</span></td>
+<td align="left"><code>\leftrightarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Leftrightarrow\)</span></td>
+<td align="left"><code>\Leftrightarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\mapsto\)</span></td>
+<td align="left"><code>\mapsto</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\hookleftarrow\)</span></td>
+<td align="left"><code>\hookleftarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\leftharpoonup\)</span></td>
+<td align="left"><code>\leftharpoonup</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\leftharpoondown\)</span></td>
+<td align="left"><code>\leftharpoondown</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\rightleftharpoons\)</span></td>
+<td align="left"><code>\rightleftharpoons</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\longleftarrow\)</span></td>
+<td align="left"><code>\longleftarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\Longleftarrow\)</span></td>
+<td align="left"><code>\Longleftarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\longrightarrow\)</span></td>
+<td align="left"><code>\longrightarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\Longrightarrow\)</span></td>
+<td align="left"><code>\Longrightarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\longleftrightarrow\)</span></td>
+<td align="left"><code>\longleftrightarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\Longleftrightarrow\)</span></td>
+<td align="left"><code>\Longleftrightarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\longmapsto\)</span></td>
+<td align="left"><code>\longmapsto</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\hookrightarrow\)</span></td>
+<td align="left"><code>\hookrightarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\rightharpoonup\)</span></td>
+<td align="left"><code>\rightharpoonup</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\rightharpoondown\)</span></td>
+<td align="left"><code>\rightharpoondown</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\leadsto\)</span></td>
+<td align="left"><code>\leadsto</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\uparrow\)</span></td>
+<td align="left"><code>\uparrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Uparrow\)</span></td>
+<td align="left"><code>\Uparrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\downarrow\)</span></td>
+<td align="left"><code>\downarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Downarrow\)</span></td>
+<td align="left"><code>\Downarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\updownarrow\)</span></td>
+<td align="left"><code>\updownarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Updownarrow\)</span></td>
+<td align="left"><code>\Updownarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\nearrow\)</span></td>
+<td align="left"><code>\nearrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\searrow\)</span></td>
+<td align="left"><code>\searrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\swarrow\)</span></td>
+<td align="left"><code>\swarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\nwarrow\)</span></td>
+<td align="left"><code>\nwarrow</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="기타-기호" class="section level2">
+<h2>기타 기호</h2>
+<table>
+<caption><span id="tab:unnamed-chunk-11">Table 6: </span>기타 기호</caption>
+<thead>
+<tr class="header">
+<th align="left">기호</th>
+<th align="left">코드</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\ldots\)</span></td>
+<td align="left"><code>\ldots</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\cdots\)</span></td>
+<td align="left"><code>\cdots</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\vdots\)</span></td>
+<td align="left"><code>\vdots</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\ddots\)</span></td>
+<td align="left"><code>\ddots</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\aleph\)</span></td>
+<td align="left"><code>\aleph</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\prime\)</span></td>
+<td align="left"><code>\prime</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\forall\)</span></td>
+<td align="left"><code>\forall</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\infty\)</span></td>
+<td align="left"><code>\infty</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\hbar\)</span></td>
+<td align="left"><code>\hbar</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\emptyset\)</span></td>
+<td align="left"><code>\emptyset</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\exists\)</span></td>
+<td align="left"><code>\exists</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Box\)</span></td>
+<td align="left"><code>\Box</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\imath\)</span></td>
+<td align="left"><code>\imath</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\nabla\)</span></td>
+<td align="left"><code>\nabla</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\neg\)</span></td>
+<td align="left"><code>\neg</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Diamond\)</span></td>
+<td align="left"><code>\Diamond</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\jmath\)</span></td>
+<td align="left"><code>\jmath</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\surd\)</span></td>
+<td align="left"><code>\surd</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\flat\)</span></td>
+<td align="left"><code>\flat</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\triangle\)</span></td>
+<td align="left"><code>\triangle</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\ell\)</span></td>
+<td align="left"><code>\ell</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\top\)</span></td>
+<td align="left"><code>\top</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\natural\)</span></td>
+<td align="left"><code>\natural</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\clubsuit\)</span></td>
+<td align="left"><code>\clubsuit</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\wp\)</span></td>
+<td align="left"><code>\wp</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\bot\)</span></td>
+<td align="left"><code>\bot</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\sharp\)</span></td>
+<td align="left"><code>\sharp</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\diamondsuit\)</span></td>
+<td align="left"><code>\diamondsuit</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\Re\)</span></td>
+<td align="left"><code>\Re</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\backslash\)</span></td>
+<td align="left"><code>\backslash</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\heartsuit\)</span></td>
+<td align="left"><code>\heartsuit</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Im\)</span></td>
+<td align="left"><code>\Im</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\angle\)</span></td>
+<td align="left"><code>\angle</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\partial\)</span></td>
+<td align="left"><code>\partial</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\spadesuit\)</span></td>
+<td align="left"><code>\spadesuit</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\mho\)</span></td>
+<td align="left"><code>\mho</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="가변-크기-기호" class="section level2">
+<h2>가변 크기 기호</h2>
+<table>
+<caption><span id="tab:unnamed-chunk-12">Table 7: </span>가변 크기 기호</caption>
+<thead>
+<tr class="header">
+<th align="left">기호</th>
+<th align="left">코드</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\sum\)</span></td>
+<td align="left"><code>\sum</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\prod\)</span></td>
+<td align="left"><code>\prod</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\coprod\)</span></td>
+<td align="left"><code>\coprod</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\int\)</span></td>
+<td align="left"><code>\int</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\oint\)</span></td>
+<td align="left"><code>\oint</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\bigcap\)</span></td>
+<td align="left"><code>\bigcap</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bigcup\)</span></td>
+<td align="left"><code>\bigcup</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\bigsqcup\)</span></td>
+<td align="left"><code>\bigsqcup</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bigvee\)</span></td>
+<td align="left"><code>\bigvee</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\bigwedge\)</span></td>
+<td align="left"><code>\bigwedge</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bigodot\)</span></td>
+<td align="left"><code>\bigodot</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\bigotimes\)</span></td>
+<td align="left"><code>\bigotimes</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bigoplus\)</span></td>
+<td align="left"><code>\bigoplus</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\biguplus\)</span></td>
+<td align="left"><code>\biguplus</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="구분-기호" class="section level2">
+<h2>구분 기호</h2>
+<table>
+<caption><span id="tab:unnamed-chunk-13">Table 8: </span>구분 기호</caption>
+<thead>
+<tr class="header">
+<th align="left">기호</th>
+<th align="left">코드</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\((\)</span></td>
+<td align="left"><code>(</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\()\)</span></td>
+<td align="left"><code>)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\uparrow\)</span></td>
+<td align="left"><code>\uparrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Uparrow\)</span></td>
+<td align="left"><code>\Uparrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\([\)</span></td>
+<td align="left"><code>[</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(]\)</span></td>
+<td align="left"><code>]</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\downarrow\)</span></td>
+<td align="left"><code>\downarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Downarrow\)</span></td>
+<td align="left"><code>\Downarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\{\)</span></td>
+<td align="left"><code>\{</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\}\)</span></td>
+<td align="left"><code>\}</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\updownarrow\)</span></td>
+<td align="left"><code>\updownarrow</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Updownarrow\)</span></td>
+<td align="left"><code>\Updownarrow</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\lfloor\)</span></td>
+<td align="left"><code>\lfloor</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\rfloor\)</span></td>
+<td align="left"><code>\rfloor</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\lceil\)</span></td>
+<td align="left"><code>\lceil</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\rceil\)</span></td>
+<td align="left"><code>\rceil</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\langle\)</span></td>
+<td align="left"><code>\langle</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\rangle\)</span></td>
+<td align="left"><code>\rangle</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(/\)</span></td>
+<td align="left"><code>/</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\backslash\)</span></td>
+<td align="left"><code>\backslash</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\rmoustache\)</span></td>
+<td align="left"><code>\rmoustache</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\lmoustache\)</span></td>
+<td align="left"><code>\lmoustache</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\rgroup\)</span></td>
+<td align="left"><code>\rgroup</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\lgroup\)</span></td>
+<td align="left"><code>\lgroup</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\arrowvert\)</span></td>
+<td align="left"><code>\arrowvert</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\Arrowvert\)</span></td>
+<td align="left"><code>\Arrowvert</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bracevert\)</span></td>
+<td align="left"><code>\bracevert</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="수학-악센트-기호" class="section level2">
+<h2>수학 악센트 기호</h2>
+<pre><code>$$ \vec{AB} \, \cdot \, \vec{CD} =0  \Rightarrow  \vec{AB} \, \perp \, \vec{CD}$$</code></pre>
+<p><span class="math display">\[ \vec{AB} \, \cdot \, \vec{CD} =0  \Rightarrow  \vec{AB} \, \perp \, \vec{CD}\]</span></p>
+<table>
+<caption><span id="tab:unnamed-chunk-14">Table 9: </span>수학 악센트 기호</caption>
+<thead>
+<tr class="header">
+<th align="left">기호</th>
+<th align="left">코드</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\hat{a}\)</span></td>
+<td align="left"><code>\hat{a}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\acute{a}\)</span></td>
+<td align="left"><code>\acute{a}</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bar{a}\)</span></td>
+<td align="left"><code>\bar{a}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\dot{a}\)</span></td>
+<td align="left"><code>\dot{a}</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\breve{a}\)</span></td>
+<td align="left"><code>\breve{a}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\check{a}\)</span></td>
+<td align="left"><code>\check{a}</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\grave{a}\)</span></td>
+<td align="left"><code>\grave{a}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\vec{a}\)</span></td>
+<td align="left"><code>\vec{a}</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\ddot{a}\)</span></td>
+<td align="left"><code>\ddot{a}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\tilde{a}\)</span></td>
+<td align="left"><code>\tilde{a}</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\widetilde{abc}\)</span></td>
+<td align="left"><code>\widetilde{abc}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\overleftarrow{abc}\)</span></td>
+<td align="left"><code>\overleftarrow{abc}</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\overline{abc}\)</span></td>
+<td align="left"><code>\overline{abc}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\overbrace{abc}\)</span></td>
+<td align="left"><code>\overbrace{abc}</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\sqrt{abc}\)</span></td>
+<td align="left"><code>\sqrt{abc}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(f&#39;\)</span></td>
+<td align="left"><code>f'</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\widehat{abc}\)</span></td>
+<td align="left"><code>\widehat{abc}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\overrightarrow{abc}\)</span></td>
+<td align="left"><code>\overrightarrow{abc}</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\underline{abc}\)</span></td>
+<td align="left"><code>\underline{abc}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\underbrace{abc}\)</span></td>
+<td align="left"><code>\underbrace{abc}</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\sqrt[n]{abc}\)</span></td>
+<td align="left"><code>\sqrt[n]{abc}</code></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\frac{abc}{xyz}\)</span></td>
+<td align="left"><code>\frac{abc}{xyz}</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="사용-사례" class="section level2">
+<h2>사용 사례</h2>
+<pre><code>$$
+sign(x) = \left\{
+    \begin{array}\\
+        1 &amp; \mbox{if } \ x \in \mathbf{N}^* \\
+        0 &amp; \mbox{if } \ x = 0 \\
+        -1 &amp; \mbox{else.}
+    \end{array}
+\right.
+$$</code></pre>
+<p><span class="math display">\[
+sign(x) = \left\{
+    \begin{array}\\
+        1 &amp; \mbox{if } \ x \in \mathbf{N}^* \\
+        0 &amp; \mbox{if } \ x = 0 \\
+        -1 &amp; \mbox{else.}
+    \end{array}
+\right.
+\]</span></p>
+<pre><code>$$
+ \left.
+    \begin{array} \\
+        \alpha^2 = \sqrt5 \\
+        \alpha \geq 0 
+    \end{array}
+\right \}=\alpha = 5 
+$$</code></pre>
+<p><span class="math display">\[
+ \left.
+    \begin{array} \\
+        \alpha^2 = \sqrt5 \\
+        \alpha \geq 0 
+    \end{array}
+\right \}=\alpha = 5 
+\]</span></p>
+<pre><code>$$
+\underbrace{\ln \left( \frac{5}{6} \right)}_{\simeq -0.1823}
+&lt; \overbrace{\exp (2)}^{\simeq 7.3890}
+$$</code></pre>
+<p><span class="math display">\[
+\underbrace{\ln \left( \frac{5}{6} \right)}_{\simeq -0.1823}
+&lt; \overbrace{\exp (2)}^{\simeq 7.3890}
+\]</span></p>
+<pre><code>$$f&#39;(x)$$</code></pre>
+<p><span class="math display">\[f&#39;(x)\]</span></p>
+<pre><code>$$\frac{\partial f}{\partial x}$$</code></pre>
+<p><span class="math display">\[\frac{\partial f}{\partial x}\]</span></p>
+<pre><code>$$\lim_{x \to +\infty} f(x)$$</code></pre>
+<p><span class="math display">\[\lim_{x \to +\infty} f(x)\]</span></p>
+<pre><code>$$\max_{x \in [a,b]}f(x)$$</code></pre>
+<p><span class="math display">\[\max_{x \in [a,b]}f(x)\]</span></p>
+<pre><code>$$\sum^k_{i=1}\sum^{l+1}_{j=1}\,A_i A_j$$</code></pre>
+<p><span class="math display">\[\sum^k_{i=1}\sum^{l+1}_{j=1}\,A_i A_j\]</span></p>
+<pre><code>$$ e^x  = \sum_{k=0}^{n}\, \frac{x^k}{k!} + o(x^n) $$ </code></pre>
+<p><span class="math display">\[ e^x  = \sum_{k=0}^{n}\, \frac{x^k}{k!} + o(x^n) \]</span></p>
+<pre><code>$$\prod^k_{i=1}\prod^l_{j=1}\,A_i A_j$$ </code></pre>
+<p><span class="math display">\[\prod^k_{i=1}\prod^l_{j=1}\,A_i A_j\]</span></p>
+<pre><code>$$\int_{a}^b\int_{c}^d f(x,y)\,dxdy$$   </code></pre>
+<p><span class="math display">\[\int_{a}^b\int_{c}^d f(x,y)\,dxdy\]</span></p>
+<pre><code>$$
+\hat{y} = \theta \cdot \mathrm{x}
+$$</code></pre>
+<p><span class="math display">\[
+\hat{y} = \theta \cdot \mathrm{x}
+\]</span></p>
+<pre><code>$$RMSE = \sqrt{\frac{1}{m} \sum_{i=1}^{m}(y^i - \theta^T\mathrm{x}^i)^2}$$</code></pre>
+<p><span class="math display">\[RMSE = \sqrt{\frac{1}{m} \sum_{i=1}^{m}(y^i - \theta^T\mathrm{x}^i)^2}\]</span></p>
+<pre><code>$$\nabla \mathrm{MSE}(\theta) = \frac{2}{m} X^T (X \theta - y)$$</code></pre>
+<p><span class="math display">\[\nabla \mathrm{MSE}(\theta) = \frac{2}{m} X^T (X \theta - y)\]</span></p>
+<pre><code>$$
+J(\theta) = \rm{MSE(\theta)} + \lambda(\frac{(1-\alpha)}{2} \sum_{i=1}^{n}{\theta_i^2} + \alpha \sum_{i=1}^{n}{|\theta_i|})
+$$</code></pre>
+<p><span class="math display">\[
+J(\theta) = \rm{MSE(\theta)} + \lambda(\frac{(1-\alpha)}{2} \sum_{i=1}^{n}{\theta_i^2} + \alpha \sum_{i=1}^{n}{|\theta_i|})
+\]</span></p>
+<hr />
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-base" class="csl-entry">
+R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This is a footnote.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/markdown/" rel="tag">Markdown</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/rmarkdown/" rel="tag">Rmarkdown</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/2021-09-20-machine-learning-dictionary/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Machine Learning 영한 사전</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://mdalog.netlify.app/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/2022-02-23-r-markdown/">R Markdown 문서 편집</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2021-09-20-machine-learning-dictionary/">Machine Learning 영한 사전</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2021-08-22-rstudio-addin/">RStudio Addin을 만드는 방법</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2019-07-29-crimes-in-seoul/">서울시 범죄 현황</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2019-07-22-visualization-of-data/">다차원 데이터의 시각화</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/machine-learning/">Machine Learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r/">R</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/addin/" title="Addin">Addin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cctv/" title="cctv">cctv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/crimes-in-seoul/" title="Crimes in Seoul">Crimes in Seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/decision-tree/" title="decision tree">decision tree</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/eda/" title="EDA">EDA</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/excel/" title="excel">excel</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning/" title="Machine Learning">Machine Learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/markdown/" title="Markdown">Markdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/purrr/" title="purrr">purrr</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rmarkdown/" title="Rmarkdown">Rmarkdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rstudio/" title="RStudio">RStudio</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seoul/" title="seoul">seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/" title="다차원 데이터">다차원 데이터</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B2%94%EC%A3%84/" title="범죄">범죄</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%84%9C%EC%9A%B8%EC%8B%9C/" title="서울시">서울시</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%9C%EA%B0%81%ED%99%94/" title="시각화">시각화</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9A%A9%EC%96%B4%EC%82%AC%EC%A0%84/" title="용어사전">용어사전</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%EB%82%98%EB%AC%B4/" title="의사결정나무">의사결정나무</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2022 Bohak Maeng.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
