@@ -12,7 +12,7 @@
 분석에 사용한 데이터는 다음과 같다.
 서울시 관서별 5대 범죄 발생 검거 현황 데이터(2017년 기준)출처 : 공공데이터포털의 서울특별시 관서별 5대범죄 발생 검거현황(2000~2017)정리된 데이터 다운로드 : seoul_crime_2000_2017.csv경찰관서 주소 데이터출처 : 경찰청의 전국경찰관서안내정리된 데이터 다운로드 : police_address.csv서울시 CCTV 현황 데이터(2017년 기준)CCTV 데이터 출처 : 서울열린데이터광장의 서울시 자치구 년도별 CCTV 설치 현황 - 2019." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-07-29T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-07-29T00:00:00+00:00" />
 
@@ -81,7 +81,7 @@
 		</header>
 		<div class="content post__content clearfix">
 			
-<script src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/header-attrs/header-attrs.js"></script>
+<script src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/header-attrs/header-attrs.js"></script>
 
 
 <p>서울시는 25개의 자치구로 구성되어 있다. 서울시 5대 주요 범죄 발생 및 검거 데이터를 이용하여 각 자치구의 범죄현황에 대해 탐색하고자 한다.</p>
@@ -595,7 +595,7 @@ str(seoul)</code></pre>
   labs(title = &quot;서울시 자치구별 주요범죄 발생건수&quot;, x = &quot;자치구&quot;, y = &quot;발생건수&quot;) +
   theme_light()
 print(g1)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 </div>
 <div id="주요범죄-발생율이-높은-구낮은-구는" class="section level3">
 <h3>주요범죄 발생율이 높은 구(낮은 구)는?</h3>
@@ -607,12 +607,12 @@ print(g1)</code></pre>
   labs(title = &quot;서울시 자치구별 주요범죄율&quot;, x = &quot;자치구&quot;, y = &quot;범죄율&quot;) +
   theme_light()
 print(g2)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 </div>
 <div id="자치구별-주요범죄-발생건수와-발생율-비교" class="section level3">
 <h3>자치구별 주요범죄 발생건수와 발생율 비교</h3>
 <pre class="r"><code>grid.arrange(g1, g2, nrow=1, ncol=2)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 </div>
 <div id="주요범죄-검거율이-높은-구낮은-구는" class="section level3">
 <h3>주요범죄 검거율이 높은 구(낮은 구)는?</h3>
@@ -625,12 +625,12 @@ print(g2)</code></pre>
   labs(title = &quot;서울시 자치구별 주요범죄 검거율&quot;, x = &quot;자치구&quot;, y = &quot;검거율&quot;) +
   theme_light()
 print(g3)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 </div>
 <div id="자치구별-주요범죄-발생율과-검거율-비교" class="section level3">
 <h3>자치구별 주요범죄 발생율과 검거율 비교</h3>
 <pre class="r"><code>grid.arrange(g2, g3, nrow=1, ncol=2)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 </div>
 <div id="각-범죄의-발생율이-높은-구낮은-구는" class="section level3">
 <h3>각 범죄의 발생율이 높은 구(낮은 구)는?</h3>
@@ -650,7 +650,7 @@ seoul %&gt;%
 ## i Use `all_of(offense_list)` instead of `offense_list` to silence this message.
 ## i See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
 ## This message is displayed once per session.</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <pre class="r"><code># 히트맵
 seoul %&gt;% 
   select(자치구, offense_list) %&gt;% 
@@ -661,7 +661,7 @@ seoul %&gt;%
   geom_text(aes(label = format(범죄율, digits = 4))) +
   labs(title = &quot;서울시 자치구별 주요범죄 발생율&quot;, x = NULL, y = NULL) +
   theme_minimal()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 </div>
 <div id="각-범죄의-검거율이-높은-구낮은-구는" class="section level3">
 <h3>각 범죄의 검거율이 높은 구(낮은 구)는?</h3>
@@ -681,7 +681,7 @@ seoul %&gt;%
 ## i Use `all_of(arrest_list)` instead of `arrest_list` to silence this message.
 ## i See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
 ## This message is displayed once per session.</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <pre class="r"><code># 히트맵
 seoul %&gt;% 
   select(자치구, arrest_list) %&gt;% 
@@ -692,7 +692,7 @@ seoul %&gt;%
   geom_text(aes(label = format(검거율, digits = 4))) +
   labs(title = &quot;서울시 자치구별 주요범죄 검거율&quot;, x = NULL, y = NULL) +
   theme_minimal()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 </div>
 <div id="각-범죄-발생율의-상관관계는" class="section level3">
 <h3>각 범죄 발생율의 상관관계는?</h3>
@@ -700,23 +700,23 @@ seoul %&gt;%
 seoul %&gt;% 
   select(offense_list) %&gt;% 
   ggcorr(label=TRUE, size = 5)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <pre class="r"><code># 변수간 상관관계 산점도 및 상관계수
 seoul %&gt;% 
   select(offense_list) %&gt;% 
   ggscatmat(alpha = 0.7)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 </div>
 <div id="각-범죄-검거율의-상관관계는" class="section level3">
 <h3>각 범죄 검거율의 상관관계는?</h3>
 <pre class="r"><code>seoul %&gt;% 
   select(arrest_list) %&gt;% 
   ggcorr(label=TRUE, size = 5)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 <pre class="r"><code>seoul %&gt;% 
   select(arrest_list) %&gt;% 
   ggscatmat(alpha = 0.7)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 </div>
 <div id="주요범죄-발생건수와-주요범죄-발생율의-상관관계는" class="section level3">
 <h3>주요범죄 발생건수와 주요범죄 발생율의 상관관계는?</h3>
@@ -729,7 +729,7 @@ seoul %&gt;%
            label = paste(&quot;r ==&quot;, round(cor(seoul$주요범죄발생, seoul$주요범죄율),2)), 
            parse = TRUE) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 </div>
 <div id="인구와-주요범죄-발생건수의-상관관계는" class="section level3">
 <h3>인구와 주요범죄 발생건수의 상관관계는?</h3>
@@ -742,7 +742,7 @@ seoul %&gt;%
            label = paste(&quot;r ==&quot;, round(cor(seoul$인구, seoul$주요범죄발생),2)), 
            parse = TRUE) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 </div>
 <div id="인구와-주요범죄-발생율의-상관관계는" class="section level3">
 <h3>인구와 주요범죄 발생율의 상관관계는?</h3>
@@ -755,7 +755,7 @@ seoul %&gt;%
            label = paste(&quot;r ==&quot;, round(cor(seoul$인구, seoul$주요범죄율),2)), 
            parse = TRUE) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 </div>
 <div id="죄종별-인구와-범죄발생율의-상관관계는" class="section level3">
 <h3>죄종별 인구와 범죄발생율의 상관관계는?</h3>
@@ -768,7 +768,7 @@ seoul %&gt;%
   geom_text(aes(label = 자치구, vjust = 0, hjust = -0.3), check_overlap = TRUE) +
   labs(title = &quot;서울시 인구과 죄종별 범죄율&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 </div>
 <div id="cctv와-주요범죄-발생건수의-상관관계는" class="section level3">
 <h3>CCTV와 주요범죄 발생건수의 상관관계는?</h3>
@@ -781,7 +781,7 @@ seoul %&gt;%
            label = paste(&quot;r ==&quot;, round(cor(seoul$cctv2017, seoul$주요범죄발생),2)), 
            parse = TRUE) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
 </div>
 <div id="cctv와-주요범죄율의-상관관계는" class="section level3">
 <h3>CCTV와 주요범죄율의 상관관계는?</h3>
@@ -794,7 +794,7 @@ seoul %&gt;%
            label = paste(&quot;r ==&quot;, round(cor(seoul$cctv2017, seoul$주요범죄율),2)), 
            parse = TRUE) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 </div>
 <div id="죄종별-cctv와-범죄율의-상관관계는" class="section level3">
 <h3>죄종별 CCTV와 범죄율의 상관관계는?</h3>
@@ -807,7 +807,7 @@ seoul %&gt;%
   geom_text(aes(label = 자치구, vjust = 0, hjust = -0.3), check_overlap = TRUE) +
   labs(title = &quot;서울시 CCTV와 죄종별 범죄율&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 </div>
 <div id="cctv와-주요범죄-검거율의-상관관계는" class="section level3">
 <h3>CCTV와 주요범죄 검거율의 상관관계는?</h3>
@@ -820,7 +820,7 @@ seoul %&gt;%
            label = paste(&quot;r ==&quot;, round(cor(seoul$cctv2017, seoul$주요범죄검거율),2)), 
            parse = TRUE) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 </div>
 <div id="죄종별-cctv와-주요범죄-검거율의-상관관계는" class="section level3">
 <h3>죄종별 CCTV와 주요범죄 검거율의 상관관계는?</h3>
@@ -833,7 +833,7 @@ seoul %&gt;%
   geom_text(aes(label = 자치구, vjust = 0, hjust = -0.3), check_overlap = TRUE) +
   labs(title = &quot;서울시 CCTV와 죄종별 검거율&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 </div>
 <div id="외국인-비율과-주요범죄율의-상관관계는" class="section level3">
 <h3>외국인 비율과 주요범죄율의 상관관계는?</h3>
@@ -848,7 +848,7 @@ seoul %&gt;%
            parse = TRUE) +
   theme_test()</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 </div>
 <div id="죄종별-외국인-비율과-범죄율의-상관관계는" class="section level3">
 <h3>죄종별 외국인 비율과 범죄율의 상관관계는?</h3>
@@ -863,7 +863,7 @@ seoul %&gt;%
   labs(title = &quot;서울시 외국인비율과 죄종별 범죄율&quot;) +
   theme_test()</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 </div>
 <div id="고령자-비율과-주요범죄율의-상관관계는" class="section level3">
 <h3>고령자 비율과 주요범죄율의 상관관계는?</h3>
@@ -878,7 +878,7 @@ seoul %&gt;%
            parse = TRUE) +
   theme_test()</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
 </div>
 <div id="죄종별-고령자-비율과-범죄율의-상관관계는" class="section level3">
 <h3>죄종별 고령자 비율과 범죄율의 상관관계는?</h3>
@@ -893,7 +893,7 @@ seoul %&gt;%
   labs(title = &quot;서울시 고령자비율과 죄종별 범죄율&quot;) +
   theme_test()</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-29-crimes-in-seoul/index_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <p>참고 : 민형기(2017)의 ’파이썬으로 데이터 주무르기’를 참고하여 R 언어로 분석</p>
 </div>
 </div>
@@ -946,7 +946,7 @@ seoul %&gt;%
 			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="https://mdalog.netlify.app/" />
+		<input type="hidden" name="sitesearch" value="https://manboha.github.io/" />
 	</form>
 </div>
 <div class="widget-recent widget">

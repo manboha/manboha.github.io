@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>seoul on For Data Analytics</title>
-    <link>https://mdalog.netlify.app/tags/seoul/</link>
+    <link>https://manboha.github.io/tags/seoul/</link>
     <description>Recent content in seoul on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://mdalog.netlify.app/tags/seoul/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/seoul/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>서울시 자치구의 CCTV 현황</title>
-      <link>https://mdalog.netlify.app/post/2019-07-04-cctv-surveillance-cameras-in-seoul/</link>
+      <link>https://manboha.github.io/post/2019-07-04-cctv-surveillance-cameras-in-seoul/</link>
       <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2019-07-04-cctv-surveillance-cameras-in-seoul/</guid>
+      <guid>https://manboha.github.io/post/2019-07-04-cctv-surveillance-cameras-in-seoul/</guid>
       <description>서울시 25개 자치구의 CCTV 현황에 대해 탐색하고자 합니다.
 분석에 사용한 데이터는 다음과 같습니다.
 서울시 CCTV 현황 데이터(2017년 기준)CCTV 데이터 출처 : 서울열린데이터광장의 서울시 자치구 년도별 CCTV 설치 현황 - 2019.06.26 데이터 참조

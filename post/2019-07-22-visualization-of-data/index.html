@@ -12,7 +12,7 @@
 분석에 사용하고자 하는 데이터는 UCI Machine Learning Repository에서 제공하는 Wine Quality Data Set이다.
 와인 품질 데이터는 2개의 파일 즉 레드 와인과 화이트 와인 데이터로 구성있다.레드와인 파일에는 1,599개의 관측값이,화이트와인 파일에는 4,898개의 관측값이 들어있다.두 개 파일 모두 11개의 화학성분 변수와 1개의 품질 변수로 구성되어 있다." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://manboha.github.io/post/2019-07-22-visualization-of-data/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-07-22T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-07-22T00:00:00+00:00" />
 
@@ -81,15 +81,15 @@
 		</header>
 		<div class="content post__content clearfix">
 			
-<script src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/header-attrs/header-attrs.js"></script>
-<script src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/htmlwidgets/htmlwidgets.js"></script>
-<script src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/plotly-binding/plotly.js"></script>
-<script src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/typedarray/typedarray.min.js"></script>
-<script src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/jquery/jquery.min.js"></script>
-<link href="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-<script src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/crosstalk/js/crosstalk.min.js"></script>
-<link href="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/plotly-main/plotly-latest.min.js"></script>
+<script src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/header-attrs/header-attrs.js"></script>
+<script src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/plotly-binding/plotly.js"></script>
+<script src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/typedarray/typedarray.min.js"></script>
+<script src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/jquery/jquery.min.js"></script>
+<link href="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/crosstalk/js/crosstalk.min.js"></script>
+<link href="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/plotly-main/plotly-latest.min.js"></script>
 
 
 <blockquote>
@@ -242,7 +242,7 @@ describeBy(wines[,subset_attributes], group = wines$wine_type, fast = TRUE)</cod
   ggplot(aes(value)) +
   facet_wrap(~key, scales = &quot;free&quot;) +
   geom_histogram(bins = 15, color = &quot;white&quot;, fill = &quot;steelblue&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Sulphates(황산염) 변수의 히스토그램과 밀도 그래프 그리기</p>
 <pre class="r"><code># 히스토그램
 g1 &lt;- wines %&gt;% 
@@ -264,14 +264,14 @@ g2 &lt;- wines %&gt;%
 # 히스토그램과 밀도그래프 나란히 보여주기
 # gridExtra::grid.arrange
 grid.arrange(g1, g2, nrow=1, ncol=2)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>범주형 변수인 Wine Quality의 빈도 막대그래프 그리기</p>
 <pre class="r"><code># Wine Quality 빈도 그래프
 wines %&gt;% 
   ggplot(aes(quality)) +
   geom_bar(fill = &quot;skyblue&quot;, alpha = 0.8) +
   labs(title = &quot;Wine Quality Frequency&quot;, x = &quot;Quality&quot;, y = &quot;Frequency&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 </div>
 <div id="다변량-분석multivariate-analysis" class="section level2">
@@ -286,7 +286,7 @@ wines %&gt;%
   ggcorr(label=TRUE, hjust = 0.85, size = 5) +
   labs(title = &quot;Wine Attributes Correlation Heatmap&quot;,
        caption = &quot;Visualizing two-dimensional data with a correlation heatmap&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>변수간 산점도와 상관계수</p>
 <pre class="r"><code># pairwise scatter plots
 # GGally::ggscatmat()
@@ -298,7 +298,7 @@ wines %&gt;%
 ## i Use `all_of(cols)` instead of `cols` to silence this message.
 ## i See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
 ## This message is displayed once per session.</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>평행 좌표 그래프 (parallel coordinates) 그리기</p>
 <pre class="r"><code># 이상치(outliers) 문제를 피하기 위해 데이터를 표준화(평균 0, 표준편차 1)
 # psycho::standardize() 표준화 함수
@@ -321,7 +321,7 @@ scaled_wines %&gt;%
   ggparcoord(columns = 1:4, groupColumn = &quot;wine_type&quot;) +
   scale_colour_manual(values = c(&quot;#FF9999&quot;, &quot;#FFE888&quot;)) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>산점도와 결합 그래프 그리기</p>
 <pre class="r"><code># Scatter plots and joint plots
 scat_plot &lt;- wines %&gt;% 
@@ -335,7 +335,7 @@ scat_plot &lt;- wines %&gt;%
 
 ggMarginal(scat_plot, type = &quot;histogram&quot;, 
            fill = &quot;steelblue&quot;, colour = &quot;steelblue3&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>막대 그래프와 면 분할(facet)기능을 이용하여 이산형 데이터와 범주형 데이터 2차원 시각화 하기</p>
 <pre class="r"><code>wines %&gt;% 
   ggplot(aes(quality)) +
@@ -345,14 +345,14 @@ ggMarginal(scat_plot, type = &quot;histogram&quot;,
                                                white = &quot;White Wine&quot;))) +
   labs(title = &quot;Quality by Wine Type&quot;, x = &quot;Quality&quot;, y = &quot;Frequency&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>하나의 막대 그래프로 이산형 데이터와 범주형 데이터 2차원 시각화 하기</p>
 <pre class="r"><code>wines %&gt;% 
   ggplot(aes(quality)) +
   geom_bar(aes(fill = wine_type), position = &quot;dodge&quot;) +
   labs(title = &quot;Quality by Wine Type&quot;, x = &quot;Quality&quot;, y = &quot;Frequency&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>히스토그램, 밀도그래프, 면 분할 등으로 이산형 데이터와 범주형 데이터 2차원 시각화 하기</p>
 <pre class="r"><code># 각각의 facet에 text를 넣기 위해 필요한 데이터 준비 (geom_text에서 사용)
 data &lt;- data.frame(x = c(1.7, 1.0),
@@ -387,7 +387,7 @@ g2 &lt;- wines %&gt;%
 # 히스토그램과 밀도그래프 나란히 보여주기
 grid.arrange(g1, g2, nrow=2, ncol=1)</code></pre>
 <pre><code>## Warning: Use of `data$label` is discouraged. Use `label` instead.</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>다중 밀도그래프와 히스토그램 선 그래프 그리기</p>
 <pre class="r"><code># 밀도 그래프
 wines %&gt;% 
@@ -395,14 +395,14 @@ wines %&gt;%
   geom_density(aes(fill = wine_type), alpha = 0.5) +
   labs(title = &quot;Sulphates Content in Wine&quot;, x = &quot;Sulphates&quot;, y = &quot;Density&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <pre class="r"><code># 히스토그램 선 그래프
 wines %&gt;% 
   ggplot(aes(sulphates)) +
   geom_freqpoly(aes(color = wine_type), bins = 15, size = 2) +
   labs(title = &quot;Sulphates Content in Wine&quot;, x = &quot;Sulphates&quot;, y = &quot;Frequency&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
 <p>상자 수염 그림(Box Plots)으로 이차원 데이터 시각화 하기</p>
 <pre class="r"><code># Box Plots of two-dimensional mixed attributes
 wines %&gt;% 
@@ -411,7 +411,7 @@ wines %&gt;%
   labs(title = &quot;Wine Quality - Alcohol Content&quot;, 
        x = &quot;Wine Quality&quot;, y = &quot;Wine Alcohol %&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>바이올린 그래프로 이차원 데이터 시각화 하기</p>
 <pre class="r"><code># Violin Plots
 wines %&gt;% 
@@ -421,7 +421,7 @@ wines %&gt;%
   labs(title = &quot;Wine Quality - Sulphates Content&quot;, 
        x = &quot;Wine Quality&quot;, y = &quot;Wine Sulphates&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 <div id="차원으로-데이터-시각화하기-2" class="section level3">
 <h3>3차원으로 데이터 시각화하기</h3>
@@ -432,7 +432,7 @@ wines %&gt;%
   select(cols) %&gt;% 
   ggscatmat(columns = 1:4, color = &quot;wine_type&quot;) +
   labs(title = &quot;Wine Attributes Pairwise Plots&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>3차원 그림으로 양적 데이터 시각화 하기</p>
 <pre class="r"><code># plotly::plot_ly
 wines %&gt;% 
@@ -451,14 +451,14 @@ wines %&gt;%
   ggplot(aes(x = fixed.acidity, y = alcohol)) +
   geom_point(aes(size = residual.sugar), color = &quot;steelblue&quot;, alpha = 0.5) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>색을 추가하여 3차원 데이터 시각화 하기</p>
 <pre class="r"><code># using color for the 3rd dimension
 wines %&gt;% 
   ggplot(aes(x = fixed.acidity, y = alcohol)) +
   geom_point(aes(color = residual.sugar), size = 2, alpha = 0.5) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>색과 면 분할을 이용하여 3차원 데이터 시각화 하기</p>
 <pre class="r"><code># using color and facets
 # residual sugar와 alcohol의 level 변수 추가 
@@ -480,7 +480,7 @@ wines %&gt;%
   geom_point(aes(color = alcohol_levels), size = 2) +
   facet_wrap(vars(res_sugar_labels), labeller = &quot;label_both&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>막대그래프, 색, 면 분할을 이용하여 3차원 데이터 시각화 하기</p>
 <pre class="r"><code># using bar plots, hue and facets
 wines %&gt;% 
@@ -488,7 +488,7 @@ wines %&gt;%
   geom_bar(aes(fill = wine_type), position = &quot;dodge&quot;) +
   facet_wrap(vars(quality_label), labeller = &quot;label_both&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <p>색과 산점도를 이용하여 3차원 데이터 시각화 하기</p>
 <pre class="r"><code># using scatter plots and hue
 wines %&gt;% 
@@ -498,7 +498,7 @@ wines %&gt;%
   theme(legend.position = c(.92, .85),
         panel.background = element_rect(fill = &quot;white&quot;, colour = &quot;grey10&quot;))</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>색과 커멀 밀도 그래프를 이용하여 3차원 데이터 시각화 하기</p>
 <pre class="r"><code># using kernel density plots and hue
 wines %&gt;% 
@@ -507,7 +507,7 @@ wines %&gt;%
                   geom=&quot;polygon&quot;, alpha = 0.3, contour = TRUE, size = 1) +
   scale_fill_distiller(palette=&quot;Reds&quot;, direction=1) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>색과 바이올린 그래프를 이용하여 3차원 데이터 시각화 하기</p>
 <pre class="r"><code># using violin plots and hue and axes
 wines$quality &lt;- factor(wines$quality)
@@ -529,7 +529,7 @@ g2 &lt;- wines %&gt;%
 grid.arrange(g1, g2, nrow=1, ncol=2,
              top = grid.text(&quot;Wine Type - Quality - Acidity&quot;, 
                              gp = gpar(fontsize = 16, fontface = &quot;bold&quot;)))</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <p>색과 상자그림으로 3차원 데이터 시각화 하기</p>
 <pre class="r"><code># using box plots, hue and axes
 g1 &lt;- wines %&gt;% 
@@ -548,7 +548,7 @@ g2 &lt;- wines %&gt;%
 grid.arrange(g1, g2, nrow=1, ncol=2,
              top = grid.text(&quot;Wine Type - Quality - Alcohol Content&quot;, 
                              gp = gpar(fontsize = 16, fontface = &quot;bold&quot;)))</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 </div>
 <div id="차원으로-데이터-시각화하기-3" class="section level3">
 <h3>4차원으로 데이터 시각화하기</h3>
@@ -573,7 +573,7 @@ wines %&gt;%
   scale_size(range = c(1, 15)) +
   labs(title = &quot;Wine Alcohol Content - Fixed Acidity - Residual Sugar - Type&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <p>산점도, 색조, 면분할을 이용하여 4차원 데이터 시각화 하기</p>
 <pre class="r"><code># scatter plots, hue and facets
 wines %&gt;% 
@@ -584,7 +584,7 @@ wines %&gt;%
   scale_color_manual(values = c(&quot;red4&quot;, &quot;gold4&quot;)) +
   facet_wrap(vars(res_sugar_labels), labeller = &quot;label_both&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>산점도, 색조, 면분할을 이용하여 4차원 데이터 시각화 하기</p>
 <pre class="r"><code># scatter plots, hue and facets
 wines %&gt;% 
@@ -595,7 +595,7 @@ wines %&gt;%
   facet_wrap(vars(wine_type), labeller = &quot;label_both&quot;) +
   labs(title = &quot;Wine Type - Alcohol - Quality - Acidity&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>산점도, 색조, 면분할을 이용하여 4차원 데이터 시각화 하기</p>
 <pre class="r"><code>wines %&gt;% 
   ggplot(aes(volatile.acidity, total.sulfur.dioxide)) +
@@ -605,7 +605,7 @@ wines %&gt;%
   facet_wrap(vars(wine_type), labeller = &quot;label_both&quot;) +
   labs(title = &quot;Wine Type - Alcohol - Quality - Acidity&quot;) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 </div>
 <div id="차원으로-데이터-시각화하기-4" class="section level3">
 <h3>5차원으로 데이터 시각화하기</h3>
@@ -630,7 +630,7 @@ wines %&gt;%
              labeller = &quot;label_both&quot;) +
   theme_test() +
   labs(title = &quot;Wine Type - Sulfur Dioxide - Residual Sugar - Alcohol - Quality Class&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 </div>
 <div id="차원으로-데이터-시각화하기-5" class="section level3">
 <h3>6차원으로 데이터 시각화하기</h3>
@@ -642,7 +642,7 @@ wines %&gt;%
              labeller = &quot;label_both&quot;) +
   theme_test() +
   labs(title = &quot;Wine Type - Quality Rating - Residual Sugar - Alcohol -  Quality Class - Sulfur Dioxide&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 </div>
 </div>
 <div id="비구조화된-데이터-시각화하기---텍스트-이미지-오디오" class="section level2">
@@ -679,7 +679,7 @@ bible %&gt;%
   ggplot(aes(line_length)) +
   geom_density(fill = &quot;red&quot;, alpha = 0.5, color = &quot;red&quot;, size = 1) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 <pre class="r"><code># 각 줄의 단어 개수 세기
 # tokenizers::tokenize_words
 words &lt;- tokenize_words(bible$text)
@@ -691,7 +691,7 @@ bible %&gt;%
   geom_density(fill = &quot;goldenrod1&quot;, alpha = 0.5, 
                color = &quot;goldenrod1&quot;, size = 1) +
   theme_test()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-36-2.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-36-2.png" width="672" /></p>
 </div>
 <div id="이미지-데이터-시각화-하기" class="section level3">
 <h3>이미지 데이터 시각화 하기</h3>
@@ -703,7 +703,7 @@ dog &lt;- load.image(&quot;dog.jpg&quot;)
 opar &lt;- par(mfrow = c(1, 2))
 plot(cat, main=&quot;Cat&quot;)
 plot(dog, main=&quot;Dog&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <pre class="r"><code>par(opar)</code></pre>
 <p>Red, Green, Blue 채널별로 시각화 하기</p>
 <pre class="r"><code>opar &lt;- par(mfrow = c(1, 3))
@@ -713,7 +713,7 @@ cscale &lt;- function(v) rgb(0,v,0)   # Green
 grayscale(cat) %&gt;% plot(colourscale = cscale, rescale = FALSE, main = &quot;Green&quot;)
 cscale &lt;- function(v) rgb(0,0,v)   # Blue
 grayscale(cat) %&gt;% plot(colourscale = cscale, rescale = FALSE, main = &quot;Blue&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <pre class="r"><code>par(opar)</code></pre>
 <p>이미지 픽셀값을 이용하여 image intensity distribution 시각화 하기</p>
 <pre class="r"><code>opar &lt;- par(mfrow = c(2, 2), mar = c(3,3,3,3))
@@ -721,14 +721,14 @@ grayscale(cat) %&gt;% plot(main=&quot;Cat&quot;)
 grayscale(dog) %&gt;% plot(main=&quot;Dog&quot;)
 grayscale(cat) %&gt;% hist(col = &quot;skyblue&quot;, main=&quot;Histogram of Cat&quot;)
 grayscale(dog) %&gt;% hist(col = &quot;skyblue&quot;, main=&quot;Histogram of Dog&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 <pre class="r"><code>par(opar)</code></pre>
 <p>이미지 가장자리 나타내기</p>
 <pre class="r"><code>cannyEdges(cat, alpha = 0.7, sigma = 3) %&gt;% plot()</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 <pre class="r"><code>gr &lt;- imgradient(cat, &quot;xy&quot;)
 plot(gr, layout=&quot;row&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 </div>
 <div id="오디오-데이터-시각화-하기" class="section level3">
 <h3>오디오 데이터 시각화 하기</h3>
@@ -748,7 +748,7 @@ data(tico)  # Song of the bird Zonotrichia capensis
 opar &lt;- par(mfrow = c(1, 2))
 oscillo(orni, title = &quot;orni&quot;)
 oscillo(tico, title = &quot;tico&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <pre class="r"><code>par(opar)</code></pre>
 <p>오디오 스펙트럼 시각화 하기</p>
 <pre class="r"><code># Frequency spectrum of a time wave
@@ -757,7 +757,7 @@ spec(orni, f=22050, dB=&quot;max0&quot;, col=&quot;blue&quot;)
 title(&quot;Spectrum of the orni&quot;)
 spec(tico, f=22050, dB=&quot;max0&quot;, col=&quot;blue&quot;)
 title(&quot;Spectrum of the tico&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
 <pre class="r"><code>par(opar)</code></pre>
 <p>오디오 퓨리에 변환 시각화 하기</p>
 <pre class="r"><code>opar &lt;- par(mfrow = c(1, 2))
@@ -765,7 +765,7 @@ wf(orni, f=22050, ovlp=50, hoff=0, voff=2, border=&quot;#00000075&quot;,
    main=&quot;waterfall display of the orni&quot;)
 wf(tico, f=22050, ovlp=50, hoff=0, voff=2, border=&quot;#00000075&quot;, 
    main=&quot;waterfall display of tico&quot;)</code></pre>
-<p><img src="https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p><img src="https://manboha.github.io/post/2019-07-22-visualization-of-data/index_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <pre class="r"><code>par(opar)</code></pre>
 </div>
 </div>
@@ -815,7 +815,7 @@ wf(tico, f=22050, ovlp=50, hoff=0, voff=2, border=&quot;#00000075&quot;,
 			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="https://mdalog.netlify.app/" />
+		<input type="hidden" name="sitesearch" value="https://manboha.github.io/" />
 	</form>
 </div>
 <div class="widget-recent widget">

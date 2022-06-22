@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>For Data Analytics</title>
-    <link>https://mdalog.netlify.app/</link>
+    <link>https://manboha.github.io/</link>
     <description>Recent content on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://mdalog.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R Markdown 문서 편집</title>
-      <link>https://mdalog.netlify.app/post/2022-02-23-r-markdown/</link>
+      <link>https://manboha.github.io/post/2022-02-23-r-markdown/</link>
       <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2022-02-23-r-markdown/</guid>
+      <guid>https://manboha.github.io/post/2022-02-23-r-markdown/</guid>
       <description>R Markdown을 알면 R로 데이터분석을 하면서 문서를 작성할 때 편리합니다. R Markdown은 평범한 텍스트로 문서를 작성할 수 있게 해 주는 Markdown 언어를 기반으로 하고 있기 때문에 거의 유사합니다.
 R Markdown을 이용하려면 rmarkdown 패키지가 필요하지만, 만일 RStudio를 사용하고 있다면 자동으로 이를 이용하기 때문에 설치나 로드를 하지 않아도 됩니다.
 문서 서식R Markdown 문서는 아래 그림처럼 크게 세 개의 파트로 구분됩니다. YAML Header, Code Chunk, Markdown Text입니다.</description>
@@ -20,10 +20,10 @@ R Markdown을 이용하려면 rmarkdown 패키지가 필요하지만, 만일 RSt
     
     <item>
       <title>Machine Learning 영한 사전</title>
-      <link>https://mdalog.netlify.app/post/2021-09-20-machine-learning-dictionary/</link>
+      <link>https://manboha.github.io/post/2021-09-20-machine-learning-dictionary/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2021-09-20-machine-learning-dictionary/</guid>
+      <guid>https://manboha.github.io/post/2021-09-20-machine-learning-dictionary/</guid>
       <description>기계학습(Machine Learning) 영문 단어를 한글로 번역하기 위한 간단한 사전입니다.
 Accuracy : 정확도
 Activation function : 활성화 함수
@@ -39,10 +39,10 @@ R Markdown을 이용하려면 rmarkdown 패키지가 필요하지만, 만일 RSt
     
     <item>
       <title>About</title>
-      <link>https://mdalog.netlify.app/about/</link>
+      <link>https://manboha.github.io/about/</link>
       <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/about/</guid>
+      <guid>https://manboha.github.io/about/</guid>
       <description>R을 이용한 데이터 분석을 스스로 공부하기 위한 곳입니다.
 데이터 분석에 관심이 있는 분들에게 도움이 되길 바랍니다.
 감사합니다~</description>
@@ -50,10 +50,10 @@ R Markdown을 이용하려면 rmarkdown 패키지가 필요하지만, 만일 RSt
     
     <item>
       <title>RStudio Addin을 만드는 방법</title>
-      <link>https://mdalog.netlify.app/post/2021-08-22-rstudio-addin/</link>
+      <link>https://manboha.github.io/post/2021-08-22-rstudio-addin/</link>
       <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2021-08-22-rstudio-addin/</guid>
+      <guid>https://manboha.github.io/post/2021-08-22-rstudio-addin/</guid>
       <description>RStudio의 Addin은 상황에 따라 편리함을 제공해줍니다. 자주 쓰는 함수를 만들고 이를 메뉴에 등록하여 사용하면 시간과 노력이 덜 들게 됩니다.
 RStudio에 Addin을 만드는 방법은 R 패키지를 만들고, 이 패키지의 함수를 ’addins.dcf’에 입력하면 됩니다. 그 다음에 패키지를 설치하면 자동으로 Addin으로 등록됩니다.
 R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 설치하기R 패키지와 R 함수 만들기RStudio를 실행하고 [File]-[New Project]-[New Directory]-[R Package]를 클릭합니다. 패키지를 만드는 창에서 패키지 이름과 프로젝트가 위치할 폴더를 지정하고 [Create Project]를 클릭합니다.</description>
@@ -61,10 +61,10 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
     
     <item>
       <title>서울시 범죄 현황</title>
-      <link>https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/</link>
+      <link>https://manboha.github.io/post/2019-07-29-crimes-in-seoul/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2019-07-29-crimes-in-seoul/</guid>
+      <guid>https://manboha.github.io/post/2019-07-29-crimes-in-seoul/</guid>
       <description>서울시는 25개의 자치구로 구성되어 있다. 서울시 5대 주요 범죄 발생 및 검거 데이터를 이용하여 각 자치구의 범죄현황에 대해 탐색하고자 한다.
 분석에 사용한 데이터는 다음과 같다.
 서울시 관서별 5대 범죄 발생 검거 현황 데이터(2017년 기준)출처 : 공공데이터포털의 서울특별시 관서별 5대범죄 발생 검거현황(2000~2017)정리된 데이터 다운로드 : seoul_crime_2000_2017.csv경찰관서 주소 데이터출처 : 경찰청의 전국경찰관서안내정리된 데이터 다운로드 : police_address.csv서울시 CCTV 현황 데이터(2017년 기준)CCTV 데이터 출처 : 서울열린데이터광장의 서울시 자치구 년도별 CCTV 설치 현황 - 2019.</description>
@@ -72,10 +72,10 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
     
     <item>
       <title>다차원 데이터의 시각화</title>
-      <link>https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/</link>
+      <link>https://manboha.github.io/post/2019-07-22-visualization-of-data/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/</guid>
+      <guid>https://manboha.github.io/post/2019-07-22-visualization-of-data/</guid>
       <description>이 글은 Dipanjan (DJ) Sarkar(2018)의 “Effective Visualization of Multi-Dimensional Data”를 참고하여 작성하였으며, python 코드로 되어 있는 것을 R 코드로 변환하였다.
 분석에 사용하고자 하는 데이터는 UCI Machine Learning Repository에서 제공하는 Wine Quality Data Set이다.
 와인 품질 데이터는 2개의 파일 즉 레드 와인과 화이트 와인 데이터로 구성있다.레드와인 파일에는 1,599개의 관측값이,화이트와인 파일에는 4,898개의 관측값이 들어있다.두 개 파일 모두 11개의 화학성분 변수와 1개의 품질 변수로 구성되어 있다.</description>
@@ -83,10 +83,10 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
     
     <item>
       <title>서울시 자치구의 CCTV 현황</title>
-      <link>https://mdalog.netlify.app/post/2019-07-04-cctv-surveillance-cameras-in-seoul/</link>
+      <link>https://manboha.github.io/post/2019-07-04-cctv-surveillance-cameras-in-seoul/</link>
       <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2019-07-04-cctv-surveillance-cameras-in-seoul/</guid>
+      <guid>https://manboha.github.io/post/2019-07-04-cctv-surveillance-cameras-in-seoul/</guid>
       <description>서울시 25개 자치구의 CCTV 현황에 대해 탐색하고자 합니다.
 분석에 사용한 데이터는 다음과 같습니다.
 서울시 CCTV 현황 데이터(2017년 기준)CCTV 데이터 출처 : 서울열린데이터광장의 서울시 자치구 년도별 CCTV 설치 현황 - 2019.06.26 데이터 참조
@@ -95,10 +95,10 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
     
     <item>
       <title>purrr를 이용하여 Excel 시트들을 읽고 쓰기</title>
-      <link>https://mdalog.netlify.app/post/2019-07-01-excel-files-with-purrr/</link>
+      <link>https://manboha.github.io/post/2019-07-01-excel-files-with-purrr/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2019-07-01-excel-files-with-purrr/</guid>
+      <guid>https://manboha.github.io/post/2019-07-01-excel-files-with-purrr/</guid>
       <description>준비작업에 필요한 중요 packages는 purrr, readxl, writexl 이다. tidyvere에는 purrr를 포함하여 dplyr 등과 같이 많이 사용되는 패키지들이 포함되어 있기 때문에 tidyvers를 불러온다.
 library(tidyverse)library(readxl)library(writexl)Excel 파일에 다중 시트 동시에 쓰기예제로 Rdp 기본으로 포함되어 있는 iris 데이터를 이용하고자 한다.
 iris %&amp;gt;% head()## Sepal.Length Sepal.Width Petal.Length Petal.Width Species## 1 5.1 3.5 1.4 0.2 setosa## 2 4.9 3.0 1.4 0.2 setosa## 3 4.7 3.</description>
@@ -106,10 +106,10 @@ iris %&amp;gt;% head()## Sepal.Length Sepal.Width Petal.Length Petal.Width Spec
     
     <item>
       <title>의사결정나무(Decision Tree) 개요</title>
-      <link>https://mdalog.netlify.app/post/2019-07-01-decisiontreeintro/</link>
+      <link>https://manboha.github.io/post/2019-07-01-decisiontreeintro/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2019-07-01-decisiontreeintro/</guid>
+      <guid>https://manboha.github.io/post/2019-07-01-decisiontreeintro/</guid>
       <description>1.1 의사결정나무 개념의사결정나무는 나무 형태로 의사결정 규칙을 표현하는 방식으로 데이터를 분류(classification)하거나 예측(prediction)하는 분석기법이다. 나무(tree) 구조로 모형이 표현되기 때문에 해석이 용이하고 나무 구조로부터 어떤 입력변수가 목표변수를 설명하기 위하여 더 중요한지를 쉽게 파악할 수 있다. (최종후, 서두성 (1999), 데이터마이닝 의사결정나무의 응용, 통계분석연구 제4권 제1호, p.62; 최종후 외 (2000), Answer Tree를 이용한 데이터마이닝 의사결정나무분석, SPSS 아카데미; 오올임, 김구 (2002), 불확실성 상황에서의 의사결정 양상에 관한 실증적 연구, 한국행정학보, 36-3, p.82에서 재인용)</description>
     </item>
     

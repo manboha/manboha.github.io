@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>다차원 데이터 on For Data Analytics</title>
-    <link>https://mdalog.netlify.app/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/</link>
+    <link>https://manboha.github.io/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/</link>
     <description>Recent content in 다차원 데이터 on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://mdalog.netlify.app/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>다차원 데이터의 시각화</title>
-      <link>https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/</link>
+      <link>https://manboha.github.io/post/2019-07-22-visualization-of-data/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2019-07-22-visualization-of-data/</guid>
+      <guid>https://manboha.github.io/post/2019-07-22-visualization-of-data/</guid>
       <description>이 글은 Dipanjan (DJ) Sarkar(2018)의 “Effective Visualization of Multi-Dimensional Data”를 참고하여 작성하였으며, python 코드로 되어 있는 것을 R 코드로 변환하였다.
 분석에 사용하고자 하는 데이터는 UCI Machine Learning Repository에서 제공하는 Wine Quality Data Set이다.
 와인 품질 데이터는 2개의 파일 즉 레드 와인과 화이트 와인 데이터로 구성있다.레드와인 파일에는 1,599개의 관측값이,화이트와인 파일에는 4,898개의 관측값이 들어있다.두 개 파일 모두 11개의 화학성분 변수와 1개의 품질 변수로 구성되어 있다.</description>

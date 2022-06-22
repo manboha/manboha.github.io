@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on For Data Analytics</title>
-    <link>https://mdalog.netlify.app/tags/machine-learning/</link>
+    <link>https://manboha.github.io/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mdalog.netlify.app/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Machine Learning 영한 사전</title>
-      <link>https://mdalog.netlify.app/post/2021-09-20-machine-learning-dictionary/</link>
+      <link>https://manboha.github.io/post/2021-09-20-machine-learning-dictionary/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/post/2021-09-20-machine-learning-dictionary/</guid>
+      <guid>https://manboha.github.io/post/2021-09-20-machine-learning-dictionary/</guid>
       <description>기계학습(Machine Learning) 영문 단어를 한글로 번역하기 위한 간단한 사전입니다.
 Accuracy : 정확도
 Activation function : 활성화 함수

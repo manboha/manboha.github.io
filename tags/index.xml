@@ -2,170 +2,170 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on For Data Analytics</title>
-    <link>https://mdalog.netlify.app/tags/</link>
+    <link>https://manboha.github.io/tags/</link>
     <description>Recent content in Tags on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://mdalog.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown</title>
-      <link>https://mdalog.netlify.app/tags/markdown/</link>
+      <link>https://manboha.github.io/tags/markdown/</link>
       <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/markdown/</guid>
+      <guid>https://manboha.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rmarkdown</title>
-      <link>https://mdalog.netlify.app/tags/rmarkdown/</link>
+      <link>https://manboha.github.io/tags/rmarkdown/</link>
       <pubDate>Wed, 23 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/rmarkdown/</guid>
+      <guid>https://manboha.github.io/tags/rmarkdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://mdalog.netlify.app/tags/machine-learning/</link>
+      <link>https://manboha.github.io/tags/machine-learning/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/machine-learning/</guid>
+      <guid>https://manboha.github.io/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>용어사전</title>
-      <link>https://mdalog.netlify.app/tags/%EC%9A%A9%EC%96%B4%EC%82%AC%EC%A0%84/</link>
+      <link>https://manboha.github.io/tags/%EC%9A%A9%EC%96%B4%EC%82%AC%EC%A0%84/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/%EC%9A%A9%EC%96%B4%EC%82%AC%EC%A0%84/</guid>
+      <guid>https://manboha.github.io/tags/%EC%9A%A9%EC%96%B4%EC%82%AC%EC%A0%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Addin</title>
-      <link>https://mdalog.netlify.app/tags/addin/</link>
+      <link>https://manboha.github.io/tags/addin/</link>
       <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/addin/</guid>
+      <guid>https://manboha.github.io/tags/addin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RStudio</title>
-      <link>https://mdalog.netlify.app/tags/rstudio/</link>
+      <link>https://manboha.github.io/tags/rstudio/</link>
       <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/rstudio/</guid>
+      <guid>https://manboha.github.io/tags/rstudio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Crimes in Seoul</title>
-      <link>https://mdalog.netlify.app/tags/crimes-in-seoul/</link>
+      <link>https://manboha.github.io/tags/crimes-in-seoul/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/crimes-in-seoul/</guid>
+      <guid>https://manboha.github.io/tags/crimes-in-seoul/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EDA</title>
-      <link>https://mdalog.netlify.app/tags/eda/</link>
+      <link>https://manboha.github.io/tags/eda/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/eda/</guid>
+      <guid>https://manboha.github.io/tags/eda/</guid>
       <description></description>
     </item>
     
     <item>
       <title>범죄</title>
-      <link>https://mdalog.netlify.app/tags/%EB%B2%94%EC%A3%84/</link>
+      <link>https://manboha.github.io/tags/%EB%B2%94%EC%A3%84/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/%EB%B2%94%EC%A3%84/</guid>
+      <guid>https://manboha.github.io/tags/%EB%B2%94%EC%A3%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>서울시</title>
-      <link>https://mdalog.netlify.app/tags/%EC%84%9C%EC%9A%B8%EC%8B%9C/</link>
+      <link>https://manboha.github.io/tags/%EC%84%9C%EC%9A%B8%EC%8B%9C/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/%EC%84%9C%EC%9A%B8%EC%8B%9C/</guid>
+      <guid>https://manboha.github.io/tags/%EC%84%9C%EC%9A%B8%EC%8B%9C/</guid>
       <description></description>
     </item>
     
     <item>
       <title>다차원 데이터</title>
-      <link>https://mdalog.netlify.app/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/</link>
+      <link>https://manboha.github.io/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/</guid>
+      <guid>https://manboha.github.io/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>시각화</title>
-      <link>https://mdalog.netlify.app/tags/%EC%8B%9C%EA%B0%81%ED%99%94/</link>
+      <link>https://manboha.github.io/tags/%EC%8B%9C%EA%B0%81%ED%99%94/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/%EC%8B%9C%EA%B0%81%ED%99%94/</guid>
+      <guid>https://manboha.github.io/tags/%EC%8B%9C%EA%B0%81%ED%99%94/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cctv</title>
-      <link>https://mdalog.netlify.app/tags/cctv/</link>
+      <link>https://manboha.github.io/tags/cctv/</link>
       <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/cctv/</guid>
+      <guid>https://manboha.github.io/tags/cctv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>seoul</title>
-      <link>https://mdalog.netlify.app/tags/seoul/</link>
+      <link>https://manboha.github.io/tags/seoul/</link>
       <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/seoul/</guid>
+      <guid>https://manboha.github.io/tags/seoul/</guid>
       <description></description>
     </item>
     
     <item>
       <title>decision tree</title>
-      <link>https://mdalog.netlify.app/tags/decision-tree/</link>
+      <link>https://manboha.github.io/tags/decision-tree/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/decision-tree/</guid>
+      <guid>https://manboha.github.io/tags/decision-tree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>excel</title>
-      <link>https://mdalog.netlify.app/tags/excel/</link>
+      <link>https://manboha.github.io/tags/excel/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/excel/</guid>
+      <guid>https://manboha.github.io/tags/excel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>purrr</title>
-      <link>https://mdalog.netlify.app/tags/purrr/</link>
+      <link>https://manboha.github.io/tags/purrr/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/purrr/</guid>
+      <guid>https://manboha.github.io/tags/purrr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>의사결정나무</title>
-      <link>https://mdalog.netlify.app/tags/%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%EB%82%98%EB%AC%B4/</link>
+      <link>https://manboha.github.io/tags/%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%EB%82%98%EB%AC%B4/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mdalog.netlify.app/tags/%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%EB%82%98%EB%AC%B4/</guid>
+      <guid>https://manboha.github.io/tags/%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%EB%82%98%EB%AC%B4/</guid>
       <description></description>
     </item>
     
