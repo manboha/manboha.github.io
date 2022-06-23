@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>case_when on For Data Analytics</title>
+    <link>https://manboha.github.io/tags/case_when/</link>
+    <description>Recent content in case_when on For Data Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/case_when/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>기존 변수에서 새 변수 만들기</title>
+      <link>https://manboha.github.io/post/2022-06-23-create-new-variables-from-existing-variables/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/post/2022-06-23-create-new-variables-from-existing-variables/</guid>
+      <description>기존 변수에서 새로운 변수를 만드는 방법으로 dplyr 패키지의 case_when() 함수를 이용하는 방법이 있습니다. dplyr 패키지는 tidyverse 패키지에 포함되어 있습니다.
+case_when() 함수의 기본 사용법은 다음과 같습니다.
+library(tidyverse)df %&amp;gt;% mutate(새변수 = case_when(기존변수 &amp;lt; 30 ~ &amp;quot;낮음&amp;quot;,기존변수 &amp;lt; 60 ~ &amp;quot;중간&amp;quot;,TRUE ~ &amp;quot;높음&amp;quot;))위 구문에서 TRUE는 앞의 조건들에 맞지 않는 나머지를 의미합니다.
+데이터 프레임을 만들어서 이 함수를 실제로 활용하는 예제를 보여주겠습니다.먼저 tidyverse 패키지를 로드 하겠습니다.
+library(tidyverse)다음으로 가상의 데이터 프레임을 만들겠습니다.</description>
+    </item>
+    
+  </channel>
+</rss>
