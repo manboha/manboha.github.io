@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>R 및 RStudio 설치 - For Data Analytics</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="R 및 RStudio 설치" />
+<meta property="og:description" content="R은 오픈소스 프로그램으로 다양한 통계분석, 데이터 마이닝, 그래프 작성 등을 위한 프로그래밍 언어입니다. R의 장점은 다음과 같습니다.
+R은 오픈소스로서 무료입니다.프로그래밍 언어로서 사용자의 실력에 따라 매우 복잡한 분석도 쉽게 자동화하여 수행할 수 있습니다.다양한 최신 통계분석 기법, 데이터 마이닝 기법, 그래프 작성 기법 등이 사용자들에 의해 제공됩니다.전 세계적으로 사용자들이 다양한 예제를 공유합니다.(영문 예제 다수)RStudio란 R을 편리하게 사용할 수 있는 환경을 제공해주는 통합개발환경(IDE) 프로그램(앱)입니다. RStudio를 사용하기 위해서는 R이 먼저 설치되어 있어야 합니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://manboha.github.io/post/2022-06-24-r-rstudio-install/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-06-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-06-24T00:00:00+00:00" />
+
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="For Data Analytics" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">For Data Analytics</div>
+					<div class="logo__tagline">Beyond the gate of experience flows the Way</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">
+				
+				<span class="menu__text">Home</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">About</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">R 및 RStudio 설치</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-06-24T00:00:00Z">June 24, 2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">R</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			
+
+
+<p>R은 오픈소스 프로그램으로 다양한 통계분석, 데이터 마이닝, 그래프 작성 등을 위한 프로그래밍 언어입니다. R의 장점은 다음과 같습니다.</p>
+<ul>
+<li>R은 오픈소스로서 무료입니다.</li>
+<li>프로그래밍 언어로서 사용자의 실력에 따라 매우 복잡한 분석도 쉽게 자동화하여 수행할 수 있습니다.</li>
+<li>다양한 최신 통계분석 기법, 데이터 마이닝 기법, 그래프 작성 기법 등이 사용자들에 의해 제공됩니다.</li>
+<li>전 세계적으로 사용자들이 다양한 예제를 공유합니다.(영문 예제 다수)</li>
+</ul>
+<p>RStudio란 R을 편리하게 사용할 수 있는 환경을 제공해주는 통합개발환경(IDE) 프로그램(앱)입니다. RStudio를 사용하기 위해서는 R이 먼저 설치되어 있어야 합니다. RStudio의 특징을 들면 다음과 같습니다.</p>
+<ul>
+<li>RStudio는 무료입니다.</li>
+<li>RStudio는 프로젝트 관리, 스크립트 관리, 코드 자동 완성, 마크다운 언어 지원, 패키지 관리 등 R로 데이터 분석을 편리하고 효율적으로 할 수 있는 기능들을 제공합니다.</li>
+<li>R 사용자들이 가장 많이 사용하는 IDE 프로그램이 RStudio입니다.</li>
+</ul>
+<div id="r-설치하기-전-확인-사항한글윈도우의-오류-줄이기" class="section level2">
+<h2>R 설치하기 전 확인 사항(한글윈도우의 오류 줄이기)</h2>
+<p>R을 사용하는 과정에서 오류를 줄이기 위해서는 R을 설치하기 전에 미리 확인할 사항이 있습니다. R은 영어권 국가에서 만들어지다 보니 한글 등의 문자를 처리하는 과정에서 에러가 자주 발생합니다. 특히 폴더명이나 사용자 계정이 영어가 아닌 것으로 되어 있으면 종종 에러가 발행하기도 합니다. 따라서 R을 설치하기 전에 아래 두 가지를 확인할 필요가 있습니다.</p>
+<div id="첫째-윈도우의-사용자-계정이-영어로-되어-있어야-합니다." class="section level3">
+<h3>첫째, 윈도우의 사용자 계정이 영어로 되어 있어야 합니다.</h3>
+<p>R을 사용하는 과정에서 나타나는 에러 중 상당히 많은 수는 윈도우 사용자 계정에 한글이나 특수문자가 들어가서 발생합니다. 따라서 윈도우 사용자 계정은 영어로만 되어 있어야 합니다.</p>
+<p>만일, 이미 사용자 계정이 한글로 되어 있다면 영어로만 된 새로운 계정을 만들고, 그 계정으로 로그인한 후 R과 RStudio를 설치하고 실행해야 합니다.</p>
+<p>윈도우 10에서 새로운 로컬 사용자 계정 만들고 이를 관리자 계정으로 만드는 방법은 다음과 같습니다.</p>
+<div id="로컬-사용자-계정-만들기" class="section level4">
+<h4>로컬 사용자 계정 만들기</h4>
+<ol style="list-style-type: decimal">
+<li>시작 → 설정 → 계정을 선택한 후 가족 및 다른 사용자를 선택합니다.</li>
+<li>이 PC에 다른 사용자 추가를 선택합니다.</li>
+<li>이 사람의 로그인 정보를 가지고 있지 않습니다를 선택한 후 다음 페이지에서 Microsoft 계정 없이 사용자 추가를 선택합니다.</li>
+<li>사용자 이름, 암호 또는 암호 힌트를 입력하거나 보안 질문을 고른 후 다음을 선택합니다.</li>
+</ol>
+</div>
+<div id="사용자-계정을-관리자-계정으로-변경하기" class="section level4">
+<h4>사용자 계정을 관리자 계정으로 변경하기</h4>
+<ol style="list-style-type: decimal">
+<li>시작 → 설정 → 계정을 선택합니다.</li>
+<li>가족 및 다른 사용자 아래에서 변경하고자 하는 계정을 고른 후 계정 유형 변경을 선택합니다.</li>
+<li>계정 유형 아래에서 관리자를 고른 후 확인을 선택합니다.</li>
+<li>컴퓨터를 종료 후 다시 시작할 때 새로 만든 계정으로 로그인합니다</li>
+</ol>
+</div>
+</div>
+<div id="둘째-tmp-폴더를-환경-변수에-등록하여야-합니다." class="section level3">
+<h3>둘째, tmp 폴더를 환경 변수에 등록하여야 합니다.</h3>
+<p>RStudio는 임시 파일들을 tmp 폴더에 넣어놓고 사용하는데, 이때 그 폴더의 경로에 한글이 있으면 에러가 발생하기도 합니다. 그래서 한글이 없는 영어로만 된 tmp 폴더를 만들고 윈도우 환경 변수에 등록해주면 이러한 문제가 발생하는 것을 막을 수 있습니다.</p>
+<ol style="list-style-type: decimal">
+<li>C 드라이브 바로 아래 위치에 tmp라는 이름의 폴더를 만들고, 그 경로(C:)를 복사합니다.</li>
+<li>시작 → 설정 → 계정을 선택한 후 나타난 화면의 검색 창에서 “환경 변수”라고 검색합니다.</li>
+<li><span class="math display">\[시스템 환경 변수 편집\]</span>을 선택합니다.</li>
+<li>하단의 <span class="math display">\[환경 변수\]</span>를 선택합니다.</li>
+<li>사용자 변수에서 “TMP”를 선택한 후, <span class="math display">\[편집\]</span>버튼을 선택합니다.</li>
+<li><span class="math display">\[변수 값\]</span>에 조금 전에 만든 경로(C:)를 입력(붙여넣기)하고 <span class="math display">\[확인\]</span>을 선택합니다.</li>
+</ol>
+</div>
+</div>
+<div id="r-프로그램-설치" class="section level2">
+<h2>R 프로그램 설치</h2>
+<p>R을 설치하기 위해서는 아래와 같은 절차에 따라 진행하면 됩니다.</p>
+<ol style="list-style-type: decimal">
+<li>R을 다운받기 위해 웹브라우저로 www.r-project.org 에 접속합니다. (또는 구글에서 R로 검색)</li>
+<li>화면에서 <span class="math display">\[download R\]</span>을 클릭합니다.</li>
+<li>서버 목록 중 Korea를 찾으시고 그 중에서 하나를 클릭합니다.</li>
+<li>윈도우 버전을 설치하는 경우에는 <span class="math display">\[Download R for Windows\]</span>를 클릭합니다.</li>
+<li><span class="math display">\[base\]</span>를 클릭합니다.</li>
+<li><span class="math display">\[Download R 4.x.x for Windows\]</span>를 클릭하여 PC에 다운로드 받습니다. (R은 계속해서 업데이트되기 때문에 버전 번호는 변경될 수 있습니다)</li>
+<li>다운받은 파일을 실행시켜 프로그램을 설치합니다. 모든 옵션은 디폴트로 하는 것이 좋습니다. 즉 계속해서 <span class="math display">\[다음\]</span>을 눌러 설치를 진행하면 됩니다.</li>
+</ol>
+<p>R 설치가 잘 되었는지 아래와 같이 확인하여 봅시다.</p>
+<ul>
+<li>바탕화면에 생성된 R 아이콘을 더블 클릭하면 R이 실행됩니다.</li>
+<li>R이 시작되면 R Console이라는 창이 열리고, 그 창에 &gt; 가 나타나는 데 R의 프롬프트입니다.</li>
+<li>&gt; 다음에 필요한 명령문(예, 32*27)을 입력하고 Enter 키를 치면 입력된 명령문이 실행됩니다.</li>
+<li>명령문이 실행되면 그 실행결과가 바로 다음 줄에 출력됩니다. (864가 계산되어 나타날 것입니다.)</li>
+</ul>
+<p>확인이 끝나면 RStudio 프로그램 설치하기 위해 R을 종료합니다.</p>
+</div>
+<div id="rstudio-프로그램-설치" class="section level2">
+<h2>RStudio 프로그램 설치</h2>
+<p>RStudio를 사용하기 위해서는 먼저 R이 설치되어 있어야 합니다. RStudio 설치는 아래와 같은 절차를 따라 하시면 됩니다.</p>
+<ol style="list-style-type: decimal">
+<li>R스튜디오을 다운받기 위해 웹브라우저로 www.rstudio.com 에 접속합니다.</li>
+<li>상단 메뉴 <span class="math display">\[DOWNLOAD\]</span>를 클릭합니다.</li>
+<li>화면을 아래로 내려서 <span class="math display">\[DOWNLOAD RSTUDIO FOR WINDOWS\]</span>를 클릭하여 PC에 다운로드 받습니다. (RStudio는 계속해서 업데이트되기 때문에 버전 번호는 변경될 수 있습니다)</li>
+<li>다운받은 파일을 실행시켜 프로그램을 설치합니다. 모든 옵션은 디폴트로 하는 것이 좋습니다. 즉 계속해서 <span class="math display">\[다음\]</span>을 눌러 설치를 진행하면 됩니다.</li>
+<li>R스튜디오 아이콘이 바탕화면에 없으면 다음과 같이 하여 아이콘을 바탕화면에 만듭니다. <span class="math display">\[시작\]</span> → <span class="math display">\[RStudio\]</span> → <span class="math display">\[RStudio\]</span>를 마우스 오른쪽 단추로 클릭한 후 <span class="math display">\[보내기\]</span> → <span class="math display">\[바탕화면에 바로가기 만들기\]</span>를 클릭하여 바탕화면에 RStudio 아이콘을 만듭니다.</li>
+</ol>
+<p>RStudio 설치가 잘 되었는지 아래와 같이 확인하여 봅시다.</p>
+<ul>
+<li><p><span class="math display">\[시작\]</span> → <span class="math display">\[RStudio\]</span> → <span class="math display">\[RStudio\]</span>를 클릭하거나 바탕화면의 RStudio 아이콘을 더블클릭하여 실행시킵니다.</p></li>
+<li><p>RStudio의 메뉴 <span class="math display">\[File\]</span> → <span class="math display">\[New File\]</span> → <span class="math display">\[R Script\]</span>를 클릭하면 스크립트 창이 생성되면서, 총 4개의 창이 화면에 보입니다.</p>
+<ul>
+<li>스크립트 창 : R 명령어를 입력하는 창입니다. 명령어에 커서를 두거나 명령어들을 선택하고 <span class="math display">\[Ctrl + Enter\]</span>를 누르면 콘솔 창에서 명령어가 실행됩니다. 스크립트 창의 장점은 명령어를 저장하고 불러올 수 있다는 점입니다.</li>
+<li>콘솔 창 : 명령어가 실행되고 그 결과를 보여주는 창입니다. R의 콘솔 창과 거의 동일합니다.</li>
+<li>워크스페이스 창 : 작업 중에 할당된 변수와 데이터를 보여주는 창입니다.</li>
+<li>마지막 창은 파일, 그래프, 패키지, 도움말 등을 볼 수 있는 창입니다</li>
+</ul></li>
+<li><p>스크립트 창에서 32*79 라고 입력하고 <span class="math display">\[Ctrl + Enter\]</span>를 누르면 아래 콘솔 창에서 명령어가 실행되고, 그 결과 값인 2528이 출력되는 것을 볼 수 있습니다.</p></li>
+</ul>
+</div>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/install/" rel="tag">install</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/rstudio/" rel="tag">RStudio</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/2022-02-23-r-markdown/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">R Markdown 문서 편집</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://manboha.github.io/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-24-r-rstudio-install/">R 및 RStudio 설치</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2022-02-23-r-markdown/">R Markdown 문서 편집</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2021-09-20-machine-learning-dictionary/">Machine Learning 영한 사전</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2021-08-22-rstudio-addin/">RStudio Addin을 만드는 방법</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2019-07-29-crimes-in-seoul/">서울시 범죄 현황</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/machine-learning/">Machine Learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r/">R</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/addin/" title="Addin">Addin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cctv/" title="cctv">cctv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/crimes-in-seoul/" title="Crimes in Seoul">Crimes in Seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/decision-tree/" title="decision tree">decision tree</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/eda/" title="EDA">EDA</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/excel/" title="excel">excel</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/install/" title="install">install</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning/" title="Machine Learning">Machine Learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/markdown/" title="Markdown">Markdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/purrr/" title="purrr">purrr</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rmarkdown/" title="Rmarkdown">Rmarkdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rstudio/" title="RStudio">RStudio</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seoul/" title="seoul">seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/" title="다차원 데이터">다차원 데이터</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B2%94%EC%A3%84/" title="범죄">범죄</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%84%9C%EC%9A%B8%EC%8B%9C/" title="서울시">서울시</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%9C%EA%B0%81%ED%99%94/" title="시각화">시각화</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9A%A9%EC%96%B4%EC%82%AC%EC%A0%84/" title="용어사전">용어사전</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%EB%82%98%EB%AC%B4/" title="의사결정나무">의사결정나무</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2022 Bohak Maeng.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

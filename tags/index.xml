@@ -6,40 +6,22 @@
     <description>Recent content in Tags on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>case_when</title>
-      <link>https://manboha.github.io/tags/case_when/</link>
-      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      <title>install</title>
+      <link>https://manboha.github.io/tags/install/</link>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://manboha.github.io/tags/case_when/</guid>
+      <guid>https://manboha.github.io/tags/install/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>dplyr</title>
-      <link>https://manboha.github.io/tags/dplyr/</link>
-      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      <title>RStudio</title>
+      <link>https://manboha.github.io/tags/rstudio/</link>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://manboha.github.io/tags/dplyr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mutate</title>
-      <link>https://manboha.github.io/tags/mutate/</link>
-      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/mutate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tidyverse</title>
-      <link>https://manboha.github.io/tags/tidyverse/</link>
-      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/tidyverse/</guid>
+      <guid>https://manboha.github.io/tags/rstudio/</guid>
       <description></description>
     </item>
     
@@ -85,15 +67,6 @@
       <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://manboha.github.io/tags/addin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RStudio</title>
-      <link>https://manboha.github.io/tags/rstudio/</link>
-      <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/rstudio/</guid>
       <description></description>
     </item>
     

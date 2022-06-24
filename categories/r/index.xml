@@ -6,18 +6,15 @@
     <description>Recent content in R on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>기존 변수에서 새 변수 만들기</title>
-      <link>https://manboha.github.io/post/2022-06-23-create-new-variables-from-existing-variables/</link>
-      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      <title>R 및 RStudio 설치</title>
+      <link>https://manboha.github.io/post/2022-06-24-r-rstudio-install/</link>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://manboha.github.io/post/2022-06-23-create-new-variables-from-existing-variables/</guid>
-      <description>기존 변수에서 새로운 변수를 만드는 방법으로 dplyr 패키지의 case_when() 함수를 이용하는 방법이 있습니다. dplyr 패키지는 tidyverse 패키지에 포함되어 있습니다.
-case_when() 함수의 기본 사용법은 다음과 같습니다.
-library(tidyverse)df %&amp;gt;% mutate(새변수 = case_when(기존변수 &amp;lt; 30 ~ &amp;quot;낮음&amp;quot;,기존변수 &amp;lt; 60 ~ &amp;quot;중간&amp;quot;,TRUE ~ &amp;quot;높음&amp;quot;))위 구문에서 TRUE는 앞의 조건들에 맞지 않는 나머지를 의미합니다.
-데이터 프레임을 만들어서 이 함수를 실제로 활용하는 예제를 보여주겠습니다.먼저 tidyverse 패키지를 로드 하겠습니다.
-library(tidyverse)다음으로 가상의 데이터 프레임을 만들겠습니다.</description>
+      <guid>https://manboha.github.io/post/2022-06-24-r-rstudio-install/</guid>
+      <description>R은 오픈소스 프로그램으로 다양한 통계분석, 데이터 마이닝, 그래프 작성 등을 위한 프로그래밍 언어입니다. R의 장점은 다음과 같습니다.
+R은 오픈소스로서 무료입니다.프로그래밍 언어로서 사용자의 실력에 따라 매우 복잡한 분석도 쉽게 자동화하여 수행할 수 있습니다.다양한 최신 통계분석 기법, 데이터 마이닝 기법, 그래프 작성 기법 등이 사용자들에 의해 제공됩니다.전 세계적으로 사용자들이 다양한 예제를 공유합니다.(영문 예제 다수)RStudio란 R을 편리하게 사용할 수 있는 환경을 제공해주는 통합개발환경(IDE) 프로그램(앱)입니다. RStudio를 사용하기 위해서는 R이 먼저 설치되어 있어야 합니다.</description>
     </item>
     
     <item>
