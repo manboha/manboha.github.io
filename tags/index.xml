@@ -8,42 +8,6 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>case_when</title>
-      <link>https://manboha.github.io/tags/case_when/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/case_when/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dplyr</title>
-      <link>https://manboha.github.io/tags/dplyr/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/dplyr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mutate</title>
-      <link>https://manboha.github.io/tags/mutate/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/mutate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tidyverse</title>
-      <link>https://manboha.github.io/tags/tidyverse/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/tidyverse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>기초</title>
       <link>https://manboha.github.io/tags/%EA%B8%B0%EC%B4%88/</link>
       <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
@@ -94,6 +58,42 @@
       <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://manboha.github.io/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>case_when</title>
+      <link>https://manboha.github.io/tags/case_when/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/case_when/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dplyr</title>
+      <link>https://manboha.github.io/tags/dplyr/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/dplyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mutate</title>
+      <link>https://manboha.github.io/tags/mutate/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/mutate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyverse</title>
+      <link>https://manboha.github.io/tags/tidyverse/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/tidyverse/</guid>
       <description></description>
     </item>
     

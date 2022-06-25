@@ -6,11 +6,11 @@
     <description>Recent content in mutate on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/mutate/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/mutate/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>기존 변수에서 새 변수 만들기</title>
       <link>https://manboha.github.io/post/2022-06-23-create-new-variables-from-existing-variables/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://manboha.github.io/post/2022-06-23-create-new-variables-from-existing-variables/</guid>
       <description>기존 변수에서 새로운 변수를 만드는 방법으로 dplyr 패키지의 case_when() 함수를 이용하는 방법이 있습니다. dplyr 패키지는 tidyverse 패키지에 포함되어 있습니다.
