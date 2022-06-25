@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>기초 on For Data Analytics</title>
+    <link>https://manboha.github.io/tags/%EA%B8%B0%EC%B4%88/</link>
+    <description>Recent content in 기초 on For Data Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/%EA%B8%B0%EC%B4%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R 처음 시작하기</title>
+      <link>https://manboha.github.io/post/2022-06-25-r-start/</link>
+      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/post/2022-06-25-r-start/</guid>
+      <description>R을 처음 시작하는 분들을 위한 글입니다.
+아직 R과 RStudio를 설치 않은 분은 아래 링크에 있는 내용을 참고하여 R과 RStudio를 먼저 설치하여야 합니다.
+R 및 RStudio 설치
+R의 특징R의 특징 및 코드 작성시 유의할 점을 정리하면 다음과 같습니다.
+R은 명령어를 1줄씩 처리하고 그 결과를 바로 보여주는 인터프리터 언어입니다.R의 콘솔창에서 &amp;gt; 기호는 명령 프롬프트입니다. &amp;gt; 뒤에 원하는 명령어를 입력하고 Enter를 치면 명령어가 실행됩니다.R은 대소문자를 구별합니다. 명령어를 입력할 때 대소문자를 명확히 파악하고 입력하여야 합니다.</description>
+    </item>
+    
+  </channel>
+</rss>
