@@ -28,8 +28,7 @@ recode(기존변수, 기존값1 = &amp;quot;새값1&amp;quot;, 기존값2 = &amp
       <description>제목은 단순히 사실을 기술하는 것보다는 통찰력을 보여주는 문장으로 기술하는 것이 더 효과적일 수 있습니다. 예를 들면 1,000명 지원보다는 지원자 전년 대비 10% 감소와 같이 비교를 통한 통찰력 있는 문장이 더 도움이 됩니다.
 headliner 패키지는 비교를 설명하는 문장을 동적으로 구성할 수 있는 함수들을 제공합니다. 몇 가지 예시를 통해 사용법을 알아보겠습니다.
 먼저 headliner 패키지를 로드하겠습니다.
-library(headliner)다음으로 예시 작업을 위해 가상의 데이터 프레임을 만들겠습니다.
-df &amp;lt;-data.frame(group = rep_len(rep(letters, each = 2), length.</description>
+library(headliner)단순 비교 문장 만들기headline() 함수에 두 개의 숫자를 입력하여 단순 비교 문장을 만들어 보겠습니다. 예를 들어 이번 달 판매량이 101이고, 12개월 전 판매량이 107이라고 가정하고 이를 비교하는 문장을 만들 것입니다.</description>
     </item>
     
     <item>
