@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>기존 변수 값을 새 변수 값으로 변경하기 recode() - For Data Analytics</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="기존 변수 값을 새 변수 값으로 변경하기 recode()" />
+<meta property="og:description" content="기존 변수 값을 새 변수 값으로 변경하는 방법으로 dplyr 패키지는 몇 가지 함수를 제공하고 있습니다. 참고로 dplyr 패키지는 tidyverse 패키지에 포함되어 있습니다.
+mutate() 함수case_when() 함수recode() 함수if_else() 함수이 글에서는 recode() 함수를 이용하는 방법을 중심으로 설명하겠습니다.
+recode() 함수는 기존의 값을 새로운 값으로 변경하는 역할을 하는 함수입니다. 주로 기존 변수의 특정 값을 새로운 값으로 변경할 때 많이 사용합니다. recode() 함수의 기본 사용법은 다음과 같습니다.
+recode(기존변수, 기존값1 = &quot;새값1&quot;, 기존값2 = &quot;새값2&quot; )recode() 함수의 이러한 특성때문에 mutate() 함수와 같이 사용한다면 기존 변수에서 새로운 변수를 만들 수 있습니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://manboha.github.io/post/2022-06-26-create-new-variables-recode/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-06-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-06-26T00:00:00+00:00" />
+
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="For Data Analytics" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">For Data Analytics</div>
+					<div class="logo__tagline">Beyond the gate of experience flows the Way</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">
+				
+				<span class="menu__text">Home</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">About</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">기존 변수 값을 새 변수 값으로 변경하기 recode()</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-06-26T00:00:00Z">June 26, 2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">R</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			
+
+
+<p>기존 변수 값을 새 변수 값으로 변경하는 방법으로 <code>dplyr</code> 패키지는 몇 가지 함수를 제공하고 있습니다. 참고로 <code>dplyr</code> 패키지는 <code>tidyverse</code> 패키지에 포함되어 있습니다.</p>
+<ul>
+<li><code>mutate()</code> 함수</li>
+<li><code>case_when()</code> 함수</li>
+<li><code>recode()</code> 함수</li>
+<li><code>if_else()</code> 함수</li>
+</ul>
+<p>이 글에서는 <code>recode()</code> 함수를 이용하는 방법을 중심으로 설명하겠습니다.</p>
+<p><code>recode()</code> 함수는 기존의 값을 새로운 값으로 변경하는 역할을 하는 함수입니다. 주로 기존 변수의 특정 값을 새로운 값으로 변경할 때 많이 사용합니다. <code>recode()</code> 함수의 기본 사용법은 다음과 같습니다.</p>
+<pre class="r"><code>recode(기존변수, 기존값1 = &quot;새값1&quot;, 기존값2 = &quot;새값2&quot; )</code></pre>
+<p><code>recode()</code> 함수의 이러한 특성때문에 <code>mutate()</code> 함수와 같이 사용한다면 기존 변수에서 새로운 변수를 만들 수 있습니다. 기본 사용법은 다음과 같습니다.</p>
+<pre class="r"><code>library(tidyverse)
+df %&gt;% 
+  mutate(새변수 = recode(기존변수,
+                         기존값1 = &quot;새값1&quot;,
+                         기존값2 = &quot;새값2&quot;))</code></pre>
+<p>데이터 프레임을 만들어서 이 함수를 실제로 활용하는 예제를 보여주겠습니다.
+먼저 <code>tidyverse</code> 패키지를 로드 하겠습니다.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<p>다음으로 가상의 데이터 프레임을 만들겠습니다.</p>
+<pre class="r"><code>df &lt;-
+  data.frame(name = c(&quot;영희&quot;, &quot;철민&quot;, &quot;연수&quot;, &quot;나연&quot;, &quot;아라&quot;),
+             class = c(1, 2, 1, 3, 2),
+             score = c(92, 87, 75, 89, NA))
+
+df</code></pre>
+<pre><code>##   name class score
+## 1 영희     1    92
+## 2 철민     2    87
+## 3 연수     1    75
+## 4 나연     3    89
+## 5 아라     2    NA</code></pre>
+<div id="예시-1-기존-변수-값을-새-변수-값으로-변경하기" class="section level2">
+<h2>예시 1 : 기존 변수 값을 새 변수 값으로 변경하기</h2>
+<p>아래 예시는 기존 <code>class</code> 변수의 값을 이용하여 <code>class_new</code>라는 새 변수를 만드는 방법입니다. 기존 변수의 값인 <code>1</code>, <code>2</code>, <code>3</code>을 <code>A반</code>, <code>B반</code>, <code>C반</code>으로 변경합니다.</p>
+<p><code>recode()</code>를 사용할 때 주의할 점은 값이 숫자라도 <code>"</code> 또는 <code>'</code>를 붙여주어야 한다는 점입니다. 즉 값이 <code>2</code>이면 <code>"2"</code>로 입력하여야 합니다.</p>
+<pre class="r"><code>df %&gt;% 
+  mutate(class_new = recode(class,
+                            &quot;1&quot; = &quot;A반&quot;,
+                            &quot;2&quot; = &quot;B반&quot;,
+                            &quot;3&quot; = &quot;C반&quot;))</code></pre>
+<pre><code>##   name class score class_new
+## 1 영희     1    92       A반
+## 2 철민     2    87       B반
+## 3 연수     1    75       A반
+## 4 나연     3    89       C반
+## 5 아라     2    NA       B반</code></pre>
+<p>만일, 새 변수 이름을 기존 변수 이름과 동일하게 한다면 기존 변수의 값이 변경되는 결과로 나타납니다.</p>
+<pre class="r"><code>df %&gt;% 
+  mutate(class = recode(class,
+                        &quot;1&quot; = &quot;A반&quot;,
+                        &quot;2&quot; = &quot;B반&quot;,
+                        &quot;3&quot; = &quot;C반&quot;))</code></pre>
+<pre><code>##   name class score
+## 1 영희   A반    92
+## 2 철민   B반    87
+## 3 연수   A반    75
+## 4 나연   C반    89
+## 5 아라   B반    NA</code></pre>
+<p>위 예시와 같이 변수의 값인 <code>1</code>, <code>2</code>, <code>3</code>을 <code>A반</code>, <code>B반</code>, <code>C반</code>으로 변경하는 방법은 <code>recode()</code> 함수를 이용하는 방법 외에도 <code>case_when()</code>, <code>if_else()</code>, <code>switch()</code> 등의 함수를 이용하는 방법이 있습니다.</p>
+<p><code>recode()</code> 함수는 변경하려는 변수 값의 종류가 적을 때 많이 사용합니다. 약간 복잡한 경우에는 <code>case_when()</code> 함수를 많이 사용합니다.</p>
+<p>아래 코드는 위 예시를 <code>case_when()</code> 함수를 사용한 코드로 변경한 것입니다. <code>recode()</code> 함수와 다른 점은 숫자 값에 <code>"</code> 또는 <code>'</code>를 붙여주지 않아도 된다는 점입니다. 물론 붙여도 문제는 없습니다.</p>
+<pre class="r"><code>df %&gt;% 
+  mutate(class_new = case_when(class == 1 ~ &quot;A반&quot;,
+                               class == 2 ~ &quot;B반&quot;,
+                               class == 3 ~ &quot;C반&quot;))</code></pre>
+<pre><code>##   name class score class_new
+## 1 영희     1    92       A반
+## 2 철민     2    87       B반
+## 3 연수     1    75       A반
+## 4 나연     3    89       C반
+## 5 아라     2    NA       B반</code></pre>
+</div>
+<div id="예시-2-새-변수-값에-na-값-할당하기" class="section level2">
+<h2>예시 2 : 새 변수 값에 NA 값 할당하기</h2>
+<p><code>recode()</code> 함수는 기존 변수 값에 새 변수 값을 할당하지 않으면 자동으로 <code>NA</code> 값을 할당합니다. 아래 예시에서는 기본 변수 값 <code>3</code>에 새로운 변수 값을 할당하지 않은 경우입니다.</p>
+<pre class="r"><code>df %&gt;% 
+  mutate(class_new = recode(class,
+                            &quot;1&quot; = &quot;A반&quot;,
+                            &quot;2&quot; = &quot;B반&quot;))</code></pre>
+<pre><code>## Warning: Unreplaced values treated as NA as `.x` is not compatible.
+## Please specify replacements exhaustively or supply `.default`.</code></pre>
+<pre><code>##   name class score class_new
+## 1 영희     1    92       A반
+## 2 철민     2    87       B반
+## 3 연수     1    75       A반
+## 4 나연     3    89      &lt;NA&gt;
+## 5 아라     2    NA       B반</code></pre>
+<p>만일 새 변수 값을 지정하지 않을 경우, <code>NA</code>로 자동 할당되지 않고 특정 값으로 자동 할당되기를 원한다면 <code>.default = "특정값"</code> 옵션을 추가합니다.</p>
+<pre class="r"><code>df %&gt;% 
+  mutate(class_new = recode(class,
+                            &quot;1&quot; = &quot;A반&quot;,
+                            &quot;2&quot; = &quot;B반&quot;,
+                            .default = &quot;기타&quot;))</code></pre>
+<pre><code>##   name class score class_new
+## 1 영희     1    92       A반
+## 2 철민     2    87       B반
+## 3 연수     1    75       A반
+## 4 나연     3    89      기타
+## 5 아라     2    NA       B반</code></pre>
+</div>
+<div id="예시-3-factor-형식으로-새-변수-값-할당하기" class="section level2">
+<h2>예시 3 : factor 형식으로 새 변수 값 할당하기</h2>
+<p><code>recode_factor()</code> 함수는 <code>recode()</code> 함수와 유사하나 factor 변수의 level 순서를 유지시켜 준다는 차이가 있습니다. 따라서 변수가 factor 형태이면 <code>recode_factor()</code>를 쓰는 것이 편리합니다.</p>
+<p>먼저 class 변수를 factor 형식으로 변환하겠습니다.</p>
+<pre class="r"><code>df &lt;-
+  df %&gt;% 
+  mutate(class = factor(class)) 
+
+df |&gt; str()</code></pre>
+<pre><code>## &#39;data.frame&#39;:    5 obs. of  3 variables:
+##  $ name : chr  &quot;영희&quot; &quot;철민&quot; &quot;연수&quot; &quot;나연&quot; ...
+##  $ class: Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 1 2 1 3 2
+##  $ score: num  92 87 75 89 NA</code></pre>
+<pre class="r"><code>df %&gt;% 
+  mutate(class_new = recode_factor(class,
+                                   &quot;1&quot; = &quot;A반&quot;,
+                                   &quot;2&quot; = &quot;B반&quot;,
+                                   &quot;3&quot; = &quot;C반&quot;))</code></pre>
+<pre><code>##   name class score class_new
+## 1 영희     1    92       A반
+## 2 철민     2    87       B반
+## 3 연수     1    75       A반
+## 4 나연     3    89       C반
+## 5 아라     2    NA       B반</code></pre>
+</div>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/dplyr/" rel="tag">dplyr</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/recode/" rel="tag">recode</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/mutate/" rel="tag">mutate</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/2022-06-25-r-start/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">R 처음 시작하기</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://manboha.github.io/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-26-create-new-variables-recode/">기존 변수 값을 새 변수 값으로 변경하기 recode()</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-25-r-start/">R 처음 시작하기</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-24-r-rstudio-install/">R 및 RStudio 설치</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-23-create-new-variables-from-existing-variables/">기존 변수에서 새 변수 만들기 case_when()</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2022-02-23-r-markdown/">R Markdown 문서 편집</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/machine-learning/">Machine Learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r/">R</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/addin/" title="Addin">Addin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/case_when/" title="case_when">case_when</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cctv/" title="cctv">cctv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/crimes-in-seoul/" title="Crimes in Seoul">Crimes in Seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/decision-tree/" title="decision tree">decision tree</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dplyr/" title="dplyr">dplyr</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/eda/" title="EDA">EDA</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/excel/" title="excel">excel</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/install/" title="install">install</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning/" title="Machine Learning">Machine Learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/markdown/" title="Markdown">Markdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mutate/" title="mutate">mutate</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/purrr/" title="purrr">purrr</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/recode/" title="recode">recode</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rmarkdown/" title="Rmarkdown">Rmarkdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rstudio/" title="RStudio">RStudio</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seoul/" title="seoul">seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/tidyverse/" title="tidyverse">tidyverse</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B8%B0%EC%B4%88/" title="기초">기초</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/" title="다차원 데이터">다차원 데이터</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B2%94%EC%A3%84/" title="범죄">범죄</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B3%80%EC%88%98/" title="변수">변수</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%84%9C%EC%9A%B8%EC%8B%9C/" title="서울시">서울시</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%9C%EA%B0%81%ED%99%94/" title="시각화">시각화</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9A%A9%EC%96%B4%EC%82%AC%EC%A0%84/" title="용어사전">용어사전</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%EB%82%98%EB%AC%B4/" title="의사결정나무">의사결정나무</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%8C%A8%ED%82%A4%EC%A7%80/" title="패키지">패키지</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%95%A8%EC%88%98/" title="함수">함수</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2022 Bohak Maeng.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

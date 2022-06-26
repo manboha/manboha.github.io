@@ -6,7 +6,34 @@
     <description>Recent content in Tags on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dplyr</title>
+      <link>https://manboha.github.io/tags/dplyr/</link>
+      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/dplyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mutate</title>
+      <link>https://manboha.github.io/tags/mutate/</link>
+      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/mutate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recode</title>
+      <link>https://manboha.github.io/tags/recode/</link>
+      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/recode/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>기초</title>
       <link>https://manboha.github.io/tags/%EA%B8%B0%EC%B4%88/</link>
@@ -67,24 +94,6 @@
       <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://manboha.github.io/tags/case_when/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dplyr</title>
-      <link>https://manboha.github.io/tags/dplyr/</link>
-      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/dplyr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mutate</title>
-      <link>https://manboha.github.io/tags/mutate/</link>
-      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/mutate/</guid>
       <description></description>
     </item>
     

@@ -4,13 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Crimes in Seoul - For Data Analytics</title>
+	<title>R - For Data Analytics</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-		<meta property="og:title" content="Crimes in Seoul" />
+		<meta property="og:title" content="R" />
 <meta property="og:description" content="Personal blog about Data Analytics" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://manboha.github.io/tags/crimes-in-seoul/" />
+<meta property="og:url" content="https://manboha.github.io/categories/r/" />
 
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
 
 	<link rel="stylesheet" href="/css/style.css">
 	
-	<link rel="alternate" type="application/rss+xml" href="/tags/crimes-in-seoul/index.xml" title="For Data Analytics">
+	<link rel="alternate" type="application/rss+xml" href="/categories/r/index.xml" title="For Data Analytics">
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
@@ -68,29 +68,31 @@
 			
 <main class="main list" role="main">
 	<header class="main__header">
-		<h1 class="main__title">Crimes in Seoul</h1>
+		<h1 class="main__title">R</h1>
 	</header><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
-			<a href="/post/2019-07-29-crimes-in-seoul/" rel="bookmark">
-			서울시 범죄 현황
+			<a href="/post/2019-07-01-decisiontreeintro/" rel="bookmark">
+			의사결정나무(Decision Tree) 개요
 			</a>
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2019-07-29T00:00:00Z">July 29, 2019</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">R</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2019-07-01T00:00:00Z">July 01, 2019</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">R</a>
 	</span>
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		서울시는 25개의 자치구로 구성되어 있다. 서울시 5대 주요 범죄 발생 및 검거 데이터를 이용하여 각 자치구의 범죄현황에 대해 탐색하고자 한다.
-분석에 사용한 데이터는 다음과 같다.
-서울시 관서별 5대 범죄 발생 검거 현황 데이터(2017년 기준)출처 : 공공데이터포털의 서울특별시 관서별 5대범죄 발생 검거현황(2000~2017)정리된 데이터 다운로드 : seoul_crime_2000_2017.csv경찰관서 주소 데이터출처 : 경찰청의 전국경찰관서안내정리된 데이터 다운로드 : police_address.csv서울시 CCTV 현황 데이터(2017년 기준)CCTV 데이터 출처 : 서울열린데이터광장의 서울시 자치구 년도별 CCTV 설치 현황 - 2019.
+		1.1 의사결정나무 개념의사결정나무는 나무 형태로 의사결정 규칙을 표현하는 방식으로 데이터를 분류(classification)하거나 예측(prediction)하는 분석기법이다. 나무(tree) 구조로 모형이 표현되기 때문에 해석이 용이하고 나무 구조로부터 어떤 입력변수가 목표변수를 설명하기 위하여 더 중요한지를 쉽게 파악할 수 있다. (최종후, 서두성 (1999), 데이터마이닝 의사결정나무의 응용, 통계분석연구 제4권 제1호, p.62; 최종후 외 (2000), Answer Tree를 이용한 데이터마이닝 의사결정나무분석, SPSS 아카데미; 오올임, 김구 (2002), 불확실성 상황에서의 의사결정 양상에 관한 실증적 연구, 한국행정학보, 36-3, p.82에서 재인용)
 	</div>
 </article>
 </main>
 
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/categories/r/">«</a>
+	<span class="pagination__item pagination__item--current">2/2</span>
+</div>
 
 			</div>
 			

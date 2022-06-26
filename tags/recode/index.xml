@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>recode on For Data Analytics</title>
+    <link>https://manboha.github.io/tags/recode/</link>
+    <description>Recent content in recode on For Data Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/recode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>기존 변수 값을 새 변수 값으로 변경하기 recode()</title>
+      <link>https://manboha.github.io/post/2022-06-26-create-new-variables-recode/</link>
+      <pubDate>Sun, 26 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/post/2022-06-26-create-new-variables-recode/</guid>
+      <description>기존 변수 값을 새 변수 값으로 변경하는 방법으로 dplyr 패키지는 몇 가지 함수를 제공하고 있습니다. 참고로 dplyr 패키지는 tidyverse 패키지에 포함되어 있습니다.
+mutate() 함수case_when() 함수recode() 함수if_else() 함수이 글에서는 recode() 함수를 이용하는 방법을 중심으로 설명하겠습니다.
+recode() 함수는 기존의 값을 새로운 값으로 변경하는 역할을 하는 함수입니다. 주로 기존 변수의 특정 값을 새로운 값으로 변경할 때 많이 사용합니다. recode() 함수의 기본 사용법은 다음과 같습니다.
+recode(기존변수, 기존값1 = &amp;quot;새값1&amp;quot;, 기존값2 = &amp;quot;새값2&amp;quot; )recode() 함수의 이러한 특성때문에 mutate() 함수와 같이 사용한다면 기존 변수에서 새로운 변수를 만들 수 있습니다.</description>
+    </item>
+    
+  </channel>
+</rss>
