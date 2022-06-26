@@ -93,6 +93,27 @@ recode(기존변수, 기존값1 = &quot;새값1&quot;, 기존값2 = &quot;새값
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/2022-06-26-headliner/" rel="bookmark">
+			비교를 설명하는 문장을 동적으로 만들기 headliner
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-06-26T00:00:00Z">June 26, 2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">R</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		제목은 단순히 사실을 기술하는 것보다는 통찰력을 보여주는 문장으로 기술하는 것이 더 효과적일 수 있습니다. 예를 들면 1,000명 지원보다는 지원자 전년 대비 10% 감소와 같이 비교를 통한 통찰력 있는 문장이 더 도움이 됩니다.
+headliner 패키지는 비교를 설명하는 문장을 동적으로 구성할 수 있는 함수들을 제공합니다. 몇 가지 예시를 통해 사용법을 알아보겠습니다.
+먼저 headliner 패키지를 로드하겠습니다.
+library(headliner)다음으로 예시 작업을 위해 가상의 데이터 프레임을 만들겠습니다.
+df &lt;-data.frame(group = rep_len(rep(letters, each = 2), length.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/2022-06-25-r-start/" rel="bookmark">
 			R 처음 시작하기
 			</a>
@@ -244,25 +265,6 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
 서울시 CCTV 현황 데이터(2017년 기준)CCTV 데이터 출처 : 서울열린데이터광장의 서울시 자치구 년도별 CCTV 설치 현황 - 2019.06.26 데이터 참조
 정리된 데이터 다운로드 : seoul_cctv_b2011_2018.csv서울시 인구 데이터(2017년 기준)인구 데이터 출처 : 서울열린데이터광장의 서울시 주민등록인구 (구별) 통계정리된 데이터 다운로드 : seoul_pop_1992_2018.csv패키지 준비library(tidyverse)## Warning: 패키지 &#39;readr&#39;는 R 버전 4.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/2019-07-01-excel-files-with-purrr/" rel="bookmark">
-			purrr를 이용하여 Excel 시트들을 읽고 쓰기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2019-07-01T00:00:00Z">July 01, 2019</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">R</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		준비작업에 필요한 중요 packages는 purrr, readxl, writexl 이다. tidyvere에는 purrr를 포함하여 dplyr 등과 같이 많이 사용되는 패키지들이 포함되어 있기 때문에 tidyvers를 불러온다.
-library(tidyverse)library(readxl)library(writexl)Excel 파일에 다중 시트 동시에 쓰기예제로 Rdp 기본으로 포함되어 있는 iris 데이터를 이용하고자 한다.
-iris %&gt;% head()## Sepal.Length Sepal.Width Petal.Length Petal.Width Species## 1 5.1 3.5 1.4 0.2 setosa## 2 4.9 3.0 1.4 0.2 setosa## 3 4.7 3.
-	</div>
 </article>
 </main>
 
@@ -287,10 +289,10 @@ iris %&gt;% head()## Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 	<div class="widget__content">
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-26-create-new-variables-recode/">기존 변수 값을 새 변수 값으로 변경하기 recode()</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-26-headliner/">비교를 설명하는 문장을 동적으로 만들기 headliner</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-25-r-start/">R 처음 시작하기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-24-r-rstudio-install/">R 및 RStudio 설치</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-23-create-new-variables-from-existing-variables/">기존 변수에서 새 변수 만들기 case_when()</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2022-02-23-r-markdown/">R Markdown 문서 편집</a></li>
 		</ul>
 	</div>
 </div>
@@ -316,6 +318,7 @@ iris %&gt;% head()## Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 		<a class="widget-taglist__link widget__link btn" href="/tags/dplyr/" title="dplyr">dplyr</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eda/" title="EDA">EDA</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/excel/" title="excel">excel</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/headliner/" title="headliner">headliner</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/install/" title="install">install</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning/" title="Machine Learning">Machine Learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/markdown/" title="Markdown">Markdown</a>
@@ -324,6 +327,7 @@ iris %&gt;% head()## Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 		<a class="widget-taglist__link widget__link btn" href="/tags/recode/" title="recode">recode</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rmarkdown/" title="Rmarkdown">Rmarkdown</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rstudio/" title="RStudio">RStudio</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sentences/" title="sentences">sentences</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/seoul/" title="seoul">seoul</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/tidyverse/" title="tidyverse">tidyverse</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B8%B0%EC%B4%88/" title="기초">기초</a>
