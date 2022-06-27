@@ -2,14 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://manboha.github.io/tags/and/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://manboha.github.io/categories/</loc>
-    <lastmod>2022-06-26T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://manboha.github.io/tags/dplyr/</loc>
-    <lastmod>2022-06-26T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/tags/filter/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://manboha.github.io/</loc>
-    <lastmod>2022-06-26T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/tags/or/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/post/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/categories/r/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/tags/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/post/2022-06-27-filter-rows/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://manboha.github.io/tags/headliner/</loc>
     <lastmod>2022-06-26T00:00:00+00:00</lastmod>
@@ -17,19 +38,10 @@
     <loc>https://manboha.github.io/tags/mutate/</loc>
     <lastmod>2022-06-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://manboha.github.io/post/</loc>
-    <lastmod>2022-06-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://manboha.github.io/categories/r/</loc>
-    <lastmod>2022-06-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://manboha.github.io/tags/recode/</loc>
     <lastmod>2022-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://manboha.github.io/tags/sentences/</loc>
-    <lastmod>2022-06-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://manboha.github.io/tags/</loc>
     <lastmod>2022-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://manboha.github.io/post/2022-06-26-create-new-variables-recode/</loc>

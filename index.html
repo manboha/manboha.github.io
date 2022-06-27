@@ -72,6 +72,26 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/2022-06-27-filter-rows/" rel="bookmark">
+			조건에 맞는 데이터 추출하기 filter
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-06-27T00:00:00Z">June 27, 2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">R</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		데이터 분석을 하다 보면 특정 조건에 맞는 데이터들을 따로 추출하여 분석을 해야 하는 경우가 있습니다. 예를 들면 여성만 추출하여 분석하거나 연령이 30대 이상인 경우만을 추출하여 분석해야 하는 경우가 있습니다. dplyr 패키지의 filter() 함수를 사용하면 편리합니다.
+먼저 dplyr 패키지가 포함되어 있는 tidyverse 패키지를 로드 하겠습니다.
+library(tidyverse)예시에 사용할 데이터는 starwars입니다. starwars 데이터는 dplyr 패키지에 포함되어 있는 데이터로서 영화 스타워즈 등장인물에 대한 정보(이름, 키, 몸무게 등)를 담고 있습니다.
+glimpse(starwars)## Rows: 87## Columns: 14## $ name &lt;chr&gt; &quot;Luke Skywalker&quot;, &quot;C-3PO&quot;, &quot;R2-D2&quot;, &quot;Darth Vader&quot;, &quot;Leia Or~## $ height &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2~## $ mass &lt;dbl&gt; 77.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/2022-06-26-create-new-variables-recode/" rel="bookmark">
 			기존 변수 값을 새 변수 값으로 변경하기 recode()
 			</a>
@@ -251,25 +271,6 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
 분석에 사용한 데이터는 다음과 같다.
 서울시 관서별 5대 범죄 발생 검거 현황 데이터(2017년 기준)출처 : 공공데이터포털의 서울특별시 관서별 5대범죄 발생 검거현황(2000~2017)정리된 데이터 다운로드 : seoul_crime_2000_2017.csv경찰관서 주소 데이터출처 : 경찰청의 전국경찰관서안내정리된 데이터 다운로드 : police_address.csv서울시 CCTV 현황 데이터(2017년 기준)CCTV 데이터 출처 : 서울열린데이터광장의 서울시 자치구 년도별 CCTV 설치 현황 - 2019.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/post/2019-07-22-visualization-of-data/" rel="bookmark">
-			다차원 데이터의 시각화
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2019-07-22T00:00:00Z">July 22, 2019</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/r/" rel="category">R</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		이 글은 Dipanjan (DJ) Sarkar(2018)의 “Effective Visualization of Multi-Dimensional Data”를 참고하여 작성하였으며, python 코드로 되어 있는 것을 R 코드로 변환하였다.
-분석에 사용하고자 하는 데이터는 UCI Machine Learning Repository에서 제공하는 Wine Quality Data Set이다.
-와인 품질 데이터는 2개의 파일 즉 레드 와인과 화이트 와인 데이터로 구성있다.레드와인 파일에는 1,599개의 관측값이,화이트와인 파일에는 4,898개의 관측값이 들어있다.두 개 파일 모두 11개의 화학성분 변수와 1개의 품질 변수로 구성되어 있다.
-	</div>
 </article>
 </main>
 
@@ -292,11 +293,11 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-27-filter-rows/">조건에 맞는 데이터 추출하기 filter</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-26-create-new-variables-recode/">기존 변수 값을 새 변수 값으로 변경하기 recode()</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-26-headliner/">비교를 설명하는 문장을 동적으로 만들기 headliner</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-25-r-start/">R 처음 시작하기</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-24-r-rstudio-install/">R 및 RStudio 설치</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2022-06-23-create-new-variables-from-existing-variables/">기존 변수에서 새 변수 만들기 case_when()</a></li>
 		</ul>
 	</div>
 </div>
@@ -315,6 +316,7 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
 		<a class="widget-taglist__link widget__link btn" href="/tags/addin/" title="Addin">Addin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/and/" title="AND">AND</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/case_when/" title="case_when">case_when</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cctv/" title="cctv">cctv</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/crimes-in-seoul/" title="Crimes in Seoul">Crimes in Seoul</a>
@@ -322,11 +324,13 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/dplyr/" title="dplyr">dplyr</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eda/" title="EDA">EDA</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/excel/" title="excel">excel</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="filter">filter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/headliner/" title="headliner">headliner</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/install/" title="install">install</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning/" title="Machine Learning">Machine Learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/markdown/" title="Markdown">Markdown</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mutate/" title="mutate">mutate</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/or/" title="OR">OR</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/purrr/" title="purrr">purrr</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/recode/" title="recode">recode</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rmarkdown/" title="Rmarkdown">Rmarkdown</a>

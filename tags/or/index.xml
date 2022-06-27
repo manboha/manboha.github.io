@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OR on For Data Analytics</title>
+    <link>https://manboha.github.io/tags/or/</link>
+    <description>Recent content in OR on For Data Analytics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/or/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>조건에 맞는 데이터 추출하기 filter</title>
+      <link>https://manboha.github.io/post/2022-06-27-filter-rows/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/post/2022-06-27-filter-rows/</guid>
+      <description>데이터 분석을 하다 보면 특정 조건에 맞는 데이터들을 따로 추출하여 분석을 해야 하는 경우가 있습니다. 예를 들면 여성만 추출하여 분석하거나 연령이 30대 이상인 경우만을 추출하여 분석해야 하는 경우가 있습니다. dplyr 패키지의 filter() 함수를 사용하면 편리합니다.
+먼저 dplyr 패키지가 포함되어 있는 tidyverse 패키지를 로드 하겠습니다.
+library(tidyverse)예시에 사용할 데이터는 starwars입니다. starwars 데이터는 dplyr 패키지에 포함되어 있는 데이터로서 영화 스타워즈 등장인물에 대한 정보(이름, 키, 몸무게 등)를 담고 있습니다.
+glimpse(starwars)## Rows: 87## Columns: 14## $ name &amp;lt;chr&amp;gt; &amp;quot;Luke Skywalker&amp;quot;, &amp;quot;C-3PO&amp;quot;, &amp;quot;R2-D2&amp;quot;, &amp;quot;Darth Vader&amp;quot;, &amp;quot;Leia Or~## $ height &amp;lt;int&amp;gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2~## $ mass &amp;lt;dbl&amp;gt; 77.</description>
+    </item>
+    
+  </channel>
+</rss>
