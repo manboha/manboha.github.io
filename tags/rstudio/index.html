@@ -73,6 +73,26 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/post/2022-07-05-rocky-rstudio-shiny-install/" rel="bookmark">
+			Rocky Linux, RStudio Server, Shiny Server 설치
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-07-05T00:00:00Z">July 05, 2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Rocky Linux에 RStudio Server와 Shiny Server를 설치한 내용을 간단하게 요약하고자 합니다.
+Rocky Linux 설치Rocky Linux는 Red Hat Enterprise Linux(RHEL)의 소스 코드를 이용하여 만들어진 무료 리눅스 배포판으로서 2021년 6월 21일부터 정식으로 공개되었습니다. 2022년 7월 현재 가장 최신 버전은 2022년 5월 6일에 공개된 Rocky Linux 8.6(Green Obsidian)입니다.
+Rocky Linux 준비Rocky Linux를 PC에 설치하기 전에 파일을 다운받아 설치 USB를 만듭니다.
+Rocky Linux 다운로드https://rockylinux.org/ 접속Rocky Linux 8 다운로드Intel CPU를 가진 일반 데스크탑 PC에 설치할 계획이라서 x86_64용으로 다운 받았습니다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/post/2022-06-24-r-rstudio-install/" rel="bookmark">
 			R 및 RStudio 설치
 			</a>
@@ -125,11 +145,11 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/2022-07-05-rocky-rstudio-shiny-install/">Rocky Linux, RStudio Server, Shiny Server 설치</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-27-filter-rows/">조건에 맞는 데이터 추출하기 filter</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-26-create-new-variables-recode/">기존 변수 값을 새 변수 값으로 변경하기 recode()</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-26-headliner/">비교를 설명하는 문장을 동적으로 만들기 headliner</a></li>
 			<li class="widget__item"><a class="widget__link" href="/post/2022-06-25-r-start/">R 처음 시작하기</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2022-06-24-r-rstudio-install/">R 및 RStudio 설치</a></li>
 		</ul>
 	</div>
 </div>
@@ -137,6 +157,8 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
 	<h4 class="widget__title">Categories</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/linux/">Linux</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/machine-learning/">Machine Learning</a></li>
 			<li class="widget__item">
@@ -159,6 +181,7 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="filter">filter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/headliner/" title="headliner">headliner</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/install/" title="install">install</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="linux">linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning/" title="Machine Learning">Machine Learning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/markdown/" title="Markdown">Markdown</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mutate/" title="mutate">mutate</a>
@@ -166,9 +189,11 @@ R 패키지와 R 함수 만들기addins.dcf 파일에 입력하기패키지 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/purrr/" title="purrr">purrr</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/recode/" title="recode">recode</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rmarkdown/" title="Rmarkdown">Rmarkdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rocky/" title="rocky">rocky</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rstudio/" title="RStudio">RStudio</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sentences/" title="sentences">sentences</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/seoul/" title="seoul">seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/shiny/" title="shiny">shiny</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/tidyverse/" title="tidyverse">tidyverse</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B8%B0%EC%B4%88/" title="기초">기초</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/" title="다차원 데이터">다차원 데이터</a>

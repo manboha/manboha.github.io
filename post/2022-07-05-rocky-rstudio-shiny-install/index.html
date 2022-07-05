@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Rocky Linux, RStudio Server, Shiny Server 설치 - For Data Analytics</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="Rocky Linux, RStudio Server, Shiny Server 설치" />
+<meta property="og:description" content="Rocky Linux에 RStudio Server와 Shiny Server를 설치한 내용을 간단하게 요약하고자 합니다.
+Rocky Linux 설치Rocky Linux는 Red Hat Enterprise Linux(RHEL)의 소스 코드를 이용하여 만들어진 무료 리눅스 배포판으로서 2021년 6월 21일부터 정식으로 공개되었습니다. 2022년 7월 현재 가장 최신 버전은 2022년 5월 6일에 공개된 Rocky Linux 8.6(Green Obsidian)입니다.
+Rocky Linux 준비Rocky Linux를 PC에 설치하기 전에 파일을 다운받아 설치 USB를 만듭니다.
+Rocky Linux 다운로드https://rockylinux.org/ 접속Rocky Linux 8 다운로드Intel CPU를 가진 일반 데스크탑 PC에 설치할 계획이라서 x86_64용으로 다운 받았습니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://manboha.github.io/post/2022-07-05-rocky-rstudio-shiny-install/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-07-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-07-05T00:00:00+00:00" />
+
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="For Data Analytics" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">For Data Analytics</div>
+					<div class="logo__tagline">Beyond the gate of experience flows the Way</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">
+				
+				<span class="menu__text">Home</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">About</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Rocky Linux, RStudio Server, Shiny Server 설치</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-07-05T00:00:00Z">July 05, 2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			
+
+
+<p>Rocky Linux에 RStudio Server와 Shiny Server를 설치한 내용을 간단하게 요약하고자 합니다.</p>
+<div id="rocky-linux-설치" class="section level1">
+<h1>Rocky Linux 설치</h1>
+<p>Rocky Linux는 Red Hat Enterprise Linux(RHEL)의 소스 코드를 이용하여 만들어진 무료 리눅스 배포판으로서 2021년 6월 21일부터 정식으로 공개되었습니다. 2022년 7월 현재 가장 최신 버전은 2022년 5월 6일에 공개된 Rocky Linux 8.6(Green Obsidian)입니다.</p>
+<div id="rocky-linux-준비" class="section level2">
+<h2>Rocky Linux 준비</h2>
+<p>Rocky Linux를 PC에 설치하기 전에 파일을 다운받아 설치 USB를 만듭니다.</p>
+<div id="rocky-linux-다운로드" class="section level3">
+<h3>Rocky Linux 다운로드</h3>
+<ul>
+<li><a href="https://rockylinux.org/" class="uri">https://rockylinux.org/</a> 접속</li>
+<li>Rocky Linux 8 다운로드</li>
+</ul>
+<p>Intel CPU를 가진 일반 데스크탑 PC에 설치할 계획이라서 <code>x86_64</code>용으로 다운 받았습니다. <code>DVD</code>용으로 파일용량이 큰 것을 다운 받았는데, 용량이 작은 <code>Minimal</code>로 다운 받아도 될 것으로 봅니다.</p>
+</div>
+<div id="rocky-linux-설치-usb-만들기" class="section level3">
+<h3>Rocky Linux 설치 USB 만들기</h3>
+<p>부팅용 설치 USB를 만드는 프로그램은 여러가지가 있습니다. 여기서는 <code>fedora media writer</code>를 이용하였습니다.</p>
+</div>
+</div>
+<div id="rocky-linux-설치-1" class="section level2">
+<h2>Rocky Linux 설치</h2>
+<p>PC는 USB 부팅이 가능하여야 합니다. 만일 USB 부팅이 안된다면 BIOS 설정을 열어 USB 부팅이 되도록 설정합니다.</p>
+<ol style="list-style-type: decimal">
+<li>컴퓨터를 켜고 Delete, F2, F10 또는 F11 키를 누릅니다. (컴퓨터마다 키가 다르므로 BIOS가 나타날때까지 반복해서 다 눌러봅니다)</li>
+<li>BIOS가 나타나면 커서 키를 사용해 부팅 메뉴를 찾습니다.</li>
+<li>부팅 메뉴에서 USB가 목록의 맨 위에 오도록 변경합니다.</li>
+</ol>
+<p>Rocky Linux 설치화면이 나타나면 아래 사항을 조정하고 나머지는 그대로 진행하여 설치합니다.</p>
+<ul>
+<li>time &amp; date : asia/seoul</li>
+<li>software selection : minmal</li>
+<li>network &amp; host name : 주어진 ip 설정(또는 동적 ip 설정)</li>
+<li>root password 설정</li>
+<li>user creation 설정</li>
+</ul>
+</div>
+<div id="rocky-linux-설치-2" class="section level2">
+<h2>Rocky Linux 설치</h2>
+<p>설치가 끝나면 재부팅됩니다. 이때 USB를 빼고 로그인 화면이 나타날 때까지 기다립니다. 로그인 화면에서 id는 root, 패스워드는 설치할 때 설정한 패스워드를 입력하여 로그이합니다. 아래 명령어들을 입력하여 설치가 잘 되었는지 확인합니다.</p>
+<pre><code>login: root
+# who
+# whoami
+# rpm -qa | nl
+# df -h
+# date
+# ping -c3 8.8.8.8
+# exit</code></pre>
+<ul>
+<li>who : 로그인된 id들이 화면에 출력됩니다.</li>
+<li>whoami : 내 id가 화면에 출력됩니다.</li>
+<li>rpm -qa | nl : 설치된 패키지들을 확인합니다.</li>
+<li>df -h : 디스크 파티션 사용 통계가 나타납니다.</li>
+<li>date : 날짜를 확인합니다.</li>
+<li>ping -c3 8.8.8.8 : 네트워크가 잘 되는지 확인합니다.</li>
+</ul>
+<p>확인 결과 이상이 없으면 설치가 잘 된 것입니다. 이제 <code>exit</code>을 입력하여 로그아웃을 합니다.</p>
+</div>
+</div>
+<div id="리눅스-초기-설정" class="section level1">
+<h1>리눅스 초기 설정</h1>
+<div id="클라이언트-pc에서-리눅스-서버-접속" class="section level2">
+<h2>클라이언트 PC에서 리눅스 서버 접속</h2>
+<p>이제는 리눅스가 설치된 PC에서 바로 접속하기 보다는 클라이언트 PC에서 <code>PuTTY</code>를 이용하여 접속하여 작업하겠습니다.</p>
+<p>PuTTY를 검색하여 다운 받아 설치합니다. 리눅스 서버의 ip에 <code>Telnet</code>으로 접속합니다. 접속하는 포트 <code>22</code>번은 기본적으로 열려 있습니다.</p>
+</div>
+<div id="sudo-계정-설정" class="section level2">
+<h2>sudo 계정 설정</h2>
+<p><code>sudo</code>는 일반 유저에게 root와 같은 슈퍼 유저 권한을 주는 명령어입니다. 일반적으로 root로 접속하여 작업하기 보다는 일반 유저 id로 접속하여 작업하는 것이 안전합니다. 그러나 일반 유저는 패키지 등을 설치할 때 권한이 없어서 제한이 됩니다. 이때 sudo를 이용하여 한시적으로 슈퍼 유정의 권한을 갖게 됩니다.</p>
+<p>일반 유저에게 sudo를 사용할 수 있는 권한을 주려면 아래와 같은 방식으로 합니다. 다른 방법도 있지만 여기서는 간편한 방법으로 하였습니다.</p>
+<p>참고로 리눅스에서 <code>#</code>은 root로 로그인할 경우에 나타나며, <code>$</code>은 일반 사용자로 로그인할 때 나타납니다.</p>
+<pre><code>login: root
+# visudo
+# usermod --append -G wheel username
+# id username
+# exit</code></pre>
+<pre><code>login: username
+$ sudo date</code></pre>
+<ol style="list-style-type: decimal">
+<li><p>root로 로그인</p></li>
+<li><p><code>visudo</code>를 입력한 후, 아래 내용이 있는지 확인</p>
+<ul>
+<li><code>%wheel        ALL=(ALL)       ALL</code> 확인(수정없는 종료는 <code>:x</code>)</li>
+<li>기본으로 위 내용이 있기 때문에 생략 가능</li>
+<li>만일 줄 맨 앞에 #이 있으면 제거하고 저장(<code>i</code> -&gt; 편집 -&gt; <code>ESC</code> -&gt; <code>:wq</code>)</li>
+</ul></li>
+<li><p>아래 명령어를 입력하여 username(유저id)를 wheel 그룹에 추가</p>
+<ul>
+<li>usermod –append -G wheel username</li>
+</ul></li>
+<li><p>아래 명령어로 그룹에 추가되었는지 확인</p>
+<ul>
+<li>id username</li>
+</ul></li>
+<li><p><code>exit</code>을 입력하여 root 로그아웃</p></li>
+<li><p>username 으로 로그인</p></li>
+<li><p><code>sudo date</code>를 실행하여 잘 작동되는지 확인</p></li>
+</ol>
+<p>이후부터는 일반 유저로 로그인하여 sudo 명령어를 사용하는 방식으로 합니다.</p>
+</div>
+<div id="리눅스-초기-설정-1" class="section level2">
+<h2>리눅스 초기 설정</h2>
+<div id="upgrade" class="section level3">
+<h3>upgrade</h3>
+<p>아래 명령어로 리눅스 업그레이드를 합니다.</p>
+<pre><code>$ sudo dnf upgrade</code></pre>
+</div>
+<div id="주요-패키지-설치" class="section level3">
+<h3>주요 패키지 설치</h3>
+<p>패키지 설치는 <code>sudo dnf install 패키지명</code> 형식으로 설치합니다. 주요 패키지를 먼저 설치하도록 하겠습니다.</p>
+<pre><code>$ sudo dnf install chrony gcc gcc-c++ tree bc zip unzip man-pages wget httpd java-1.8.0-openjdk java-1.8.0-openjdk-devel</code></pre>
+<p>chrony 패키지의 경우 시간동기화 패키지인데 필요하면 아래와 같은 명령어로 활성화시킵니다.</p>
+<pre><code>$ systemctl enable chronyd
+$ systemctl start chronyd
+$ systemctl status chronyd</code></pre>
+</div>
+</div>
+</div>
+<div id="r-설치" class="section level1">
+<h1>R 설치</h1>
+<div id="준비" class="section level2">
+<h2>준비</h2>
+<pre><code>$ sudo dnf config-manager --set-enabled powertools
+$ sudo dnf install epel-release</code></pre>
+</div>
+<div id="설치" class="section level2">
+<h2>설치</h2>
+<pre><code>$ sudo dnf install R</code></pre>
+</div>
+<div id="확인" class="section level2">
+<h2>확인</h2>
+<pre><code>$ R --version</code></pre>
+</div>
+<div id="r-관련-리눅스-패키지-설치" class="section level2">
+<h2>R 관련 리눅스 패키지 설치</h2>
+<p>R에 필요한 리눅스 패키지를 설치합니다. 이미 설치되어 있으면 설치되어 있다고 메시지가 나옵니다.</p>
+<pre><code>$ sudo dnf install make gcc gcc-c++
+$ sudo dnf install libcurl-devel libxml2-devel openssl-devel texlive-*</code></pre>
+<p>위 패키지가 설치되어 있지 않으면 R 패키지 설치시 에러가 발생합니다.</p>
+</div>
+<div id="전체-유저용-r-패키지-설치" class="section level2">
+<h2>전체 유저용 R 패키지 설치</h2>
+<p>root로 R을 실행하여 패키지를 설치하면 모든 유저가 사용할 수 있습니다. (샤이니 서버 운영에 필요함)</p>
+<pre><code>$ sudo -i R</code></pre>
+<pre><code>&gt; install.packages(&quot;skimr&quot;)
+&gt; install.packages(c(&quot;shiny&quot;, &quot;rmarkdown&quot;, &quot;tidyverse&quot;))</code></pre>
+<p>참고로 “shiny” 패키지는 샤이니 서버를 설치하기 전에 미리 설치하여야 합니다.</p>
+</div>
+</div>
+<div id="rstudio-server-설치" class="section level1">
+<h1>RStudio Server 설치</h1>
+<div id="다운로드-및-설치" class="section level2">
+<h2>다운로드 및 설치</h2>
+<p>아래와 같은 명령어로 다운로드하고 설치합니다.</p>
+<pre><code>$ sudo wget https://download2.rstudio.org/server/rhel8/x86_64/rstudio-server-rhel-2022.02.3-492-x86_64.rpm
+$ sudo dnf install rstudio-server-rhel-2022.02.3-492-x86_64.rpm</code></pre>
+</div>
+<div id="포트-firewall-설정" class="section level2">
+<h2>8787 포트 firewall 설정</h2>
+<p>RStudio Server가 사용하는 포트(8787)을 열어줍니다.</p>
+<pre><code>$ sudo firewall-cmd --add-port=8787/tcp --zone=public --permanen
+$ sudo firewall-cmd --reload
+$ sudo firewall-cmd --list-all</code></pre>
+</div>
+<div id="selinux-비활성화" class="section level2">
+<h2>Selinux 비활성화</h2>
+<p>브라우저로 접속할 때 에러가 나는 것을 막기위해 Selinux를 비활성화 합니다.</p>
+<pre><code>$ sudo vi /etc/selinux/config</code></pre>
+<ul>
+<li><code>i</code>를 눌러 편집 상태로 변환</li>
+<li>키보드로 <code>SELINUX</code> 부문을 찾아 <code>SELINUX=disabled</code>로 수정</li>
+<li><code>ESC</code>눌러 편집 상태에서 나온 후 <code>:wq</code>를 눌러 저장하고 종료</li>
+</ul>
+<p>수정된 부문을 적용하기 위해 아래 명령어로 시스템을 재부팅합니다.</p>
+<pre><code>$ sudo reboot</code></pre>
+</div>
+<div id="rstudio-server-상태-확인" class="section level2">
+<h2>RStudio Server 상태 확인</h2>
+<pre><code>$ sudo systemctl status rstudio-server</code></pre>
+</div>
+<div id="rstudio-server-접속-확인" class="section level2">
+<h2>RStudio Server 접속 확인</h2>
+<ul>
+<li>브라우저에서 <code>http://ip-address:8787</code> 접속하여 확인</li>
+<li>리눅스 유저 id와 패스워드로 접속</li>
+</ul>
+</div>
+<div id="rstudio-server에서-전체유저용-r-패키지-설치" class="section level2">
+<h2>RStudio server에서 전체유저용 r 패키지 설치</h2>
+<p>패키지를 전체 유저용으로 설치하여야 Shiny 서비스에서 에러가 나지 않습니다.</p>
+<ul>
+<li>Terminal 탭에서 <code>sudo -i R</code> 실행</li>
+</ul>
+<pre><code>$ sudo -i R</code></pre>
+<ul>
+<li>install.packages(“패키지명”)</li>
+</ul>
+<pre><code>&gt; install.packages(&quot;plotly&quot;)</code></pre>
+</div>
+</div>
+<div id="shiny-server-설치" class="section level1">
+<h1>Shiny Server 설치</h1>
+<p>Shiny Server를 설치하기 전에 R에 shiny 패키지가 설치되어 있어야 합니다. 또한 rmarkdown 패키지도 설치되어야 합니다.</p>
+<div id="다운로드-및-설치-1" class="section level2">
+<h2>다운로드 및 설치</h2>
+<pre><code>$ sudo wget https://download3.rstudio.org/centos7/x86_64/shiny-server-1.5.18.987-x86_64.rpm
+$ sudo dnf install --nogpgcheck shiny-server-1.5.18.987-x86_64.rpm</code></pre>
+</div>
+<div id="shiny-server-상태-확인" class="section level2">
+<h2>shiny-server 상태 확인</h2>
+<pre><code>$ sudo systemctl status shiny-server</code></pre>
+<p>샤이니 서버를 시작, 자동시작, 다시시작 하려면 아래와 같은 명령어를 사용합니다.</p>
+<pre><code>$ sudo systemctl start shiny-server
+$ sudo systemctl enable shiny-server
+$ sudo systemctl restart shiny-server</code></pre>
+<ul>
+<li>시작 : sudo systemctl start shiny-server</li>
+<li>부팅시 자동시작 : sudo systemctl enable shiny-server</li>
+<li>다시 시작 : sudo systemctl restart shiny-server</li>
+</ul>
+</div>
+<div id="포트-firwall-설정" class="section level2">
+<h2>3838 포트 firwall 설정</h2>
+<pre><code>$ sudo firewall-cmd --add-port=3838/tcp --zone=public --permanen
+$ sudo firewall-cmd --reload
+$ sudo firewall-cmd --list-all</code></pre>
+</div>
+<div id="shiny-server-접속-확인" class="section level2">
+<h2>shiny-server 접속 확인</h2>
+<ul>
+<li>브라우저에서 <code>http://ip-address:3838</code> 접속하여 확인</li>
+</ul>
+</div>
+<div id="shiny-server-설정" class="section level2">
+<h2>shiny-server 설정</h2>
+<p>shiny-server에 대한 설정은 아래와 같이 <code>shiny-server.conf</code> 파일을 열어서 편집합니다.</p>
+<p>특별히 설정할 것이 없다면 그대로 둡니다.</p>
+<pre><code>$ sudo vi /etc/shiny-server/shiny-server.conf</code></pre>
+</div>
+</div>
+<div id="shiny-app-작성-및-서비스" class="section level1">
+<h1>Shiny App 작성 및 서비스</h1>
+<p>처음에는 브라우저로 RStudio Server에 접속하여 Shiny App 프로젝트를 만들어 작업하는 것이 편리합니다. Shiny App을 만드는 방법은 여기서 다루지 않겠습니다.</p>
+<p>만들어진 Shiny App을 shiny-server에서 서비스 하려면 <code>/srv/shiny-server</code> 에 앱(폴더)이 복사되어야 합니다.</p>
+<ol style="list-style-type: decimal">
+<li><p>터미널을 통해 RStudio Server에서 만든 Shiny App 프로젝트 홈 폴더에 접속합니다. RStudio에서는 <code>[file]</code>탭의 <code>[More]</code>에서 <code>[Open New Terminal Here]</code>를 클릭하면 터미널이 열리면서 해당 폴더에 접속합니다.</p></li>
+<li><p><code>$ cd ..</code>를 입력하여 상위 폴더로 이동합니다.</p></li>
+<li><p>터미널에서 아래 명령어를 입력하여 Shiny App 폴더를 <code>/srv/shiny-server</code>로 복사합니다.</p></li>
+</ol>
+<pre><code>$ sudo cp -r hello01 /srv/shiny-server/</code></pre>
+<p>만일 <code>/srv/shiny-server</code>의 하위폴더에 복사하려면 다음과 같이 합니다.</p>
+<pre><code>$ sudo cp -r hello01 /srv/shiny-server/하위폴더명</code></pre>
+<p>샤이니 서비스가 제대로 작동하는 것을 확인하려면 브라우저에서 주소창에 <code>http://ip-address:3838</code>을 입력하여 접속합니다. 하위 폴더가 있다면 <code>http://ip-address:3838/하위폴더명</code>을 입력하여 접속합니다.</p>
+</div>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/install/" rel="tag">install</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/linux/" rel="tag">linux</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/rocky/" rel="tag">rocky</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/rstudio/" rel="tag">RStudio</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/shiny/" rel="tag">shiny</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/2022-06-27-filter-rows/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">조건에 맞는 데이터 추출하기 filter</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://manboha.github.io/" />
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/post/2022-07-05-rocky-rstudio-shiny-install/">Rocky Linux, RStudio Server, Shiny Server 설치</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-27-filter-rows/">조건에 맞는 데이터 추출하기 filter</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-26-create-new-variables-recode/">기존 변수 값을 새 변수 값으로 변경하기 recode()</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-26-headliner/">비교를 설명하는 문장을 동적으로 만들기 headliner</a></li>
+			<li class="widget__item"><a class="widget__link" href="/post/2022-06-25-r-start/">R 처음 시작하기</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/linux/">Linux</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/machine-learning/">Machine Learning</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/r/">R</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/addin/" title="Addin">Addin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/and/" title="AND">AND</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/case_when/" title="case_when">case_when</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cctv/" title="cctv">cctv</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/crimes-in-seoul/" title="Crimes in Seoul">Crimes in Seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/decision-tree/" title="decision tree">decision tree</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/dplyr/" title="dplyr">dplyr</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/eda/" title="EDA">EDA</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/excel/" title="excel">excel</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="filter">filter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/headliner/" title="headliner">headliner</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/install/" title="install">install</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="linux">linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/machine-learning/" title="Machine Learning">Machine Learning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/markdown/" title="Markdown">Markdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mutate/" title="mutate">mutate</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/or/" title="OR">OR</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/purrr/" title="purrr">purrr</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/recode/" title="recode">recode</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rmarkdown/" title="Rmarkdown">Rmarkdown</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rocky/" title="rocky">rocky</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rstudio/" title="RStudio">RStudio</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sentences/" title="sentences">sentences</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/seoul/" title="seoul">seoul</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/shiny/" title="shiny">shiny</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/tidyverse/" title="tidyverse">tidyverse</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B8%B0%EC%B4%88/" title="기초">기초</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%8B%A4%EC%B0%A8%EC%9B%90-%EB%8D%B0%EC%9D%B4%ED%84%B0/" title="다차원 데이터">다차원 데이터</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B2%94%EC%A3%84/" title="범죄">범죄</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B3%80%EC%88%98/" title="변수">변수</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%84%9C%EC%9A%B8%EC%8B%9C/" title="서울시">서울시</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%9C%EA%B0%81%ED%99%94/" title="시각화">시각화</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9A%A9%EC%96%B4%EC%82%AC%EC%A0%84/" title="용어사전">용어사전</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%98%EC%82%AC%EA%B2%B0%EC%A0%95%EB%82%98%EB%AC%B4/" title="의사결정나무">의사결정나무</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%8C%A8%ED%82%A4%EC%A7%80/" title="패키지">패키지</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%95%A8%EC%88%98/" title="함수">함수</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2022 Bohak Maeng.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

@@ -6,7 +6,16 @@
     <description>Recent content in Categories on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://manboha.github.io/categories/linux/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>R</title>
       <link>https://manboha.github.io/categories/r/</link>

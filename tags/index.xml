@@ -6,7 +6,52 @@
     <description>Recent content in Tags on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>install</title>
+      <link>https://manboha.github.io/tags/install/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/install/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://manboha.github.io/tags/linux/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rocky</title>
+      <link>https://manboha.github.io/tags/rocky/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/rocky/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio</title>
+      <link>https://manboha.github.io/tags/rstudio/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shiny</title>
+      <link>https://manboha.github.io/tags/shiny/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/tags/shiny/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>AND</title>
       <link>https://manboha.github.io/tags/and/</link>
@@ -112,24 +157,6 @@
       <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://manboha.github.io/tags/%ED%95%A8%EC%88%98/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>install</title>
-      <link>https://manboha.github.io/tags/install/</link>
-      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/install/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RStudio</title>
-      <link>https://manboha.github.io/tags/rstudio/</link>
-      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://manboha.github.io/tags/rstudio/</guid>
       <description></description>
     </item>
     

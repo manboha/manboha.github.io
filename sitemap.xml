@@ -2,10 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://manboha.github.io/tags/and/</loc>
-    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://manboha.github.io/categories/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/tags/install/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/categories/linux/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/tags/linux/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/post/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/tags/rocky/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/post/2022-07-05-rocky-rstudio-shiny-install/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/tags/rstudio/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/tags/shiny/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/tags/</loc>
+    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://manboha.github.io/tags/and/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://manboha.github.io/tags/dplyr/</loc>
@@ -14,19 +44,10 @@
     <loc>https://manboha.github.io/tags/filter/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://manboha.github.io/</loc>
-    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://manboha.github.io/tags/or/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://manboha.github.io/post/</loc>
-    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://manboha.github.io/categories/r/</loc>
-    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://manboha.github.io/tags/</loc>
     <lastmod>2022-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://manboha.github.io/post/2022-06-27-filter-rows/</loc>
@@ -65,13 +86,7 @@
     <loc>https://manboha.github.io/tags/%ED%95%A8%EC%88%98/</loc>
     <lastmod>2022-06-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://manboha.github.io/tags/install/</loc>
-    <lastmod>2022-06-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://manboha.github.io/post/2022-06-24-r-rstudio-install/</loc>
-    <lastmod>2022-06-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://manboha.github.io/tags/rstudio/</loc>
     <lastmod>2022-06-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://manboha.github.io/tags/case_when/</loc>

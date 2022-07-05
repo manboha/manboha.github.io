@@ -6,7 +6,19 @@
     <description>Recent content on For Data Analytics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://manboha.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rocky Linux, RStudio Server, Shiny Server 설치</title>
+      <link>https://manboha.github.io/post/2022-07-05-rocky-rstudio-shiny-install/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://manboha.github.io/post/2022-07-05-rocky-rstudio-shiny-install/</guid>
+      <description>Rocky Linux에 RStudio Server와 Shiny Server를 설치한 내용을 간단하게 요약하고자 합니다.
+Rocky Linux 설치Rocky Linux는 Red Hat Enterprise Linux(RHEL)의 소스 코드를 이용하여 만들어진 무료 리눅스 배포판으로서 2021년 6월 21일부터 정식으로 공개되었습니다. 2022년 7월 현재 가장 최신 버전은 2022년 5월 6일에 공개된 Rocky Linux 8.6(Green Obsidian)입니다.
+Rocky Linux 준비Rocky Linux를 PC에 설치하기 전에 파일을 다운받아 설치 USB를 만듭니다.
+Rocky Linux 다운로드https://rockylinux.org/ 접속Rocky Linux 8 다운로드Intel CPU를 가진 일반 데스크탑 PC에 설치할 계획이라서 x86_64용으로 다운 받았습니다.</description>
+    </item>
+    
     <item>
       <title>조건에 맞는 데이터 추출하기 filter</title>
       <link>https://manboha.github.io/post/2022-06-27-filter-rows/</link>
